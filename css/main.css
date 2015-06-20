@@ -51,13 +51,25 @@ footer, .page-content{
 /**
  * Code formatting
  */
+pre, code, .share a {
+	background-color: #263238;
+	color: #FFF;
+}
+.share a {
+	padding: 5px;
+	border-radius: 5px;
+	border: none;
+}
+.share a:hover{
+	color: #263238;
+	background: transparent;
+	border: 1px solid #263238;
+}
 pre,
 code {
 	font-size: 15px;
 	border: 1px solid #e8e8e8;
 	border-radius: 3px;
-	background-color: #263238;
-	color: #FFF;
 }
 
 code {
