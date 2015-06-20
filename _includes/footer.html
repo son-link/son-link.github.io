@@ -1,39 +1,24 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-      <div class="footer-col  footer-col-1">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            <a href="https://github.com/{{ site.github_username }}">
-              <span class="icon icon-github"></span>
-
-              <span class="username">{{ site.github_username }}</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            <a href="https://twitter.com/{{ site.twitter_username }}">
-              <span class="icon  icon-twitter"></span>
-
-              <span class="username">{{ site.twitter_username }}</span>
-            </a>
-          </li>
-          {% endif %}
-          <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="icon icon-rss"></span> rss</a></li>
+<footer class="mui-z2">
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
+	<div>
+		Puedes seguirme:
+		<ul class="social-media-list">
+			<li>
+				<a href="https://github.com/son-link">
+					<span class="icon-github"></span>
+					<span class="username">son-link</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/sonlink">
+					<span class="icon-twitter"></span>
+					<span class="username">sonlink</span>
+				</a>
+			</li>
+			<li><a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="icon icon-rss"></span> rss</a></li>
         </ul>
-      </div>
-
-      <div class="footer-col  footer-col-3">
-        <p class="text">{{ site.description }}</p>
-      </div>
-    </div>
-
-  </div>
-
+        <br />
+        Blog levantado con <a href="http://jekyllrb.com/">Jekyll</a> y el framework CSS <a href="https://www.muicss.com">MUI</a>
+	</div>
 </footer>
+<script src="{{ "/js/mui.min.js" | prepend: site.baseurl }}"></script>
