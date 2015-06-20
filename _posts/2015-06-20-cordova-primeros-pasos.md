@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Apache Cordova 1: Primeros pasos"
-date:   2015-06-17 18:10
+date:   2015-06-20
 categories: cordova tutoriales firefoxos android
 ---
 # Apache Cordova 1: Primeros pasos
-Binvenid@s a esta primera entrada de una serie de tutoriales sobre **Apache Cordova.**
+Bienvenid@s a esta primera entrada de una serie de tutoriales sobre **Apache Cordova.**
 
 Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para moviles multiplataforma usando teclogias web, esto es **HTML, Javascript y CSS**, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una applicación para Android, que usa **Java** y para **IOs** que se hacen con **C#**.
 
@@ -116,7 +116,7 @@ En **&lt;description>** ira la descripción del programa.
 Ahora vamos a construir la aplicación. Para ello desde una terminal y desde el directorio de nuestra aplicación ejecutamos lo siguiente:
 
 {% highlight sh %}
-cordova build 
+cordova build
 {% endhighlight %}
 Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.
 Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.

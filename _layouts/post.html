@@ -10,6 +10,12 @@ layout: default
 
   <article class="post-content">
     {{ content }}
+    <div class="share">
+		Compartir:
+		<a target="_black" href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.url }}"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}"><i class="icon-gplus"></i> Google+</a>
+    </div>
   </article>
 
 </div>
