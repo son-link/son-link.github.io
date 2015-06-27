@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog de Son Link</title>
+    <description>Mi blog personal donde hablo de mis proyectos, tutoriales, etc, ademas de exponer mis trabajos y proyectos
+</description>
+    <link>http://son-link.github.io/</link>
+    <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 27 Jun 2015 13:28:34 +0200</pubDate>
+    <lastBuildDate>Sat, 27 Jun 2015 13:28:34 +0200</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Apache Cordova 1: Primeros pasos</title>
+        <description>&lt;p&gt;Bienvenid@s a esta primera entrada de una serie de tutoriales sobre &lt;strong&gt;Apache Cordova.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para moviles multiplataforma usando teclogias web, esto es &lt;strong&gt;HTML, Javascript y CSS&lt;/strong&gt;, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una applicación para Android, que usa &lt;strong&gt;Java&lt;/strong&gt; y para &lt;strong&gt;IOs&lt;/strong&gt; que se hacen con &lt;strong&gt;C#&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;A lo largo de este tutorial enseñare los pasos para Android y Firefox OS, si bien para este ultimo se puede programar de por si usando tecnología web, por lo que si solo quieres hacer aplicaciones para el, no necesitas este tutorial. Los pasos indicados están hechos bajo &lt;strong&gt;GNU/Linux&lt;/strong&gt; pero son, salvo algún cambio, los mismos para Windows.&lt;/p&gt;
+
+&lt;p&gt;Para empezar necesitaremos lo siguiente:
+* &lt;strong&gt;node.js&lt;/strong&gt; (para instalar y usar Cordova)
+* &lt;strong&gt;Android SDK&lt;/strong&gt; y &lt;strong&gt;Java 7&lt;/strong&gt; (para generar la app para Android)
+* Cualquier editor de texto o IDE (en mi caso Geany)&lt;/p&gt;
+
+&lt;h2 id=&quot;instalacin&quot;&gt;Instalación:&lt;/h2&gt;
+&lt;p&gt;Empezaremos instalando lo necesario. En el caso de haber paquetes para tu distribución, instalalos desde ellos.&lt;/p&gt;
+
+&lt;h3 id=&quot;nodejs&quot;&gt;Node.js&lt;/h3&gt;
+&lt;p&gt;Lo primero que necesitaremos es &lt;strong&gt;node.js.&lt;/strong&gt; Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su &lt;a href=&quot;https://nodejs.org/download&quot;&gt;pagina de descarga&lt;/a&gt; o descargar y compilarlo desde su código fuente.&lt;/p&gt;
+
+&lt;p&gt;Una vez instalado ejecutamos el siguiente comando:
+&lt;code&gt;sudo npm install -g cordova&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Esto bajara e instalara Cordova con sus dependencias.&lt;/p&gt;
+
+&lt;h3 id=&quot;android-sdk&quot;&gt;Android SDK&lt;/h3&gt;
+&lt;p&gt;Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.&lt;/p&gt;
+
+&lt;p&gt;Ahora procedemos a descargar el SDK de Android desde su &lt;a href=&quot;https://developer.android.com/sdk/index.html#Other&quot;&gt;pagina oficial&lt;/a&gt;. &lt;strong&gt;Android Studio&lt;/strong&gt; no es necesario, por lo que salvo que queramos usarlo no hace falta bajarlo junto al SDK. Si eres usuario de &lt;strong&gt;Arch Linux, Manjaro&lt;/strong&gt; u otros derivados puedes instalar el SDK y lo que se dirá a continuación desde &lt;strong&gt;AUR&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Una vez bajado lo descomprimimos donde queramos y añadimos las rutas a las carpetas que contiene las herramientas a nuestro path. Si por ejemplo lo tenemos en /opt/android/sdk añadiremos lo siguiente en el archivo ~/.bashrc&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ANDROIDSDK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/opt/android-sdk&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/opt/android-sdk/platform-tools:/opt/android-sdk/tools&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando &lt;strong&gt;Android&lt;/strong&gt;. En la vetana que se abre seleccionamos lo que esta marcado en la imagen
+&lt;img src=&quot;/img/tutorial_cordova/android_sdk.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;creacin-y-configuracin-de-nuestra-primera-aplicacin&quot;&gt;Creación y configuración de nuestra primera aplicación.&lt;/h2&gt;
+&lt;p&gt;Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cordova create miprimeraapp io.minombre.primeraapp &#39;Mi primera app&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Repasemos cada parámetro:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;create&lt;/strong&gt; indica a cordova que vamos a crear una nueva aplicación.&lt;/li&gt;
+  &lt;li&gt;El segundo parámetro es el nombre de la carpeta que contendrá el proyecto.&lt;/li&gt;
+  &lt;li&gt;El tercer parámetro es opcional. Es el identificador de la aplicación y como veréis es como un dominio de Internet.&lt;/li&gt;
+  &lt;li&gt;Y el ultimo es el nombre de la aplicación. También es opcional.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ahora al entrar en la carpeta un archivo XML y varias carpetas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;hooks&lt;/strong&gt; :contiene varios scripts especiales para plugins o comandos especiales de Cordova.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;platforms&lt;/strong&gt;: este directorio es donde se ubicaran las plataformas que vayamos añadidendo.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;plugins&lt;/strong&gt;: aquí estarán los plugins de Cordova que descarguemos.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;www&lt;/strong&gt;: en el es donde estarán los archivos de nuestra app.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;config.xml&lt;/strong&gt;: es el archivo de configuración de nuestra app.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ahora para añadir plataformas desde una terminal nos movemos hasta el dierctorio del proyecto y ejecutamos:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;cordova platform add android
+cordova platform add firefoxos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;widget&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;io.minombre.primeraapp&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0.0.1&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.w3.org/ns/widgets&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:cdv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://cordova.apache.org/ns/1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Mi primera app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;
+        A sample Apache Cordova application that responds to the deviceready event.
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;author&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;email=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;dev@cordova.apache.org&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://cordova.io&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        Apache Cordova Team
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;content&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;index.html&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;cordova-plugin-whitelist&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;access&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;origin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://*/*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://*/*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tel:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sms:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;mailto:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;geo:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;platform&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;android&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;market:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/platform&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;platform&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;ios&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;itms:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;itms-apps:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/platform&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/widget&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dentro del tag &amp;lt;widget&amp;gt; veremos los parámetros &lt;strong&gt;id&lt;/strong&gt; y &lt;strong&gt;version&lt;/strong&gt; el primero es el id del proyecto que en este caso es el segundo parámetro que le pasamos al comando &lt;strong&gt;cordova create&lt;/strong&gt; y versión es el numero de versión de nuestro programa.&lt;/p&gt;
+
+&lt;p&gt;Entre los tags &lt;strong&gt;&amp;lt;name&amp;gt;&lt;/strong&gt; ira el nombre de aplicación, en este caso el tercer parámetro que le pasamos al crear el proyecto.&lt;/p&gt;
+
+&lt;p&gt;En &lt;strong&gt;&amp;lt;description&amp;gt;&lt;/strong&gt; ira la descripción del programa.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;lt;author&amp;gt;&lt;/strong&gt; es donde ira la información del autor de la aplicación (o del equipo de desarrollo)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;lt;allow-intent&amp;gt;&lt;/strong&gt; en estos campos si indica a que protocolos podrá acceder la aplicación. Puedes borrar los que no necesites. En nuestro caso solo dejamos &lt;strong&gt;http&lt;/strong&gt; y &lt;strong&gt;https&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;lt;platform&amp;gt;&lt;/strong&gt; contiene etiquetas &amp;lt;allow-intent&amp;gt; especificas para cada plataforma. Podemos borrarlas sin problemas ya que nuestra app no necesita acceder a Google Play y mucho menos a la Play Store de Apple.&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a construir la aplicación. Para ello desde una terminal y desde el directorio de nuestra aplicación ejecutamos lo siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;cordova build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.
+Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.&lt;/p&gt;
+
+&lt;p&gt;Ahora para instalar la aplicación en nuestro dispositivo Android podemos hacerlo de dos modos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;con el comando &lt;code&gt;cordova run android&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;o con &lt;code&gt;adb install /ruta/al/proyecto//platforms/android/build/outputs/apk/android-debug.apk&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para Firefox OS nos genera un paquete en &lt;strong&gt;platforms/firefoxos/build/package.zip&lt;/strong&gt;. Para instalarlo lo descomprimimos e instalamos a nuestro dispositivo desde el App Manager de Firefox o desde WebIDE desde Firefox Developers Edition o versiones más modernas de Firefox.&lt;/p&gt;
+
+&lt;p&gt;Y con esto se termina esta primera parte. En el siguiente crearemos un pequeño proyecto para irnos familiarizando con los plugins de Cordova. Hasta la próxima.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 20 Jun 2015 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2015/06/20/cordova-primeros-pasos.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2015/06/20/cordova-primeros-pasos.html</guid>
+        
+        <category>cordova</category>
+        
+        <category>tutoriales</category>
+        
+        <category>firefoxos</category>
+        
+        <category>android</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Bienvenidos a mi blog</title>
+        <description>&lt;p&gt;Bienvenid@ seas a mi blog.&lt;/p&gt;
+
+&lt;p&gt;En este blog expondre mis diversos proyectos, así como la publicación de tutoriales, criticas, etc, especialmente relacionados con GNU/Linux y programación.&lt;/p&gt;
+
+&lt;p&gt;Espero que disfruteis de este blog ;)&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Jun 2015 12:03:00 +0200</pubDate>
+        <link>http://son-link.github.io/2015/06/16/bienvenidos.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2015/06/16/bienvenidos.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
