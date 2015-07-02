@@ -6,8 +6,8 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jul 2015 23:30:52 +0200</pubDate>
-    <lastBuildDate>Thu, 02 Jul 2015 23:30:52 +0200</lastBuildDate>
+    <pubDate>Thu, 02 Jul 2015 23:40:13 +0200</pubDate>
+    <lastBuildDate>Thu, 02 Jul 2015 23:40:13 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -115,9 +115,8 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 &lt;p&gt;Y esto de momento es todo. En la próxima entrega veremos que otras opciones tenemos para configurar nuestro proyecto. Si tenéis dudas al respecto podéis consultar la documentación de Cordova o usar el sistema de comentarios. Estaré encantado de ayudaros en lo buenamente que pueda.&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jul 2015 00:00:00 +0200</pubDate>
-        <link>http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html</link>
-        <guid isPermaLink="true">http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html</guid>
-        
+        <link>http://son-link.github.io/2015/07/02/apache-cordova-2.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2015/07/02/apache-cordova-2.html</guid>
         
         <category>cordova</category>
         
@@ -126,6 +125,7 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
         <category>firefoxos</category>
         
         <category>android</category>
+        
         
       </item>
     
