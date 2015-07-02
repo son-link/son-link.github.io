@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Apache Cordova 2: Instalando plugins y creación del paquete</title>
+  <meta name="description" content="Bienvenid@s a la segunda entrada del tutorial sobre Apache Cordova.">
+
+  <link rel="stylesheet" href="/css/mui.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/fontello-embedded.css">
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" href="/css/fontello-ie7.css">
+		<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
+	<![endif]-->
+  <link rel="canonical" href="http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html">
+  <link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
+  <link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+</head>
+
+
+  <body>
+
+    <header id="header"class="header-shadow mui-appbar">
+	<nav class="mui-container-fluid" id="appbar">
+		<table width="100%">
+			<tr style="vertical-align:middle;">
+				<td class="mui-appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
+				<td class="mui-appbar-height" align="right">
+					<div class="mui-dropdown">
+						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
+						<ul class="mui-dropdown-menu mui-dropdown-menu-right">
+							
+								
+								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+								<li><a class="page-link" href="/_pages/proyectos.html">Mis proyectos</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</nav>
+</header>
+
+
+    <div class="page-content mui-z2">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Apache Cordova 2: Instalando plugins y creación del paquete</h1>
+    <p class="post-meta">Jul 2, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <p>Bienvenid@s a la segunda entrada del tutorial sobre <strong>Apache Cordova.</strong></p>
+
+<p>En esta nueva entrega explicare como añadir plugins, tanto oficiales como los creados por terceros y crear los paquetes para ser instalados en nuestro dispositivo o en un <strong>Dispositivo Virtual</strong>.</p>
+
+<h3 id="plugins-oficiales">Plugins oficiales:</h3>
+
+<p>Cordova cuenta con varios plugins que nos permite usar las distintas características de nuestro dispositivo, como la geolocalización, los sms, las llamadas, etc. Para este ejemplo vamos a usar la de la cámara.</p>
+
+<p>Para instalar el plugin nos basta con ejecutar</p>
+
+<p><code>cordova plugin add cordova-plugin-camera</code></p>
+
+<p>Los plugins que vayamos añadiendo se guardaran dentro de la carpeta <strong>plugins</strong> que esta en el directorio de nuestro proyecto. Si miramos veremos 2: <strong>cordova-plugin-whitelist</strong> que sirve para definir a que paginas se podrá acceder desde nuestra aplicación y <strong>cordova-plugin-camera</strong> que es la que acabamos de añadir.</p>
+
+<p>Ahora en el directorio www que se encuentra en la carpeta principal del proyecto vamos a crear un archivo html. Podemos borrar sin problemas lo que añade Cordova al crear el proyecto.</p>
+
+<p><strong>index.html</strong></p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="c">&lt;!--</span>
+<span class="c">        Customize this policy to fit your own app&#39;s needs. For more guidance, see:</span>
+<span class="c">            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy</span>
+<span class="c">        Some notes:</span>
+<span class="c">            * gap: is required only on iOS (when using UIWebView) and is needed for JS-&gt;native communication</span>
+<span class="c">            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly</span>
+<span class="c">            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:</span>
+<span class="c">                * Enable inline JS: add &#39;unsafe-inline&#39; to default-src</span>
+<span class="c">        --&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Security-Policy&quot;</span> <span class="na">content=</span><span class="s">&quot;default-src &#39;self&#39; data: gap: https://ssl.gstatic.com &#39;unsafe-eval&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; media-src *&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;format-detection&quot;</span> <span class="na">content=</span><span class="s">&quot;telephone=no&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;msapplication-tap-highlight&quot;</span> <span class="na">content=</span><span class="s">&quot;no&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>Camera Test app<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;style&gt;</span>
+			<span class="nf">#mifoto</span> <span class="p">{</span><span class="k">max-width</span><span class="o">:</span> <span class="m">100%</span> <span class="p">}</span>
+			<span class="nt">button</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="p">}</span>
+		<span class="nt">&lt;/style&gt;</span>
+		<span class="nt">&lt;script&gt;</span>
+			<span class="kd">function</span> <span class="nx">sacafoto</span><span class="p">(){</span>
+				<span class="nx">navigator</span><span class="p">.</span><span class="nx">camera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">(</span><span class="nx">onSuccess</span><span class="p">,</span> <span class="nx">onFail</span><span class="p">,</span> <span class="p">{</span> <span class="nx">quality</span><span class="o">:</span> <span class="mi">90</span><span class="p">,</span>
+				<span class="nx">destinationType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">DestinationType</span><span class="p">.</span><span class="nx">FILE_URI</span> <span class="p">});</span>
+			<span class="p">}</span>
+			<span class="kd">function</span> <span class="nx">onSuccess</span><span class="p">(</span><span class="nx">imageURI</span><span class="p">)</span> <span class="p">{</span>
+				<span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mifoto&#39;</span><span class="p">);</span>
+				<span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">imageURI</span><span class="p">;</span>
+			<span class="p">}</span>
+
+			<span class="kd">function</span> <span class="nx">onFail</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Hubo un fallo al sacar la foto: &#39;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="nt">&lt;/script&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;app&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;&quot;</span> <span class="na">id=</span><span class="s">&quot;mifoto&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;br</span> <span class="nt">/&gt;&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;sacafoto()&quot;</span><span class="nt">&gt;</span>Sacar foto<span class="nt">&lt;/button&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;cordova.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:
+<img src="/img/tutorial_cordova/camara_test.png" alt="" /></p>
+
+<h3 id="plugins-no-oficiales">Plugins no oficiales:</h3>
+
+<p>A día de hoy ahí una buena cantidad de plugins disponibles para las diversas plataformas soportadas por Cordova. Podemos encontrar muchas de ellos en la pagina del proyecto, en http://plugins.cordova.io
+ si bien los plugins se están moviendo a <a href="https://www.npmjs.com">npmjs</a>. Podeis saber más sobre ello en http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html</p>
+
+<p>En la pagina de cada plugin tendremos las instrucciones de como instalarlo mediante el gestor de plugins de Cordova, por lo que es como hicimos con el plugin oficial de la cámara solo que cambiara el nombre por una dirección web</p>
+
+<h3 id="generando-los-paquetes">Generando los paquetes:</h3>
+
+<p>Es hora de generar los paquetes para poder instalar los paquetes en nuestros dispositivos o simuladores. Para ello solo nos hace falta un comando:</p>
+
+<p><code>cordova build</code></p>
+
+<p>Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo <code>cordova build android</code></p>
+
+<p>Si todo salio correctamente vermos algo como esto:</p>
+
+<p><img src="/img/tutorial_cordova/paquetes_generados.png" alt="" /></p>
+
+<p>Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando <code>adb install -r &lt;ruta&gt; </code> o mediante <code>cordova run android</code> lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas <strong>Firefox 34</strong> o superior abre <strong>App Manager</strong> abriendo una nueva pestaña e introduciendo esta url: <code>about:app-manager</code></p>
+
+<p>Veremos lo siguiente:
+<img src="/img/tutorial_cordova/app-manager.png" alt="" /></p>
+
+<p>Pulsamos en <strong>Aplicaciones</strong> y luego en <strong>Añadir aplicación empaquetada</strong>. Nos movemos hasta la carpeta donde descomprimimos el paquete y pulsamos Aceptar.</p>
+
+<p><img src="/img/tutorial_cordova/app-manager_instalando.png" alt="" />
+Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldrá la consola de Firefox para poder depurar nuestra aplicación, ver los mensajes de error, etc.</p>
+
+<p>En el caso de <strong>WebIDE</strong> (versiones más reciente de Firefox o si estas usando Firefox Developer edition) lo abrimos pulsando las teclas Shift+F8:
+<img src="/img/tutorial_cordova/webide.png" alt="" /></p>
+
+<p>Pulsamos en <strong>Proyecto</strong> y luego en <strong>Abrir aplicación empaquetada</strong> y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldra uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.</p>
+
+<p>Y esto de momento es todo. En la próxima entrega veremos que otras opciones tenemos para configurar nuestro proyecto. Si tenéis dudas al respecto podéis consultar la documentación de Cordova o usar el sistema de comentarios. Estaré encantado de ayudaros en lo buenamente que pueda.</p>
+
+    <div class="share">
+		Compartir:
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Apache Cordova 2: Instalando plugins y creación del paquete&url=http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html"><i class="icon-gplus"></i> Google+</a>
+    </div>
+    Tags: )
+  </article>
+  <!-- Disqus comments -->
+  
+	<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'blogdesonlink';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	
+</div>
+
+      </div>
+    </div>
+    <footer class="mui-z2">
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
+	<div>
+		Puedes seguirme:
+		<ul class="social-media-list">
+			<li>
+				<a href="https://github.com/son-link">
+					<span class="icon-github"></span>
+					<span class="username">son-link</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/sonlink">
+					<span class="icon-twitter"></span>
+					<span class="username">sonlink</span>
+				</a>
+			</li>
+			<li><a href="/feed.xml"><span class="icon icon-rss"></span> rss</a></li>
+        </ul>
+        <br />
+        Blog levantado con <a href="http://jekyllrb.com/">Jekyll</a> y el framework CSS <a href="https://www.muicss.com">MUI</a>
+	</div>
+</footer>
+<script src="/js/mui.min.js"></script>
+
+
+  </body>
+
+</html>

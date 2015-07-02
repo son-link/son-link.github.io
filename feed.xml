@@ -6,9 +6,128 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 27 Jun 2015 13:28:34 +0200</pubDate>
-    <lastBuildDate>Sat, 27 Jun 2015 13:28:34 +0200</lastBuildDate>
+    <pubDate>Thu, 02 Jul 2015 23:30:52 +0200</pubDate>
+    <lastBuildDate>Thu, 02 Jul 2015 23:30:52 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Apache Cordova 2: Instalando plugins y creación del paquete</title>
+        <description>&lt;p&gt;Bienvenid@s a la segunda entrada del tutorial sobre &lt;strong&gt;Apache Cordova.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;En esta nueva entrega explicare como añadir plugins, tanto oficiales como los creados por terceros y crear los paquetes para ser instalados en nuestro dispositivo o en un &lt;strong&gt;Dispositivo Virtual&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;plugins-oficiales&quot;&gt;Plugins oficiales:&lt;/h3&gt;
+
+&lt;p&gt;Cordova cuenta con varios plugins que nos permite usar las distintas características de nuestro dispositivo, como la geolocalización, los sms, las llamadas, etc. Para este ejemplo vamos a usar la de la cámara.&lt;/p&gt;
+
+&lt;p&gt;Para instalar el plugin nos basta con ejecutar&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cordova plugin add cordova-plugin-camera&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Los plugins que vayamos añadiendo se guardaran dentro de la carpeta &lt;strong&gt;plugins&lt;/strong&gt; que esta en el directorio de nuestro proyecto. Si miramos veremos 2: &lt;strong&gt;cordova-plugin-whitelist&lt;/strong&gt; que sirve para definir a que paginas se podrá acceder desde nuestra aplicación y &lt;strong&gt;cordova-plugin-camera&lt;/strong&gt; que es la que acabamos de añadir.&lt;/p&gt;
+
+&lt;p&gt;Ahora en el directorio www que se encuentra en la carpeta principal del proyecto vamos a crear un archivo html. Podemos borrar sin problemas lo que añade Cordova al crear el proyecto.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;        Customize this policy to fit your own app&amp;#39;s needs. For more guidance, see:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;        Some notes:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;            * gap: is required only on iOS (when using UIWebView) and is needed for JS-&amp;gt;native communication&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;                * Enable inline JS: add &amp;#39;unsafe-inline&amp;#39; to default-src&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;        --&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Content-Security-Policy&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;default-src &amp;#39;self&amp;#39; data: gap: https://ssl.gstatic.com &amp;#39;unsafe-eval&amp;#39;; style-src &amp;#39;self&amp;#39; &amp;#39;unsafe-inline&amp;#39;; media-src *&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;format-detection&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;telephone=no&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;msapplication-tap-highlight&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Camera Test app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nf&quot;&gt;#mifoto&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sacafoto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+				&lt;span class=&quot;nx&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPicture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;quality&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;nx&quot;&gt;destinationType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DestinationType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FILE_URI&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;mifoto&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hubo un fallo al sacar la foto: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;mifoto&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sacafoto()&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Sacar foto&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;cordova.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:
+&lt;img src=&quot;/img/tutorial_cordova/camara_test.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;plugins-no-oficiales&quot;&gt;Plugins no oficiales:&lt;/h3&gt;
+
+&lt;p&gt;A día de hoy ahí una buena cantidad de plugins disponibles para las diversas plataformas soportadas por Cordova. Podemos encontrar muchas de ellos en la pagina del proyecto, en http://plugins.cordova.io
+ si bien los plugins se están moviendo a &lt;a href=&quot;https://www.npmjs.com&quot;&gt;npmjs&lt;/a&gt;. Podeis saber más sobre ello en http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html&lt;/p&gt;
+
+&lt;p&gt;En la pagina de cada plugin tendremos las instrucciones de como instalarlo mediante el gestor de plugins de Cordova, por lo que es como hicimos con el plugin oficial de la cámara solo que cambiara el nombre por una dirección web&lt;/p&gt;
+
+&lt;h3 id=&quot;generando-los-paquetes&quot;&gt;Generando los paquetes:&lt;/h3&gt;
+
+&lt;p&gt;Es hora de generar los paquetes para poder instalar los paquetes en nuestros dispositivos o simuladores. Para ello solo nos hace falta un comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cordova build&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo &lt;code&gt;cordova build android&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Si todo salio correctamente vermos algo como esto:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tutorial_cordova/paquetes_generados.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando &lt;code&gt;adb install -r &amp;lt;ruta&amp;gt; &lt;/code&gt; o mediante &lt;code&gt;cordova run android&lt;/code&gt; lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas &lt;strong&gt;Firefox 34&lt;/strong&gt; o superior abre &lt;strong&gt;App Manager&lt;/strong&gt; abriendo una nueva pestaña e introduciendo esta url: &lt;code&gt;about:app-manager&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Veremos lo siguiente:
+&lt;img src=&quot;/img/tutorial_cordova/app-manager.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pulsamos en &lt;strong&gt;Aplicaciones&lt;/strong&gt; y luego en &lt;strong&gt;Añadir aplicación empaquetada&lt;/strong&gt;. Nos movemos hasta la carpeta donde descomprimimos el paquete y pulsamos Aceptar.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tutorial_cordova/app-manager_instalando.png&quot; alt=&quot;&quot; /&gt;
+Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldrá la consola de Firefox para poder depurar nuestra aplicación, ver los mensajes de error, etc.&lt;/p&gt;
+
+&lt;p&gt;En el caso de &lt;strong&gt;WebIDE&lt;/strong&gt; (versiones más reciente de Firefox o si estas usando Firefox Developer edition) lo abrimos pulsando las teclas Shift+F8:
+&lt;img src=&quot;/img/tutorial_cordova/webide.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pulsamos en &lt;strong&gt;Proyecto&lt;/strong&gt; y luego en &lt;strong&gt;Abrir aplicación empaquetada&lt;/strong&gt; y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldra uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.&lt;/p&gt;
+
+&lt;p&gt;Y esto de momento es todo. En la próxima entrega veremos que otras opciones tenemos para configurar nuestro proyecto. Si tenéis dudas al respecto podéis consultar la documentación de Cordova o usar el sistema de comentarios. Estaré encantado de ayudaros en lo buenamente que pueda.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jul 2015 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/cordova/tutoriales/firefoxos/android/2015/07/02/apache-cordova-2.html</guid>
+        
+        
+        <category>cordova</category>
+        
+        <category>tutoriales</category>
+        
+        <category>firefoxos</category>
+        
+        <category>android</category>
+        
+      </item>
     
       <item>
         <title>Apache Cordova 1: Primeros pasos</title>
