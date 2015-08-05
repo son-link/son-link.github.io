@@ -6,9 +6,9 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 11 Jul 2015 13:18:52 +0200</pubDate>
-    <lastBuildDate>Sat, 11 Jul 2015 13:18:52 +0200</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Wed, 05 Aug 2015 10:41:23 +0200</pubDate>
+    <lastBuildDate>Wed, 05 Aug 2015 10:41:23 +0200</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
     
       <item>
         <title>Killall Radio App 0.9.0</title>
@@ -20,9 +20,33 @@ Esta es la primera versión publica de ella, prácticamente terminada y esta dis
 &lt;p&gt;Espero que os guste tanto la aplicación como la emisora.
 Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo en el testeo, proponer ideas, etc.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Jul 2015 00:00:00 +0200</pubDate>
-        <link>http://son-link.github.io/2015/07/09/killallradio090.html</link>
-        <guid isPermaLink="true">http://son-link.github.io/2015/07/09/killallradio090.html</guid>
+        <pubDate>Sun, 09 Aug 2015 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2015/08/09/killallradio090.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2015/08/09/killallradio090.html</guid>
+        
+        <category>proyectos</category>
+        
+        <category>firefoxos</category>
+        
+        <category>android</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Killall Radio App 1.0.0</title>
+        <description>&lt;p&gt;Tras mucho probar ideas y testeo hago publica la versión 1.0.0 de Killall Radio App.&lt;/p&gt;
+
+&lt;p&gt;Los cambios respecto a la 0.9.0 no son muchas, principalmente el cambio en la sección de Podcasts ya que se ha añadido un dropbown que permite seleccionar entre los podcasts de Killall Radio o algunos de los canales disponibles
+, lista que se actualiza gracias a un archivo JSON que &lt;a href=&quot;https://gist.github.com/son-link/8cf06a31bc81a0870110&quot;&gt;se puede encontrar aquí&lt;/a&gt; y que se ira editando segun salgan nuevos canales, y actualizar la lista es tan fácil como seleccionar la opción Actualizar dentro de la lista de canales. Ademas ahora también se podrán descargar los podcasts, pero esta opción por el momento solo funciona en Android ya que el plugin de Cordova usado para ello no funciona bien en Firefox OS, por lo que se retrasa hasta dar con la solución.&lt;/p&gt;
+
+&lt;p&gt;En la &lt;a href=&quot;/proyectos/killallradio/&quot;&gt;pagina de este blog&lt;/a&gt; dedicada a la aplicación podréis encontrar los enlaces a los paquetes.&lt;/p&gt;
+
+&lt;p&gt;Solo un punto y es que de momento solo esta disponible como estable para Android, a la espera de tratar de arreglar&lt;/p&gt;
+</description>
+        <pubDate>Wed, 05 Aug 2015 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2015/08/05/killallradio100.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2015/08/05/killallradio100.html</guid>
         
         <category>proyectos</category>
         
