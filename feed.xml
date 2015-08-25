@@ -6,8 +6,8 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Aug 2015 20:42:26 +0200</pubDate>
-    <lastBuildDate>Tue, 25 Aug 2015 20:42:26 +0200</lastBuildDate>
+    <pubDate>Tue, 25 Aug 2015 21:05:57 +0200</pubDate>
+    <lastBuildDate>Tue, 25 Aug 2015 21:05:57 +0200</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -17,7 +17,7 @@
 &lt;p&gt;Para ello instalaremos el servidor &lt;strong&gt;Lighttpd&lt;/strong&gt;, un servidor ligero y funcional y usado en paginas como la &lt;strong&gt;Wikipedia&lt;/strong&gt; y &lt;strong&gt;Youtube&lt;/strong&gt;, el interprete de &lt;strong&gt;PHP&lt;/strong&gt;, un lenguaje de programación para servidores, y la base de datos &lt;strong&gt;MariaDB&lt;/strong&gt;, pero que puede cambiarse por &lt;strong&gt;MySQL&lt;/strong&gt; si se quiere, eso ya es al gusto de cada uno.&lt;/p&gt;
 
 &lt;p&gt;Para instalar lo necesario abrimos la terminal y ejecutamos:
-&lt;code&gt;sh
+&lt;code&gt;
 pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;/code&gt;&lt;/p&gt;
 
