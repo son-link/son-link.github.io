@@ -6,9 +6,114 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Aug 2015 11:00:14 +0200</pubDate>
-    <lastBuildDate>Wed, 05 Aug 2015 11:00:14 +0200</lastBuildDate>
+    <pubDate>Tue, 25 Aug 2015 20:35:38 +0200</pubDate>
+    <lastBuildDate>Tue, 25 Aug 2015 20:35:38 +0200</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Montando un mini servidor local en GNU/Linux</title>
+        <description>&lt;p&gt;En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para &lt;strong&gt;Archlinux&lt;/strong&gt; pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.&lt;/p&gt;
+
+&lt;p&gt;Para ello instalaremos el servidor &lt;strong&gt;Lighttpd&lt;/strong&gt;, un servidor ligero y funcional y usado en paginas como la &lt;strong&gt;Wikipedia&lt;/strong&gt; y &lt;strong&gt;Youtube&lt;/strong&gt;, el interprete de &lt;strong&gt;PHP&lt;/strong&gt;, un lenguaje de programación para servidores, y la base de datos &lt;strong&gt;MariaDB&lt;/strong&gt;, pero que puede cambiarse por &lt;strong&gt;MySQL&lt;/strong&gt; si se quiere, eso ya es al gusto de cada uno.&lt;/p&gt;
+
+&lt;p&gt;Para instalar lo necesario abrimos la terminal y ejecutamos:
+&lt;code&gt;sh
+pacman -S lighttpd mariadb mariadb-clients php-cgi
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;configurando-lightppd&quot;&gt;Configurando Lightppd:&lt;/h3&gt;
+&lt;p&gt;Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PHP&lt;/strong&gt;
+Para ello creamos el archivo &lt;code&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ini&quot; data-lang=&quot;ini&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Make sure to install php and php-cgi. See:                                                             &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;server.modules +&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;(&amp;quot;mod_fastcgi&amp;quot;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# FCGI server&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ===========&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Configure a FastCGI server which handles PHP requests.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;index-file.names +&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;(&amp;quot;index.php&amp;quot;)&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;fastcgi.server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;( &lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;    # Load-balance requests for this path...&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;    &amp;quot;.php&amp;quot; =&amp;gt; (&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;        # ... among the following FastCGI servers. The string naming each&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;        # server is just a label used in the logs to identify the server.&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;        &amp;quot;localhost&amp;quot; =&amp;gt; ( &lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            &amp;quot;bin-path&amp;quot; =&amp;gt; &amp;quot;/usr/bin/php-cgi&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            &amp;quot;socket&amp;quot; =&amp;gt; &amp;quot;/tmp/php-fastcgi.sock&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            # from it &lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            &amp;quot;broken-scriptfilename&amp;quot; =&amp;gt; &amp;quot;enable&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            # max-procs are &amp;quot;watchers&amp;quot; and the rest are &amp;quot;workers&amp;quot;. See:&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn &lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            &amp;quot;max-procs&amp;quot; =&amp;gt; 4, # default value&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            &amp;quot;bin-environment&amp;quot; =&amp;gt; (&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;                &amp;quot;PHP_FCGI_CHILDREN&amp;quot; =&amp;gt; &amp;quot;1&amp;quot; # default value&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;            )&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;        )&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;    )   &lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora abrimos el fichero &lt;code&gt;/etc/lighttpd/lighttpd.conf&lt;/code&gt; y al final de el añadimos la siguiente linea: &lt;code&gt;include &quot;conf.d/php.conf&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Para habilitar las carpetas de usuario creamos, en la misma carpeta que php.conf otro llamado, por ejemplo, userdir.conf y añadimos estas lineas:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+server.modules += (&quot;mod_userdir&quot;)
+userdir.path = &quot;public_html&quot;
+&lt;/code&gt;
+Y como antes añadimos al final de /etc/lighttpd/lighttpd.conf la siguiente linea: &lt;code&gt;include &quot;conf.d/userdir.conf&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;La primera linea habilita el mod y en la segunda indicamos el nombre de la carpeta. Ahora cada usuario que quiera solo tendrá que crear dicha carpeta en la raiz de su home.&lt;/p&gt;
+
+&lt;p&gt;Ahora podemos comprobar que funcione correctamente el servidor, para ello ejecutamos como super usuario el siguiente comando: &lt;code&gt;lighttpd -f /etc/lighttpd/lighttpd.conf&lt;/code&gt; y si no hay ningún problema abrimos nuestro navegador y e introducimos la url &lt;strong&gt;localhost&lt;/strong&gt;. Si habilitamos la de usuario la url es la siguiente &lt;code&gt;localhost/~usuario&lt;/code&gt; cambiando &lt;strong&gt;usuario&lt;/strong&gt; por el nombre del usuario que corresponda. Si ya todo va cerramos el servidor y ejecutamos &lt;code&gt;sudo systemcontrol enable lighttpd&lt;/code&gt; para habilitarlo en el arranque y &lt;code&gt;sudo systemcontrol start lighttpd&lt;/code&gt; para arrancarlo. Para comprobar que funciona PHP creamos en la carpeta del servidor un archivo al que llamaremos info.php:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;php
+&amp;lt;?
+phpinfo();
+?&amp;gt;
+&lt;/code&gt;
+Si sale bien tendremos algo similar a esto:&lt;/p&gt;
+
+&lt;h3 id=&quot;mariadb&quot;&gt;MariaDB&lt;/h3&gt;
+&lt;p&gt;Lo primero es crear las tablas de configuración por defecto del servidor de base de datos. Para ello nos bastara con ejecutar &lt;code&gt;mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Una vez que termine podemos habilitar y arrancar el servicio con &lt;code&gt;sudo systemcontrol enable mysqld&lt;/code&gt; y &lt;code&gt;sudo systemcontrol start mysqld&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; No es que me haya equivocado al escribir los comandos, simplemente los ejecutables de MariaDB son los mismos, de hecho las extensiones de MySQL de PHP funcionan con MariaDB.&lt;/p&gt;
+
+&lt;p&gt;Y con esto ya tenemos todo. Y en parte por petición de unos compañeros de curso os dejo un zip que Lighttpd para &lt;strong&gt;Windows&lt;/strong&gt; (funciona en XP, 7 y 8.1). Solo tenéis que descomprimiarlo y ejecutar &lt;strong&gt;atart-server.bat&lt;/strong&gt; para arrancarlo y &lt;strong&gt;stop-server.bat&lt;/strong&gt; para finalizar los procesos. Es necesario bajar e instalar MariaDB o mySQL por separado. &lt;a href=&quot;https://www.dropbox.com/s/vimfcshgepi9g6h/LightTPD.zip?dl=0&quot;&gt;Descargar Lighttpd para Windows&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;enlaces&quot;&gt;Enlaces&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.lighttpd.net&quot;&gt;Lighttpd&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mariadb.org&quot;&gt;MariaDB&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wiki.archlinux.org/index.php/Lighttpd&quot;&gt;Entrada en la Wiki de Arch Linux&lt;/a&gt; (De donde aprendí lo aquí expuesto. Lectura recomendada)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 25 Aug 2015 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2015/08/25/montando-servidor-local.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2015/08/25/montando-servidor-local.html</guid>
+        
+        <category>servidores</category>
+        
+        <category>php</category>
+        
+        <category>lighttpd</category>
+        
+        <category>mysql</category>
+        
+        <category>mariadb</category>
+        
+        
+      </item>
     
       <item>
         <title>Killall Radio App 1.0.0</title>

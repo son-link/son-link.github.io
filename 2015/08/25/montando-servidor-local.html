@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Montando un mini servidor local en GNU/Linux</title>
+  <meta name="description" content="En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Archlinux pero...">
+
+  <link rel="stylesheet" href="/css/mui.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/fontello-embedded.css">
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" href="/css/fontello-ie7.css">
+		<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
+	<![endif]-->
+  <link rel="canonical" href="http://son-link.github.io/2015/08/25/montando-servidor-local.html">
+  <link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
+  <link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+</head>
+
+
+  <body>
+
+    <header id="header"class="header-shadow mui-appbar">
+	<nav class="mui-container-fluid" id="appbar">
+		<table width="100%">
+			<tr style="vertical-align:middle;">
+				<td class="mui-appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
+				<td class="mui-appbar-height" align="right">
+					<div class="mui-dropdown">
+						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
+						<ul class="mui-dropdown-menu mui-dropdown-menu-right">
+							
+								
+								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+								<li><a class="page-link" href="/webs_amigas/">Webs amigas</a></li>
+								
+							
+								
+								<li><a class="page-link" href="/_pages/proyectos.html">Mis proyectos</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</nav>
+</header>
+
+
+    <div class="page-content mui-z2">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Montando un mini servidor local en GNU/Linux</h1>
+    <p class="post-meta">08/25/2015</p>
+  </header>
+
+  <article class="post-content">
+    <p>En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para <strong>Archlinux</strong> pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.</p>
+
+<p>Para ello instalaremos el servidor <strong>Lighttpd</strong>, un servidor ligero y funcional y usado en paginas como la <strong>Wikipedia</strong> y <strong>Youtube</strong>, el interprete de <strong>PHP</strong>, un lenguaje de programación para servidores, y la base de datos <strong>MariaDB</strong>, pero que puede cambiarse por <strong>MySQL</strong> si se quiere, eso ya es al gusto de cada uno.</p>
+
+<p>Para instalar lo necesario abrimos la terminal y ejecutamos:
+<code>sh
+pacman -S lighttpd mariadb mariadb-clients php-cgi
+</code></p>
+
+<h3 id="configurando-lightppd">Configurando Lightppd:</h3>
+<p>Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.</p>
+
+<p><strong>PHP</strong>
+Para ello creamos el archivo <code>/etc/lightppd/conf.d/php.conf</code> (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:</p>
+
+<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="c1"># Make sure to install php and php-cgi. See:                                                             </span>
+<span class="c1"># https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP</span>
+
+<span class="na">server.modules +</span><span class="o">=</span> <span class="s">(&quot;mod_fastcgi&quot;)</span>
+
+<span class="c1"># FCGI server</span>
+<span class="c1"># ===========</span>
+<span class="c1">#</span>
+<span class="c1"># Configure a FastCGI server which handles PHP requests.</span>
+<span class="c1">#</span>
+<span class="na">index-file.names +</span><span class="o">=</span> <span class="s">(&quot;index.php&quot;)</span>
+<span class="na">fastcgi.server</span> <span class="o">=</span> <span class="s">( </span>
+<span class="s">    # Load-balance requests for this path...</span>
+<span class="s">    &quot;.php&quot; =&gt; (</span>
+<span class="s">        # ... among the following FastCGI servers. The string naming each</span>
+<span class="s">        # server is just a label used in the logs to identify the server.</span>
+<span class="s">        &quot;localhost&quot; =&gt; ( </span>
+<span class="s">            &quot;bin-path&quot; =&gt; &quot;/usr/bin/php-cgi&quot;,</span>
+<span class="s">            &quot;socket&quot; =&gt; &quot;/tmp/php-fastcgi.sock&quot;,</span>
+<span class="s">            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO</span>
+<span class="s">            # from it </span>
+<span class="s">            &quot;broken-scriptfilename&quot; =&gt; &quot;enable&quot;,</span>
+<span class="s">            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where</span>
+<span class="s">            # max-procs are &quot;watchers&quot; and the rest are &quot;workers&quot;. See:</span>
+<span class="s">            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn </span>
+<span class="s">            &quot;max-procs&quot; =&gt; 4, # default value</span>
+<span class="s">            &quot;bin-environment&quot; =&gt; (</span>
+<span class="s">                &quot;PHP_FCGI_CHILDREN&quot; =&gt; &quot;1&quot; # default value</span>
+<span class="s">            )</span>
+<span class="s">        )</span>
+<span class="s">    )   </span>
+<span class="err">)</span></code></pre></div>
+
+<p>Ahora abrimos el fichero <code>/etc/lighttpd/lighttpd.conf</code> y al final de el añadimos la siguiente linea: <code>include "conf.d/php.conf"</code></p>
+
+<p>Para habilitar las carpetas de usuario creamos, en la misma carpeta que php.conf otro llamado, por ejemplo, userdir.conf y añadimos estas lineas:</p>
+
+<p><code>
+server.modules += ("mod_userdir")
+userdir.path = "public_html"
+</code>
+Y como antes añadimos al final de /etc/lighttpd/lighttpd.conf la siguiente linea: <code>include "conf.d/userdir.conf"</code></p>
+
+<p>La primera linea habilita el mod y en la segunda indicamos el nombre de la carpeta. Ahora cada usuario que quiera solo tendrá que crear dicha carpeta en la raiz de su home.</p>
+
+<p>Ahora podemos comprobar que funcione correctamente el servidor, para ello ejecutamos como super usuario el siguiente comando: <code>lighttpd -f /etc/lighttpd/lighttpd.conf</code> y si no hay ningún problema abrimos nuestro navegador y e introducimos la url <strong>localhost</strong>. Si habilitamos la de usuario la url es la siguiente <code>localhost/~usuario</code> cambiando <strong>usuario</strong> por el nombre del usuario que corresponda. Si ya todo va cerramos el servidor y ejecutamos <code>sudo systemcontrol enable lighttpd</code> para habilitarlo en el arranque y <code>sudo systemcontrol start lighttpd</code> para arrancarlo. Para comprobar que funciona PHP creamos en la carpeta del servidor un archivo al que llamaremos info.php:</p>
+
+<p><code>php
+&lt;?
+phpinfo();
+?&gt;
+</code>
+Si sale bien tendremos algo similar a esto:</p>
+
+<h3 id="mariadb">MariaDB</h3>
+<p>Lo primero es crear las tablas de configuración por defecto del servidor de base de datos. Para ello nos bastara con ejecutar <code>mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql</code></p>
+
+<p>Una vez que termine podemos habilitar y arrancar el servicio con <code>sudo systemcontrol enable mysqld</code> y <code>sudo systemcontrol start mysqld</code></p>
+
+<p><strong>Nota:</strong> No es que me haya equivocado al escribir los comandos, simplemente los ejecutables de MariaDB son los mismos, de hecho las extensiones de MySQL de PHP funcionan con MariaDB.</p>
+
+<p>Y con esto ya tenemos todo. Y en parte por petición de unos compañeros de curso os dejo un zip que Lighttpd para <strong>Windows</strong> (funciona en XP, 7 y 8.1). Solo tenéis que descomprimiarlo y ejecutar <strong>atart-server.bat</strong> para arrancarlo y <strong>stop-server.bat</strong> para finalizar los procesos. Es necesario bajar e instalar MariaDB o mySQL por separado. <a href="https://www.dropbox.com/s/vimfcshgepi9g6h/LightTPD.zip?dl=0">Descargar Lighttpd para Windows</a></p>
+
+<h2 id="enlaces">Enlaces</h2>
+
+<ul>
+  <li><a href="http://www.lighttpd.net">Lighttpd</a></li>
+  <li><a href="https://mariadb.org">MariaDB</a></li>
+  <li><a href="https://wiki.archlinux.org/index.php/Lighttpd">Entrada en la Wiki de Arch Linux</a> (De donde aprendí lo aquí expuesto. Lectura recomendada)</li>
+</ul>
+
+    <div class="share">
+		Compartir:
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Montando un mini servidor local en GNU/Linux&url=http://son-link.github.io/2015/08/25/montando-servidor-local.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2015/08/25/montando-servidor-local.html"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2015/08/25/montando-servidor-local.html"><i class="icon-gplus"></i> Google+</a>
+    </div>
+    <br />
+    <ul class="tag_list">
+				<li>Etiquetas: </li>
+   			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/servidores">servidores</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/php">php</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/lighttpd">lighttpd</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/mysql">mysql</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/mariadb">mariadb</a></li>
+ 			
+    	</ul>
+  </article>
+  <!-- Disqus comments -->
+  
+	<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'blogdesonlink';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	
+</div>
+
+      </div>
+    </div>
+    <footer class="mui-z2">
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
+	<div>
+		Puedes seguirme:
+		<ul class="social-media-list">
+			<li>
+				<a href="https://github.com/son-link">
+					<span class="icon-github"></span>
+					<span class="username">son-link</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/sonlink">
+					<span class="icon-twitter"></span>
+					<span class="username">sonlink</span>
+				</a>
+			</li>
+			<li><a href="/feed.xml"><span class="icon icon-rss"></span> rss</a></li>
+        </ul>
+        <br />
+        Blog levantado con <a href="http://jekyllrb.com/">Jekyll</a> y el framework CSS <a href="https://www.muicss.com">MUI</a>
+	</div>
+</footer>
+<script src="/js/mui.min.js"></script>
+
+
+  </body>
+
+</html>
