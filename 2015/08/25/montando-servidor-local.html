@@ -28,14 +28,18 @@
 	<nav class="mui-container-fluid" id="appbar">
 		<table width="100%">
 			<tr style="vertical-align:middle;">
-				<td class="mui-appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
-				<td class="mui-appbar-height" align="right">
+				<td class="mui--appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
+				<td class="mui--appbar-height" align="right">
 					<div class="mui-dropdown">
 						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
-						<ul class="mui-dropdown-menu mui-dropdown-menu-right">
+						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
 							
 								
 								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
+								
+							
+								
+								<li><a class="page-link" href="/entropipes_editor/">EntroPipes Puzzle Editor</a></li>
 								
 							
 								
@@ -54,6 +58,16 @@
 							
 								
 								<li><a class="page-link" href="/proyectos/">Mis proyectos</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
 								
 							
 								
@@ -114,38 +128,38 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 <p><strong>PHP</strong>
 Para ello creamos el archivo <code>/etc/lightppd/conf.d/php.conf</code> (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:</p>
 
-<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="c1"># Make sure to install php and php-cgi. See:                                                             </span>
-<span class="c1"># https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP</span>
+<div class="highlight"><pre><code class="language-ini" data-lang="ini"># Make sure to install php and php-cgi. See:                                                             
+# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
 
-<span class="na">server.modules +</span><span class="o">=</span> <span class="s">(&quot;mod_fastcgi&quot;)</span>
+server.modules += (&quot;mod_fastcgi&quot;)
 
-<span class="c1"># FCGI server</span>
-<span class="c1"># ===========</span>
-<span class="c1">#</span>
-<span class="c1"># Configure a FastCGI server which handles PHP requests.</span>
-<span class="c1">#</span>
-<span class="na">index-file.names +</span><span class="o">=</span> <span class="s">(&quot;index.php&quot;)</span>
-<span class="na">fastcgi.server</span> <span class="o">=</span> <span class="s">( </span>
-<span class="s">    # Load-balance requests for this path...</span>
-<span class="s">    &quot;.php&quot; =&gt; (</span>
-<span class="s">        # ... among the following FastCGI servers. The string naming each</span>
-<span class="s">        # server is just a label used in the logs to identify the server.</span>
-<span class="s">        &quot;localhost&quot; =&gt; ( </span>
-<span class="s">            &quot;bin-path&quot; =&gt; &quot;/usr/bin/php-cgi&quot;,</span>
-<span class="s">            &quot;socket&quot; =&gt; &quot;/tmp/php-fastcgi.sock&quot;,</span>
-<span class="s">            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO</span>
-<span class="s">            # from it </span>
-<span class="s">            &quot;broken-scriptfilename&quot; =&gt; &quot;enable&quot;,</span>
-<span class="s">            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where</span>
-<span class="s">            # max-procs are &quot;watchers&quot; and the rest are &quot;workers&quot;. See:</span>
-<span class="s">            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn </span>
-<span class="s">            &quot;max-procs&quot; =&gt; 4, # default value</span>
-<span class="s">            &quot;bin-environment&quot; =&gt; (</span>
-<span class="s">                &quot;PHP_FCGI_CHILDREN&quot; =&gt; &quot;1&quot; # default value</span>
-<span class="s">            )</span>
-<span class="s">        )</span>
-<span class="s">    )   </span>
-<span class="err">)</span></code></pre></div>
+# FCGI server
+# ===========
+#
+# Configure a FastCGI server which handles PHP requests.
+#
+index-file.names += (&quot;index.php&quot;)
+fastcgi.server = ( 
+    # Load-balance requests for this path...
+    &quot;.php&quot; =&gt; (
+        # ... among the following FastCGI servers. The string naming each
+        # server is just a label used in the logs to identify the server.
+        &quot;localhost&quot; =&gt; ( 
+            &quot;bin-path&quot; =&gt; &quot;/usr/bin/php-cgi&quot;,
+            &quot;socket&quot; =&gt; &quot;/tmp/php-fastcgi.sock&quot;,
+            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO
+            # from it 
+            &quot;broken-scriptfilename&quot; =&gt; &quot;enable&quot;,
+            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where
+            # max-procs are &quot;watchers&quot; and the rest are &quot;workers&quot;. See:
+            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn 
+            &quot;max-procs&quot; =&gt; 4, # default value
+            &quot;bin-environment&quot; =&gt; (
+                &quot;PHP_FCGI_CHILDREN&quot; =&gt; &quot;1&quot; # default value
+            )
+        )
+    )   
+)</code></pre></div>
 
 <p>Ahora abrimos el fichero <code>/etc/lighttpd/lighttpd.conf</code> y al final de el añadimos la siguiente linea: <code>include "conf.d/php.conf"</code></p>
 
@@ -227,7 +241,7 @@ Si sale bien tendremos algo similar a esto:</p>
 
       </div>
     </div>
-    <footer class="mui-z2">
+    <footer class="mui-container-fluid">
 	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
 	<div>
 		Puedes seguirme:

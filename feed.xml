@@ -6,9 +6,49 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Aug 2015 21:05:57 +0200</pubDate>
-    <lastBuildDate>Tue, 25 Aug 2015 21:05:57 +0200</lastBuildDate>
+    <pubDate>Fri, 30 Oct 2015 14:54:29 +0100</pubDate>
+    <lastBuildDate>Fri, 30 Oct 2015 14:54:29 +0100</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>EntroPipes (R1)</title>
+        <description>&lt;p&gt;Tras un largo parón en el blog vuelvo a escribir sobre mi ultimo proyecto: &lt;strong&gt;EntroPipes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;EntroPipes es un juego del genero &lt;strong&gt;puzzle&lt;/strong&gt; y basado en una idea de mi colega Fernando López (Z80St). La mecánica del juego consiste en rotar las tuberías hasta que todas estén conectadas antes de que termine el tiempo. El juego, aunque ya bastante avanzado, aun esta en una fase temprana y queda por implementar lo que sera el modo de juego.&lt;/p&gt;
+
+&lt;p&gt;Además este es mi proyecto programado en &lt;strong&gt;LUA&lt;/strong&gt; y se ha usado el motor libre &lt;a href=&quot;http://love2d.org&quot;&gt;Löve&lt;/a&gt; en su versión 0.9.0 y superiores para &lt;strong&gt;Linux&lt;/strong&gt; y &lt;strong&gt;Windows&lt;/strong&gt; (también es posible en Mac OS bajando la versión del motor para dicho sistema) y el fork no oficial &lt;a href=&quot;https://github.com/VideahGams/LovePotion&quot;&gt;LövePotion&lt;/a&gt; para &lt;strong&gt;Nintendo 3DS&lt;/strong&gt; (se necesita una &lt;strong&gt;flash cart&lt;/strong&gt; o alguno de los varios &lt;strong&gt;Hax&lt;/strong&gt; disponibles para ello)&lt;/p&gt;
+
+&lt;p&gt;Ademas del juego en sí, tanto en el repositorio del juego y en este blog, esta disponible un editor de puzzles, basado en el original de &lt;strong&gt;Z80St&lt;/strong&gt; al cual le he hecho varios cambios y lanzado bajo la misma licencia del juego (GPL 3) y bajo previa autorización para lanzarlo con dicha licencia.&lt;/p&gt;
+
+&lt;p&gt;Espero que este juego os guste tanto como a mi hacerlo.&lt;/p&gt;
+
+&lt;h3 id=&quot;enlaces&quot;&gt;Enlaces:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/son-link/EntroPipes&quot;&gt;Repositorio&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/entropipes_editor/&quot;&gt;Editor de puzzles&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/s/xa6pnvkf4e8h4hq/EntroPipes-win32.zip?dl=0&quot;&gt;Ejecutable para Windows (32 bits)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/s/q412b802spqkeji/EntroPipes-win64.zip?dl=0&quot;&gt;Ejecutable para Windows (64 bits)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/s/egcosinwyi0gqtc/EntroPipes-3ds.zip?dl=0&quot;&gt;Nintendo 3DS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 30 Oct 2015 00:00:00 +0100</pubDate>
+        <link>http://son-link.github.io/2015/10/30/EntroPies-R1.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2015/10/30/EntroPies-R1.html</guid>
+        
+        <category>proyectos</category>
+        
+        <category>juegos</category>
+        
+        <category>lua</category>
+        
+        <category>linux</category>
+        
+        <category>windows</category>
+        
+        <category>Nintendo 3DS</category>
+        
+        
+      </item>
     
       <item>
         <title>Montando un mini servidor local en GNU/Linux</title>
@@ -27,38 +67,38 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;p&gt;&lt;strong&gt;PHP&lt;/strong&gt;
 Para ello creamos el archivo &lt;code&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ini&quot; data-lang=&quot;ini&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Make sure to install php and php-cgi. See:                                                             &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ini&quot; data-lang=&quot;ini&quot;&gt;# Make sure to install php and php-cgi. See:                                                             
+# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
 
-&lt;span class=&quot;na&quot;&gt;server.modules +&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;(&amp;quot;mod_fastcgi&amp;quot;)&lt;/span&gt;
+server.modules += (&amp;quot;mod_fastcgi&amp;quot;)
 
-&lt;span class=&quot;c1&quot;&gt;# FCGI server&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# ===========&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Configure a FastCGI server which handles PHP requests.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;index-file.names +&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;(&amp;quot;index.php&amp;quot;)&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;fastcgi.server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;( &lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;    # Load-balance requests for this path...&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;    &amp;quot;.php&amp;quot; =&amp;gt; (&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;        # ... among the following FastCGI servers. The string naming each&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;        # server is just a label used in the logs to identify the server.&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;        &amp;quot;localhost&amp;quot; =&amp;gt; ( &lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            &amp;quot;bin-path&amp;quot; =&amp;gt; &amp;quot;/usr/bin/php-cgi&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            &amp;quot;socket&amp;quot; =&amp;gt; &amp;quot;/tmp/php-fastcgi.sock&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            # from it &lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            &amp;quot;broken-scriptfilename&amp;quot; =&amp;gt; &amp;quot;enable&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            # max-procs are &amp;quot;watchers&amp;quot; and the rest are &amp;quot;workers&amp;quot;. See:&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn &lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            &amp;quot;max-procs&amp;quot; =&amp;gt; 4, # default value&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            &amp;quot;bin-environment&amp;quot; =&amp;gt; (&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;                &amp;quot;PHP_FCGI_CHILDREN&amp;quot; =&amp;gt; &amp;quot;1&amp;quot; # default value&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;            )&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;        )&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;    )   &lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+# FCGI server
+# ===========
+#
+# Configure a FastCGI server which handles PHP requests.
+#
+index-file.names += (&amp;quot;index.php&amp;quot;)
+fastcgi.server = ( 
+    # Load-balance requests for this path...
+    &amp;quot;.php&amp;quot; =&amp;gt; (
+        # ... among the following FastCGI servers. The string naming each
+        # server is just a label used in the logs to identify the server.
+        &amp;quot;localhost&amp;quot; =&amp;gt; ( 
+            &amp;quot;bin-path&amp;quot; =&amp;gt; &amp;quot;/usr/bin/php-cgi&amp;quot;,
+            &amp;quot;socket&amp;quot; =&amp;gt; &amp;quot;/tmp/php-fastcgi.sock&amp;quot;,
+            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO
+            # from it 
+            &amp;quot;broken-scriptfilename&amp;quot; =&amp;gt; &amp;quot;enable&amp;quot;,
+            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where
+            # max-procs are &amp;quot;watchers&amp;quot; and the rest are &amp;quot;workers&amp;quot;. See:
+            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn 
+            &amp;quot;max-procs&amp;quot; =&amp;gt; 4, # default value
+            &amp;quot;bin-environment&amp;quot; =&amp;gt; (
+                &amp;quot;PHP_FCGI_CHILDREN&amp;quot; =&amp;gt; &amp;quot;1&amp;quot; # default value
+            )
+        )
+    )   
+)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ahora abrimos el fichero &lt;code&gt;/etc/lighttpd/lighttpd.conf&lt;/code&gt; y al final de el añadimos la siguiente linea: &lt;code&gt;include &quot;conf.d/php.conf&quot;&lt;/code&gt;&lt;/p&gt;
 
@@ -180,50 +220,50 @@ Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo 
 
 &lt;p&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;        Customize this policy to fit your own app&amp;#39;s needs. For more guidance, see:&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;        Some notes:&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;            * gap: is required only on iOS (when using UIWebView) and is needed for JS-&amp;gt;native communication&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;                * Enable inline JS: add &amp;#39;unsafe-inline&amp;#39; to default-src&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;        --&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Content-Security-Policy&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;default-src &amp;#39;self&amp;#39; data: gap: https://ssl.gstatic.com &amp;#39;unsafe-eval&amp;#39;; style-src &amp;#39;self&amp;#39; &amp;#39;unsafe-inline&amp;#39;; media-src *&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;format-detection&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;telephone=no&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;msapplication-tap-highlight&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Camera Test app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nf&quot;&gt;#mifoto&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sacafoto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPicture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;quality&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;destinationType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DestinationType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FILE_URI&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;mifoto&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+        &amp;lt;!--
+        Customize this policy to fit your own app&amp;#39;s needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS-&amp;gt;native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add &amp;#39;unsafe-inline&amp;#39; to default-src
+        --&amp;gt;
+		&amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;default-src &amp;#39;self&amp;#39; data: gap: https://ssl.gstatic.com &amp;#39;unsafe-eval&amp;#39;; style-src &amp;#39;self&amp;#39; &amp;#39;unsafe-inline&amp;#39;; media-src *&amp;quot;&amp;gt;
+		&amp;lt;meta name=&amp;quot;format-detection&amp;quot; content=&amp;quot;telephone=no&amp;quot;&amp;gt;
+		&amp;lt;meta name=&amp;quot;msapplication-tap-highlight&amp;quot; content=&amp;quot;no&amp;quot;&amp;gt;
+		&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&amp;quot;&amp;gt;
+		&amp;lt;title&amp;gt;Camera Test app&amp;lt;/title&amp;gt;
+		&amp;lt;style&amp;gt;
+			#mifoto {max-width: 100% }
+			button { padding: 5px }
+		&amp;lt;/style&amp;gt;
+		&amp;lt;script&amp;gt;
+			function sacafoto(){
+				navigator.camera.getPicture(onSuccess, onFail, { quality: 90,
+				destinationType: Camera.DestinationType.FILE_URI });
+			}
+			function onSuccess(imageURI) {
+				var image = document.getElementById(&amp;#39;mifoto&amp;#39;);
+				image.src = imageURI;
+			}
 
-			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hubo un fallo al sacar la foto: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;mifoto&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sacafoto()&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Sacar foto&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;cordova.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+			function onFail(message) {
+				alert(&amp;#39;Hubo un fallo al sacar la foto: &amp;#39; + message);
+			}
+		&amp;lt;/script&amp;gt;
+	&amp;lt;/head&amp;gt;
+	&amp;lt;body&amp;gt;
+		&amp;lt;div class=&amp;quot;app&amp;quot;&amp;gt;
+            &amp;lt;img src=&amp;quot;&amp;quot; id=&amp;quot;mifoto&amp;quot;&amp;gt;
+			&amp;lt;br /&amp;gt;&amp;lt;button onclick=&amp;quot;sacafoto()&amp;quot;&amp;gt;Sacar foto&amp;lt;/button&amp;gt;
+		&amp;lt;/div&amp;gt;
+        &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;cordova.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:
 &lt;img src=&quot;/img/tutorial_cordova/camara_test.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -310,8 +350,8 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 
 &lt;p&gt;Una vez bajado lo descomprimimos donde queramos y añadimos las rutas a las carpetas que contiene las herramientas a nuestro path. Si por ejemplo lo tenemos en /opt/android/sdk añadiremos lo siguiente en el archivo ~/.bashrc&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ANDROIDSDK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/opt/android-sdk&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/opt/android-sdk/platform-tools:/opt/android-sdk/tools&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;export ANDROIDSDK=&amp;quot;/opt/android-sdk&amp;quot;
+export PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando &lt;strong&gt;Android&lt;/strong&gt;. En la vetana que se abre seleccionamos lo que esta marcado en la imagen
 &lt;img src=&quot;/img/tutorial_cordova/android_sdk.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -349,32 +389,32 @@ cordova platform add firefoxos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;widget&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;io.minombre.primeraapp&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0.0.1&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.w3.org/ns/widgets&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:cdv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://cordova.apache.org/ns/1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Mi primera app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39;?&amp;gt;
+&amp;lt;widget id=&amp;quot;io.minombre.primeraapp&amp;quot; version=&amp;quot;0.0.1&amp;quot; xmlns=&amp;quot;http://www.w3.org/ns/widgets&amp;quot; xmlns:cdv=&amp;quot;http://cordova.apache.org/ns/1.0&amp;quot;&amp;gt;
+    &amp;lt;name&amp;gt;Mi primera app&amp;lt;/name&amp;gt;
+    &amp;lt;description&amp;gt;
         A sample Apache Cordova application that responds to the deviceready event.
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;author&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;email=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;dev@cordova.apache.org&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://cordova.io&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;/description&amp;gt;
+    &amp;lt;author email=&amp;quot;dev@cordova.apache.org&amp;quot; href=&amp;quot;http://cordova.io&amp;quot;&amp;gt;
         Apache Cordova Team
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;content&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;index.html&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;cordova-plugin-whitelist&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;access&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;origin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://*/*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://*/*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tel:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sms:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;mailto:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;geo:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;platform&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;android&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;market:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/platform&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;platform&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;ios&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;itms:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;itms-apps:*&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/platform&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/widget&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &amp;lt;/author&amp;gt;
+    &amp;lt;content src=&amp;quot;index.html&amp;quot; /&amp;gt;
+    &amp;lt;plugin name=&amp;quot;cordova-plugin-whitelist&amp;quot; version=&amp;quot;1&amp;quot; /&amp;gt;
+    &amp;lt;access origin=&amp;quot;*&amp;quot; /&amp;gt;
+    &amp;lt;allow-intent href=&amp;quot;http://*/*&amp;quot; /&amp;gt;
+    &amp;lt;allow-intent href=&amp;quot;https://*/*&amp;quot; /&amp;gt;
+    &amp;lt;allow-intent href=&amp;quot;tel:*&amp;quot; /&amp;gt;
+    &amp;lt;allow-intent href=&amp;quot;sms:*&amp;quot; /&amp;gt;
+    &amp;lt;allow-intent href=&amp;quot;mailto:*&amp;quot; /&amp;gt;
+    &amp;lt;allow-intent href=&amp;quot;geo:*&amp;quot; /&amp;gt;
+    &amp;lt;platform name=&amp;quot;android&amp;quot;&amp;gt;
+        &amp;lt;allow-intent href=&amp;quot;market:*&amp;quot; /&amp;gt;
+    &amp;lt;/platform&amp;gt;
+    &amp;lt;platform name=&amp;quot;ios&amp;quot;&amp;gt;
+        &amp;lt;allow-intent href=&amp;quot;itms:*&amp;quot; /&amp;gt;
+        &amp;lt;allow-intent href=&amp;quot;itms-apps:*&amp;quot; /&amp;gt;
+    &amp;lt;/platform&amp;gt;
+&amp;lt;/widget&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Dentro del tag &amp;lt;widget&amp;gt; veremos los parámetros &lt;strong&gt;id&lt;/strong&gt; y &lt;strong&gt;version&lt;/strong&gt; el primero es el id del proyecto que en este caso es el segundo parámetro que le pasamos al comando &lt;strong&gt;cordova create&lt;/strong&gt; y versión es el numero de versión de nuestro programa.&lt;/p&gt;
 

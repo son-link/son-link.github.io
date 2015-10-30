@@ -28,14 +28,18 @@
 	<nav class="mui-container-fluid" id="appbar">
 		<table width="100%">
 			<tr style="vertical-align:middle;">
-				<td class="mui-appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
-				<td class="mui-appbar-height" align="right">
+				<td class="mui--appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
+				<td class="mui--appbar-height" align="right">
 					<div class="mui-dropdown">
 						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
-						<ul class="mui-dropdown-menu mui-dropdown-menu-right">
+						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
 							
 								
 								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
+								
+							
+								
+								<li><a class="page-link" href="/entropipes_editor/">EntroPipes Puzzle Editor</a></li>
 								
 							
 								
@@ -54,6 +58,16 @@
 							
 								
 								<li><a class="page-link" href="/proyectos/">Mis proyectos</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
 								
 							
 								
@@ -117,50 +131,50 @@
 
 <p><strong>index.html</strong></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-    <span class="nt">&lt;head&gt;</span>
-        <span class="c">&lt;!--</span>
-<span class="c">        Customize this policy to fit your own app&#39;s needs. For more guidance, see:</span>
-<span class="c">            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy</span>
-<span class="c">        Some notes:</span>
-<span class="c">            * gap: is required only on iOS (when using UIWebView) and is needed for JS-&gt;native communication</span>
-<span class="c">            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly</span>
-<span class="c">            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:</span>
-<span class="c">                * Enable inline JS: add &#39;unsafe-inline&#39; to default-src</span>
-<span class="c">        --&gt;</span>
-		<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Security-Policy&quot;</span> <span class="na">content=</span><span class="s">&quot;default-src &#39;self&#39; data: gap: https://ssl.gstatic.com &#39;unsafe-eval&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; media-src *&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;format-detection&quot;</span> <span class="na">content=</span><span class="s">&quot;telephone=no&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;msapplication-tap-highlight&quot;</span> <span class="na">content=</span><span class="s">&quot;no&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;title&gt;</span>Camera Test app<span class="nt">&lt;/title&gt;</span>
-		<span class="nt">&lt;style&gt;</span>
-			<span class="nf">#mifoto</span> <span class="p">{</span><span class="k">max-width</span><span class="o">:</span> <span class="m">100%</span> <span class="p">}</span>
-			<span class="nt">button</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="p">}</span>
-		<span class="nt">&lt;/style&gt;</span>
-		<span class="nt">&lt;script&gt;</span>
-			<span class="kd">function</span> <span class="nx">sacafoto</span><span class="p">(){</span>
-				<span class="nx">navigator</span><span class="p">.</span><span class="nx">camera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">(</span><span class="nx">onSuccess</span><span class="p">,</span> <span class="nx">onFail</span><span class="p">,</span> <span class="p">{</span> <span class="nx">quality</span><span class="o">:</span> <span class="mi">90</span><span class="p">,</span>
-				<span class="nx">destinationType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">DestinationType</span><span class="p">.</span><span class="nx">FILE_URI</span> <span class="p">});</span>
-			<span class="p">}</span>
-			<span class="kd">function</span> <span class="nx">onSuccess</span><span class="p">(</span><span class="nx">imageURI</span><span class="p">)</span> <span class="p">{</span>
-				<span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mifoto&#39;</span><span class="p">);</span>
-				<span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">imageURI</span><span class="p">;</span>
-			<span class="p">}</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;!--
+        Customize this policy to fit your own app&#39;s needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS-&gt;native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add &#39;unsafe-inline&#39; to default-src
+        --&gt;
+		&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#39;self&#39; data: gap: https://ssl.gstatic.com &#39;unsafe-eval&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; media-src *&quot;&gt;
+		&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
+		&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&quot;&gt;
+		&lt;title&gt;Camera Test app&lt;/title&gt;
+		&lt;style&gt;
+			#mifoto {max-width: 100% }
+			button { padding: 5px }
+		&lt;/style&gt;
+		&lt;script&gt;
+			function sacafoto(){
+				navigator.camera.getPicture(onSuccess, onFail, { quality: 90,
+				destinationType: Camera.DestinationType.FILE_URI });
+			}
+			function onSuccess(imageURI) {
+				var image = document.getElementById(&#39;mifoto&#39;);
+				image.src = imageURI;
+			}
 
-			<span class="kd">function</span> <span class="nx">onFail</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
-				<span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Hubo un fallo al sacar la foto: &#39;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
-			<span class="p">}</span>
-		<span class="nt">&lt;/script&gt;</span>
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
-		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;app&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;&quot;</span> <span class="na">id=</span><span class="s">&quot;mifoto&quot;</span><span class="nt">&gt;</span>
-			<span class="nt">&lt;br</span> <span class="nt">/&gt;&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;sacafoto()&quot;</span><span class="nt">&gt;</span>Sacar foto<span class="nt">&lt;/button&gt;</span>
-		<span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;cordova.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+			function onFail(message) {
+				alert(&#39;Hubo un fallo al sacar la foto: &#39; + message);
+			}
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class=&quot;app&quot;&gt;
+            &lt;img src=&quot;&quot; id=&quot;mifoto&quot;&gt;
+			&lt;br /&gt;&lt;button onclick=&quot;sacafoto()&quot;&gt;Sacar foto&lt;/button&gt;
+		&lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
 
 <p>Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:
 <img src="/img/tutorial_cordova/camara_test.png" alt="" /></p>
@@ -241,7 +255,7 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 
       </div>
     </div>
-    <footer class="mui-z2">
+    <footer class="mui-container-fluid">
 	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
 	<div>
 		Puedes seguirme:

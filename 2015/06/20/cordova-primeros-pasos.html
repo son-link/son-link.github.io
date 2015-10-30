@@ -28,14 +28,18 @@
 	<nav class="mui-container-fluid" id="appbar">
 		<table width="100%">
 			<tr style="vertical-align:middle;">
-				<td class="mui-appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
-				<td class="mui-appbar-height" align="right">
+				<td class="mui--appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
+				<td class="mui--appbar-height" align="right">
 					<div class="mui-dropdown">
 						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
-						<ul class="mui-dropdown-menu mui-dropdown-menu-right">
+						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
 							
 								
 								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
+								
+							
+								
+								<li><a class="page-link" href="/entropipes_editor/">EntroPipes Puzzle Editor</a></li>
 								
 							
 								
@@ -54,6 +58,16 @@
 							
 								
 								<li><a class="page-link" href="/proyectos/">Mis proyectos</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
 								
 							
 								
@@ -128,8 +142,8 @@
 
 <p>Una vez bajado lo descomprimimos donde queramos y añadimos las rutas a las carpetas que contiene las herramientas a nuestro path. Si por ejemplo lo tenemos en /opt/android/sdk añadiremos lo siguiente en el archivo ~/.bashrc</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">export </span><span class="nv">ANDROIDSDK</span><span class="o">=</span><span class="s2">&quot;/opt/android-sdk&quot;</span>
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/opt/android-sdk/platform-tools:/opt/android-sdk/tools</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">export ANDROIDSDK=&quot;/opt/android-sdk&quot;
+export PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools</code></pre></div>
 
 <p>Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando <strong>Android</strong>. En la vetana que se abre seleccionamos lo que esta marcado en la imagen
 <img src="/img/tutorial_cordova/android_sdk.png" alt="" /></p>
@@ -167,32 +181,32 @@ cordova platform add firefoxos</code></pre></div>
 
 <p>Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&gt;</span>
-<span class="nt">&lt;widget</span> <span class="na">id=</span><span class="s">&quot;io.minombre.primeraapp&quot;</span> <span class="na">version=</span><span class="s">&quot;0.0.1&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/ns/widgets&quot;</span> <span class="na">xmlns:cdv=</span><span class="s">&quot;http://cordova.apache.org/ns/1.0&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;name&gt;</span>Mi primera app<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;description&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&gt;
+&lt;widget id=&quot;io.minombre.primeraapp&quot; version=&quot;0.0.1&quot; xmlns=&quot;http://www.w3.org/ns/widgets&quot; xmlns:cdv=&quot;http://cordova.apache.org/ns/1.0&quot;&gt;
+    &lt;name&gt;Mi primera app&lt;/name&gt;
+    &lt;description&gt;
         A sample Apache Cordova application that responds to the deviceready event.
-    <span class="nt">&lt;/description&gt;</span>
-    <span class="nt">&lt;author</span> <span class="na">email=</span><span class="s">&quot;dev@cordova.apache.org&quot;</span> <span class="na">href=</span><span class="s">&quot;http://cordova.io&quot;</span><span class="nt">&gt;</span>
+    &lt;/description&gt;
+    &lt;author email=&quot;dev@cordova.apache.org&quot; href=&quot;http://cordova.io&quot;&gt;
         Apache Cordova Team
-    <span class="nt">&lt;/author&gt;</span>
-    <span class="nt">&lt;content</span> <span class="na">src=</span><span class="s">&quot;index.html&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;cordova-plugin-whitelist&quot;</span> <span class="na">version=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;access</span> <span class="na">origin=</span><span class="s">&quot;*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;http://*/*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;https://*/*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;tel:*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;sms:*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;mailto:*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;geo:*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;platform</span> <span class="na">name=</span><span class="s">&quot;android&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;market:*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/platform&gt;</span>
-    <span class="nt">&lt;platform</span> <span class="na">name=</span><span class="s">&quot;ios&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;itms:*&quot;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">&quot;itms-apps:*&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/platform&gt;</span>
-<span class="nt">&lt;/widget&gt;</span></code></pre></div>
+    &lt;/author&gt;
+    &lt;content src=&quot;index.html&quot; /&gt;
+    &lt;plugin name=&quot;cordova-plugin-whitelist&quot; version=&quot;1&quot; /&gt;
+    &lt;access origin=&quot;*&quot; /&gt;
+    &lt;allow-intent href=&quot;http://*/*&quot; /&gt;
+    &lt;allow-intent href=&quot;https://*/*&quot; /&gt;
+    &lt;allow-intent href=&quot;tel:*&quot; /&gt;
+    &lt;allow-intent href=&quot;sms:*&quot; /&gt;
+    &lt;allow-intent href=&quot;mailto:*&quot; /&gt;
+    &lt;allow-intent href=&quot;geo:*&quot; /&gt;
+    &lt;platform name=&quot;android&quot;&gt;
+        &lt;allow-intent href=&quot;market:*&quot; /&gt;
+    &lt;/platform&gt;
+    &lt;platform name=&quot;ios&quot;&gt;
+        &lt;allow-intent href=&quot;itms:*&quot; /&gt;
+        &lt;allow-intent href=&quot;itms-apps:*&quot; /&gt;
+    &lt;/platform&gt;
+&lt;/widget&gt;</code></pre></div>
 
 <p>Dentro del tag &lt;widget&gt; veremos los parámetros <strong>id</strong> y <strong>version</strong> el primero es el id del proyecto que en este caso es el segundo parámetro que le pasamos al comando <strong>cordova create</strong> y versión es el numero de versión de nuestro programa.</p>
 
@@ -264,7 +278,7 @@ Si solo queremos construir el paquete para una plataforma especifica le pasamos 
 
       </div>
     </div>
-    <footer class="mui-z2">
+    <footer class="mui-container-fluid">
 	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
 	<div>
 		Puedes seguirme:

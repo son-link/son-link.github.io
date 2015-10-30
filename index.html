@@ -29,14 +29,18 @@
 	<nav class="mui-container-fluid" id="appbar">
 		<table width="100%">
 			<tr style="vertical-align:middle;">
-				<td class="mui-appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
-				<td class="mui-appbar-height" align="right">
+				<td class="mui--appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
+				<td class="mui--appbar-height" align="right">
 					<div class="mui-dropdown">
 						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
-						<ul class="mui-dropdown-menu mui-dropdown-menu-right">
+						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
 							
 								
 								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
+								
+							
+								
+								<li><a class="page-link" href="/entropipes_editor/">EntroPipes Puzzle Editor</a></li>
 								
 							
 								
@@ -81,6 +85,16 @@
 							
 								
 							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
 						</ul>
 					</div>
 				</td>
@@ -96,6 +110,29 @@
 	<h1 class="page-heading">Entradas</h1>
 	<ul class="post-list">
 		
+		<li>
+			<h2><a class="post-link" href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></h2>
+			Tras un largo parón en el blog vuelvo a escribir sobre mi ultimo proyecto: EntroPipes EntroPipes es un juego del genero puzzle y basado en una idea de mi colega Fernando López (Z80St). La mecánica del juego consiste en rotar las tuberías hasta que todas estén conectadas antes de que termine el tiempo. El juego, aunque ya bastante avanzado, aun esta en una fase temprana y queda por implementar lo que sera el modo de...<br>
+			<a href="/2015/10/30/EntroPies-R1.html">Seguir leyendo...</a><br><br>
+			<ul class="tag_list">
+				<li>Etiquetas: </li>
+   			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/proyectos">proyectos</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/juegos">juegos</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/lua">lua</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/windows">windows</a></li>
+ 			
+   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/Nintendo 3DS">Nintendo 3DS</a></li>
+ 			
+    	</ul>
+			<span class="post-meta">Escrito el 30/10/2015</span>
+        	</li>
+   		 
 		<li>
 			<h2><a class="post-link" href="/2015/08/25/montando-servidor-local.html">Montando un mini servidor local en GNU/Linux</a></h2>
 			En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Archlinux pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows. Para ello instalaremos el servidor Lighttpd, un servidor ligero y funcional y usado en paginas como la Wikipedia y Youtube, el interprete de PHP, un lenguaje de programación para servidores, y la base...<br>
@@ -170,25 +207,6 @@
 			<span class="post-meta">Escrito el 02/07/2015</span>
         	</li>
    		 
-		<li>
-			<h2><a class="post-link" href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></h2>
-			Bienvenid@s a esta primera entrada de una serie de tutoriales sobre Apache Cordova. Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para moviles multiplataforma usando teclogias web, esto es HTML, Javascript y CSS, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una applicación para Android, que usa Java y para IOs que se hacen...<br>
-			<a href="/2015/06/20/cordova-primeros-pasos.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/cordova">cordova</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/firefoxos">firefoxos</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 20/06/2015</span>
-        	</li>
-   		 
 	</ul>
 	<!-- Pagination links -->
 
@@ -216,7 +234,7 @@
 
       </div>
     </div>
-    <footer class="mui-z2">
+    <footer class="mui-container-fluid">
 	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
 	<div>
 		Puedes seguirme:
