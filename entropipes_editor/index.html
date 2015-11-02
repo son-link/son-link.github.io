@@ -134,85 +134,84 @@
 	}
 	#content, #result {display: inline-block;}
 	#result {width: auto; vertical-align: top; }
+	a[class*=icon] {
+		font-size: 150%;
+		color: #0f380f;
+		text-decoration: none;
+	}
 	</style>
 	<script type="text/javascript" src="/js/editor.js"></script>
 	<div id="content">
-		<form>
-			<table id="pipes">
-				<tr>
-					<td align="center"><img id="t0" src="/img/entropipes/0_editor.png" onclick="selectTile(this);return true;" ><img/entropipes/td>
-					<td align="center"><img style="border-color: rgb(255, 0, 0);" id="t1" src="/img/entropipes/1.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="t2" src="/img/entropipes/2.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="t3" src="/img/entropipes/3.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="t4" src="/img/entropipes/4.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="t5" src="/img/entropipes/5.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="t6" src="/img/entropipes/6.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="t7" src="/img/entropipes/7.png" onclick="selectTile(this);return true;" ></td>
-				</tr>
-				<tr>
-					<td align="center"><img id="t8" src="/img/entropipes/8.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="t9" src="/img/entropipes/9.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="tA" src="/img/entropipes/A.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="tB" src="/img/entropipes/B.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="tC" src="/img/entropipes/C.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="tD" src="/img/entropipes/D.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="tE" src="/img/entropipes/E.png" onclick="selectTile(this);return true;" ></td>
-					<td align="center"><img id="tF" src="/img/entropipes/F.png" onclick="selectTile(this);return true;" ></td>
-				</tr>
-				<tr>
-					<td colspan="5">
-						<table align="center" id="controls">
-							<tr>
-								<td align="center" colspan="3"><input value="UP" onclick="shiftUp();return true;" type="button"></td>
-							</tr>
-							<tr>
-								<td align="center"><input value="LEFT" onclick="shiftLeft();return true;" type="button"></td>
-								<td align="center"><input value="CLEAR" onclick="if ( confirm('Clear puzzle?') ) { initPlantilla();return true;}" type="button"></td>
-								<td align="center"><input value="RIGHT" onclick="shiftRight();return true;" type="button"></td>
-							</tr>
-							<tr>
-								<td align="center" colspan="3"><input value="DOWN" onclick="shiftDown();return true;" type="button"></td>
-							</tr>
-						</table>
-					</td>
-					<td colspan="3">
-						<label for="gridsize">Grid size</label>
-						<select id="gridsize" onchange="gridSize();">
-							<option>4x4</option>
-							<option>6x4</option>
-							<option>6x6</option>
-							<option selected>8x6</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="8"><span id="entropy">Puzzle Entropy: 0</span></td>
-				</tr>
-			</table>
-			<div id="plantilla_div"><table id="plantilla"></table></div>
-			
-			<script type="text/javascript">writePlantilla();</script>
-			
+		<table id="pipes">
+			<tr>
+				<td align="center"><img id="t0" src="../img/entropipes/0_editor.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t1" src="../img/entropipes/1.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t2" src="../img/entropipes/2.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t3" src="../img/entropipes/3.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t4" src="../img/entropipes/4.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t5" src="../img/entropipes/5.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t6" src="../img/entropipes/6.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t7" src="../img/entropipes/7.png" onclick="selectTile(this);return true;" ></td>
+			</tr>
+			<tr>
+				<td align="center"><img id="t8" src="../img/entropipes/8.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="t9" src="../img/entropipes/9.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="tA" src="../img/entropipes/A.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="tB" src="../img/entropipes/B.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="tC" src="../img/entropipes/C.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="tD" src="../img/entropipes/D.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="tE" src="../img/entropipes/E.png" onclick="selectTile(this);return true;" ></td>
+				<td align="center"><img id="tF" src="../img/entropipes/F.png" onclick="selectTile(this);return true;" ></td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<table id="controls">
+						<tr>
+							<td align="center" colspan="3"><a href="#" onclick="shiftUp();return true;" class="icon-up" title="Move puzzle to up"></a></td>
+						</tr>
+						<tr>
+							<td align="center"><a href="#" onclick="shiftLeft();return true;" class="icon-left" title="Move puzzle to lett"></a></td>
+							<td align="center"><a href="#" onclick="if ( confirm('Clear puzzle?') ) { initPlantilla();return true;}" class="icon-trash" title="Clear puzzle"></a></td>
+							<td align="center"><a href="#" onclick="shiftRight();return true;" class="icon-right" title="Move puzzle to right"></a></td>
+						</tr>
+						<tr>
+							<td align="center" colspan="3"><a href="#" onclick="shiftDown();return true;" class="icon-down" title="Move puzzle to down"></a></td>
+						</tr>
+					</table>
+				</td>
+				<td colspan="3">
+					<label for="gridsize">Grid size</label>
+					<select id="gridsize" onchange="gridSize();">
+						<option>4x4</option>
+						<option>6x4</option>
+						<option>6x6</option>
+						<option selected>8x6</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="8"><span id="entropy">Puzzle Entropy: 0</span></td>
+			</tr>
+		</table>
+		<div><table id="plantilla"></table></div>
 	</div>
 	<div id="result">
 		<table>
-				<tr>
-					<td>
-						<b>Copy and send these lines:<br></b>
-						<textarea id="final" cols="7" rows="6"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<textarea id="loadArea" cols="7" rows="6"></textarea><br />
-						<input value="LOAD PUZZLE" onclick="if ( confirm('Load puzzle?') ) { lPuzzle();return true;}" type="button">
-					</td>
-				</tr>
-			</table>
-		</form>
+			<tr>
+				<td>
+					<b>Copy and send these lines:<br></b>
+					<textarea id="final" cols="7" rows="6"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="loadArea" cols="7" rows="6"></textarea><br />
+					<input value="LOAD PUZZLE" onclick="if ( confirm('Load puzzle?') ) { lPuzzle();return true;}" type="button">
+				</td>
+			</tr>
+		</table>
 	</div>
 	<div style="clear: both; display: block">Send puzzles (with entropy 0) to sonlink (doooot) dourden (aaat) gmail (doooooooot) com</div>
-	<script type="text/javascript">initEditor();</script>
 
       </div>
     </div>
