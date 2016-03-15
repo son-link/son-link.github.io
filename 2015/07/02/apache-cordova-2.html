@@ -10,9 +10,9 @@
 	<meta name="description" content="Bienvenid@s a la segunda entrada del tutorial sobre Apache Cordova.">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
-	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
 	<link rel="stylesheet" href="/css/github.css">
+	<link rel="stylesheet" href="/css/main.css">
 		<!--[if lte IE 7]>
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
@@ -50,6 +50,8 @@
 							
 								
 								<li><a class="page-link" href="/entropipes_editor/">EntroPipes Puzzle Editor</a></li>
+								
+							
 								
 							
 								
@@ -137,13 +139,15 @@
 
 <p>En esta nueva entrega explicare como añadir plugins, tanto oficiales como los creados por terceros y crear los paquetes para ser instalados en nuestro dispositivo o en un <strong>Dispositivo Virtual</strong>.</p>
 
-<p>###Plugins oficiales:</p>
+<h3 id="plugins-oficiales">Plugins oficiales:</h3>
 
 <p>Cordova cuenta con varios plugins que nos permite usar las distintas características de nuestro dispositivo, como la geolocalización, los sms, las llamadas, etc. Para este ejemplo vamos a usar la de la cámara.</p>
 
 <p>Para instalar el plugin nos basta con ejecutar</p>
 
-<p><code class="highlighter-rouge">cordova plugin add cordova-plugin-camera</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>cordova plugin add cordova-plugin-camera
+</code></pre>
+</div>
 
 <p>Los plugins que vayamos añadiendo se guardaran dentro de la carpeta <strong>plugins</strong> que esta en el directorio de nuestro proyecto. Si miramos veremos 2: <strong>cordova-plugin-whitelist</strong> que sirve para definir a que paginas se podrá acceder desde nuestra aplicación y <strong>cordova-plugin-camera</strong> que es la que acabamos de añadir.</p>
 
@@ -151,7 +155,7 @@
 
 <p><strong>index.html</strong></p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;head&gt;</span>
         <span class="c">&lt;!--
@@ -194,23 +198,27 @@
 		<span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"cordova.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
     <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
 
 <p>Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:<br />
 <img src="/img/tutorial_cordova/camara_test.png" alt="" /></p>
 
-<p>###Plugins no oficiales:</p>
+<h3 id="plugins-no-oficiales">Plugins no oficiales:</h3>
 
 <p>A día de hoy ahí una buena cantidad de plugins disponibles para las diversas plataformas soportadas por Cordova. Podemos encontrar muchas de ellos en la pagina del proyecto, en http://plugins.cordova.io<br />
  si bien los plugins se están moviendo a <a href="https://www.npmjs.com">npmjs</a>. Podeis saber más sobre ello en http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html</p>
 
 <p>En la pagina de cada plugin tendremos las instrucciones de como instalarlo mediante el gestor de plugins de Cordova, por lo que es como hicimos con el plugin oficial de la cámara solo que cambiara el nombre por una dirección web</p>
 
-<p>###Generando los paquetes:</p>
+<h3 id="generando-los-paquetes">Generando los paquetes:</h3>
 
 <p>Es hora de generar los paquetes para poder instalar los paquetes en nuestros dispositivos o simuladores. Para ello solo nos hace falta un comando:</p>
 
-<p><code class="highlighter-rouge">cordova build</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>cordova build
+</code></pre>
+</div>
 
 <p>Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo <code class="highlighter-rouge">cordova build android</code></p>
 
@@ -218,7 +226,7 @@
 
 <p><img src="/img/tutorial_cordova/paquetes_generados.png" alt="" /></p>
 
-<p>Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando <code class="highlighter-rouge">adb install -r &lt;ruta&gt; </code> o mediante <code class="highlighter-rouge">cordova run android</code> lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas <strong>Firefox 34</strong> o superior abre <strong>App Manager</strong> abriendo una nueva pestaña e introduciendo esta url: <code class="highlighter-rouge">about:app-manager</code></p>
+<p>Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando <code class="highlighter-rouge">adb install -r &lt;ruta&gt;</code> o mediante <code class="highlighter-rouge">cordova run android</code> lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas <strong>Firefox 34</strong> o superior abre <strong>App Manager</strong> abriendo una nueva pestaña e introduciendo esta url: <code class="highlighter-rouge">about:app-manager</code></p>
 
 <p>Veremos lo siguiente:<br />
 <img src="/img/tutorial_cordova/app-manager.png" alt="" /></p>
@@ -370,15 +378,11 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 		</li>
 		
 		<li>
-			<a href="/tag/Excel">Excel</a>
+			<a href="/tag/excel">excel</a>
 		</li>
 		
 		<li>
 			<a href="/tag/OpenDocument">OpenDocument</a>
-		</li>
-		
-		<li>
-			<a href="/tag/Tutoriales">Tutoriales</a>
 		</li>
 		
 	</ul>

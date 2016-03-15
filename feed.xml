@@ -6,8 +6,8 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Mar 2016 16:11:09 +0100</pubDate>
-    <lastBuildDate>Tue, 15 Mar 2016 16:11:09 +0100</lastBuildDate>
+    <pubDate>Tue, 15 Mar 2016 17:34:32 +0100</pubDate>
+    <lastBuildDate>Tue, 15 Mar 2016 17:34:32 +0100</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
     
       <item>
@@ -18,7 +18,7 @@
 
 &lt;p&gt;PHPExcel es de código abierto, bajo la licencia LGPL, por lo que podremos usarlo sin ningún tipo de restricción.&lt;/p&gt;
 
-&lt;p&gt;###Descarga:&lt;/p&gt;
+&lt;h3 id=&quot;descarga&quot;&gt;Descarga:&lt;/h3&gt;
 
 &lt;p&gt;Para poder usar PHPExcel lo primero que necesitamos es tener habilitadas las siguientes librerías de PHP:&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 
 &lt;p&gt;Una vez descargada veremos varios ficheros y carpetas, para usarlo solo necesitaremos la carpeta Classes, el resto son ejemplos.&lt;/p&gt;
 
-&lt;p&gt;###Primer ejemplo:&lt;/p&gt;
+&lt;h3 id=&quot;primer-ejemplo&quot;&gt;Primer ejemplo:&lt;/h3&gt;
 
 &lt;p&gt;Vamos a crear un primer script PHP para ir probando algunas funciones.&lt;/p&gt;
 
@@ -151,11 +151,11 @@
         
         <category>PHP</category>
         
-        <category>Excel</category>
+        <category>excel</category>
         
         <category>OpenDocument</category>
         
-        <category>Tutoriales</category>
+        <category>tutoriales</category>
         
         
       </item>
@@ -191,12 +191,14 @@
 
 &lt;p&gt;Espero que este juego os guste tanto como a mi hacerlo.&lt;/p&gt;
 
-&lt;p&gt;###Enlaces:&lt;br /&gt;
-* &lt;a href=&quot;https://github.com/son-link/EntroPipes&quot;&gt;Repositorio&lt;/a&gt;&lt;br /&gt;
-* &lt;a href=&quot;/entropipes_editor/&quot;&gt;Editor de puzzles&lt;/a&gt;&lt;br /&gt;
-* &lt;a href=&quot;https://www.dropbox.com/s/xa6pnvkf4e8h4hq/EntroPipes-win32.zip?dl=0&quot;&gt;Ejecutable para Windows (32 bits)&lt;/a&gt;&lt;br /&gt;
-* &lt;a href=&quot;https://www.dropbox.com/s/q412b802spqkeji/EntroPipes-win64.zip?dl=0&quot;&gt;Ejecutable para Windows (64 bits)&lt;/a&gt;&lt;br /&gt;
-* &lt;a href=&quot;https://www.dropbox.com/s/egcosinwyi0gqtc/EntroPipes-3ds.zip?dl=0&quot;&gt;Nintendo 3DS&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;enlaces&quot;&gt;Enlaces:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/son-link/EntroPipes&quot;&gt;Repositorio&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/entropipes_editor/&quot;&gt;Editor de puzzles&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/s/xa6pnvkf4e8h4hq/EntroPipes-win32.zip?dl=0&quot;&gt;Ejecutable para Windows (32 bits)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/s/q412b802spqkeji/EntroPipes-win64.zip?dl=0&quot;&gt;Ejecutable para Windows (64 bits)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/s/egcosinwyi0gqtc/EntroPipes-3ds.zip?dl=0&quot;&gt;Nintendo 3DS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Fri, 30 Oct 2015 00:00:00 +0100</pubDate>
         <link>http://son-link.github.io/2015/10/30/EntroPies-R1.html</link>
@@ -224,7 +226,7 @@
 &lt;p&gt;Para ello instalaremos el servidor &lt;strong&gt;Lighttpd&lt;/strong&gt;, un servidor ligero y funcional y usado en paginas como la &lt;strong&gt;Wikipedia&lt;/strong&gt; y &lt;strong&gt;Youtube&lt;/strong&gt;, el interprete de &lt;strong&gt;PHP&lt;/strong&gt;, un lenguaje de programación para servidores, y la base de datos &lt;strong&gt;MariaDB&lt;/strong&gt;, pero que puede cambiarse por &lt;strong&gt;MySQL&lt;/strong&gt; si se quiere, eso ya es al gusto de cada uno.&lt;/p&gt;
 
 &lt;p&gt;Para instalar lo necesario abrimos la terminal y ejecutamos:&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;sh
 pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;/code&gt;&lt;/p&gt;
 
@@ -232,54 +234,55 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;p&gt;Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;br /&gt;
-Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;/p&gt;
+Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;br /&gt;
+```ini&lt;br /&gt;
+# Make sure to install php and php-cgi. See:&lt;br /&gt;
+# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ini&quot; data-lang=&quot;ini&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Make sure to install php and php-cgi. See:                                                             
-# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
-&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;server.modules&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;mod_fastcgi&quot;)&lt;/span&gt;
+&lt;p&gt;server.modules += (“mod_fastcgi”)&lt;/p&gt;
 
-&lt;span class=&quot;c&quot;&gt;# FCGI server
-# ===========
-#
-# Configure a FastCGI server which handles PHP requests.
-#
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;index-file.names&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;index.php&quot;)&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;fastcgi.server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;( &lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# Load-balance requests for this path...
-&lt;/span&gt;    &lt;span class=&quot;err&quot;&gt;&quot;.php&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;# ... among the following FastCGI servers. The string naming each
-&lt;/span&gt;        &lt;span class=&quot;c&quot;&gt;# server is just a label used in the logs to identify the server.
-&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;&quot;localhost&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt; 
-            &lt;span class=&quot;err&quot;&gt;&quot;bin-path&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;/usr/bin/php-cgi&quot;,&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;&quot;socket&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;/tmp/php-fastcgi.sock&quot;,&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;# breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO
-&lt;/span&gt;            &lt;span class=&quot;c&quot;&gt;# from it 
-&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;&quot;broken-scriptfilename&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;enable&quot;,&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;# Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where
-&lt;/span&gt;            &lt;span class=&quot;c&quot;&gt;# max-procs are &quot;watchers&quot; and the rest are &quot;workers&quot;. See:
-&lt;/span&gt;            &lt;span class=&quot;c&quot;&gt;# https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn 
-&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;&quot;max-procs&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;4,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# default value
-&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;&quot;bin-environment&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;
-                &lt;span class=&quot;err&quot;&gt;&quot;PHP_FCGI_CHILDREN&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# default value
-&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;   
-&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;fcgi-server&quot;&gt;FCGI server&lt;/h1&gt;
+&lt;p&gt;# ===========&lt;br /&gt;
+#&lt;br /&gt;
+# Configure a FastCGI server which handles PHP requests.&lt;br /&gt;
+#&lt;br /&gt;
+index-file.names += (“index.php”)&lt;br /&gt;
+fastcgi.server = (&lt;br /&gt;
+    # Load-balance requests for this path…&lt;br /&gt;
+    “.php” =&amp;gt; (&lt;br /&gt;
+        # … among the following FastCGI servers. The string naming each&lt;br /&gt;
+        # server is just a label used in the logs to identify the server.&lt;br /&gt;
+        “localhost” =&amp;gt; (&lt;br /&gt;
+            “bin-path” =&amp;gt; “/usr/bin/php-cgi”,&lt;br /&gt;
+            “socket” =&amp;gt; “/tmp/php-fastcgi.sock”,&lt;br /&gt;
+            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO&lt;br /&gt;
+            # from it&lt;br /&gt;
+            “broken-scriptfilename” =&amp;gt; “enable”,&lt;br /&gt;
+            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where&lt;br /&gt;
+            # max-procs are “watchers” and the rest are “workers”. See:&lt;br /&gt;
+            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn&lt;br /&gt;
+            “max-procs” =&amp;gt; 4, # default value&lt;br /&gt;
+            “bin-environment” =&amp;gt; (&lt;br /&gt;
+                “PHP_FCGI_CHILDREN” =&amp;gt; “1” # default value&lt;br /&gt;
+            )&lt;br /&gt;
+        )&lt;br /&gt;
+    )&lt;br /&gt;
+)&lt;br /&gt;
+```&lt;/p&gt;
 
 &lt;p&gt;Ahora abrimos el fichero &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lighttpd/lighttpd.conf&lt;/code&gt; y al final de el añadimos la siguiente linea: &lt;code class=&quot;highlighter-rouge&quot;&gt;include &quot;conf.d/php.conf&quot;&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Para habilitar las carpetas de usuario creamos, en la misma carpeta que php.conf otro llamado, por ejemplo, userdir.conf y añadimos estas lineas:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server.modules += (&quot;mod_userdir&quot;)
-userdir.path = &quot;public_html&quot;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;server.modules&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;mod_userdir&quot;)&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;userdir.path&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;public_html&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Y como antes añadimos al final de /etc/lighttpd/lighttpd.conf la siguiente linea: &lt;code class=&quot;highlighter-rouge&quot;&gt;include &quot;conf.d/userdir.conf&quot;&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;La primera linea habilita el mod y en la segunda indicamos el nombre de la carpeta. Ahora cada usuario que quiera solo tendrá que crear dicha carpeta en la raiz de su home.&lt;/p&gt;
 
-&lt;p&gt;Ahora podemos comprobar que funcione correctamente el servidor, para ello ejecutamos como super usuario el siguiente comando: &lt;code class=&quot;highlighter-rouge&quot;&gt;lighttpd -f /etc/lighttpd/lighttpd.conf&lt;/code&gt; y si no hay ningún problema abrimos nuestro navegador y e introducimos la url &lt;strong&gt;localhost&lt;/strong&gt;. Si habilitamos la de usuario la url es la siguiente &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost/~usuario&lt;/code&gt; cambiando &lt;strong&gt;usuario&lt;/strong&gt; por el nombre del usuario que corresponda. Si ya todo va cerramos el servidor y ejecutamos &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemcontrol enable lighttpd&lt;/code&gt; para habilitarlo en el arranque y &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemcontrol start lighttpd&lt;/code&gt; para arrancarlo. Para comprobar que funciona PHP creamos en la carpeta del servidor un archivo al que llamaremos info.php:&lt;/p&gt;
+&lt;p&gt;Ahora podemos comprobar que funcione correctamente el servidor, para ello ejecutamos como súper usuario el siguiente comando: &lt;code class=&quot;highlighter-rouge&quot;&gt;lighttpd -f /etc/lighttpd/lighttpd.conf&lt;/code&gt; y si no hay ningún problema abrimos nuestro navegador y e introducimos la url &lt;strong&gt;localhost&lt;/strong&gt;. Si habilitamos la de usuario la url es la siguiente &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost/~usuario&lt;/code&gt; cambiando &lt;strong&gt;usuario&lt;/strong&gt; por el nombre del usuario que corresponda. Si ya todo va cerramos el servidor y ejecutamos &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemcontrol enable lighttpd&lt;/code&gt; para habilitarlo en el arranque y &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemcontrol start lighttpd&lt;/code&gt; para arrancarlo. Para comprobar que funciona PHP creamos en la carpeta del servidor un archivo al que llamaremos info.php:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;phpinfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -295,9 +298,9 @@ userdir.path = &quot;public_html&quot;
 
 &lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; No es que me haya equivocado al escribir los comandos, simplemente los ejecutables de MariaDB son los mismos, de hecho las extensiones de MySQL de PHP funcionan con MariaDB.&lt;/p&gt;
 
-&lt;p&gt;Y con esto ya tenemos todo. Y en parte por petición de unos compañeros de curso os dejo un zip que Lighttpd para &lt;strong&gt;Windows&lt;/strong&gt; (funciona en XP, 7 y 8.1). Solo tenéis que descomprimiarlo y ejecutar &lt;strong&gt;atart-server.bat&lt;/strong&gt; para arrancarlo y &lt;strong&gt;stop-server.bat&lt;/strong&gt; para finalizar los procesos. Es necesario bajar e instalar MariaDB o mySQL por separado. &lt;a href=&quot;https://www.dropbox.com/s/vimfcshgepi9g6h/LightTPD.zip?dl=0&quot;&gt;Descargar Lighttpd para Windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Y con esto ya tenemos todo. Y en parte por petición de unos compañeros de curso os dejo un zip que Lighttpd para &lt;strong&gt;Windows&lt;/strong&gt; (funciona en XP, 7 y 8.1). Solo tenéis que descomprimirlo y ejecutar &lt;strong&gt;atart-server.bat&lt;/strong&gt; para arrancarlo y &lt;strong&gt;stop-server.bat&lt;/strong&gt; para finalizar los procesos. Es necesario bajar e instalar MariaDB o mySQL por separado. &lt;a href=&quot;https://www.dropbox.com/s/vimfcshgepi9g6h/LightTPD.zip?dl=0&quot;&gt;Descargar Lighttpd para Windows&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;##Enlaces&lt;/p&gt;
+&lt;h2 id=&quot;enlaces&quot;&gt;Enlaces&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.lighttpd.net&quot;&gt;Lighttpd&lt;/a&gt;&lt;/li&gt;
@@ -373,13 +376,15 @@ Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo 
 
 &lt;p&gt;En esta nueva entrega explicare como añadir plugins, tanto oficiales como los creados por terceros y crear los paquetes para ser instalados en nuestro dispositivo o en un &lt;strong&gt;Dispositivo Virtual&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;###Plugins oficiales:&lt;/p&gt;
+&lt;h3 id=&quot;plugins-oficiales&quot;&gt;Plugins oficiales:&lt;/h3&gt;
 
 &lt;p&gt;Cordova cuenta con varios plugins que nos permite usar las distintas características de nuestro dispositivo, como la geolocalización, los sms, las llamadas, etc. Para este ejemplo vamos a usar la de la cámara.&lt;/p&gt;
 
 &lt;p&gt;Para instalar el plugin nos basta con ejecutar&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cordova plugin add cordova-plugin-camera&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova plugin add cordova-plugin-camera
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Los plugins que vayamos añadiendo se guardaran dentro de la carpeta &lt;strong&gt;plugins&lt;/strong&gt; que esta en el directorio de nuestro proyecto. Si miramos veremos 2: &lt;strong&gt;cordova-plugin-whitelist&lt;/strong&gt; que sirve para definir a que paginas se podrá acceder desde nuestra aplicación y &lt;strong&gt;cordova-plugin-camera&lt;/strong&gt; que es la que acabamos de añadir.&lt;/p&gt;
 
@@ -387,7 +392,7 @@ Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo 
 
 &lt;p&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;c&quot;&gt;&amp;lt;!--
@@ -430,23 +435,27 @@ Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo 
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cordova.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:&lt;br /&gt;
 &lt;img src=&quot;/img/tutorial_cordova/camara_test.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;###Plugins no oficiales:&lt;/p&gt;
+&lt;h3 id=&quot;plugins-no-oficiales&quot;&gt;Plugins no oficiales:&lt;/h3&gt;
 
 &lt;p&gt;A día de hoy ahí una buena cantidad de plugins disponibles para las diversas plataformas soportadas por Cordova. Podemos encontrar muchas de ellos en la pagina del proyecto, en http://plugins.cordova.io&lt;br /&gt;
  si bien los plugins se están moviendo a &lt;a href=&quot;https://www.npmjs.com&quot;&gt;npmjs&lt;/a&gt;. Podeis saber más sobre ello en http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html&lt;/p&gt;
 
 &lt;p&gt;En la pagina de cada plugin tendremos las instrucciones de como instalarlo mediante el gestor de plugins de Cordova, por lo que es como hicimos con el plugin oficial de la cámara solo que cambiara el nombre por una dirección web&lt;/p&gt;
 
-&lt;p&gt;###Generando los paquetes:&lt;/p&gt;
+&lt;h3 id=&quot;generando-los-paquetes&quot;&gt;Generando los paquetes:&lt;/h3&gt;
 
 &lt;p&gt;Es hora de generar los paquetes para poder instalar los paquetes en nuestros dispositivos o simuladores. Para ello solo nos hace falta un comando:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cordova build&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova build android&lt;/code&gt;&lt;/p&gt;
 
@@ -454,7 +463,7 @@ Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo 
 
 &lt;p&gt;&lt;img src=&quot;/img/tutorial_cordova/paquetes_generados.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando &lt;code class=&quot;highlighter-rouge&quot;&gt;adb install -r &amp;lt;ruta&amp;gt; &lt;/code&gt; o mediante &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova run android&lt;/code&gt; lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas &lt;strong&gt;Firefox 34&lt;/strong&gt; o superior abre &lt;strong&gt;App Manager&lt;/strong&gt; abriendo una nueva pestaña e introduciendo esta url: &lt;code class=&quot;highlighter-rouge&quot;&gt;about:app-manager&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando &lt;code class=&quot;highlighter-rouge&quot;&gt;adb install -r &amp;lt;ruta&amp;gt;&lt;/code&gt; o mediante &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova run android&lt;/code&gt; lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas &lt;strong&gt;Firefox 34&lt;/strong&gt; o superior abre &lt;strong&gt;App Manager&lt;/strong&gt; abriendo una nueva pestaña e introduciendo esta url: &lt;code class=&quot;highlighter-rouge&quot;&gt;about:app-manager&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Veremos lo siguiente:&lt;br /&gt;
 &lt;img src=&quot;/img/tutorial_cordova/app-manager.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -502,31 +511,35 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 &lt;h2 id=&quot;instalacin&quot;&gt;Instalación:&lt;/h2&gt;
 &lt;p&gt;Empezaremos instalando lo necesario. En el caso de haber paquetes para tu distribución, instalalos desde ellos.&lt;/p&gt;
 
-&lt;p&gt;###Node.js&lt;br /&gt;
-Lo primero que necesitaremos es &lt;strong&gt;node.js.&lt;/strong&gt; Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su &lt;a href=&quot;https://nodejs.org/download&quot;&gt;pagina de descarga&lt;/a&gt; o descargar y compilarlo desde su código fuente.&lt;/p&gt;
+&lt;h3 id=&quot;nodejs&quot;&gt;Node.js&lt;/h3&gt;
+&lt;p&gt;Lo primero que necesitaremos es &lt;strong&gt;node.js.&lt;/strong&gt; Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su &lt;a href=&quot;https://nodejs.org/download&quot;&gt;pagina de descarga&lt;/a&gt; o descargar y compilarlo desde su código fuente.&lt;/p&gt;
 
 &lt;p&gt;Una vez instalado ejecutamos el siguiente comando:&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo npm install -g cordova&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Esto bajara e instalara Cordova con sus dependencias.&lt;/p&gt;
 
-&lt;p&gt;###Android SDK&lt;br /&gt;
-Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.&lt;/p&gt;
+&lt;h3 id=&quot;android-sdk&quot;&gt;Android SDK&lt;/h3&gt;
+&lt;p&gt;Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.&lt;/p&gt;
 
 &lt;p&gt;Ahora procedemos a descargar el SDK de Android desde su &lt;a href=&quot;https://developer.android.com/sdk/index.html#Other&quot;&gt;pagina oficial&lt;/a&gt;. &lt;strong&gt;Android Studio&lt;/strong&gt; no es necesario, por lo que salvo que queramos usarlo no hace falta bajarlo junto al SDK. Si eres usuario de &lt;strong&gt;Arch Linux, Manjaro&lt;/strong&gt; u otros derivados puedes instalar el SDK y lo que se dirá a continuación desde &lt;strong&gt;AUR&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Una vez bajado lo descomprimimos donde queramos y añadimos las rutas a las carpetas que contiene las herramientas a nuestro path. Si por ejemplo lo tenemos en /opt/android/sdk añadiremos lo siguiente en el archivo ~/.bashrc&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ANDROIDSDK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/opt/android-sdk&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/opt/android-sdk/platform-tools:/opt/android-sdk/tools&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ANDROIDSDK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/opt/android-sdk&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando &lt;strong&gt;Android&lt;/strong&gt;. En la vetana que se abre seleccionamos lo que esta marcado en la imagen&lt;br /&gt;
 &lt;img src=&quot;/img/tutorial_cordova/android_sdk.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;##Creación y configuración de nuestra primera aplicación.&lt;br /&gt;
-Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:&lt;/p&gt;
+&lt;h2 id=&quot;creacin-y-configuracin-de-nuestra-primera-aplicacin&quot;&gt;Creación y configuración de nuestra primera aplicación.&lt;/h2&gt;
+&lt;p&gt;Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cordova create miprimeraapp io.minombre.primeraapp &#39;Mi primera app&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova create miprimeraapp io.minombre.primeraapp &lt;span class=&quot;s2&quot;&gt;&quot;Mi primera app&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Repasemos cada parámetro:&lt;/p&gt;
 
@@ -551,12 +564,14 @@ Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicaci
 
 &lt;p&gt;Ahora para añadir plataformas desde una terminal nos movemos hasta el dierctorio del proyecto y ejecutamos:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;cordova platform add android
-cordova platform add firefoxos&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova platform add android
+cordova platform add firefoxos
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;widget&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;io.minombre.primeraapp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0.0.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/ns/widgets&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:cdv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://cordova.apache.org/ns/1.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Mi primera app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;
@@ -581,7 +596,9 @@ cordova platform add firefoxos&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;itms:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;itms-apps:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/platform&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/widget&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/widget&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Dentro del tag &amp;lt;widget&amp;gt; veremos los parámetros &lt;strong&gt;id&lt;/strong&gt; y &lt;strong&gt;version&lt;/strong&gt; el primero es el id del proyecto que en este caso es el segundo parámetro que le pasamos al comando &lt;strong&gt;cordova create&lt;/strong&gt; y versión es el numero de versión de nuestro programa.&lt;/p&gt;
 
@@ -597,7 +614,9 @@ cordova platform add firefoxos&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Ahora vamos a construir la aplicación. Para ello desde una terminal y desde el directorio de nuestra aplicación ejecutamos lo siguiente:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;cordova build&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.&lt;br /&gt;
 Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.&lt;/p&gt;

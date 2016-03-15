@@ -10,9 +10,9 @@
 	<meta name="description" content="Bienvenid@s a esta primera entrada de una serie de tutoriales sobre Apache Cordova.">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
-	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
 	<link rel="stylesheet" href="/css/github.css">
+	<link rel="stylesheet" href="/css/main.css">
 		<!--[if lte IE 7]>
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
@@ -50,6 +50,8 @@
 							
 								
 								<li><a class="page-link" href="/entropipes_editor/">EntroPipes Puzzle Editor</a></li>
+								
+							
 								
 							
 								
@@ -147,31 +149,35 @@
 <h2 id="instalacin">Instalación:</h2>
 <p>Empezaremos instalando lo necesario. En el caso de haber paquetes para tu distribución, instalalos desde ellos.</p>
 
-<p>###Node.js<br />
-Lo primero que necesitaremos es <strong>node.js.</strong> Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su <a href="https://nodejs.org/download">pagina de descarga</a> o descargar y compilarlo desde su código fuente.</p>
+<h3 id="nodejs">Node.js</h3>
+<p>Lo primero que necesitaremos es <strong>node.js.</strong> Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su <a href="https://nodejs.org/download">pagina de descarga</a> o descargar y compilarlo desde su código fuente.</p>
 
 <p>Una vez instalado ejecutamos el siguiente comando:<br />
 <code class="highlighter-rouge">sudo npm install -g cordova</code></p>
 
 <p>Esto bajara e instalara Cordova con sus dependencias.</p>
 
-<p>###Android SDK<br />
-Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.</p>
+<h3 id="android-sdk">Android SDK</h3>
+<p>Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.</p>
 
 <p>Ahora procedemos a descargar el SDK de Android desde su <a href="https://developer.android.com/sdk/index.html#Other">pagina oficial</a>. <strong>Android Studio</strong> no es necesario, por lo que salvo que queramos usarlo no hace falta bajarlo junto al SDK. Si eres usuario de <strong>Arch Linux, Manjaro</strong> u otros derivados puedes instalar el SDK y lo que se dirá a continuación desde <strong>AUR</strong>.</p>
 
 <p>Una vez bajado lo descomprimimos donde queramos y añadimos las rutas a las carpetas que contiene las herramientas a nuestro path. Si por ejemplo lo tenemos en /opt/android/sdk añadiremos lo siguiente en el archivo ~/.bashrc</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">export </span><span class="nv">ANDROIDSDK</span><span class="o">=</span><span class="s2">"/opt/android-sdk"</span>
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/opt/android-sdk/platform-tools:/opt/android-sdk/tools</code></pre></figure>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ANDROIDSDK</span><span class="o">=</span><span class="s2">"/opt/android-sdk"</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
+</code></pre>
+</div>
 
 <p>Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando <strong>Android</strong>. En la vetana que se abre seleccionamos lo que esta marcado en la imagen<br />
 <img src="/img/tutorial_cordova/android_sdk.png" alt="" /></p>
 
-<p>##Creación y configuración de nuestra primera aplicación.<br />
-Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:</p>
+<h2 id="creacin-y-configuracin-de-nuestra-primera-aplicacin">Creación y configuración de nuestra primera aplicación.</h2>
+<p>Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:</p>
 
-<p><code class="highlighter-rouge">cordova create miprimeraapp io.minombre.primeraapp 'Mi primera app</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>cordova create miprimeraapp io.minombre.primeraapp <span class="s2">"Mi primera app"</span>
+</code></pre>
+</div>
 
 <p>Repasemos cada parámetro:</p>
 
@@ -196,12 +202,14 @@ Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicaci
 
 <p>Ahora para añadir plataformas desde una terminal nos movemos hasta el dierctorio del proyecto y ejecutamos:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">cordova platform add android
-cordova platform add firefoxos</code></pre></figure>
+<div class="highlighter-rouge"><pre class="highlight"><code>cordova platform add android
+cordova platform add firefoxos
+</code></pre>
+</div>
 
 <p>Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
 <span class="nt">&lt;widget</span> <span class="na">id=</span><span class="s">"io.minombre.primeraapp"</span> <span class="na">version=</span><span class="s">"0.0.1"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/ns/widgets"</span> <span class="na">xmlns:cdv=</span><span class="s">"http://cordova.apache.org/ns/1.0"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;name&gt;</span>Mi primera app<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;description&gt;</span>
@@ -226,7 +234,9 @@ cordova platform add firefoxos</code></pre></figure>
         <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"itms:*"</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"itms-apps:*"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/platform&gt;</span>
-<span class="nt">&lt;/widget&gt;</span></code></pre></figure>
+<span class="nt">&lt;/widget&gt;</span>
+</code></pre>
+</div>
 
 <p>Dentro del tag &lt;widget&gt; veremos los parámetros <strong>id</strong> y <strong>version</strong> el primero es el id del proyecto que en este caso es el segundo parámetro que le pasamos al comando <strong>cordova create</strong> y versión es el numero de versión de nuestro programa.</p>
 
@@ -242,7 +252,9 @@ cordova platform add firefoxos</code></pre></figure>
 
 <p>Ahora vamos a construir la aplicación. Para ello desde una terminal y desde el directorio de nuestra aplicación ejecutamos lo siguiente:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">cordova build</code></pre></figure>
+<div class="highlighter-rouge"><pre class="highlight"><code>cordova build
+</code></pre>
+</div>
 
 <p>Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.<br />
 Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.</p>
@@ -393,15 +405,11 @@ Si solo queremos construir el paquete para una plataforma especifica le pasamos 
 		</li>
 		
 		<li>
-			<a href="/tag/Excel">Excel</a>
+			<a href="/tag/excel">excel</a>
 		</li>
 		
 		<li>
 			<a href="/tag/OpenDocument">OpenDocument</a>
-		</li>
-		
-		<li>
-			<a href="/tag/Tutoriales">Tutoriales</a>
 		</li>
 		
 	</ul>
