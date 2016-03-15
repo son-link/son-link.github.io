@@ -2,23 +2,33 @@
 <html>
 
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Apache Cordova 2: Instalando plugins y creación del paquete</title>
-  <meta name="description" content="Bienvenid@s a la segunda entrada del tutorial sobre Apache Cordova.">
+	<title>Apache Cordova 2: Instalando plugins y creación del paquete</title>
+	<meta name="description" content="Bienvenid@s a la segunda entrada del tutorial sobre Apache Cordova.">
 
-  <link rel="stylesheet" href="/css/mui.min.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/fontello-embedded.css">
-	<!--[if lte IE 7]>
-		<link rel="stylesheet" href="/css/fontello-ie7.css">
-		<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
-	<![endif]-->
-  <link rel="canonical" href="http://son-link.github.io/2015/07/02/apache-cordova-2.html">
-  <link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
-  <link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+	<link rel="stylesheet" href="/css/mui.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/fontello-embedded.css">
+	<link rel="stylesheet" href="/css/github.css">
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="/css/fontello-ie7.css">
+			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
+		<![endif]-->
+	<link rel="canonical" href="http://son-link.github.io/2015/07/02/apache-cordova-2.html">
+	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
+	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-25169742-2', 'auto');
+		ga('send', 'pageview');
+	</script>
 </head>
 
 
@@ -31,7 +41,7 @@
 				<td class="mui--appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
 				<td class="mui--appbar-height" align="right">
 					<div class="mui-dropdown">
-						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
+						<a class="icon-menu" data-mui-toggle="dropdown" id="menu" href="#"></a>
 						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
 							
 								
@@ -53,11 +63,21 @@
 								
 							
 								
-								<li><a class="page-link" href="/webs_amigas/">Webs amigas</a></li>
-								
 							
 								
 								<li><a class="page-link" href="/proyectos/">Mis proyectos</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
 								
 							
 								
@@ -102,10 +122,10 @@
 	</nav>
 </header>
 
-
-    <div class="page-content mui-z2">
-      <div class="wrapper">
-        <div class="post">
+	<div class="row">
+		<div class="home mui-col-xs-14 mui-col-md-8">
+			<div class="wrapper">
+				<div class="post">
 
   <header class="post-header">
     <h1 class="post-title">Apache Cordova 2: Instalando plugins y creación del paquete</h1>
@@ -117,13 +137,13 @@
 
 <p>En esta nueva entrega explicare como añadir plugins, tanto oficiales como los creados por terceros y crear los paquetes para ser instalados en nuestro dispositivo o en un <strong>Dispositivo Virtual</strong>.</p>
 
-<h3 id="plugins-oficiales">Plugins oficiales:</h3>
+<p>###Plugins oficiales:</p>
 
 <p>Cordova cuenta con varios plugins que nos permite usar las distintas características de nuestro dispositivo, como la geolocalización, los sms, las llamadas, etc. Para este ejemplo vamos a usar la de la cámara.</p>
 
 <p>Para instalar el plugin nos basta con ejecutar</p>
 
-<p><code>cordova plugin add cordova-plugin-camera</code></p>
+<p><code class="highlighter-rouge">cordova plugin add cordova-plugin-camera</code></p>
 
 <p>Los plugins que vayamos añadiendo se guardaran dentro de la carpeta <strong>plugins</strong> que esta en el directorio de nuestro proyecto. Si miramos veremos 2: <strong>cordova-plugin-whitelist</strong> que sirve para definir a que paginas se podrá acceder desde nuestra aplicación y <strong>cordova-plugin-camera</strong> que es la que acabamos de añadir.</p>
 
@@ -131,84 +151,84 @@
 
 <p><strong>index.html</strong></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;!--
-        Customize this policy to fit your own app&#39;s needs. For more guidance, see:
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="c">&lt;!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
             * gap: is required only on iOS (when using UIWebView) and is needed for JS-&gt;native communication
             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add &#39;unsafe-inline&#39; to default-src
-        --&gt;
-		&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#39;self&#39; data: gap: https://ssl.gstatic.com &#39;unsafe-eval&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; media-src *&quot;&gt;
-		&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
-		&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
-		&lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&quot;&gt;
-		&lt;title&gt;Camera Test app&lt;/title&gt;
-		&lt;style&gt;
-			#mifoto {max-width: 100% }
-			button { padding: 5px }
-		&lt;/style&gt;
-		&lt;script&gt;
-			function sacafoto(){
-				navigator.camera.getPicture(onSuccess, onFail, { quality: 90,
-				destinationType: Camera.DestinationType.FILE_URI });
-			}
-			function onSuccess(imageURI) {
-				var image = document.getElementById(&#39;mifoto&#39;);
-				image.src = imageURI;
-			}
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        --&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"Content-Security-Policy"</span> <span class="na">content=</span><span class="s">"default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"format-detection"</span> <span class="na">content=</span><span class="s">"telephone=no"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"msapplication-tap-highlight"</span> <span class="na">content=</span><span class="s">"no"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>Camera Test app<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;style&gt;</span>
+			<span class="nf">#mifoto</span> <span class="p">{</span><span class="nl">max-width</span><span class="p">:</span> <span class="m">100%</span> <span class="p">}</span>
+			<span class="nt">button</span> <span class="p">{</span> <span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span> <span class="p">}</span>
+		<span class="nt">&lt;/style&gt;</span>
+		<span class="nt">&lt;script&gt;</span>
+			<span class="kd">function</span> <span class="nx">sacafoto</span><span class="p">(){</span>
+				<span class="nx">navigator</span><span class="p">.</span><span class="nx">camera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">(</span><span class="nx">onSuccess</span><span class="p">,</span> <span class="nx">onFail</span><span class="p">,</span> <span class="p">{</span> <span class="na">quality</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+				<span class="na">destinationType</span><span class="p">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">DestinationType</span><span class="p">.</span><span class="nx">FILE_URI</span> <span class="p">});</span>
+			<span class="p">}</span>
+			<span class="kd">function</span> <span class="nx">onSuccess</span><span class="p">(</span><span class="nx">imageURI</span><span class="p">)</span> <span class="p">{</span>
+				<span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'mifoto'</span><span class="p">);</span>
+				<span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">imageURI</span><span class="p">;</span>
+			<span class="p">}</span>
 
-			function onFail(message) {
-				alert(&#39;Hubo un fallo al sacar la foto: &#39; + message);
-			}
-		&lt;/script&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div class=&quot;app&quot;&gt;
-            &lt;img src=&quot;&quot; id=&quot;mifoto&quot;&gt;
-			&lt;br /&gt;&lt;button onclick=&quot;sacafoto()&quot;&gt;Sacar foto&lt;/button&gt;
-		&lt;/div&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+			<span class="kd">function</span> <span class="nx">onFail</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">alert</span><span class="p">(</span><span class="s1">'Hubo un fallo al sacar la foto: '</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="nt">&lt;/script&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"mifoto"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;br</span> <span class="nt">/&gt;&lt;button</span> <span class="na">onclick=</span><span class="s">"sacafoto()"</span><span class="nt">&gt;</span>Sacar foto<span class="nt">&lt;/button&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"cordova.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
 
-<p>Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:
+<p>Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:<br />
 <img src="/img/tutorial_cordova/camara_test.png" alt="" /></p>
 
-<h3 id="plugins-no-oficiales">Plugins no oficiales:</h3>
+<p>###Plugins no oficiales:</p>
 
-<p>A día de hoy ahí una buena cantidad de plugins disponibles para las diversas plataformas soportadas por Cordova. Podemos encontrar muchas de ellos en la pagina del proyecto, en http://plugins.cordova.io
+<p>A día de hoy ahí una buena cantidad de plugins disponibles para las diversas plataformas soportadas por Cordova. Podemos encontrar muchas de ellos en la pagina del proyecto, en http://plugins.cordova.io<br />
  si bien los plugins se están moviendo a <a href="https://www.npmjs.com">npmjs</a>. Podeis saber más sobre ello en http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html</p>
 
 <p>En la pagina de cada plugin tendremos las instrucciones de como instalarlo mediante el gestor de plugins de Cordova, por lo que es como hicimos con el plugin oficial de la cámara solo que cambiara el nombre por una dirección web</p>
 
-<h3 id="generando-los-paquetes">Generando los paquetes:</h3>
+<p>###Generando los paquetes:</p>
 
 <p>Es hora de generar los paquetes para poder instalar los paquetes en nuestros dispositivos o simuladores. Para ello solo nos hace falta un comando:</p>
 
-<p><code>cordova build</code></p>
+<p><code class="highlighter-rouge">cordova build</code></p>
 
-<p>Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo <code>cordova build android</code></p>
+<p>Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo <code class="highlighter-rouge">cordova build android</code></p>
 
 <p>Si todo salio correctamente vermos algo como esto:</p>
 
 <p><img src="/img/tutorial_cordova/paquetes_generados.png" alt="" /></p>
 
-<p>Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando <code>adb install -r &lt;ruta&gt; </code> o mediante <code>cordova run android</code> lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas <strong>Firefox 34</strong> o superior abre <strong>App Manager</strong> abriendo una nueva pestaña e introduciendo esta url: <code>about:app-manager</code></p>
+<p>Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando <code class="highlighter-rouge">adb install -r &lt;ruta&gt; </code> o mediante <code class="highlighter-rouge">cordova run android</code> lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas <strong>Firefox 34</strong> o superior abre <strong>App Manager</strong> abriendo una nueva pestaña e introduciendo esta url: <code class="highlighter-rouge">about:app-manager</code></p>
 
-<p>Veremos lo siguiente:
+<p>Veremos lo siguiente:<br />
 <img src="/img/tutorial_cordova/app-manager.png" alt="" /></p>
 
 <p>Pulsamos en <strong>Aplicaciones</strong> y luego en <strong>Añadir aplicación empaquetada</strong>. Nos movemos hasta la carpeta donde descomprimimos el paquete y pulsamos Aceptar.</p>
 
-<p><img src="/img/tutorial_cordova/app-manager_instalando.png" alt="" />
+<p><img src="/img/tutorial_cordova/app-manager_instalando.png" alt="" /><br />
 Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldrá la consola de Firefox para poder depurar nuestra aplicación, ver los mensajes de error, etc.</p>
 
-<p>En el caso de <strong>WebIDE</strong> (versiones más reciente de Firefox o si estas usando Firefox Developer edition) lo abrimos pulsando las teclas Shift+F8:
+<p>En el caso de <strong>WebIDE</strong> (versiones más reciente de Firefox o si estas usando Firefox Developer edition) lo abrimos pulsando las teclas Shift+F8:<br />
 <img src="/img/tutorial_cordova/webide.png" alt="" /></p>
 
 <p>Pulsamos en <strong>Proyecto</strong> y luego en <strong>Abrir aplicación empaquetada</strong> y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldra uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.</p>
@@ -253,32 +273,315 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 	
 </div>
 
-      </div>
-    </div>
-    <footer class="mui-container-fluid">
-	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
-	<div>
-		Puedes seguirme:
-		<ul class="social-media-list">
-			<li>
-				<a href="https://github.com/son-link">
-					<span class="icon-github"></span>
-					<span class="username">son-link</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://twitter.com/sonlink">
-					<span class="icon-twitter"></span>
-					<span class="username">sonlink</span>
-				</a>
-			</li>
-			<li><a href="/feed.xml"><span class="icon icon-rss"></span> rss</a></li>
+			</div>
+		</div>
+		<div id="sidebar" class="mui-col-xs-8 mui-col-md-4">
+			<div class="sidebar-coontent">
+	<h2>Buscar:</h2>
+	<!-- Html Elements for Search -->
+<div id="search-container">
+	<input type="text" id="search-input" placeholder="Buscar...">
+	<ul id="results-container"></ul>
+</div>
+
+<!-- Script pointing to jekyll-search.js -->
+<script src="/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
+<script>
+	SimpleJekyllSearch({
+		searchInput: document.getElementById('search-input'),
+		resultsContainer: document.getElementById('results-container'),
+		json: '/search.json',
+	})
+</script>
+
+	<br />
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Tags:</h2>
+	<ul class="urls_cloud">
+		
+		<li>
+			<a href="/tag/cordova">cordova</a>
+		</li>
+		
+		<li>
+			<a href="/tag/tutoriales">tutoriales</a>
+		</li>
+		
+		<li>
+			<a href="/tag/firefoxos">firefoxos</a>
+		</li>
+		
+		<li>
+			<a href="/tag/android">android</a>
+		</li>
+		
+		<li>
+			<a href="/tag/proyectos">proyectos</a>
+		</li>
+		
+		<li>
+			<a href="/tag/servidores">servidores</a>
+		</li>
+		
+		<li>
+			<a href="/tag/php">php</a>
+		</li>
+		
+		<li>
+			<a href="/tag/lighttpd">lighttpd</a>
+		</li>
+		
+		<li>
+			<a href="/tag/mysql">mysql</a>
+		</li>
+		
+		<li>
+			<a href="/tag/mariadb">mariadb</a>
+		</li>
+		
+		<li>
+			<a href="/tag/juegos">juegos</a>
+		</li>
+		
+		<li>
+			<a href="/tag/lua">lua</a>
+		</li>
+		
+		<li>
+			<a href="/tag/linux">linux</a>
+		</li>
+		
+		<li>
+			<a href="/tag/windows">windows</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Nintendo 3DS">Nintendo 3DS</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Blog">Blog</a>
+		</li>
+		
+		<li>
+			<a href="/tag/PHP">PHP</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Excel">Excel</a>
+		</li>
+		
+		<li>
+			<a href="/tag/OpenDocument">OpenDocument</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Tutoriales">Tutoriales</a>
+		</li>
+		
+	</ul>
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Sígueme:</h2>
+	<ul class="urls_cloud">
+		<li>
+			<a href="#"><i class="icon-github"></i>Github</a>
+		</li>
+		<li>
+			<a href="#"><i class="icon-facebook"></i>Facebook</a>
+		</li>
+		<li>
+			<a href="#"><i class="icon-twitter"></i>Twitter</a>
+		</li>
+		<li>
+			<a href="#"><i class="icon-gplus"></i>Google+</a>
+		</li>
+	</ul>
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Paginas amigas:</h2>
+	<ul class="urls_cloud">
+		<li><a href="http://blog.desdelinux.net" title="Comunidad sobre GNU/Linux. Cuenta con un blog, foro y un Ask">DesdeLinux</a></li>
+		<li><a href="http://killallradio.wordpress.com" title="Es un proyecto online colaborativo hecho por amigos para todo el mundo. Tu Radio Geek Online">Killall Radio</a></li>
+		<li><a href="http://salmorejogeek.com" title="Blog donde se habla de todo un poco del mundo de la informática">Salmorejo Geek</a></li>
+		<li><a href="http://www.systeminside.net/" title="Otro blog dedicado a la informática">SystemInside</a></li>
+		<li><a href="https://sites.google.com/site/z80stsoftware/" title="Blog de un colega dedicado a sus proyectos de programación para los sistemas MSX">Z80St</a></li>
+	</ul>
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Archivo:</h2>
+	
+    
+    
+    
+    
+
+    
+    <h2 id="2016-ref">2016</h2>
+    <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+    <ul>
+    
+
+    <li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2016/03/15/nuevos-tiempos-blog.html">Nuevos tiempos para el blog</a></li>
+
+    
+        
         </ul>
-        <br />
-        Blog levantado con <a href="http://jekyllrb.com/">Jekyll</a> y el framework CSS <a href="https://www.muicss.com">MUI</a>
+        <h2 id="2015-ref">2015</h2>
+        <h4 id="2015-Octubre-ref">Octubre  <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+        <ul>
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></li>
+
+    
+        
+            
+            </ul>
+            <h4 id="2015-Agosto-ref">Agosto <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+            <ul>
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/08/25/montando-servidor-local.html">Montando un mini servidor local en GNU/Linux</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/08/05/killallradio100.html">Killall Radio App 1.0.0</a></li>
+
+    
+        
+            
+            </ul>
+            <h4 id="2015-Julio-ref">Julio <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+            <ul>
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/07/15/killallradio090.html">Killall Radio App 0.9.0</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
+
+    
+        
+            
+            </ul>
+            <h4 id="2015-Junio-ref">Junio <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+            <ul>
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/06/16/bienvenidos.html">Bienvenidos a mi blog</a></li>
+
+    
+    </ul>
+    
+
+</div>
+
+		</div>
 	</div>
+    <footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
+	<p>
+        Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a> y los framework <a href="https://www.muicss.com" target="black">MUI (css)</a> y <a href="http://zeptojs.com/" target="_black">Zepto.js (javascript)</a>
+	</p>
 </footer>
 <script src="/js/mui.min.js"></script>
+<script src="/js/zepto.min.js"></script>
+<script src="/js/archive.js"></script>
+
 
 
   </body>

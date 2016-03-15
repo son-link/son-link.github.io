@@ -2,23 +2,33 @@
 <html>
 
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Apache Cordova 1: Primeros pasos</title>
-  <meta name="description" content="Bienvenid@s a esta primera entrada de una serie de tutoriales sobre Apache Cordova.">
+	<title>Apache Cordova 1: Primeros pasos</title>
+	<meta name="description" content="Bienvenid@s a esta primera entrada de una serie de tutoriales sobre Apache Cordova.">
 
-  <link rel="stylesheet" href="/css/mui.min.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/fontello-embedded.css">
-	<!--[if lte IE 7]>
-		<link rel="stylesheet" href="/css/fontello-ie7.css">
-		<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
-	<![endif]-->
-  <link rel="canonical" href="http://son-link.github.io/2015/06/20/cordova-primeros-pasos.html">
-  <link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
-  <link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+	<link rel="stylesheet" href="/css/mui.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/fontello-embedded.css">
+	<link rel="stylesheet" href="/css/github.css">
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="/css/fontello-ie7.css">
+			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
+		<![endif]-->
+	<link rel="canonical" href="http://son-link.github.io/2015/06/20/cordova-primeros-pasos.html">
+	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
+	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-25169742-2', 'auto');
+		ga('send', 'pageview');
+	</script>
 </head>
 
 
@@ -31,7 +41,7 @@
 				<td class="mui--appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
 				<td class="mui--appbar-height" align="right">
 					<div class="mui-dropdown">
-						<a class="icon-dot-3" data-mui-toggle="dropdown" id="menu"></a>
+						<a class="icon-menu" data-mui-toggle="dropdown" id="menu" href="#"></a>
 						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
 							
 								
@@ -53,11 +63,21 @@
 								
 							
 								
-								<li><a class="page-link" href="/webs_amigas/">Webs amigas</a></li>
-								
 							
 								
 								<li><a class="page-link" href="/proyectos/">Mis proyectos</a></li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
 								
 							
 								
@@ -102,10 +122,10 @@
 	</nav>
 </header>
 
-
-    <div class="page-content mui-z2">
-      <div class="wrapper">
-        <div class="post">
+	<div class="row">
+		<div class="home mui-col-xs-14 mui-col-md-8">
+			<div class="wrapper">
+				<div class="post">
 
   <header class="post-header">
     <h1 class="post-title">Apache Cordova 1: Primeros pasos</h1>
@@ -119,39 +139,39 @@
 
 <p>A lo largo de este tutorial enseñare los pasos para Android y Firefox OS, si bien para este ultimo se puede programar de por si usando tecnología web, por lo que si solo quieres hacer aplicaciones para el, no necesitas este tutorial. Los pasos indicados están hechos bajo <strong>GNU/Linux</strong> pero son, salvo algún cambio, los mismos para Windows.</p>
 
-<p>Para empezar necesitaremos lo siguiente:
-* <strong>node.js</strong> (para instalar y usar Cordova)
-* <strong>Android SDK</strong> y <strong>Java 7</strong> (para generar la app para Android)
+<p>Para empezar necesitaremos lo siguiente:<br />
+* <strong>node.js</strong> (para instalar y usar Cordova)<br />
+* <strong>Android SDK</strong> y <strong>Java 7</strong> (para generar la app para Android)<br />
 * Cualquier editor de texto o IDE (en mi caso Geany)</p>
 
 <h2 id="instalacin">Instalación:</h2>
 <p>Empezaremos instalando lo necesario. En el caso de haber paquetes para tu distribución, instalalos desde ellos.</p>
 
-<h3 id="nodejs">Node.js</h3>
-<p>Lo primero que necesitaremos es <strong>node.js.</strong> Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su <a href="https://nodejs.org/download">pagina de descarga</a> o descargar y compilarlo desde su código fuente.</p>
+<p>###Node.js<br />
+Lo primero que necesitaremos es <strong>node.js.</strong> Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su <a href="https://nodejs.org/download">pagina de descarga</a> o descargar y compilarlo desde su código fuente.</p>
 
-<p>Una vez instalado ejecutamos el siguiente comando:
-<code>sudo npm install -g cordova</code></p>
+<p>Una vez instalado ejecutamos el siguiente comando:<br />
+<code class="highlighter-rouge">sudo npm install -g cordova</code></p>
 
 <p>Esto bajara e instalara Cordova con sus dependencias.</p>
 
-<h3 id="android-sdk">Android SDK</h3>
-<p>Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.</p>
+<p>###Android SDK<br />
+Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.</p>
 
 <p>Ahora procedemos a descargar el SDK de Android desde su <a href="https://developer.android.com/sdk/index.html#Other">pagina oficial</a>. <strong>Android Studio</strong> no es necesario, por lo que salvo que queramos usarlo no hace falta bajarlo junto al SDK. Si eres usuario de <strong>Arch Linux, Manjaro</strong> u otros derivados puedes instalar el SDK y lo que se dirá a continuación desde <strong>AUR</strong>.</p>
 
 <p>Una vez bajado lo descomprimimos donde queramos y añadimos las rutas a las carpetas que contiene las herramientas a nuestro path. Si por ejemplo lo tenemos en /opt/android/sdk añadiremos lo siguiente en el archivo ~/.bashrc</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">export ANDROIDSDK=&quot;/opt/android-sdk&quot;
-export PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">export </span><span class="nv">ANDROIDSDK</span><span class="o">=</span><span class="s2">"/opt/android-sdk"</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/opt/android-sdk/platform-tools:/opt/android-sdk/tools</code></pre></figure>
 
-<p>Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando <strong>Android</strong>. En la vetana que se abre seleccionamos lo que esta marcado en la imagen
+<p>Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando <strong>Android</strong>. En la vetana que se abre seleccionamos lo que esta marcado en la imagen<br />
 <img src="/img/tutorial_cordova/android_sdk.png" alt="" /></p>
 
-<h2 id="creacin-y-configuracin-de-nuestra-primera-aplicacin">Creación y configuración de nuestra primera aplicación.</h2>
-<p>Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:</p>
+<p>##Creación y configuración de nuestra primera aplicación.<br />
+Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:</p>
 
-<p><code>cordova create miprimeraapp io.minombre.primeraapp 'Mi primera app</code></p>
+<p><code class="highlighter-rouge">cordova create miprimeraapp io.minombre.primeraapp 'Mi primera app</code></p>
 
 <p>Repasemos cada parámetro:</p>
 
@@ -176,37 +196,37 @@ export PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools</code><
 
 <p>Ahora para añadir plataformas desde una terminal nos movemos hasta el dierctorio del proyecto y ejecutamos:</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">cordova platform add android
-cordova platform add firefoxos</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">cordova platform add android
+cordova platform add firefoxos</code></pre></figure>
 
 <p>Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&gt;
-&lt;widget id=&quot;io.minombre.primeraapp&quot; version=&quot;0.0.1&quot; xmlns=&quot;http://www.w3.org/ns/widgets&quot; xmlns:cdv=&quot;http://cordova.apache.org/ns/1.0&quot;&gt;
-    &lt;name&gt;Mi primera app&lt;/name&gt;
-    &lt;description&gt;
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;widget</span> <span class="na">id=</span><span class="s">"io.minombre.primeraapp"</span> <span class="na">version=</span><span class="s">"0.0.1"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/ns/widgets"</span> <span class="na">xmlns:cdv=</span><span class="s">"http://cordova.apache.org/ns/1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Mi primera app<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>
         A sample Apache Cordova application that responds to the deviceready event.
-    &lt;/description&gt;
-    &lt;author email=&quot;dev@cordova.apache.org&quot; href=&quot;http://cordova.io&quot;&gt;
+    <span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">email=</span><span class="s">"dev@cordova.apache.org"</span> <span class="na">href=</span><span class="s">"http://cordova.io"</span><span class="nt">&gt;</span>
         Apache Cordova Team
-    &lt;/author&gt;
-    &lt;content src=&quot;index.html&quot; /&gt;
-    &lt;plugin name=&quot;cordova-plugin-whitelist&quot; version=&quot;1&quot; /&gt;
-    &lt;access origin=&quot;*&quot; /&gt;
-    &lt;allow-intent href=&quot;http://*/*&quot; /&gt;
-    &lt;allow-intent href=&quot;https://*/*&quot; /&gt;
-    &lt;allow-intent href=&quot;tel:*&quot; /&gt;
-    &lt;allow-intent href=&quot;sms:*&quot; /&gt;
-    &lt;allow-intent href=&quot;mailto:*&quot; /&gt;
-    &lt;allow-intent href=&quot;geo:*&quot; /&gt;
-    &lt;platform name=&quot;android&quot;&gt;
-        &lt;allow-intent href=&quot;market:*&quot; /&gt;
-    &lt;/platform&gt;
-    &lt;platform name=&quot;ios&quot;&gt;
-        &lt;allow-intent href=&quot;itms:*&quot; /&gt;
-        &lt;allow-intent href=&quot;itms-apps:*&quot; /&gt;
-    &lt;/platform&gt;
-&lt;/widget&gt;</code></pre></div>
+    <span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;content</span> <span class="na">src=</span><span class="s">"index.html"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">"cordova-plugin-whitelist"</span> <span class="na">version=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;access</span> <span class="na">origin=</span><span class="s">"*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"http://*/*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"https://*/*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"tel:*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"sms:*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"mailto:*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"geo:*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;platform</span> <span class="na">name=</span><span class="s">"android"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"market:*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/platform&gt;</span>
+    <span class="nt">&lt;platform</span> <span class="na">name=</span><span class="s">"ios"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"itms:*"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;allow-intent</span> <span class="na">href=</span><span class="s">"itms-apps:*"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/platform&gt;</span>
+<span class="nt">&lt;/widget&gt;</span></code></pre></figure>
 
 <p>Dentro del tag &lt;widget&gt; veremos los parámetros <strong>id</strong> y <strong>version</strong> el primero es el id del proyecto que en este caso es el segundo parámetro que le pasamos al comando <strong>cordova create</strong> y versión es el numero de versión de nuestro programa.</p>
 
@@ -222,16 +242,16 @@ cordova platform add firefoxos</code></pre></div>
 
 <p>Ahora vamos a construir la aplicación. Para ello desde una terminal y desde el directorio de nuestra aplicación ejecutamos lo siguiente:</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">cordova build</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">cordova build</code></pre></figure>
 
-<p>Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.
+<p>Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.<br />
 Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.</p>
 
 <p>Ahora para instalar la aplicación en nuestro dispositivo Android podemos hacerlo de dos modos:</p>
 
 <ul>
-  <li>con el comando <code>cordova run android</code></li>
-  <li>o con <code>adb install /ruta/al/proyecto//platforms/android/build/outputs/apk/android-debug.apk</code></li>
+  <li>con el comando <code class="highlighter-rouge">cordova run android</code></li>
+  <li>o con <code class="highlighter-rouge">adb install /ruta/al/proyecto//platforms/android/build/outputs/apk/android-debug.apk</code></li>
 </ul>
 
 <p>Para Firefox OS nos genera un paquete en <strong>platforms/firefoxos/build/package.zip</strong>. Para instalarlo lo descomprimimos e instalamos a nuestro dispositivo desde el App Manager de Firefox o desde WebIDE desde Firefox Developers Edition o versiones más modernas de Firefox.</p>
@@ -276,32 +296,315 @@ Si solo queremos construir el paquete para una plataforma especifica le pasamos 
 	
 </div>
 
-      </div>
-    </div>
-    <footer class="mui-container-fluid">
-	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
-	<div>
-		Puedes seguirme:
-		<ul class="social-media-list">
-			<li>
-				<a href="https://github.com/son-link">
-					<span class="icon-github"></span>
-					<span class="username">son-link</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://twitter.com/sonlink">
-					<span class="icon-twitter"></span>
-					<span class="username">sonlink</span>
-				</a>
-			</li>
-			<li><a href="/feed.xml"><span class="icon icon-rss"></span> rss</a></li>
+			</div>
+		</div>
+		<div id="sidebar" class="mui-col-xs-8 mui-col-md-4">
+			<div class="sidebar-coontent">
+	<h2>Buscar:</h2>
+	<!-- Html Elements for Search -->
+<div id="search-container">
+	<input type="text" id="search-input" placeholder="Buscar...">
+	<ul id="results-container"></ul>
+</div>
+
+<!-- Script pointing to jekyll-search.js -->
+<script src="/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
+<script>
+	SimpleJekyllSearch({
+		searchInput: document.getElementById('search-input'),
+		resultsContainer: document.getElementById('results-container'),
+		json: '/search.json',
+	})
+</script>
+
+	<br />
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Tags:</h2>
+	<ul class="urls_cloud">
+		
+		<li>
+			<a href="/tag/cordova">cordova</a>
+		</li>
+		
+		<li>
+			<a href="/tag/tutoriales">tutoriales</a>
+		</li>
+		
+		<li>
+			<a href="/tag/firefoxos">firefoxos</a>
+		</li>
+		
+		<li>
+			<a href="/tag/android">android</a>
+		</li>
+		
+		<li>
+			<a href="/tag/proyectos">proyectos</a>
+		</li>
+		
+		<li>
+			<a href="/tag/servidores">servidores</a>
+		</li>
+		
+		<li>
+			<a href="/tag/php">php</a>
+		</li>
+		
+		<li>
+			<a href="/tag/lighttpd">lighttpd</a>
+		</li>
+		
+		<li>
+			<a href="/tag/mysql">mysql</a>
+		</li>
+		
+		<li>
+			<a href="/tag/mariadb">mariadb</a>
+		</li>
+		
+		<li>
+			<a href="/tag/juegos">juegos</a>
+		</li>
+		
+		<li>
+			<a href="/tag/lua">lua</a>
+		</li>
+		
+		<li>
+			<a href="/tag/linux">linux</a>
+		</li>
+		
+		<li>
+			<a href="/tag/windows">windows</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Nintendo 3DS">Nintendo 3DS</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Blog">Blog</a>
+		</li>
+		
+		<li>
+			<a href="/tag/PHP">PHP</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Excel">Excel</a>
+		</li>
+		
+		<li>
+			<a href="/tag/OpenDocument">OpenDocument</a>
+		</li>
+		
+		<li>
+			<a href="/tag/Tutoriales">Tutoriales</a>
+		</li>
+		
+	</ul>
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Sígueme:</h2>
+	<ul class="urls_cloud">
+		<li>
+			<a href="#"><i class="icon-github"></i>Github</a>
+		</li>
+		<li>
+			<a href="#"><i class="icon-facebook"></i>Facebook</a>
+		</li>
+		<li>
+			<a href="#"><i class="icon-twitter"></i>Twitter</a>
+		</li>
+		<li>
+			<a href="#"><i class="icon-gplus"></i>Google+</a>
+		</li>
+	</ul>
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Paginas amigas:</h2>
+	<ul class="urls_cloud">
+		<li><a href="http://blog.desdelinux.net" title="Comunidad sobre GNU/Linux. Cuenta con un blog, foro y un Ask">DesdeLinux</a></li>
+		<li><a href="http://killallradio.wordpress.com" title="Es un proyecto online colaborativo hecho por amigos para todo el mundo. Tu Radio Geek Online">Killall Radio</a></li>
+		<li><a href="http://salmorejogeek.com" title="Blog donde se habla de todo un poco del mundo de la informática">Salmorejo Geek</a></li>
+		<li><a href="http://www.systeminside.net/" title="Otro blog dedicado a la informática">SystemInside</a></li>
+		<li><a href="https://sites.google.com/site/z80stsoftware/" title="Blog de un colega dedicado a sus proyectos de programación para los sistemas MSX">Z80St</a></li>
+	</ul>
+	<div class="mui-divider"></div>
+</div>
+<div class="sidebar-content">
+	<h2>Archivo:</h2>
+	
+    
+    
+    
+    
+
+    
+    <h2 id="2016-ref">2016</h2>
+    <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+    <ul>
+    
+
+    <li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2016/03/15/nuevos-tiempos-blog.html">Nuevos tiempos para el blog</a></li>
+
+    
+        
         </ul>
-        <br />
-        Blog levantado con <a href="http://jekyllrb.com/">Jekyll</a> y el framework CSS <a href="https://www.muicss.com">MUI</a>
+        <h2 id="2015-ref">2015</h2>
+        <h4 id="2015-Octubre-ref">Octubre  <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+        <ul>
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></li>
+
+    
+        
+            
+            </ul>
+            <h4 id="2015-Agosto-ref">Agosto <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+            <ul>
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/08/25/montando-servidor-local.html">Montando un mini servidor local en GNU/Linux</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/08/05/killallradio100.html">Killall Radio App 1.0.0</a></li>
+
+    
+        
+            
+            </ul>
+            <h4 id="2015-Julio-ref">Julio <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+            <ul>
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/07/15/killallradio090.html">Killall Radio App 0.9.0</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
+
+    
+        
+            
+            </ul>
+            <h4 id="2015-Junio-ref">Junio <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+            <ul>
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
+    
+
+    <li><a href="/2015/06/16/bienvenidos.html">Bienvenidos a mi blog</a></li>
+
+    
+    </ul>
+    
+
+</div>
+
+		</div>
 	</div>
+    <footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
+	<p>
+        Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a> y los framework <a href="https://www.muicss.com" target="black">MUI (css)</a> y <a href="http://zeptojs.com/" target="_black">Zepto.js (javascript)</a>
+	</p>
 </footer>
 <script src="/js/mui.min.js"></script>
+<script src="/js/zepto.min.js"></script>
+<script src="/js/archive.js"></script>
+
 
 
   </body>
