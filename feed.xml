@@ -6,8 +6,8 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 18 Mar 2016 12:56:46 +0100</pubDate>
-    <lastBuildDate>Fri, 18 Mar 2016 12:56:46 +0100</lastBuildDate>
+    <pubDate>Fri, 18 Mar 2016 22:46:36 +0100</pubDate>
+    <lastBuildDate>Fri, 18 Mar 2016 22:46:36 +0100</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
     
       <item>
@@ -64,6 +64,32 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
   &lt;li&gt;index.html. Creo que no hace falta indicar lo que es.&lt;/li&gt;
   &lt;li&gt;_site: en esta carpeta, que por el momento no esta, es donde ira el blog como tal cuando lo generemos o ejecutemos el servidor de Jekyll&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Ahora vamos a configurar el servidor. Abrimos con cualquier editor de texto el archivo _config.yml&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Welcome to Jekyll!&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# This config file is meant for settings that affect your whole blog, values&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# which you are expected to set up once and rarely need to edit after that.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# For technical reasons, this file is *NOT* reloaded automatically when you use&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# &#39;jekyll serve&#39;. If you change this file, please restart the server process.&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Site settings&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Titulo del blog&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;your-email@domain.com&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# this means to ignore newlines until &quot;baseurl:&quot;&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;La descripción del blog que aparece en las etiquetas meta y en la descripción en el feed.xml&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Cada linea debe de estar precedida de 2 espacios en blanco&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;baseurl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# La subruta del blog, por ejemplo /blog&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;http://localhost&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# la url y el protocolo base de tu blog&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;twitter_username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyllrb&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;github_username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;jekyll&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Build settings&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;kramdown&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Como vemos ya se nos describe cada variable. Modificalo a tu gusto. La ultima variable es el encargado de convertir nuestros ficheros Markdown a HTML. Este es el usado por defecto, ademas del único que se puede usar en Github Pages.&lt;/p&gt;
 
 &lt;p&gt;Vamos a ver como es el blog tal y como es ahora. Para ello desde la terminal y desde el directorio donde esta el blog ejecutamos:&lt;/p&gt;
 
