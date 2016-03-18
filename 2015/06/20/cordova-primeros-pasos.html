@@ -26,7 +26,7 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-25169742-2', 'auto');
+		ga('create', 'UA-75229203-1', 'auto');
 		ga('send', 'pageview');
 	</script>
 </head>
@@ -43,6 +43,8 @@
 					<div class="mui-dropdown">
 						<a class="icon-menu" data-mui-toggle="dropdown" id="menu" href="#"></a>
 						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
+							
+								
 							
 								
 								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
@@ -116,6 +118,8 @@
 							
 								
 							
+								
+							
 						</ul>
 					</div>
 				</td>
@@ -137,23 +141,29 @@
   <article class="post-content">
     <p>Bienvenid@s a esta primera entrada de una serie de tutoriales sobre <strong>Apache Cordova.</strong></p>
 
-<p>Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para moviles multiplataforma usando teclogias web, esto es <strong>HTML, Javascript y CSS</strong>, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una applicación para Android, que usa <strong>Java</strong> y para <strong>IOs</strong> que se hacen con <strong>C#</strong>.</p>
+<p>Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para móviles multiplataforma usando tecnologías web, esto es <strong>HTML, Javascript y CSS</strong>, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una aplicación para Android, que usa <strong>Java</strong> o para <strong>IOs</strong> que se hacen con <strong>C#</strong>.</p>
 
 <p>A lo largo de este tutorial enseñare los pasos para Android y Firefox OS, si bien para este ultimo se puede programar de por si usando tecnología web, por lo que si solo quieres hacer aplicaciones para el, no necesitas este tutorial. Los pasos indicados están hechos bajo <strong>GNU/Linux</strong> pero son, salvo algún cambio, los mismos para Windows.</p>
 
-<p>Para empezar necesitaremos lo siguiente:<br />
-* <strong>node.js</strong> (para instalar y usar Cordova)<br />
-* <strong>Android SDK</strong> y <strong>Java 7</strong> (para generar la app para Android)<br />
-* Cualquier editor de texto o IDE (en mi caso Geany)</p>
+<p>Para empezar necesitaremos lo siguiente:</p>
+
+<ul>
+  <li><strong>node.js</strong> (para instalar y usar Cordova)</li>
+  <li><strong>Android SDK</strong> y <strong>Java 7</strong> (para generar la app para Android)</li>
+  <li>Cualquier editor de texto o IDE (en mi caso <strong>Geany</strong>)</li>
+</ul>
 
 <h2 id="instalacin">Instalación:</h2>
 <p>Empezaremos instalando lo necesario. En el caso de haber paquetes para tu distribución, instalalos desde ellos.</p>
 
 <h3 id="nodejs">Node.js</h3>
-<p>Lo primero que necesitaremos es <strong>node.js.</strong> Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su <a href="https://nodejs.org/download">pagina de descarga</a> o descargar y compilarlo desde su código fuente.</p>
+<p>Lo primero que necesitaremos es <strong>node.js.</strong> Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Arch Linux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su <a href="https://nodejs.org/download">pagina de descarga</a> o descargar y compilarlo desde su código fuente.</p>
 
-<p>Una vez instalado ejecutamos el siguiente comando:<br />
-<code class="highlighter-rouge">sudo npm install -g cordova</code></p>
+<p>Una vez instalado ejecutamos el siguiente comando:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo npm install -g cordova
+</code></pre>
+</div>
 
 <p>Esto bajara e instalara Cordova con sus dependencias.</p>
 
@@ -191,23 +201,23 @@
 <p>Ahora al entrar en la carpeta un archivo XML y varias carpetas:</p>
 
 <ul>
-  <li><strong>hooks</strong> :contiene varios scripts especiales para plugins o comandos especiales de Cordova.</li>
+  <li><strong>hooks:</strong> contiene varios scripts especiales para plugins o comandos especiales de Cordova.</li>
   <li>
-    <p><strong>platforms</strong>: este directorio es donde se ubicaran las plataformas que vayamos añadidendo.</p>
+    <p><strong>platforms:</strong> este directorio es donde se ubicaran las plataformas que vayamos añadiendo.</p>
   </li>
   <li><strong>plugins</strong>: aquí estarán los plugins de Cordova que descarguemos.</li>
   <li><strong>www</strong>: en el es donde estarán los archivos de nuestra app.</li>
   <li><strong>config.xml</strong>: es el archivo de configuración de nuestra app.</li>
 </ul>
 
-<p>Ahora para añadir plataformas desde una terminal nos movemos hasta el dierctorio del proyecto y ejecutamos:</p>
+<p>Ahora para añadir plataformas desde una terminal nos movemos hasta el directorio del proyecto y ejecutamos:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>cordova platform add android
 cordova platform add firefoxos
 </code></pre>
 </div>
 
-<p>Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:</p>
+<p>Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el archivo config.xml con cualquier editor de texto. Veremos algo similar a esto:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
 <span class="nt">&lt;widget</span> <span class="na">id=</span><span class="s">"io.minombre.primeraapp"</span> <span class="na">version=</span><span class="s">"0.0.1"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/ns/widgets"</span> <span class="na">xmlns:cdv=</span><span class="s">"http://cordova.apache.org/ns/1.0"</span><span class="nt">&gt;</span>
@@ -256,7 +266,7 @@ cordova platform add firefoxos
 </code></pre>
 </div>
 
-<p>Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.<br />
+<p>Esto construirá los paquetes para todas las plataformas que hubiésemos añadido.<br />
 Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.</p>
 
 <p>Ahora para instalar la aplicación en nuestro dispositivo Android podemos hacerlo de dos modos:</p>
@@ -278,17 +288,31 @@ Si solo queremos construir el paquete para una plataforma especifica le pasamos 
     </div>
     <br />
     <ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/cordova">cordova</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/firefoxos">firefoxos</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
- 			
-    	</ul>
+		<li>Etiquetas: </li>
+   		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/cordova">cordova</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/firefoxos">firefoxos</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
+ 		
+    </ul>
+    <span>Entradas relacionadas:</span>
+    <ul class="relacionadas">
+		
+			<li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
+		
+			<li><a href="/2015/08/05/killallradio100.html">Killall Radio App 1.0.0</a></li>
+		
+			<li><a href="/2015/07/15/killallradio090.html">Killall Radio App 0.9.0</a></li>
+		
+			<li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+		
+			<li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
+		
+    </ul>
   </article>
   <!-- Disqus comments -->
   
@@ -337,79 +361,83 @@ Si solo queremos construir el paquete para una plataforma especifica le pasamos 
 	<ul class="urls_cloud">
 		
 		<li>
-			<a href="/tag/cordova">cordova</a>
+			<a href="/tag/cordova">cordova <span class="badge">2</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/tutoriales">tutoriales</a>
+			<a href="/tag/tutoriales">tutoriales <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/firefoxos">firefoxos</a>
+			<a href="/tag/firefoxos">firefoxos <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/android">android</a>
+			<a href="/tag/android">android <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/proyectos">proyectos</a>
+			<a href="/tag/proyectos">proyectos <span class="badge">3</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/servidores">servidores</a>
+			<a href="/tag/servidores">servidores <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/php">php</a>
+			<a href="/tag/php">php <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/lighttpd">lighttpd</a>
+			<a href="/tag/lighttpd">lighttpd <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/mysql">mysql</a>
+			<a href="/tag/mysql">mysql <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/mariadb">mariadb</a>
+			<a href="/tag/mariadb">mariadb <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/juegos">juegos</a>
+			<a href="/tag/juegos">juegos <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/lua">lua</a>
+			<a href="/tag/lua">lua <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/linux">linux</a>
+			<a href="/tag/linux">linux <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/windows">windows</a>
+			<a href="/tag/windows">windows <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/Nintendo 3DS">Nintendo 3DS</a>
+			<a href="/tag/Nintendo 3DS">Nintendo 3DS <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/Blog">Blog</a>
+			<a href="/tag/Blog">Blog <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/PHP">PHP</a>
+			<a href="/tag/PHP">PHP <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/excel">excel</a>
+			<a href="/tag/excel">excel <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/OpenDocument">OpenDocument</a>
+			<a href="/tag/OpenDocument">OpenDocument <span class="badge">1</span></a>
+		</li>
+		
+		<li>
+			<a href="/tag/jekyll">jekyll <span class="badge">1</span></a>
 		</li>
 		
 	</ul>
@@ -456,6 +484,21 @@ Si solo queremos construir el paquete para una plataforma especifica le pasamos 
     <h2 id="2016-ref">2016</h2>
     <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
     <ul>
+    
+
+    <li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
     
 
     <li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>

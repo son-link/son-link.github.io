@@ -26,7 +26,7 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-25169742-2', 'auto');
+		ga('create', 'UA-75229203-1', 'auto');
 		ga('send', 'pageview');
 	</script>
 </head>
@@ -43,6 +43,8 @@
 					<div class="mui-dropdown">
 						<a class="icon-menu" data-mui-toggle="dropdown" id="menu" href="#"></a>
 						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
+							
+								
 							
 								
 								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
@@ -68,6 +70,8 @@
 							
 								
 								<li><a class="page-link" href="/proyectos/">Mis proyectos</a></li>
+								
+							
 								
 							
 								
@@ -222,11 +226,11 @@
 
 <p>Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo <code class="highlighter-rouge">cordova build android</code></p>
 
-<p>Si todo salio correctamente vermos algo como esto:</p>
+<p>Si todo salio correctamente veremos algo como esto:</p>
 
 <p><img src="/img/tutorial_cordova/paquetes_generados.png" alt="" /></p>
 
-<p>Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando <code class="highlighter-rouge">adb install -r &lt;ruta&gt;</code> o mediante <code class="highlighter-rouge">cordova run android</code> lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas <strong>Firefox 34</strong> o superior abre <strong>App Manager</strong> abriendo una nueva pestaña e introduciendo esta url: <code class="highlighter-rouge">about:app-manager</code></p>
+<p>Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando <code class="highlighter-rouge">adb install -r &lt;ruta&gt;</code> o mediante <code class="highlighter-rouge">cordova run android</code> lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas <strong>Firefox 34</strong> o superior abre <strong>App Manager</strong> abriendo una nueva pestaña e introduciendo esta url: <strong>about:app-manager</strong></p>
 
 <p>Veremos lo siguiente:<br />
 <img src="/img/tutorial_cordova/app-manager.png" alt="" /></p>
@@ -239,7 +243,7 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 <p>En el caso de <strong>WebIDE</strong> (versiones más reciente de Firefox o si estas usando Firefox Developer edition) lo abrimos pulsando las teclas Shift+F8:<br />
 <img src="/img/tutorial_cordova/webide.png" alt="" /></p>
 
-<p>Pulsamos en <strong>Proyecto</strong> y luego en <strong>Abrir aplicación empaquetada</strong> y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldra uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.</p>
+<p>Pulsamos en <strong>Proyecto</strong> y luego en <strong>Abrir aplicación empaquetada</strong> y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldrá uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.</p>
 
 <p>Y esto de momento es todo. En la próxima entrega veremos que otras opciones tenemos para configurar nuestro proyecto. Si tenéis dudas al respecto podéis consultar la documentación de Cordova o usar el sistema de comentarios. Estaré encantado de ayudaros en lo buenamente que pueda.</p>
 
@@ -251,17 +255,31 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
     </div>
     <br />
     <ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/cordova">cordova</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/firefoxos">firefoxos</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
- 			
-    	</ul>
+		<li>Etiquetas: </li>
+   		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/cordova">cordova</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/firefoxos">firefoxos</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
+ 		
+    </ul>
+    <span>Entradas relacionadas:</span>
+    <ul class="relacionadas">
+		
+			<li><a href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></li>
+		
+			<li><a href="/2015/08/05/killallradio100.html">Killall Radio App 1.0.0</a></li>
+		
+			<li><a href="/2015/07/15/killallradio090.html">Killall Radio App 0.9.0</a></li>
+		
+			<li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+		
+			<li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
+		
+    </ul>
   </article>
   <!-- Disqus comments -->
   
@@ -310,79 +328,83 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 	<ul class="urls_cloud">
 		
 		<li>
-			<a href="/tag/cordova">cordova</a>
+			<a href="/tag/cordova">cordova <span class="badge">2</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/tutoriales">tutoriales</a>
+			<a href="/tag/tutoriales">tutoriales <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/firefoxos">firefoxos</a>
+			<a href="/tag/firefoxos">firefoxos <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/android">android</a>
+			<a href="/tag/android">android <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/proyectos">proyectos</a>
+			<a href="/tag/proyectos">proyectos <span class="badge">3</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/servidores">servidores</a>
+			<a href="/tag/servidores">servidores <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/php">php</a>
+			<a href="/tag/php">php <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/lighttpd">lighttpd</a>
+			<a href="/tag/lighttpd">lighttpd <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/mysql">mysql</a>
+			<a href="/tag/mysql">mysql <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/mariadb">mariadb</a>
+			<a href="/tag/mariadb">mariadb <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/juegos">juegos</a>
+			<a href="/tag/juegos">juegos <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/lua">lua</a>
+			<a href="/tag/lua">lua <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/linux">linux</a>
+			<a href="/tag/linux">linux <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/windows">windows</a>
+			<a href="/tag/windows">windows <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/Nintendo 3DS">Nintendo 3DS</a>
+			<a href="/tag/Nintendo 3DS">Nintendo 3DS <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/Blog">Blog</a>
+			<a href="/tag/Blog">Blog <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/PHP">PHP</a>
+			<a href="/tag/PHP">PHP <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/excel">excel</a>
+			<a href="/tag/excel">excel <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/OpenDocument">OpenDocument</a>
+			<a href="/tag/OpenDocument">OpenDocument <span class="badge">1</span></a>
+		</li>
+		
+		<li>
+			<a href="/tag/jekyll">jekyll <span class="badge">1</span></a>
 		</li>
 		
 	</ul>
@@ -429,6 +451,21 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
     <h2 id="2016-ref">2016</h2>
     <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
     <ul>
+    
+
+    <li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
     
 
     <li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>

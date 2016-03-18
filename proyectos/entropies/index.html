@@ -6,8 +6,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Killall Radio App 0.9.0</title>
-	<meta name="description" content="Killall Radio App es la app oficial de Killall Radio, una emisora online dedicada al mundillo geek y que es colaborativa. La idea surgió de la nada y la prop...">
+	<title>EntroPipes</title>
+	<meta name="description" content="Mi blog personal donde hablo de mis proyectos, tutoriales, etc, ademas de exponer mis trabajos y proyectos
+">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
@@ -17,7 +18,7 @@
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
 		<![endif]-->
-	<link rel="canonical" href="http://son-link.github.io/2015/07/15/killallradio090.html">
+	<link rel="canonical" href="http://son-link.github.io/proyectos/entropies/">
 	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
 	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
 	<script>
@@ -134,65 +135,71 @@
 				<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Killall Radio App 0.9.0</h1>
-    <p class="post-meta">07/15/2015</p>
+    <h1 class="post-title">EntroPipes</h1>
   </header>
 
   <article class="post-content">
-    <p><strong>Killall Radio App</strong> es la app oficial de <a href="http://killallradio.wordpress.com">Killall Radio</a>, una emisora online dedicada al mundillo geek y que es colaborativa. La idea surgió de la nada y la propuse en el grupo de Telegram y fue acogido con un gran interés.<br />
-Esta es la primera versión publica de ella, prácticamente terminada y esta disponible para <strong>Firefox OS</strong> a partir de la versión 1.3 y <strong>Android</strong> a partir de la 4.2 (el audio no funciona en la 2.3 y en la 4.0 no ha sido probada)</p>
+    <p>SpaceBlocks es mi segundo videojuego programado en <strong>LUA</strong> y con el framework <a href="http://love2d.org">Löve</a> y esta basado en un juego que viene en muchas maquinitas LCD</p>
 
-<p>En la <a href="/proyectos/killallradio/">pagina de este blog</a> dedicada a la aplicación podréis encontrar los enlaces a los paquetes.</p>
+<p>El juego es sencillo. Solo hay que disparar hasta completar las lineas para borrarlas antes de que lleguen al limite. Hay 4 naves disponibles, para que juegues con la que más te guste.</p>
 
-<p>Espero que os guste tanto la aplicación como la emisora.<br />
-Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo en el testeo, proponer ideas, etc.</p>
+<h3 id="como-se-juega">Como se juega:</h3>
 
-    <div class="share">
-		Compartir:
-		<a target="_black" href="http://twitter.com/intent/tweet?text=Killall Radio App 0.9.0&url=http://son-link.github.io/2015/07/15/killallradio090.html"><i class="icon-twitter"></i> Twitter</a>
-		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2015/07/15/killallradio090.html"><i class="icon-facebook"></i> Facebook</a>
-		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2015/07/15/killallradio090.html"><i class="icon-gplus"></i> Google+</a>
-    </div>
-    <br />
-    <ul class="tag_list">
-		<li>Etiquetas: </li>
-   		
-   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/proyectos">proyectos</a></li>
- 		
-   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/firefoxos">firefoxos</a></li>
- 		
-   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
- 		
-    </ul>
-    <span>Entradas relacionadas:</span>
-    <ul class="relacionadas">
-		
-			<li><a href="/2015/08/05/killallradio100.html">Killall Radio App 1.0.0</a></li>
-		
-			<li><a href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></li>
-		
-			<li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
-		
-			<li><a href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></li>
-		
-    </ul>
+<ul>
+  <li><strong>Teclas izquierda y derecha</strong>: Mover la nave/seleccionar una</li>
+  <li><strong>Espacio:</strong> Disparar</li>
+  <li><strong>P:</strong> Pausar/Jugar</li>
+</ul>
+
+<h2 id="instalacin">Instalación:</h2>
+
+<h3 id="linux">Linux:</h3>
+<p>Necesitas tener instalado <strong>Löve</strong> 0.9.0 o superior. En la mayoría de distribuciones esta bajo el nombre de love. por ejemplo para instalarlo en Arch Linux y deribadas -&gt; Archlinux**: <code class="highlighter-rouge">pacman -S love</code></p>
+
+<p>Para ejecutarlo solo hay que pulsar 2 veces sobre el archivo <strong>EntroPipes.love</strong>. Si no es así abra una terminal y ejecute <code class="highlighter-rouge">love path/to/EntroPipes.love</code> ó <code class="highlighter-rouge">love path/to/EntroPipesFolder/</code>.<br />
+Otro truco consiste en crear un ejecutable:<br />
+<code class="highlighter-rouge">cat /usr/bin/love EntroPipes.love &gt; entropipes</code></p>
+
+<h3 id="windows">Windows:</h3>
+<p>Solo tienes que descomprimir el zip y pulsar 2 veces en EntroPipes.exe</p>
+
+<h3 id="nintendo-3ds">Nintendo 3DS:</h3>
+<p>Descomprime el zip en el directorio raiz de la tarjeta SD<br />
+Ademas necesitas una <strong>flash cart</strong> o tener instalado algún <strong>Hax</strong> <em>(Menuhax, BrowserHax, etc)</em></p>
+
+<h3 id="capturas">Capturas:</h3>
+<p><img src="https://github.com/son-link/EntroPipes/raw/master/img/main_screen.png" alt="Pantalla principal" /><br />
+<img src="https://github.com/son-link/EntroPipes/raw/master/ingame_screen.png" alt="Pantalla de juego" /></p>
+
+<p>Datos del proyecto:</p>
+
+<ul>
+  <li><strong>Estado del proyecto:</strong> Estable</li>
+  <li><strong>Versión actual:</strong> r3-2Z</li>
+  <li><strong>Plataformas:</strong> Linux, Windows, Mac, Nintendo 3DS</li>
+</ul>
+
+<h3 id="enlaces">Enlaces</h3>
+
+<ul>
+  <li><a href="https://github.com/son-link/EntroPipes">Repositorio</a></li>
+</ul>
+
+<h3 id="descargas">Descargas:</h3>
+<ul>
+  <li>
+    <p><a href="https://dl.dropboxusercontent.com/u/58286032/juegos/EntroPipes/EntroPipes-win32.zip">Windows 32 bits</a></p>
+  </li>
+  <li>
+    <p><a href="https://dl.dropboxusercontent.com/u/58286032/juegos/EntroPipes/EntroPipes-win64.zip">Windows 64 bits</a></p>
+  </li>
+  <li>
+    <p><a href="https://dl.dropboxusercontent.com/u/58286032/juegos/EntroPipes/EntroPipes-3ds.zip">Nintendo 3DS</a></p>
+  </li>
+</ul>
+
   </article>
-  <!-- Disqus comments -->
-  
-	<div id="disqus_thread"></div>
-		<script type="text/javascript">
-			/* * * CONFIGURATION VARIABLES * * */
-			var disqus_shortname = 'blogdesonlink';
 
-			/* * * DON'T EDIT BELOW THIS LINE * * */
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-	
 </div>
 
 			</div>

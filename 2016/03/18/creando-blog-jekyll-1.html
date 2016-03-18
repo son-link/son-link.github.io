@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Killall Radio App 0.9.0</title>
-	<meta name="description" content="Killall Radio App es la app oficial de Killall Radio, una emisora online dedicada al mundillo geek y que es colaborativa. La idea surgió de la nada y la prop...">
+	<title>Creando un blog con Jekyll. 1ª parte</title>
+	<meta name="description" content="Desde hace tiempo por internet circulan varios sistemas de creación de blogs, como Wordpress o Blogger, pero ademas muchos de ellos, especialmente los mencio...">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
@@ -17,7 +17,7 @@
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
 		<![endif]-->
-	<link rel="canonical" href="http://son-link.github.io/2015/07/15/killallradio090.html">
+	<link rel="canonical" href="http://son-link.github.io/2016/03/18/creando-blog-jekyll-1.html">
 	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
 	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
 	<script>
@@ -134,42 +134,94 @@
 				<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Killall Radio App 0.9.0</h1>
-    <p class="post-meta">07/15/2015</p>
+    <h1 class="post-title">Creando un blog con Jekyll. 1ª parte</h1>
+    <p class="post-meta">03/18/2016</p>
   </header>
 
   <article class="post-content">
-    <p><strong>Killall Radio App</strong> es la app oficial de <a href="http://killallradio.wordpress.com">Killall Radio</a>, una emisora online dedicada al mundillo geek y que es colaborativa. La idea surgió de la nada y la propuse en el grupo de Telegram y fue acogido con un gran interés.<br />
-Esta es la primera versión publica de ella, prácticamente terminada y esta disponible para <strong>Firefox OS</strong> a partir de la versión 1.3 y <strong>Android</strong> a partir de la 4.2 (el audio no funciona en la 2.3 y en la 4.0 no ha sido probada)</p>
+    <p>Desde hace tiempo por internet circulan varios sistemas de creación de blogs, como <strong>Wordpress</strong> o <strong>Blogger</strong>, pero ademas muchos de ellos, especialmente los mencionados, si queremos modificar algunas de sus partes, sobre todo el diseño, necesitaros leer bastante documentación al respecto. Gracias a <strong><a href="http://jekyllrb.com/">Jekyll</a></strong> y unos pocos pasos podremos tener un blog. Este blog es un ejemplo, ademas de ser el sistema recomendado por <strong>Github</strong> para sus <strong>Github Pages</strong></p>
 
-<p>En la <a href="/proyectos/killallradio/">pagina de este blog</a> dedicada a la aplicación podréis encontrar los enlaces a los paquetes.</p>
+<h2 id="requisitos">Requisitos</h2>
 
-<p>Espero que os guste tanto la aplicación como la emisora.<br />
-Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo en el testeo, proponer ideas, etc.</p>
+<p>Paro poder trabajar con Jekyll necesitamos:</p>
+
+<ul>
+  <li>Tener instalado el interprete de <strong>Ruby</strong> y <strong>Gems</strong>, necesario para instalar las <strong>gemas</strong> (paquetes) necesarios</li>
+  <li>Cualquier editor de texto. Para las entradas se recomienda alguno con soporte para <strong>Markdown</strong>. Más adelante explico que es esto</li>
+  <li>Tener conocimientos de <strong>HTML</strong> y <strong>CSS</strong> para poder modificar el diseño y el aspecto de nuestro blog.</li>
+  <li>Un cliente <strong>FPT</strong> para subir el blog al servidor (recomiendo <strong>FileZilla</strong>) o <strong>Git</strong> si lo vamos a subir a Github Pages.</li>
+</ul>
+
+<h2 id="instalacin">Instalación:</h2>
+<p>Lo primero que necesitamos es instalar el interprete de <strong>Ruby</strong> y <strong>Gems</strong>. Ambos están disponibles desde los repositorios de la mayoría de distribuciones GNU/Linux, por lo que solo tendremos que instalarlos desde sus gestores de paquetes. Si usas <strong>Windows</strong> podras descargar los instaladores desde la <a href="https://www.ruby-lang.org">pagina oficial del lenguaje Ruby</a> y <a href="https://rubygems.org/">RubyGems</a>. En sus paginas encontraras como instalarlos.</p>
+
+<p>Ahora vamos a instalar Jekyll, pero para esto hay 2 Gemas (paquetes): el oficial y el de Github. ¿Que diferencias hay? Pues principalmente Github no permite el uso de muchos plugins de Jekyll por motivos de seguridad, pero esto solo pasa si subimos directamente Jekyll, ya que, como veremos más adelante, Jekyll crea una estructura de paginas estáticas que podremos subir a cualquier servidor. Mi blog es un ejemplo de ello ya que uso un par de plugins: uno para que los meses salgan en español y otro para generar el sitemap.xml</p>
+
+<p>Para instalar Jekyll abrimos una nueva terminal (consola de comandos en Windows) y ejecutamos lo siguiente:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gems install jekyll
+</code></pre>
+</div>
+<p>Esto instalara Jekylls y todas sus dependencias. Para crear un nuevo blog ejecutamos:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>jekyll new ruta
+</code></pre>
+</div>
+<p>donde ruta es la ruta donde estará la carpeta que contendrá el nuevo blog.<br />
+Para poder usarlo directamente en Github pages primero instalaremos desde gems la gema <strong>Bundle</strong>.</p>
+
+<p>En la carpeta que contiene el blog crearemos un nuevo fichero llamado Gemfile donde pondremos el siguiente contenido:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+<span class="n">gem</span> <span class="s1">'github-pages'</span>
+</code></pre>
+</div>
+
+<p>En la carpeta veremos varios archivos y carpetas. Vamos a ver que es cada una:</p>
+
+<ul>
+  <li>css: aquí irán las hojas de estilo</li>
+  <li>_includes: Aquí ira todo aquello que se incluirá dentro de otras paginas. En este ejemplo la cabecera y el pie de pagina, entre otras</li>
+  <li>_layouts: aquí van los diseños de pagina. En cada articulo y pagina podremos indicar cual usar. default.html contiene la estructura básica de todas las paginas.</li>
+  <li>_post: Aquí es donde irán las entradas del blog. Las entradas se escriben usando el formato Markdown, que es un sistema de marcado ligero pensado para dar un formato rápido e nuestros documentos, como cabeceras, texto en negrita, imágenes, etc. Un ejemplo parecido seria el usado por muchos foros.</li>
+  <li>_sass: SASS es un lenguaje que extiende las hojas de estilo CSS y que permite separar los estilos en bloques, usar variables, etc. Puedes saber más de ello en <a href="https://es.wikipedia.org/wiki/Sass_(lenguaje_de_hojas_de_estilo)">esta entrada de la Wikipedia</a></li>
+  <li>About.md: es una pagina de ejemplo.</li>
+  <li>_config.yml: este es el archivo más importante ya que es donde se guarda la configuración del blog, por lo que hay que tener cuidado al modificarlo. Sera necesario reiniciar Jekyll cada vez que se modifique</li>
+  <li>feed.xml: el feed del blog, para que todo aquel que quiera pueda estar al tanto de su lector de feeds favorito</li>
+  <li>index.html. Creo que no hace falta indicar lo que es.</li>
+  <li>_site: en esta carpeta, que por el momento no esta, es donde ira el blog como tal cuando lo generemos o ejecutemos el servidor de Jekyll</li>
+</ul>
+
+<p>Vamos a ver como es el blog tal y como es ahora. Para ello desde la terminal y desde el directorio donde esta el blog ejecutamos:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>jekyll serve
+</code></pre>
+</div>
+<p>Una vez termine de arrancar abrimos nuestro navegador web y escribimos localhost:4000</p>
+
+<p>Si abrimos la carpeta _site veremos la estructura del sitio. En próximas entregas veremos como modificar algunas de las rutas.</p>
+
+<p>Y aquí termina este primera entrega. En la próxima entrega empezaremos a modificar el aspecto del blog, con la ayuda del framework MUI CSS, que es el usado en este blog.</p>
 
     <div class="share">
 		Compartir:
-		<a target="_black" href="http://twitter.com/intent/tweet?text=Killall Radio App 0.9.0&url=http://son-link.github.io/2015/07/15/killallradio090.html"><i class="icon-twitter"></i> Twitter</a>
-		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2015/07/15/killallradio090.html"><i class="icon-facebook"></i> Facebook</a>
-		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2015/07/15/killallradio090.html"><i class="icon-gplus"></i> Google+</a>
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll. 1ª parte&url=http://son-link.github.io/2016/03/18/creando-blog-jekyll-1.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2016/03/18/creando-blog-jekyll-1.html"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2016/03/18/creando-blog-jekyll-1.html"><i class="icon-gplus"></i> Google+</a>
     </div>
     <br />
     <ul class="tag_list">
 		<li>Etiquetas: </li>
    		
-   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/proyectos">proyectos</a></li>
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
  		
-   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/firefoxos">firefoxos</a></li>
- 		
-   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
  		
     </ul>
     <span>Entradas relacionadas:</span>
     <ul class="relacionadas">
 		
-			<li><a href="/2015/08/05/killallradio100.html">Killall Radio App 1.0.0</a></li>
-		
-			<li><a href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></li>
+			<li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
 		
 			<li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
 		

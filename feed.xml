@@ -6,9 +6,86 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Mar 2016 17:34:32 +0100</pubDate>
-    <lastBuildDate>Tue, 15 Mar 2016 17:34:32 +0100</lastBuildDate>
+    <pubDate>Fri, 18 Mar 2016 12:56:46 +0100</pubDate>
+    <lastBuildDate>Fri, 18 Mar 2016 12:56:46 +0100</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
+    
+      <item>
+        <title>Creando un blog con Jekyll. 1ª parte</title>
+        <description>&lt;p&gt;Desde hace tiempo por internet circulan varios sistemas de creación de blogs, como &lt;strong&gt;Wordpress&lt;/strong&gt; o &lt;strong&gt;Blogger&lt;/strong&gt;, pero ademas muchos de ellos, especialmente los mencionados, si queremos modificar algunas de sus partes, sobre todo el diseño, necesitaros leer bastante documentación al respecto. Gracias a &lt;strong&gt;&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt; y unos pocos pasos podremos tener un blog. Este blog es un ejemplo, ademas de ser el sistema recomendado por &lt;strong&gt;Github&lt;/strong&gt; para sus &lt;strong&gt;Github Pages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;requisitos&quot;&gt;Requisitos&lt;/h2&gt;
+
+&lt;p&gt;Paro poder trabajar con Jekyll necesitamos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tener instalado el interprete de &lt;strong&gt;Ruby&lt;/strong&gt; y &lt;strong&gt;Gems&lt;/strong&gt;, necesario para instalar las &lt;strong&gt;gemas&lt;/strong&gt; (paquetes) necesarios&lt;/li&gt;
+  &lt;li&gt;Cualquier editor de texto. Para las entradas se recomienda alguno con soporte para &lt;strong&gt;Markdown&lt;/strong&gt;. Más adelante explico que es esto&lt;/li&gt;
+  &lt;li&gt;Tener conocimientos de &lt;strong&gt;HTML&lt;/strong&gt; y &lt;strong&gt;CSS&lt;/strong&gt; para poder modificar el diseño y el aspecto de nuestro blog.&lt;/li&gt;
+  &lt;li&gt;Un cliente &lt;strong&gt;FPT&lt;/strong&gt; para subir el blog al servidor (recomiendo &lt;strong&gt;FileZilla&lt;/strong&gt;) o &lt;strong&gt;Git&lt;/strong&gt; si lo vamos a subir a Github Pages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;instalacin&quot;&gt;Instalación:&lt;/h2&gt;
+&lt;p&gt;Lo primero que necesitamos es instalar el interprete de &lt;strong&gt;Ruby&lt;/strong&gt; y &lt;strong&gt;Gems&lt;/strong&gt;. Ambos están disponibles desde los repositorios de la mayoría de distribuciones GNU/Linux, por lo que solo tendremos que instalarlos desde sus gestores de paquetes. Si usas &lt;strong&gt;Windows&lt;/strong&gt; podras descargar los instaladores desde la &lt;a href=&quot;https://www.ruby-lang.org&quot;&gt;pagina oficial del lenguaje Ruby&lt;/a&gt; y &lt;a href=&quot;https://rubygems.org/&quot;&gt;RubyGems&lt;/a&gt;. En sus paginas encontraras como instalarlos.&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a instalar Jekyll, pero para esto hay 2 Gemas (paquetes): el oficial y el de Github. ¿Que diferencias hay? Pues principalmente Github no permite el uso de muchos plugins de Jekyll por motivos de seguridad, pero esto solo pasa si subimos directamente Jekyll, ya que, como veremos más adelante, Jekyll crea una estructura de paginas estáticas que podremos subir a cualquier servidor. Mi blog es un ejemplo de ello ya que uso un par de plugins: uno para que los meses salgan en español y otro para generar el sitemap.xml&lt;/p&gt;
+
+&lt;p&gt;Para instalar Jekyll abrimos una nueva terminal (consola de comandos en Windows) y ejecutamos lo siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gems install jekyll
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Esto instalara Jekylls y todas sus dependencias. Para crear un nuevo blog ejecutamos:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new ruta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;donde ruta es la ruta donde estará la carpeta que contendrá el nuevo blog.&lt;br /&gt;
+Para poder usarlo directamente en Github pages primero instalaremos desde gems la gema &lt;strong&gt;Bundle&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;En la carpeta que contiene el blog crearemos un nuevo fichero llamado Gemfile donde pondremos el siguiente contenido:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;https://rubygems.org&#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;github-pages&#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;En la carpeta veremos varios archivos y carpetas. Vamos a ver que es cada una:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;css: aquí irán las hojas de estilo&lt;/li&gt;
+  &lt;li&gt;_includes: Aquí ira todo aquello que se incluirá dentro de otras paginas. En este ejemplo la cabecera y el pie de pagina, entre otras&lt;/li&gt;
+  &lt;li&gt;_layouts: aquí van los diseños de pagina. En cada articulo y pagina podremos indicar cual usar. default.html contiene la estructura básica de todas las paginas.&lt;/li&gt;
+  &lt;li&gt;_post: Aquí es donde irán las entradas del blog. Las entradas se escriben usando el formato Markdown, que es un sistema de marcado ligero pensado para dar un formato rápido e nuestros documentos, como cabeceras, texto en negrita, imágenes, etc. Un ejemplo parecido seria el usado por muchos foros.&lt;/li&gt;
+  &lt;li&gt;_sass: SASS es un lenguaje que extiende las hojas de estilo CSS y que permite separar los estilos en bloques, usar variables, etc. Puedes saber más de ello en &lt;a href=&quot;https://es.wikipedia.org/wiki/Sass_(lenguaje_de_hojas_de_estilo)&quot;&gt;esta entrada de la Wikipedia&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;About.md: es una pagina de ejemplo.&lt;/li&gt;
+  &lt;li&gt;_config.yml: este es el archivo más importante ya que es donde se guarda la configuración del blog, por lo que hay que tener cuidado al modificarlo. Sera necesario reiniciar Jekyll cada vez que se modifique&lt;/li&gt;
+  &lt;li&gt;feed.xml: el feed del blog, para que todo aquel que quiera pueda estar al tanto de su lector de feeds favorito&lt;/li&gt;
+  &lt;li&gt;index.html. Creo que no hace falta indicar lo que es.&lt;/li&gt;
+  &lt;li&gt;_site: en esta carpeta, que por el momento no esta, es donde ira el blog como tal cuando lo generemos o ejecutemos el servidor de Jekyll&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vamos a ver como es el blog tal y como es ahora. Para ello desde la terminal y desde el directorio donde esta el blog ejecutamos:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Una vez termine de arrancar abrimos nuestro navegador web y escribimos localhost:4000&lt;/p&gt;
+
+&lt;p&gt;Si abrimos la carpeta _site veremos la estructura del sitio. En próximas entregas veremos como modificar algunas de las rutas.&lt;/p&gt;
+
+&lt;p&gt;Y aquí termina este primera entrega. En la próxima entrega empezaremos a modificar el aspecto del blog, con la ayuda del framework MUI CSS, que es el usado en este blog.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Mar 2016 00:00:00 +0100</pubDate>
+        <link>http://son-link.github.io/2016/03/18/creando-blog-jekyll-1.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2016/03/18/creando-blog-jekyll-1.html</guid>
+        
+        <category>tutoriales</category>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
     
       <item>
         <title>PHPExcel (1ª parte)</title>
@@ -221,7 +298,7 @@
     
       <item>
         <title>Montando un mini servidor local en GNU/Linux</title>
-        <description>&lt;p&gt;En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para &lt;strong&gt;Archlinux&lt;/strong&gt; pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.&lt;/p&gt;
+        <description>&lt;p&gt;En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para &lt;strong&gt;Arch Linux&lt;/strong&gt; pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.&lt;/p&gt;
 
 &lt;p&gt;Para ello instalaremos el servidor &lt;strong&gt;Lighttpd&lt;/strong&gt;, un servidor ligero y funcional y usado en paginas como la &lt;strong&gt;Wikipedia&lt;/strong&gt; y &lt;strong&gt;Youtube&lt;/strong&gt;, el interprete de &lt;strong&gt;PHP&lt;/strong&gt;, un lenguaje de programación para servidores, y la base de datos &lt;strong&gt;MariaDB&lt;/strong&gt;, pero que puede cambiarse por &lt;strong&gt;MySQL&lt;/strong&gt; si se quiere, eso ya es al gusto de cada uno.&lt;/p&gt;
 
@@ -234,41 +311,42 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;p&gt;Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;br /&gt;
-Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;br /&gt;
-```ini&lt;br /&gt;
-# Make sure to install php and php-cgi. See:&lt;br /&gt;
-# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP&lt;/p&gt;
+Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;/p&gt;
 
-&lt;p&gt;server.modules += (“mod_fastcgi”)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Make sure to install php and php-cgi. See:
+# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
+&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;server.modules&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;mod_fastcgi&quot;)&lt;/span&gt;
 
-&lt;h1 id=&quot;fcgi-server&quot;&gt;FCGI server&lt;/h1&gt;
-&lt;p&gt;# ===========&lt;br /&gt;
-#&lt;br /&gt;
-# Configure a FastCGI server which handles PHP requests.&lt;br /&gt;
-#&lt;br /&gt;
-index-file.names += (“index.php”)&lt;br /&gt;
-fastcgi.server = (&lt;br /&gt;
-    # Load-balance requests for this path…&lt;br /&gt;
-    “.php” =&amp;gt; (&lt;br /&gt;
-        # … among the following FastCGI servers. The string naming each&lt;br /&gt;
-        # server is just a label used in the logs to identify the server.&lt;br /&gt;
-        “localhost” =&amp;gt; (&lt;br /&gt;
-            “bin-path” =&amp;gt; “/usr/bin/php-cgi”,&lt;br /&gt;
-            “socket” =&amp;gt; “/tmp/php-fastcgi.sock”,&lt;br /&gt;
-            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO&lt;br /&gt;
-            # from it&lt;br /&gt;
-            “broken-scriptfilename” =&amp;gt; “enable”,&lt;br /&gt;
-            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where&lt;br /&gt;
-            # max-procs are “watchers” and the rest are “workers”. See:&lt;br /&gt;
-            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn&lt;br /&gt;
-            “max-procs” =&amp;gt; 4, # default value&lt;br /&gt;
-            “bin-environment” =&amp;gt; (&lt;br /&gt;
-                “PHP_FCGI_CHILDREN” =&amp;gt; “1” # default value&lt;br /&gt;
-            )&lt;br /&gt;
-        )&lt;br /&gt;
-    )&lt;br /&gt;
-)&lt;br /&gt;
-```&lt;/p&gt;
+&lt;span class=&quot;c&quot;&gt;# FCGI server
+# ===========
+#
+# Configure a FastCGI server which handles PHP requests.
+#
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;index-file.names&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;index.php&quot;)&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;fastcgi.server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Load-balance requests for this path...
+&lt;/span&gt;    &lt;span class=&quot;err&quot;&gt;&quot;.php&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# ... among the following FastCGI servers. The string naming each
+&lt;/span&gt;        &lt;span class=&quot;c&quot;&gt;# server is just a label used in the logs to identify the server.
+&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;&quot;localhost&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;err&quot;&gt;&quot;bin-path&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;/usr/bin/php-cgi&quot;,&lt;/span&gt;
+            &lt;span class=&quot;err&quot;&gt;&quot;socket&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;/tmp/php-fastcgi.sock&quot;,&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO
+&lt;/span&gt;            &lt;span class=&quot;c&quot;&gt;# from it
+&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;&quot;broken-scriptfilename&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;enable&quot;,&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where
+&lt;/span&gt;            &lt;span class=&quot;c&quot;&gt;# max-procs are &quot;watchers&quot; and the rest are &quot;workers&quot;. See:
+&lt;/span&gt;            &lt;span class=&quot;c&quot;&gt;# https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn
+&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;&quot;max-procs&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;4,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# default value
+&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;&quot;bin-environment&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;err&quot;&gt;&quot;PHP_FCGI_CHILDREN&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# default value
+&lt;/span&gt;            &lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Ahora abrimos el fichero &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lighttpd/lighttpd.conf&lt;/code&gt; y al final de el añadimos la siguiente linea: &lt;code class=&quot;highlighter-rouge&quot;&gt;include &quot;conf.d/php.conf&quot;&lt;/code&gt;&lt;/p&gt;
 
@@ -330,7 +408,7 @@ fastcgi.server = (&lt;br /&gt;
         <description>&lt;p&gt;Tras mucho probar ideas y testeo hago publica la versión 1.0.0 de Killall Radio App.&lt;/p&gt;
 
 &lt;p&gt;Los cambios respecto a la 0.9.0 no son muchas, principalmente el cambio en la sección de Podcasts ya que se ha añadido un dropbown que permite seleccionar entre los podcasts de Killall Radio o algunos de los canales disponibles&lt;br /&gt;
-, lista que se actualiza gracias a un archivo JSON que &lt;a href=&quot;https://gist.github.com/son-link/8cf06a31bc81a0870110&quot;&gt;se puede encontrar aquí&lt;/a&gt; y que se ira editando segun salgan nuevos canales, y actualizar la lista es tan fácil como seleccionar la opción Actualizar dentro de la lista de canales. Ademas ahora también se podrán descargar los podcasts, pero esta opción por el momento solo funciona en Android ya que el plugin de Cordova usado para ello no funciona bien en Firefox OS, por lo que se retrasa hasta dar con la solución.&lt;/p&gt;
+, lista que se actualiza gracias a un archivo JSON que &lt;a href=&quot;https://gist.github.com/son-link/8cf06a31bc81a0870110&quot;&gt;se puede encontrar aquí&lt;/a&gt; y que se ira editando según salgan nuevos canales, y actualizar la lista es tan fácil como seleccionar la opción Actualizar dentro de la lista de canales. Ademas ahora también se podrán descargar los podcasts, pero esta opción por el momento solo funciona en Android ya que el plugin de Cordova usado para ello no funciona bien en Firefox OS, por lo que se retrasa hasta dar con la solución.&lt;/p&gt;
 
 &lt;p&gt;En la &lt;a href=&quot;/proyectos/killallradio/&quot;&gt;pagina de este blog&lt;/a&gt; dedicada a la aplicación podréis encontrar los enlaces a los paquetes.&lt;/p&gt;
 </description>
@@ -459,11 +537,11 @@ Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo 
 
 &lt;p&gt;Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova build android&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Si todo salio correctamente vermos algo como esto:&lt;/p&gt;
+&lt;p&gt;Si todo salio correctamente veremos algo como esto:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/tutorial_cordova/paquetes_generados.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando &lt;code class=&quot;highlighter-rouge&quot;&gt;adb install -r &amp;lt;ruta&amp;gt;&lt;/code&gt; o mediante &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova run android&lt;/code&gt; lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas &lt;strong&gt;Firefox 34&lt;/strong&gt; o superior abre &lt;strong&gt;App Manager&lt;/strong&gt; abriendo una nueva pestaña e introduciendo esta url: &lt;code class=&quot;highlighter-rouge&quot;&gt;about:app-manager&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando &lt;code class=&quot;highlighter-rouge&quot;&gt;adb install -r &amp;lt;ruta&amp;gt;&lt;/code&gt; o mediante &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova run android&lt;/code&gt; lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas &lt;strong&gt;Firefox 34&lt;/strong&gt; o superior abre &lt;strong&gt;App Manager&lt;/strong&gt; abriendo una nueva pestaña e introduciendo esta url: &lt;strong&gt;about:app-manager&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Veremos lo siguiente:&lt;br /&gt;
 &lt;img src=&quot;/img/tutorial_cordova/app-manager.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -476,7 +554,7 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 &lt;p&gt;En el caso de &lt;strong&gt;WebIDE&lt;/strong&gt; (versiones más reciente de Firefox o si estas usando Firefox Developer edition) lo abrimos pulsando las teclas Shift+F8:&lt;br /&gt;
 &lt;img src=&quot;/img/tutorial_cordova/webide.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Pulsamos en &lt;strong&gt;Proyecto&lt;/strong&gt; y luego en &lt;strong&gt;Abrir aplicación empaquetada&lt;/strong&gt; y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldra uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.&lt;/p&gt;
+&lt;p&gt;Pulsamos en &lt;strong&gt;Proyecto&lt;/strong&gt; y luego en &lt;strong&gt;Abrir aplicación empaquetada&lt;/strong&gt; y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldrá uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.&lt;/p&gt;
 
 &lt;p&gt;Y esto de momento es todo. En la próxima entrega veremos que otras opciones tenemos para configurar nuestro proyecto. Si tenéis dudas al respecto podéis consultar la documentación de Cordova o usar el sistema de comentarios. Estaré encantado de ayudaros en lo buenamente que pueda.&lt;/p&gt;
 </description>
@@ -499,23 +577,29 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
         <title>Apache Cordova 1: Primeros pasos</title>
         <description>&lt;p&gt;Bienvenid@s a esta primera entrada de una serie de tutoriales sobre &lt;strong&gt;Apache Cordova.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para moviles multiplataforma usando teclogias web, esto es &lt;strong&gt;HTML, Javascript y CSS&lt;/strong&gt;, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una applicación para Android, que usa &lt;strong&gt;Java&lt;/strong&gt; y para &lt;strong&gt;IOs&lt;/strong&gt; que se hacen con &lt;strong&gt;C#&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para móviles multiplataforma usando tecnologías web, esto es &lt;strong&gt;HTML, Javascript y CSS&lt;/strong&gt;, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una aplicación para Android, que usa &lt;strong&gt;Java&lt;/strong&gt; o para &lt;strong&gt;IOs&lt;/strong&gt; que se hacen con &lt;strong&gt;C#&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;A lo largo de este tutorial enseñare los pasos para Android y Firefox OS, si bien para este ultimo se puede programar de por si usando tecnología web, por lo que si solo quieres hacer aplicaciones para el, no necesitas este tutorial. Los pasos indicados están hechos bajo &lt;strong&gt;GNU/Linux&lt;/strong&gt; pero son, salvo algún cambio, los mismos para Windows.&lt;/p&gt;
 
-&lt;p&gt;Para empezar necesitaremos lo siguiente:&lt;br /&gt;
-* &lt;strong&gt;node.js&lt;/strong&gt; (para instalar y usar Cordova)&lt;br /&gt;
-* &lt;strong&gt;Android SDK&lt;/strong&gt; y &lt;strong&gt;Java 7&lt;/strong&gt; (para generar la app para Android)&lt;br /&gt;
-* Cualquier editor de texto o IDE (en mi caso Geany)&lt;/p&gt;
+&lt;p&gt;Para empezar necesitaremos lo siguiente:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;node.js&lt;/strong&gt; (para instalar y usar Cordova)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Android SDK&lt;/strong&gt; y &lt;strong&gt;Java 7&lt;/strong&gt; (para generar la app para Android)&lt;/li&gt;
+  &lt;li&gt;Cualquier editor de texto o IDE (en mi caso &lt;strong&gt;Geany&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;instalacin&quot;&gt;Instalación:&lt;/h2&gt;
 &lt;p&gt;Empezaremos instalando lo necesario. En el caso de haber paquetes para tu distribución, instalalos desde ellos.&lt;/p&gt;
 
 &lt;h3 id=&quot;nodejs&quot;&gt;Node.js&lt;/h3&gt;
-&lt;p&gt;Lo primero que necesitaremos es &lt;strong&gt;node.js.&lt;/strong&gt; Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Archlinux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su &lt;a href=&quot;https://nodejs.org/download&quot;&gt;pagina de descarga&lt;/a&gt; o descargar y compilarlo desde su código fuente.&lt;/p&gt;
+&lt;p&gt;Lo primero que necesitaremos es &lt;strong&gt;node.js.&lt;/strong&gt; Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Arch Linux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su &lt;a href=&quot;https://nodejs.org/download&quot;&gt;pagina de descarga&lt;/a&gt; o descargar y compilarlo desde su código fuente.&lt;/p&gt;
 
-&lt;p&gt;Una vez instalado ejecutamos el siguiente comando:&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo npm install -g cordova&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Una vez instalado ejecutamos el siguiente comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo npm install -g cordova
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Esto bajara e instalara Cordova con sus dependencias.&lt;/p&gt;
 
@@ -553,23 +637,23 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
 &lt;p&gt;Ahora al entrar en la carpeta un archivo XML y varias carpetas:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;hooks&lt;/strong&gt; :contiene varios scripts especiales para plugins o comandos especiales de Cordova.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;hooks:&lt;/strong&gt; contiene varios scripts especiales para plugins o comandos especiales de Cordova.&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;platforms&lt;/strong&gt;: este directorio es donde se ubicaran las plataformas que vayamos añadidendo.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;platforms:&lt;/strong&gt; este directorio es donde se ubicaran las plataformas que vayamos añadiendo.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;plugins&lt;/strong&gt;: aquí estarán los plugins de Cordova que descarguemos.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;www&lt;/strong&gt;: en el es donde estarán los archivos de nuestra app.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;config.xml&lt;/strong&gt;: es el archivo de configuración de nuestra app.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Ahora para añadir plataformas desde una terminal nos movemos hasta el dierctorio del proyecto y ejecutamos:&lt;/p&gt;
+&lt;p&gt;Ahora para añadir plataformas desde una terminal nos movemos hasta el directorio del proyecto y ejecutamos:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova platform add android
 cordova platform add firefoxos
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el acrhivo config.xml con cualquier editor de texto. Veremos algo similar a esto:&lt;/p&gt;
+&lt;p&gt;Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el archivo config.xml con cualquier editor de texto. Veremos algo similar a esto:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;widget&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;io.minombre.primeraapp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0.0.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/ns/widgets&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:cdv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://cordova.apache.org/ns/1.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -618,7 +702,7 @@ cordova platform add firefoxos
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Esto construirá los paquetes para todas las plataformas que hubiesemos añadido.&lt;br /&gt;
+&lt;p&gt;Esto construirá los paquetes para todas las plataformas que hubiésemos añadido.&lt;br /&gt;
 Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.&lt;/p&gt;
 
 &lt;p&gt;Ahora para instalar la aplicación en nuestro dispositivo Android podemos hacerlo de dos modos:&lt;/p&gt;

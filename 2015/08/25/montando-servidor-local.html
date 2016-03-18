@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Montando un mini servidor local en GNU/Linux</title>
-	<meta name="description" content="En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Archlinux pero...">
+	<meta name="description" content="En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Arch Linux per...">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
@@ -26,7 +26,7 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-25169742-2', 'auto');
+		ga('create', 'UA-75229203-1', 'auto');
 		ga('send', 'pageview');
 	</script>
 </head>
@@ -43,6 +43,8 @@
 					<div class="mui-dropdown">
 						<a class="icon-menu" data-mui-toggle="dropdown" id="menu" href="#"></a>
 						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
+							
+								
 							
 								
 								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
@@ -116,6 +118,8 @@
 							
 								
 							
+								
+							
 						</ul>
 					</div>
 				</td>
@@ -135,7 +139,7 @@
   </header>
 
   <article class="post-content">
-    <p>En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para <strong>Archlinux</strong> pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.</p>
+    <p>En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para <strong>Arch Linux</strong> pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.</p>
 
 <p>Para ello instalaremos el servidor <strong>Lighttpd</strong>, un servidor ligero y funcional y usado en paginas como la <strong>Wikipedia</strong> y <strong>Youtube</strong>, el interprete de <strong>PHP</strong>, un lenguaje de programación para servidores, y la base de datos <strong>MariaDB</strong>, pero que puede cambiarse por <strong>MySQL</strong> si se quiere, eso ya es al gusto de cada uno.</p>
 
@@ -148,41 +152,42 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 <p>Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.</p>
 
 <p><strong>PHP</strong><br />
-Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.d/php.conf</code> (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:<br />
-```ini<br />
-# Make sure to install php and php-cgi. See:<br />
-# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP</p>
+Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.d/php.conf</code> (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:</p>
 
-<p>server.modules += (“mod_fastcgi”)</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># Make sure to install php and php-cgi. See:
+# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
+</span>
+<span class="err">server.modules</span> <span class="err">+=</span> <span class="err">("mod_fastcgi")</span>
 
-<h1 id="fcgi-server">FCGI server</h1>
-<p># ===========<br />
-#<br />
-# Configure a FastCGI server which handles PHP requests.<br />
-#<br />
-index-file.names += (“index.php”)<br />
-fastcgi.server = (<br />
-    # Load-balance requests for this path…<br />
-    “.php” =&gt; (<br />
-        # … among the following FastCGI servers. The string naming each<br />
-        # server is just a label used in the logs to identify the server.<br />
-        “localhost” =&gt; (<br />
-            “bin-path” =&gt; “/usr/bin/php-cgi”,<br />
-            “socket” =&gt; “/tmp/php-fastcgi.sock”,<br />
-            # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO<br />
-            # from it<br />
-            “broken-scriptfilename” =&gt; “enable”,<br />
-            # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where<br />
-            # max-procs are “watchers” and the rest are “workers”. See:<br />
-            # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn<br />
-            “max-procs” =&gt; 4, # default value<br />
-            “bin-environment” =&gt; (<br />
-                “PHP_FCGI_CHILDREN” =&gt; “1” # default value<br />
-            )<br />
-        )<br />
-    )<br />
-)<br />
-```</p>
+<span class="c"># FCGI server
+# ===========
+#
+# Configure a FastCGI server which handles PHP requests.
+#
+</span><span class="err">index-file.names</span> <span class="err">+=</span> <span class="err">("index.php")</span>
+<span class="py">fastcgi.server</span> <span class="p">=</span> <span class="s">(</span>
+    <span class="c"># Load-balance requests for this path...
+</span>    <span class="err">".php"</span> <span class="err">=&gt;</span> <span class="err">(</span>
+        <span class="c"># ... among the following FastCGI servers. The string naming each
+</span>        <span class="c"># server is just a label used in the logs to identify the server.
+</span>        <span class="err">"localhost"</span> <span class="err">=&gt;</span> <span class="err">(</span>
+            <span class="err">"bin-path"</span> <span class="err">=&gt;</span> <span class="err">"/usr/bin/php-cgi",</span>
+            <span class="err">"socket"</span> <span class="err">=&gt;</span> <span class="err">"/tmp/php-fastcgi.sock",</span>
+            <span class="c"># breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO
+</span>            <span class="c"># from it
+</span>            <span class="err">"broken-scriptfilename"</span> <span class="err">=&gt;</span> <span class="err">"enable",</span>
+            <span class="c"># Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where
+</span>            <span class="c"># max-procs are "watchers" and the rest are "workers". See:
+</span>            <span class="c"># https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn
+</span>            <span class="err">"max-procs"</span> <span class="err">=&gt;</span> <span class="err">4,</span> <span class="c"># default value
+</span>            <span class="err">"bin-environment"</span> <span class="err">=&gt;</span> <span class="err">(</span>
+                <span class="err">"PHP_FCGI_CHILDREN"</span> <span class="err">=&gt;</span> <span class="err">"1"</span> <span class="c"># default value
+</span>            <span class="err">)</span>
+        <span class="err">)</span>
+    <span class="err">)</span>
+<span class="err">)</span>
+</code></pre>
+</div>
 
 <p>Ahora abrimos el fichero <code class="highlighter-rouge">/etc/lighttpd/lighttpd.conf</code> y al final de el añadimos la siguiente linea: <code class="highlighter-rouge">include "conf.d/php.conf"</code></p>
 
@@ -230,19 +235,23 @@ fastcgi.server = (<br />
     </div>
     <br />
     <ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/servidores">servidores</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/php">php</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/lighttpd">lighttpd</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/mysql">mysql</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/mariadb">mariadb</a></li>
- 			
-    	</ul>
+		<li>Etiquetas: </li>
+   		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/servidores">servidores</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/php">php</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/lighttpd">lighttpd</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/mysql">mysql</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/mariadb">mariadb</a></li>
+ 		
+    </ul>
+    <span>Entradas relacionadas:</span>
+    <ul class="relacionadas">
+		
+    </ul>
   </article>
   <!-- Disqus comments -->
   
@@ -291,79 +300,83 @@ fastcgi.server = (<br />
 	<ul class="urls_cloud">
 		
 		<li>
-			<a href="/tag/cordova">cordova</a>
+			<a href="/tag/cordova">cordova <span class="badge">2</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/tutoriales">tutoriales</a>
+			<a href="/tag/tutoriales">tutoriales <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/firefoxos">firefoxos</a>
+			<a href="/tag/firefoxos">firefoxos <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/android">android</a>
+			<a href="/tag/android">android <span class="badge">4</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/proyectos">proyectos</a>
+			<a href="/tag/proyectos">proyectos <span class="badge">3</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/servidores">servidores</a>
+			<a href="/tag/servidores">servidores <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/php">php</a>
+			<a href="/tag/php">php <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/lighttpd">lighttpd</a>
+			<a href="/tag/lighttpd">lighttpd <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/mysql">mysql</a>
+			<a href="/tag/mysql">mysql <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/mariadb">mariadb</a>
+			<a href="/tag/mariadb">mariadb <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/juegos">juegos</a>
+			<a href="/tag/juegos">juegos <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/lua">lua</a>
+			<a href="/tag/lua">lua <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/linux">linux</a>
+			<a href="/tag/linux">linux <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/windows">windows</a>
+			<a href="/tag/windows">windows <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/Nintendo 3DS">Nintendo 3DS</a>
+			<a href="/tag/Nintendo 3DS">Nintendo 3DS <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/Blog">Blog</a>
+			<a href="/tag/Blog">Blog <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/PHP">PHP</a>
+			<a href="/tag/PHP">PHP <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/excel">excel</a>
+			<a href="/tag/excel">excel <span class="badge">1</span></a>
 		</li>
 		
 		<li>
-			<a href="/tag/OpenDocument">OpenDocument</a>
+			<a href="/tag/OpenDocument">OpenDocument <span class="badge">1</span></a>
+		</li>
+		
+		<li>
+			<a href="/tag/jekyll">jekyll <span class="badge">1</span></a>
 		</li>
 		
 	</ul>
@@ -410,6 +423,21 @@ fastcgi.server = (<br />
     <h2 id="2016-ref">2016</h2>
     <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
     <ul>
+    
+
+    <li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
     
 
     <li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>

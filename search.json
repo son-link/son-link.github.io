@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Creando un blog con Jekyll. 1ª parte",
+      "category" : "",
+      "tags"     : "tutoriales, jekyll",
+      "url"      : "/2016/03/18/creando-blog-jekyll-1.html",
+      "date"     : "2016-03-18 00:00:00 +0100"
+    } ,
+  
+    {
       "title"    : "PHPExcel (1ª parte)",
       "category" : "",
       "tags"     : "PHP, excel, OpenDocument, tutoriales",

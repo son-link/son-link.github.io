@@ -158,7 +158,7 @@ h4+ul {
 
 h4+ul.visible {display: block}
 
-h4+ul li:before {
+h4+ul li:before, .relacionadas li:before {
 	font-family: fontello;
 	color: #2196F3;
 	margin-right: 5px;
@@ -198,3 +198,17 @@ h4+ul li:hover:before {
 	background: #fff !important;
 	color: #263238  !important;
 }
+
+.badge {
+	width:18px;height:18px;
+	text-align:center;
+	line-height:18px;
+	border-radius:50%;
+	background: #fff;
+	color: #263238;
+	display: inline-block;
+	font-weight: bold;
+	font-size: .7em;
+}
+
+.relacionadas {list-style: none}
