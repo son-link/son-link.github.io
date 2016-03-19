@@ -6,9 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Sobre mi</title>
-	<meta name="description" content="Mi blog personal donde hablo de mis proyectos, tutoriales, etc, ademas de exponer mis trabajos y proyectos
-">
+	<title>Creando un blog con Jekyll 2. Añadiendo entradas y paginas</title>
+	<meta name="description" content="En esta segunda entrega del tutorial voy a explicar como publicar nuevos artículos, además de como añadir resaltado de sintaxis en el caso de que en tu blog ...">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
@@ -18,7 +17,7 @@
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
 		<![endif]-->
-	<link rel="canonical" href="http://son-link.github.io/sobre/">
+	<link rel="canonical" href="http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html">
 	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
 	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
 </head>
@@ -104,20 +103,141 @@
 				<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Sobre mi</h1>
+    <h1 class="post-title">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</h1>
+    <p class="post-meta">03/19/2016</p>
   </header>
 
   <article class="post-content">
-    <p>Soy un chico amante de la informática y defensor del Software y la Cultura Libre. Todos mis proyectos públicos están, salvo excepciones, bajo la licencia <strong>GNU/GPL</strong> en su versión 3.</p>
+    <p>En esta segunda entrega del tutorial voy a explicar como publicar nuevos artículos, además de como añadir resaltado de sintaxis en el caso de que en tu blog vayas a publicar entradas con código fuente.</p>
 
-<p>Programador de paginas web, así como desarrollo en <strong>Python</strong> y webapps bajo <strong>Apache Cordova</strong> para <strong>Android</strong> y <strong>Firefox OS</strong>. Actualmente tengo 2 proyectos publicados en <strong>Firefox Marketplace</strong>: <strong>FireJamendo</strong> e <strong>IPCalc</strong>.</p>
+<p>Como ya comente en la primera entrega todas nuestras entradas irán dentro de la carpeta _post y cuyos nombres deben de empezar con una fecha sen el formato inglés seguido del nombre, por ejemplo <strong>2016-03-19-mi-primera-entrada</strong></p>
 
-<p>Soy usuario de <strong>GNU/Linux</strong> desde el 2006, actualmente <strong>Arch Linux</strong>, colaborador puntual en <a href="http://blog.desdelinux.net">DesdeLinux</a>. Por mi PC han pasado Ubuntu, Linux Mint, Debian, LiNex, Guadalinex, Manjaro, etc.</p>
+<p>Como también comente en la anterior entrega para poder dar formato a nuestras entradas se usa el formato Markdown, un sistema simple que se creo para dar formato y que fuese más fácil de leer, algo similar al BBCode que se usa en los foros. Podremos definir cabeceras (del H1 al H5), texto en negrita o cursiva, añadir imágenes, etc. Veamos algunos ejemplos:</p>
 
-<p>En este blog expongo todos mis proyectos, tanto los propios como en los que colabore, ademas de compartir mis conocimientos de programación.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gh"># Esto es una cabecera H1</span>
+<span class="gu">## Esto es una cabezera H2</span>
+...
+<span class="gu">##### Esto es una cabezera H5</span>
 
+<span class="gs">**Texto en negrita**</span>
+
+<span class="ge">*Texto en cursiva*</span>
+
+Lista ordenada:
+<span class="p">
+1.</span> Lista ordenada
+<span class="p">2.</span> Lista ordenada
+
+Lista desordenada
+<span class="p">
+*</span> Un elemento de una lista
+<span class="p">*</span> otro elemento de una lista
+
+<span class="p">[</span><span class="nv">Un enlace</span><span class="p">](</span><span class="sx">http://github.io</span><span class="p">)</span>
+
+<span class="p">![</span><span class="nv">Github logo</span><span class="p">](</span><span class="sx">/img/GitHub_Logo.png</span><span class="p">)</span>
+
+<span class="sb">`una linea de código`</span>
+
+</code></pre>
+</div>
+
+<p>Cuyo resultado seria:</p>
+
+<h1 id="esto-es-una-cabecera-h1">Esto es una cabecera H1</h1>
+<p>## Esto es una cabezera H2<br />
+##### Esto es una cabezera H5</p>
+
+<p><strong>Texto en negrita</strong></p>
+
+<p><em>Texto en cursiva</em></p>
+
+<p>Lista ordenada:</p>
+
+<ol>
+  <li>Lista ordenada</li>
+  <li>Lista ordenada</li>
+</ol>
+
+<p>Lista desordenada:</p>
+
+<ul>
+  <li>Un elemento de una lista</li>
+  <li>otro elemento de una lista</li>
+</ul>
+
+<p><a href="http://github.io">Un enlace</a></p>
+
+<p><img src="/img/GitHub_Logo.png" alt="Github logo" /></p>
+
+<p>En <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">esta web</a> podéis encontrar más ejemplos, incluidos algunos propios de Github. Hay varios editores que facilitan la escritura, como <a href="http://cloose.github.io/CuteMarkEd/">CuteMarkEd</a>, disponible para GNU/Linux y Windows siendo el usado por un servidor</p>
+
+<p>Las paginas irán dentro de la carpeta principal, si bien más tarde se puede configurar que estén en otra sub-carpeta. Ademas las paginas pueden ser escritas directamente en HTML.</p>
+
+<p>Lo que si tienen en común tanto las paginas como las entradas es que hay una serie de lineas que deben de situarse en la cabecera:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="s">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">Creando</span><span class="nv"> </span><span class="s">un</span><span class="nv"> </span><span class="s">blog</span><span class="nv"> </span><span class="s">con</span><span class="nv"> </span><span class="s">Jekyll</span><span class="nv"> </span><span class="s">2.</span><span class="nv"> </span><span class="s">Añadiendo</span><span class="nv"> </span><span class="s">entradas</span><span class="nv"> </span><span class="s">y</span><span class="nv"> </span><span class="s">paginas"</span>
+<span class="s">date</span><span class="pi">:</span>   <span class="s">2016-03-19</span>
+</code></pre>
+</div>
+
+<p>La primera linea indica que piel se va a usar. Para las paginas se usara pages. En próximas entregas veremos esto en profundidad.</p>
+
+<p>Las siguientes lineas no necesitan explicación. Hay más variables, ademas de que podemos añadir algunas propias, pero eso se vera más adelante. Para las páginas existe otra que nos permite configurar el enlace permanente, esto es, la url donde se encontrara:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">permalink</span><span class="pi">:</span> <span class="s">/sobre/</span>
+</code></pre>
+</div>
+
+<p>En este caso la pagina estará en http://localhost:4000/sobre</p>
+
+<p>Y esto es todo por hoy. En la siguiente entrega empezaremos a ver las etiquetas Liquid, indispensable para modificar y crear el diseño, ademas de usarlas en las paginas.</p>
+
+    <div class="share">
+		Compartir:
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll 2. Añadiendo entradas y paginas&url=http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html"><i class="icon-gplus"></i> Google+</a>
+    </div>
+    <br />
+    <ul class="tag_list">
+		<li>Etiquetas: </li>
+   		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
+ 		
+    </ul>
+    <span>Entradas relacionadas:</span>
+    <ul class="relacionadas">
+		
+			<li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+		
+			<li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
+		
+			<li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
+		
+			<li><a href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></li>
+		
+    </ul>
   </article>
+  <!-- Disqus comments -->
+  
+	<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'blogdesonlink';
 
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	
 </div>
 
 			</div>

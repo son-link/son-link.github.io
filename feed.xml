@@ -6,13 +6,112 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 18 Mar 2016 22:54:13 +0100</pubDate>
-    <lastBuildDate>Fri, 18 Mar 2016 22:54:13 +0100</lastBuildDate>
+    <pubDate>Sat, 19 Mar 2016 15:02:21 +0100</pubDate>
+    <lastBuildDate>Sat, 19 Mar 2016 15:02:21 +0100</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
     
       <item>
+        <title>Creando un blog con Jekyll 2. Añadiendo entradas y paginas</title>
+        <description>&lt;p&gt;En esta segunda entrega del tutorial voy a explicar como publicar nuevos artículos, además de como añadir resaltado de sintaxis en el caso de que en tu blog vayas a publicar entradas con código fuente.&lt;/p&gt;
+
+&lt;p&gt;Como ya comente en la primera entrega todas nuestras entradas irán dentro de la carpeta _post y cuyos nombres deben de empezar con una fecha sen el formato inglés seguido del nombre, por ejemplo &lt;strong&gt;2016-03-19-mi-primera-entrada&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Como también comente en la anterior entrega para poder dar formato a nuestras entradas se usa el formato Markdown, un sistema simple que se creo para dar formato y que fuese más fácil de leer, algo similar al BBCode que se usa en los foros. Podremos definir cabeceras (del H1 al H5), texto en negrita o cursiva, añadir imágenes, etc. Veamos algunos ejemplos:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# Esto es una cabecera H1&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Esto es una cabezera H2&lt;/span&gt;
+...
+&lt;span class=&quot;gu&quot;&gt;##### Esto es una cabezera H5&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Texto en negrita**&lt;/span&gt;
+
+&lt;span class=&quot;ge&quot;&gt;*Texto en cursiva*&lt;/span&gt;
+
+Lista ordenada:
+&lt;span class=&quot;p&quot;&gt;
+1.&lt;/span&gt; Lista ordenada
+&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; Lista ordenada
+
+Lista desordenada
+&lt;span class=&quot;p&quot;&gt;
+*&lt;/span&gt; Un elemento de una lista
+&lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; otro elemento de una lista
+
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Un enlace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;http://github.io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Github logo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;/img/GitHub_Logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;sb&quot;&gt;`una linea de código`&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Cuyo resultado seria:&lt;/p&gt;
+
+&lt;h1 id=&quot;esto-es-una-cabecera-h1&quot;&gt;Esto es una cabecera H1&lt;/h1&gt;
+&lt;p&gt;## Esto es una cabezera H2&lt;br /&gt;
+##### Esto es una cabezera H5&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Texto en negrita&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Texto en cursiva&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Lista ordenada:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Lista ordenada&lt;/li&gt;
+  &lt;li&gt;Lista ordenada&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Lista desordenada:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Un elemento de una lista&lt;/li&gt;
+  &lt;li&gt;otro elemento de una lista&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://github.io&quot;&gt;Un enlace&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/GitHub_Logo.png&quot; alt=&quot;Github logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;En &lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot;&gt;esta web&lt;/a&gt; podéis encontrar más ejemplos, incluidos algunos propios de Github. Hay varios editores que facilitan la escritura, como &lt;a href=&quot;http://cloose.github.io/CuteMarkEd/&quot;&gt;CuteMarkEd&lt;/a&gt;, disponible para GNU/Linux y Windows siendo el usado por un servidor&lt;/p&gt;
+
+&lt;p&gt;Las paginas irán dentro de la carpeta principal, si bien más tarde se puede configurar que estén en otra sub-carpeta. Ademas las paginas pueden ser escritas directamente en HTML.&lt;/p&gt;
+
+&lt;p&gt;Lo que si tienen en común tanto las paginas como las entradas es que hay una serie de lineas que deben de situarse en la cabecera:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Creando&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;un&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Jekyll&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Añadiendo&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;entradas&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;paginas&quot;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;s&quot;&gt;2016-03-19&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;La primera linea indica que piel se va a usar. Para las paginas se usara pages. En próximas entregas veremos esto en profundidad.&lt;/p&gt;
+
+&lt;p&gt;Las siguientes lineas no necesitan explicación. Hay más variables, ademas de que podemos añadir algunas propias, pero eso se vera más adelante. Para las páginas existe otra que nos permite configurar el enlace permanente, esto es, la url donde se encontrara:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/sobre/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;En este caso la pagina estará en http://localhost:4000/sobre&lt;/p&gt;
+
+&lt;p&gt;Y esto es todo por hoy. En la siguiente entrega empezaremos a ver las etiquetas Liquid, indispensable para modificar y crear el diseño, ademas de usarlas en las paginas.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 19 Mar 2016 00:00:00 +0100</pubDate>
+        <link>http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html</guid>
+        
+        <category>tutoriales</category>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
         <title>Creando un blog con Jekyll. 1ª parte</title>
-        <description>&lt;p&gt;Desde hace tiempo por internet circulan varios sistemas de creación de blogs, como &lt;strong&gt;Wordpress&lt;/strong&gt; o &lt;strong&gt;Blogger&lt;/strong&gt;, pero ademas muchos de ellos, especialmente los mencionados, si queremos modificar algunas de sus partes, sobre todo el diseño, necesitaros leer bastante documentación al respecto. Gracias a &lt;strong&gt;&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt; y unos pocos pasos podremos tener un blog. Este blog es un ejemplo, ademas de ser el sistema recomendado por &lt;strong&gt;Github&lt;/strong&gt; para sus &lt;strong&gt;Github Pages&lt;/strong&gt;&lt;/p&gt;
+        <description>&lt;p&gt;Desde hace tiempo por internet circulan varios sistemas de creación de blogs, como &lt;strong&gt;Wordpress&lt;/strong&gt; o &lt;strong&gt;Blogger&lt;/strong&gt;, pero ademas muchos de ellos, especialmente los mencionados, si queremos modificar algunas de sus partes, sobre todo el diseño, necesitaros leer bastante documentación al respecto. Gracias a &lt;strong&gt;&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt; y unos conocimientos basicos de HTML y CSS podremos tener un blog personalizado en poco tiempo. Este blog es un ejemplo, ademas de ser el sistema recomendado por &lt;strong&gt;Github&lt;/strong&gt; para sus &lt;strong&gt;Github Pages&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;requisitos&quot;&gt;Requisitos&lt;/h2&gt;
 
@@ -100,7 +199,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Si abrimos la carpeta _site veremos la estructura del sitio. En próximas entregas veremos como modificar algunas de las rutas.&lt;/p&gt;
 
-&lt;p&gt;Y aquí termina este primera entrega. En la próxima entrega empezaremos a modificar el aspecto del blog, con la ayuda del framework MUI CSS, que es el usado en este blog.&lt;/p&gt;
+&lt;p&gt;Y aquí termina este primera entrega. En la próxima entrega empezaremos a añadir nuevas entradas y paginas en el blog.&lt;/p&gt;
 </description>
         <pubDate>Fri, 18 Mar 2016 00:00:00 +0100</pubDate>
         <link>http://son-link.github.io/2016/03/18/creando-blog-jekyll-1.html</link>
@@ -753,21 +852,6 @@ Si solo queremos construir el paquete para una plataforma especifica le pasamos 
         <category>firefoxos</category>
         
         <category>android</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Bienvenidos a mi blog</title>
-        <description>&lt;p&gt;Bienvenid@ seas a mi blog.&lt;/p&gt;
-
-&lt;p&gt;En este blog expondre mis diversos proyectos, así como la publicación de tutoriales, criticas, etc, especialmente relacionados con GNU/Linux y programación.&lt;/p&gt;
-
-&lt;p&gt;Espero que disfruteis de este blog ;)&lt;/p&gt;
-</description>
-        <pubDate>Tue, 16 Jun 2015 12:03:00 +0200</pubDate>
-        <link>http://son-link.github.io/2015/06/16/bienvenidos.html</link>
-        <guid isPermaLink="true">http://son-link.github.io/2015/06/16/bienvenidos.html</guid>
         
         
       </item>

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Creando un blog con Jekyll 2. Añadiendo entradas y paginas",
+      "category" : "",
+      "tags"     : "tutoriales, jekyll",
+      "url"      : "/2016/03/19/creando-blog-jekyll-2.html",
+      "date"     : "2016-03-19 00:00:00 +0100"
+    } ,
+  
+    {
       "title"    : "Creando un blog con Jekyll. 1ª parte",
       "category" : "",
       "tags"     : "tutoriales, jekyll",
