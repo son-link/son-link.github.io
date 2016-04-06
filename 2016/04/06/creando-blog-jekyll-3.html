@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Creando un blog con Jekyll 2. Añadiendo entradas y paginas</title>
-	<meta name="description" content="En esta segunda entrega del tutorial voy a explicar como publicar nuevos artículos, además de como añadir resaltado de sintaxis en el caso de que en tu blog ...">
+	<title>Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</title>
+	<meta name="description" content="Bienvenidos a la tercera entrega de esta serie de tutoriales de Jekyll. En esta entrega empezaremos a familiarizarnos con el lenguaje de etiquetas Líquid así...">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
@@ -17,7 +17,7 @@
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
 		<![endif]-->
-	<link rel="canonical" href="http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html">
+	<link rel="canonical" href="http://son-link.github.io/2016/04/06/creando-blog-jekyll-3.html">
 	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
 	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
 </head>
@@ -103,102 +103,145 @@
 				<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</h1>
-    <p class="post-meta">03/19/2016</p>
+    <h1 class="post-title">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</h1>
+    <p class="post-meta">04/06/2016</p>
   </header>
 
   <article class="post-content">
-    <p>En esta segunda entrega del tutorial voy a explicar como publicar nuevos artículos, además de como añadir resaltado de sintaxis en el caso de que en tu blog vayas a publicar entradas con código fuente.</p>
+    <p>Bienvenidos a la tercera entrega de esta serie de tutoriales de <strong>Jekyll</strong>. En esta entrega empezaremos a familiarizarnos con el lenguaje de etiquetas Líquid así como definir y usar variables.</p>
 
-<p>Como ya comente en la primera entrega todas nuestras entradas irán dentro de la carpeta _post y cuyos nombres deben de empezar con una fecha sen el formato inglés seguido del nombre, por ejemplo <strong>2016-03-19-mi-primera-entrada</strong></p>
+<h1 id="variables">Variables:</h1>
 
-<p>Como también comente en la anterior entrega para poder dar formato a nuestras entradas se usa el formato Markdown, un sistema simple que se creo para dar formato y que fuese más fácil de leer, algo similar al BBCode que se usa en los foros. Podremos definir cabeceras (del H1 al H5), texto en negrita o cursiva, añadir imágenes, etc. Veamos algunos ejemplos:</p>
+<p>Para empezar esta parte del tutorial vamos a conocer como se crean y donde las variables. En Jekyll, como en otros lenguajes de programación, tendremos variables globales, como la configuración del blog, y locales, que solo estará disponibles en otras paginas, plantillas, etc, ademas de poder definir variables de tipo normal, arrays y arrays asociativas.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="gh"># Esto es una cabecera H1</span>
-<span class="gu">## Esto es una cabezera H2</span>
-...
-<span class="gu">##### Esto es una cabezera H5</span>
+<p>Las variables globales se pueden definir dentro del archivo de configuración <strong>_config.yml</strong> o en ficheros y subcarpetas dentro del directorio <strong>_data</strong>. Los ficheros dentro de dicha carpeta pueden estar en formato YMAL (como el propio archivo de configuración), JSON y CSV.</p>
 
-<span class="gs">**Texto en negrita**</span>
+<p>En cuanto a las variables locales están se definen dentro de dos zonas: la cabecera de la pagina, entre los — (como ejemplo la fecha y el titulo de una entrada). Liquid tiene un tag que también nos permite definir variables dentro de la pagina, para por ejemplo, guardar el resultado de un filtro<br />
+## Definiendo variables:</p>
 
-<span class="ge">*Texto en cursiva*</span>
+<h3 id="variable-estndar">Variable estándar:</h3>
+<p>Es aquella que solo tener un valor, su sintaxis es la siguiente:</p>
 
-Lista ordenada:
-<span class="p">
-1.</span> Lista ordenada
-<span class="p">2.</span> Lista ordenada
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span> <span class="s">valor</span>
+</code></pre>
+</div>
 
-Lista desordenada
-<span class="p">
-*</span> Un elemento de una lista
-<span class="p">*</span> otro elemento de una lista
+<p>En Liquid es:</p>
 
-<span class="p">[</span><span class="nv">Un enlace</span><span class="p">](</span><span class="sx">http://github.io</span><span class="p">)</span>
-
-<span class="p">![</span><span class="nv">Github logo</span><span class="p">](</span><span class="sx">/img/GitHub_Logo.png</span><span class="p">)</span>
-
-<span class="sb">`una linea de código`</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>{% assign nombre = 'Alfonso' %}
 
 </code></pre>
 </div>
 
-<p>Cuyo resultado seria:</p>
+<h3 id="array">Array:</h3>
+<p>Es aquella que tiene una serie de valores. Se pueden definir de dos maneras:</p>
 
-<h1 id="esto-es-una-cabecera-h1">Esto es una cabecera H1</h1>
-<p>## Esto es una cabezera H2<br />
-##### Esto es una cabezera H5</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">1</span><span class="pi">,</span><span class="nv">2</span><span class="pi">,</span><span class="nv">3</span><span class="pi">]</span>
+</code></pre>
+</div>
+<p>ó</p>
 
-<p><strong>Texto en negrita</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">1</span>
+<span class="pi">-</span> <span class="s">2</span>
+<span class="pi">-</span> <span class="s">3</span>
+</code></pre>
+</div>
 
-<p><em>Texto en cursiva</em></p>
+<h3 id="array-asociativa">Array asociativa:</h3>
 
-<p>Lista ordenada:</p>
+<p>Parecida a la anterior, solo que podemos definir un nombre a cada valor.</p>
 
-<ol>
-  <li>Lista ordenada</li>
-  <li>Lista ordenada</li>
-</ol>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">autores</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">nombre</span><span class="pi">:</span> <span class="s">Alfonso</span>
+  <span class="s">twitter</span><span class="pi">:</span> <span class="s">sonlink</span>
 
-<p>Lista desordenada:</p>
+<span class="pi">-</span> <span class="s">nombre</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Mr</span><span class="nv"> </span><span class="s">Jekyll'</span>
+  <span class="s">twitter</span><span class="pi">:</span> <span class="s">MrHyde</span>
+</code></pre>
+</div>
+
+<p>Al final dejare unos enlaces a la documentación de Jekyll donde se explica esto, así como las variables propias de el.</p>
+
+<h1 id="liquid">Liquid:</h1>
+<p>Con el podremos acceder a las variables del blog (o las nuestras), usar sentencias <strong>if</strong>, bucles <strong>for</strong>, incluir plantillas, usar filtros, etc, además de que podemos crear nuestros propios filtros, pero eso es quizás algo que vemos más adelante.</p>
+
+<p>Líquid tiene 2 tipos de etiquetas: de texto y lógicas. Las primeras se usaran para tratar con variables y aplicar filtros, mientras que la segunda es la que usaremos para usar las sentencias if o los bucles for por ejemplo. Las primeras estarán entre {{ <strong>dobles llaves</strong> }} y las segundas entre {% <strong>llaves y el signo porcentual</strong> %}</p>
+
+<h2 id="etiquetas-de-texto-y-filtros">Etiquetas de texto y filtros:</h2>
+
+<p>El uso básico de este tipo de etiquetas es bastante sencillo, basta con poner, como ya se comento, el nombre de la variable entre dobles corchetes:</p>
+
+<p>{{ variable }}</p>
+
+<p>{{ var1.var2 }}</p>
+
+<p>Por ejemplo, vamos a poner la fecha en la que se publico esta entrada:</p>
+
+<p>{{ page.date }}</p>
+
+<p>nos devolvería <strong>2016-04-06 00:00:00 +0200</strong></p>
+
+<h3 id="filtros">Filtros:</h3>
+
+<p>Los filtros don métodos simples con los que podremos dar algún formato, reemplazar texto, etc.<br />
+Los filtros van después de la variable o cadena e irán separados mediante <strong>|</strong><br />
+Algunos ejemplos de filtros son:</p>
 
 <ul>
-  <li>Un elemento de una lista</li>
-  <li>otro elemento de una lista</li>
+  <li><strong>date:</strong> para dar formato a una fecha</li>
+  <li><strong>capitalize:</strong> Pone la primera letra en mayuscula</li>
+  <li><strong>strip_html:</strong> Devuelve la variable sin formatear en HTML</li>
+  <li><strong>remove:</strong> Borra todas las coincidencias de una cadena</li>
 </ul>
 
-<p><a href="http://github.io">Un enlace</a></p>
+<p>Por ejemplo:</p>
 
-<p><img src="/img/GitHub_Logo.png" alt="Github logo" /></p>
+<p>{{ ‘alfonso’  | capitalize }}</p>
 
-<p>En <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">esta web</a> podéis encontrar más ejemplos, incluidos algunos propios de Github. Hay varios editores que facilitan la escritura, como <a href="http://cloose.github.io/CuteMarkEd/">CuteMarkEd</a>, disponible para GNU/Linux y Windows siendo el usado por un servidor</p>
+<p>{{ page.date | date: ‘%d/%m/%Y’ }}</p>
 
-<p>Las paginas irán dentro de la carpeta principal, si bien más tarde se puede configurar que estén en otra sub-carpeta. Ademas las paginas pueden ser escritas directamente en HTML.</p>
+<p>{{ ‘Hola Mundo’ | replace: ‘Hola’,’Adios’ }}</p>
 
-<p>Lo que si tienen en común tanto las paginas como las entradas es que hay una serie de lineas que deben de situarse en la cabecera:</p>
+<p>nos devolvería esto:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
-<span class="s">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">Creando</span><span class="nv"> </span><span class="s">un</span><span class="nv"> </span><span class="s">blog</span><span class="nv"> </span><span class="s">con</span><span class="nv"> </span><span class="s">Jekyll</span><span class="nv"> </span><span class="s">2.</span><span class="nv"> </span><span class="s">Añadiendo</span><span class="nv"> </span><span class="s">entradas</span><span class="nv"> </span><span class="s">y</span><span class="nv"> </span><span class="s">paginas"</span>
-<span class="s">date</span><span class="pi">:</span>   <span class="s">2016-03-19</span>
+<p>Alfonso</p>
+
+<p>06/04/2016</p>
+
+<p>Adios Mundo</p>
+
+<h2 id="etiquetas-lgicas">Etiquetas lógicas:</h2>
+
+<p>En ocasiones puede que necesitemos recurrir a las sentencias lógicas y/o bucles para poner contenido en nuestro blog. Por poner un ejemplo en este blog lo uso para que en la lista de paginas de la cabecera, que no es mas que un bucle <strong>for</strong> que recorre todas las paginas y dentro de el un <strong>if</strong> para que solo muestre aquellas que contengan una variable en true. Este es su código:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+{% for page in site.pages %}
+	{% if page.title and page.onmenu %}
+		&lt;li&gt;&lt;a class="page-link" href="{{ page.url | prepend: site.baseurl }}"&gt;{{ page.title }}&lt;/a&gt;&lt;/li&gt;
+	{% endif %}
+{% endfor %}
+
 </code></pre>
 </div>
 
-<p>La primera linea indica que piel se va a usar. Para las paginas se usara pages. En próximas entregas veremos esto en profundidad.</p>
+<p><a href="https://github.com/Shopify/liquid/wiki/ES-Liquid-para-dise%C3%B1adores">En esta pagina</a> tenéis un tutorial en español sobre las etiquetas Liquid. Recomiendo su lectura antes de leer la siguiente parte del tutorial.</p>
 
-<p>Las siguientes lineas no necesitan explicación. Hay más variables, ademas de que podemos añadir algunas propias, pero eso se vera más adelante. Para las páginas existe otra que nos permite configurar el enlace permanente, esto es, la url donde se encontrara:</p>
+<p>Y esto es todo de momento. En la próxima entrega empezaremos a modificar el diseño de nuestro blog. Para facilitarnos la tarea vamos a usar el framework CSS <strong>MUI</strong>, el usado por este blog, pero se pueden usar otros, eso ya al gusto de cada uno. Hasta la próxima.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">permalink</span><span class="pi">:</span> <span class="s">/sobre/</span>
-</code></pre>
-</div>
+<h2 id="enlaces-de-inters">Enlaces de interés:</h2>
 
-<p>En este caso la pagina estará en http://localhost:4000/sobre</p>
+<ul>
+  <li><a href="https://jekyllrb.com/docs/datafiles/">Uso de ficheros de datos en Jekyll</a></li>
+  <li><a href="https://jekyllrb.com/docs/variables/">Variables de Jekyll siponibles</a></li>
+</ul>
 
-<p>Y esto es todo por hoy. En la siguiente entrega empezaremos a ver las etiquetas Liquid, indispensable para modificar y crear el diseño, ademas de usarlas en las paginas.</p>
 
     <div class="share">
 		Compartir:
-		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll 2. Añadiendo entradas y paginas&url=http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html"><i class="icon-twitter"></i> Twitter</a>
-		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html"><i class="icon-facebook"></i> Facebook</a>
-		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2016/03/19/creando-blog-jekyll-2.html"><i class="icon-gplus"></i> Google+</a>
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll 3 - Variables y etiquetas Liquid&url=http://son-link.github.io/2016/04/06/creando-blog-jekyll-3.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2016/04/06/creando-blog-jekyll-3.html"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2016/04/06/creando-blog-jekyll-3.html"><i class="icon-gplus"></i> Google+</a>
     </div>
     <br />
     <ul class="tag_list">
@@ -212,7 +255,7 @@ Lista desordenada
     <span>Entradas relacionadas:</span>
     <ul class="relacionadas">
 		
-			<li><a href="/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></li>
+			<li><a href="/2016/03/19/creando-blog-jekyll-2.html">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</a></li>
 		
 			<li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
 		

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Creando un blog con Jekyll 3 - Variables y etiquetas Liquid",
+      "category" : "",
+      "tags"     : "tutoriales, jekyll",
+      "url"      : "/2016/04/06/creando-blog-jekyll-3.html",
+      "date"     : "2016-04-06 00:00:00 +0200"
+    } ,
+  
+    {
       "title"    : "Creando un blog con Jekyll 2. Añadiendo entradas y paginas",
       "category" : "",
       "tags"     : "tutoriales, jekyll",

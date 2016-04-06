@@ -6,9 +6,151 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 19 Mar 2016 15:02:21 +0100</pubDate>
-    <lastBuildDate>Sat, 19 Mar 2016 15:02:21 +0100</lastBuildDate>
+    <pubDate>Wed, 06 Apr 2016 20:38:42 +0200</pubDate>
+    <lastBuildDate>Wed, 06 Apr 2016 20:38:42 +0200</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
+    
+      <item>
+        <title>Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</title>
+        <description>&lt;p&gt;Bienvenidos a la tercera entrega de esta serie de tutoriales de &lt;strong&gt;Jekyll&lt;/strong&gt;. En esta entrega empezaremos a familiarizarnos con el lenguaje de etiquetas Líquid así como definir y usar variables.&lt;/p&gt;
+
+&lt;h1 id=&quot;variables&quot;&gt;Variables:&lt;/h1&gt;
+
+&lt;p&gt;Para empezar esta parte del tutorial vamos a conocer como se crean y donde las variables. En Jekyll, como en otros lenguajes de programación, tendremos variables globales, como la configuración del blog, y locales, que solo estará disponibles en otras paginas, plantillas, etc, ademas de poder definir variables de tipo normal, arrays y arrays asociativas.&lt;/p&gt;
+
+&lt;p&gt;Las variables globales se pueden definir dentro del archivo de configuración &lt;strong&gt;_config.yml&lt;/strong&gt; o en ficheros y subcarpetas dentro del directorio &lt;strong&gt;_data&lt;/strong&gt;. Los ficheros dentro de dicha carpeta pueden estar en formato YMAL (como el propio archivo de configuración), JSON y CSV.&lt;/p&gt;
+
+&lt;p&gt;En cuanto a las variables locales están se definen dentro de dos zonas: la cabecera de la pagina, entre los — (como ejemplo la fecha y el titulo de una entrada). Liquid tiene un tag que también nos permite definir variables dentro de la pagina, para por ejemplo, guardar el resultado de un filtro&lt;br /&gt;
+## Definiendo variables:&lt;/p&gt;
+
+&lt;h3 id=&quot;variable-estndar&quot;&gt;Variable estándar:&lt;/h3&gt;
+&lt;p&gt;Es aquella que solo tener un valor, su sintaxis es la siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;valor&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;En Liquid es:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% assign nombre = &#39;Alfonso&#39; %}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;array&quot;&gt;Array:&lt;/h3&gt;
+&lt;p&gt;Es aquella que tiene una serie de valores. Se pueden definir de dos maneras:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;ó&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;array-asociativa&quot;&gt;Array asociativa:&lt;/h3&gt;
+
+&lt;p&gt;Parecida a la anterior, solo que podemos definir un nombre a cada valor.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;autores&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Alfonso&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;twitter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sonlink&lt;/span&gt;
+
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Mr&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Jekyll&#39;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;twitter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;MrHyde&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Al final dejare unos enlaces a la documentación de Jekyll donde se explica esto, así como las variables propias de el.&lt;/p&gt;
+
+&lt;h1 id=&quot;liquid&quot;&gt;Liquid:&lt;/h1&gt;
+&lt;p&gt;Con el podremos acceder a las variables del blog (o las nuestras), usar sentencias &lt;strong&gt;if&lt;/strong&gt;, bucles &lt;strong&gt;for&lt;/strong&gt;, incluir plantillas, usar filtros, etc, además de que podemos crear nuestros propios filtros, pero eso es quizás algo que vemos más adelante.&lt;/p&gt;
+
+&lt;p&gt;Líquid tiene 2 tipos de etiquetas: de texto y lógicas. Las primeras se usaran para tratar con variables y aplicar filtros, mientras que la segunda es la que usaremos para usar las sentencias if o los bucles for por ejemplo. Las primeras estarán entre {{ &lt;strong&gt;dobles llaves&lt;/strong&gt; }} y las segundas entre {% &lt;strong&gt;llaves y el signo porcentual&lt;/strong&gt; %}&lt;/p&gt;
+
+&lt;h2 id=&quot;etiquetas-de-texto-y-filtros&quot;&gt;Etiquetas de texto y filtros:&lt;/h2&gt;
+
+&lt;p&gt;El uso básico de este tipo de etiquetas es bastante sencillo, basta con poner, como ya se comento, el nombre de la variable entre dobles corchetes:&lt;/p&gt;
+
+&lt;p&gt;{{ variable }}&lt;/p&gt;
+
+&lt;p&gt;{{ var1.var2 }}&lt;/p&gt;
+
+&lt;p&gt;Por ejemplo, vamos a poner la fecha en la que se publico esta entrada:&lt;/p&gt;
+
+&lt;p&gt;{{ page.date }}&lt;/p&gt;
+
+&lt;p&gt;nos devolvería &lt;strong&gt;2016-04-06 00:00:00 +0200&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;filtros&quot;&gt;Filtros:&lt;/h3&gt;
+
+&lt;p&gt;Los filtros don métodos simples con los que podremos dar algún formato, reemplazar texto, etc.&lt;br /&gt;
+Los filtros van después de la variable o cadena e irán separados mediante &lt;strong&gt;|&lt;/strong&gt;&lt;br /&gt;
+Algunos ejemplos de filtros son:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;date:&lt;/strong&gt; para dar formato a una fecha&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;capitalize:&lt;/strong&gt; Pone la primera letra en mayuscula&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;strip_html:&lt;/strong&gt; Devuelve la variable sin formatear en HTML&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;remove:&lt;/strong&gt; Borra todas las coincidencias de una cadena&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Por ejemplo:&lt;/p&gt;
+
+&lt;p&gt;{{ ‘alfonso’  | capitalize }}&lt;/p&gt;
+
+&lt;p&gt;{{ page.date | date: ‘%d/%m/%Y’ }}&lt;/p&gt;
+
+&lt;p&gt;{{ ‘Hola Mundo’ | replace: ‘Hola’,’Adios’ }}&lt;/p&gt;
+
+&lt;p&gt;nos devolvería esto:&lt;/p&gt;
+
+&lt;p&gt;Alfonso&lt;/p&gt;
+
+&lt;p&gt;06/04/2016&lt;/p&gt;
+
+&lt;p&gt;Adios Mundo&lt;/p&gt;
+
+&lt;h2 id=&quot;etiquetas-lgicas&quot;&gt;Etiquetas lógicas:&lt;/h2&gt;
+
+&lt;p&gt;En ocasiones puede que necesitemos recurrir a las sentencias lógicas y/o bucles para poner contenido en nuestro blog. Por poner un ejemplo en este blog lo uso para que en la lista de paginas de la cabecera, que no es mas que un bucle &lt;strong&gt;for&lt;/strong&gt; que recorre todas las paginas y dentro de el un &lt;strong&gt;if&lt;/strong&gt; para que solo muestre aquellas que contengan una variable en true. Este es su código:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{% for page in site.pages %}
+	{% if page.title and page.onmenu %}
+		&amp;lt;li&amp;gt;&amp;lt;a class=&quot;page-link&quot; href=&quot;{{ page.url | prepend: site.baseurl }}&quot;&amp;gt;{{ page.title }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+	{% endif %}
+{% endfor %}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Shopify/liquid/wiki/ES-Liquid-para-dise%C3%B1adores&quot;&gt;En esta pagina&lt;/a&gt; tenéis un tutorial en español sobre las etiquetas Liquid. Recomiendo su lectura antes de leer la siguiente parte del tutorial.&lt;/p&gt;
+
+&lt;p&gt;Y esto es todo de momento. En la próxima entrega empezaremos a modificar el diseño de nuestro blog. Para facilitarnos la tarea vamos a usar el framework CSS &lt;strong&gt;MUI&lt;/strong&gt;, el usado por este blog, pero se pueden usar otros, eso ya al gusto de cada uno. Hasta la próxima.&lt;/p&gt;
+
+&lt;h2 id=&quot;enlaces-de-inters&quot;&gt;Enlaces de interés:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/datafiles/&quot;&gt;Uso de ficheros de datos en Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/variables/&quot;&gt;Variables de Jekyll siponibles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 06 Apr 2016 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2016/04/06/creando-blog-jekyll-3.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2016/04/06/creando-blog-jekyll-3.html</guid>
+        
+        <category>tutoriales</category>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
     
       <item>
         <title>Creando un blog con Jekyll 2. Añadiendo entradas y paginas</title>
@@ -686,164 +828,6 @@ Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldr�
         <pubDate>Thu, 02 Jul 2015 00:00:00 +0200</pubDate>
         <link>http://son-link.github.io/2015/07/02/apache-cordova-2.html</link>
         <guid isPermaLink="true">http://son-link.github.io/2015/07/02/apache-cordova-2.html</guid>
-        
-        <category>cordova</category>
-        
-        <category>tutoriales</category>
-        
-        <category>firefoxos</category>
-        
-        <category>android</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Apache Cordova 1: Primeros pasos</title>
-        <description>&lt;p&gt;Bienvenid@s a esta primera entrada de una serie de tutoriales sobre &lt;strong&gt;Apache Cordova.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Para los que no sepáis que es Cordova es una plataforma que nos permite crear aplicaciones para móviles multiplataforma usando tecnologías web, esto es &lt;strong&gt;HTML, Javascript y CSS&lt;/strong&gt;, lo que facilita bastante el desarrollo ya que no tendremos que aprender diversos lenguajes de programación para poder, por ejemplo, hacer una aplicación para Android, que usa &lt;strong&gt;Java&lt;/strong&gt; o para &lt;strong&gt;IOs&lt;/strong&gt; que se hacen con &lt;strong&gt;C#&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;A lo largo de este tutorial enseñare los pasos para Android y Firefox OS, si bien para este ultimo se puede programar de por si usando tecnología web, por lo que si solo quieres hacer aplicaciones para el, no necesitas este tutorial. Los pasos indicados están hechos bajo &lt;strong&gt;GNU/Linux&lt;/strong&gt; pero son, salvo algún cambio, los mismos para Windows.&lt;/p&gt;
-
-&lt;p&gt;Para empezar necesitaremos lo siguiente:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;node.js&lt;/strong&gt; (para instalar y usar Cordova)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Android SDK&lt;/strong&gt; y &lt;strong&gt;Java 7&lt;/strong&gt; (para generar la app para Android)&lt;/li&gt;
-  &lt;li&gt;Cualquier editor de texto o IDE (en mi caso &lt;strong&gt;Geany&lt;/strong&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;instalacin&quot;&gt;Instalación:&lt;/h2&gt;
-&lt;p&gt;Empezaremos instalando lo necesario. En el caso de haber paquetes para tu distribución, instalalos desde ellos.&lt;/p&gt;
-
-&lt;h3 id=&quot;nodejs&quot;&gt;Node.js&lt;/h3&gt;
-&lt;p&gt;Lo primero que necesitaremos es &lt;strong&gt;node.js.&lt;/strong&gt; Esta disponible en los repositorios de Debian, Linux Mint, Ubuntu y Arch Linux, por lo que recomiendo su instalación desde ellos si en tu distribución estan disponibles. En caso contrario puedes bajar la ultima versión ya compilada desde su &lt;a href=&quot;https://nodejs.org/download&quot;&gt;pagina de descarga&lt;/a&gt; o descargar y compilarlo desde su código fuente.&lt;/p&gt;
-
-&lt;p&gt;Una vez instalado ejecutamos el siguiente comando:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo npm install -g cordova
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Esto bajara e instalara Cordova con sus dependencias.&lt;/p&gt;
-
-&lt;h3 id=&quot;android-sdk&quot;&gt;Android SDK&lt;/h3&gt;
-&lt;p&gt;Antes de nada deberemos de instalar Java 7 y su JDK si no lo tenemos instalado desde el gestor de paquetes de nuestra distribución.&lt;/p&gt;
-
-&lt;p&gt;Ahora procedemos a descargar el SDK de Android desde su &lt;a href=&quot;https://developer.android.com/sdk/index.html#Other&quot;&gt;pagina oficial&lt;/a&gt;. &lt;strong&gt;Android Studio&lt;/strong&gt; no es necesario, por lo que salvo que queramos usarlo no hace falta bajarlo junto al SDK. Si eres usuario de &lt;strong&gt;Arch Linux, Manjaro&lt;/strong&gt; u otros derivados puedes instalar el SDK y lo que se dirá a continuación desde &lt;strong&gt;AUR&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Una vez bajado lo descomprimimos donde queramos y añadimos las rutas a las carpetas que contiene las herramientas a nuestro path. Si por ejemplo lo tenemos en /opt/android/sdk añadiremos lo siguiente en el archivo ~/.bashrc&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ANDROIDSDK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/opt/android-sdk&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Ahora solo nos falta instalar lo necesario. Para ello ejecutamos el comando &lt;strong&gt;Android&lt;/strong&gt;. En la vetana que se abre seleccionamos lo que esta marcado en la imagen&lt;br /&gt;
-&lt;img src=&quot;/img/tutorial_cordova/android_sdk.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;creacin-y-configuracin-de-nuestra-primera-aplicacin&quot;&gt;Creación y configuración de nuestra primera aplicación.&lt;/h2&gt;
-&lt;p&gt;Una vez instalado lo necesario vamos a proceder a crear nuestra primera aplicación. Abrimos una terminal y ejecutamos lo siguiente:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova create miprimeraapp io.minombre.primeraapp &lt;span class=&quot;s2&quot;&gt;&quot;Mi primera app&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Repasemos cada parámetro:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;create&lt;/strong&gt; indica a cordova que vamos a crear una nueva aplicación.&lt;/li&gt;
-  &lt;li&gt;El segundo parámetro es el nombre de la carpeta que contendrá el proyecto.&lt;/li&gt;
-  &lt;li&gt;El tercer parámetro es opcional. Es el identificador de la aplicación y como veréis es como un dominio de Internet.&lt;/li&gt;
-  &lt;li&gt;Y el ultimo es el nombre de la aplicación. También es opcional.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ahora al entrar en la carpeta un archivo XML y varias carpetas:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;hooks:&lt;/strong&gt; contiene varios scripts especiales para plugins o comandos especiales de Cordova.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;platforms:&lt;/strong&gt; este directorio es donde se ubicaran las plataformas que vayamos añadiendo.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;plugins&lt;/strong&gt;: aquí estarán los plugins de Cordova que descarguemos.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;www&lt;/strong&gt;: en el es donde estarán los archivos de nuestra app.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;config.xml&lt;/strong&gt;: es el archivo de configuración de nuestra app.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ahora para añadir plataformas desde una terminal nos movemos hasta el directorio del proyecto y ejecutamos:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova platform add android
-cordova platform add firefoxos
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Con esto ya tenemos preparado lo básico para poder empezar a trabajar. Ahora vamos a terminar de configurar el proyecto. Para ello abrimos el archivo config.xml con cualquier editor de texto. Veremos algo similar a esto:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;widget&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;io.minombre.primeraapp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0.0.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/ns/widgets&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:cdv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://cordova.apache.org/ns/1.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Mi primera app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;
-        A sample Apache Cordova application that responds to the deviceready event.
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;author&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;email=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dev@cordova.apache.org&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://cordova.io&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        Apache Cordova Team
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;content&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;index.html&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cordova-plugin-whitelist&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;access&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;origin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://*/*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://*/*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tel:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sms:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mailto:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;geo:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;platform&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;market:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/platform&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;platform&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ios&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;itms:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-intent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;itms-apps:*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/platform&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/widget&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Dentro del tag &amp;lt;widget&amp;gt; veremos los parámetros &lt;strong&gt;id&lt;/strong&gt; y &lt;strong&gt;version&lt;/strong&gt; el primero es el id del proyecto que en este caso es el segundo parámetro que le pasamos al comando &lt;strong&gt;cordova create&lt;/strong&gt; y versión es el numero de versión de nuestro programa.&lt;/p&gt;
-
-&lt;p&gt;Entre los tags &lt;strong&gt;&amp;lt;name&amp;gt;&lt;/strong&gt; ira el nombre de aplicación, en este caso el tercer parámetro que le pasamos al crear el proyecto.&lt;/p&gt;
-
-&lt;p&gt;En &lt;strong&gt;&amp;lt;description&amp;gt;&lt;/strong&gt; ira la descripción del programa.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;lt;author&amp;gt;&lt;/strong&gt; es donde ira la información del autor de la aplicación (o del equipo de desarrollo)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;lt;allow-intent&amp;gt;&lt;/strong&gt; en estos campos si indica a que protocolos podrá acceder la aplicación. Puedes borrar los que no necesites. En nuestro caso solo dejamos &lt;strong&gt;http&lt;/strong&gt; y &lt;strong&gt;https&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;lt;platform&amp;gt;&lt;/strong&gt; contiene etiquetas &amp;lt;allow-intent&amp;gt; especificas para cada plataforma. Podemos borrarlas sin problemas ya que nuestra app no necesita acceder a Google Play y mucho menos a la Play Store de Apple.&lt;/p&gt;
-
-&lt;p&gt;Ahora vamos a construir la aplicación. Para ello desde una terminal y desde el directorio de nuestra aplicación ejecutamos lo siguiente:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova build
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Esto construirá los paquetes para todas las plataformas que hubiésemos añadido.&lt;br /&gt;
-Si solo queremos construir el paquete para una plataforma especifica le pasamos el nombre de esta como segundo parámetro.&lt;/p&gt;
-
-&lt;p&gt;Ahora para instalar la aplicación en nuestro dispositivo Android podemos hacerlo de dos modos:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;con el comando &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova run android&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;o con &lt;code class=&quot;highlighter-rouge&quot;&gt;adb install /ruta/al/proyecto//platforms/android/build/outputs/apk/android-debug.apk&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Para Firefox OS nos genera un paquete en &lt;strong&gt;platforms/firefoxos/build/package.zip&lt;/strong&gt;. Para instalarlo lo descomprimimos e instalamos a nuestro dispositivo desde el App Manager de Firefox o desde WebIDE desde Firefox Developers Edition o versiones más modernas de Firefox.&lt;/p&gt;
-
-&lt;p&gt;Y con esto se termina esta primera parte. En el siguiente crearemos un pequeño proyecto para irnos familiarizando con los plugins de Cordova. Hasta la próxima.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 20 Jun 2015 00:00:00 +0200</pubDate>
-        <link>http://son-link.github.io/2015/06/20/cordova-primeros-pasos.html</link>
-        <guid isPermaLink="true">http://son-link.github.io/2015/06/20/cordova-primeros-pasos.html</guid>
         
         <category>cordova</category>
         

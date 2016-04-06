@@ -6,9 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Entradas etiquetadas con &ldquo;lua&rdquo;</title>
-	<meta name="description" content="Mi blog personal donde hablo de mis proyectos, tutoriales, etc, ademas de exponer mis trabajos y proyectos
-">
+	<title>Creando un blog con Jekyll 3 - Etiquetas Liquid</title>
+	<meta name="description" content="Bienvenidos a la tercera entrega de esta serie de tutoriales de Jekyll. En esta entrega empezaremos a familiarizarnos con el lenguaje de etiquetas Líquid. Co...">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
@@ -18,7 +17,7 @@
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
 		<![endif]-->
-	<link rel="canonical" href="http://son-link.github.io/tag/lua/">
+	<link rel="canonical" href="http://son-link.github.io/2016/03/21/creando-blog-jekyll-3.html">
 	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
 	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
 </head>
@@ -101,131 +100,108 @@
 	<div class="row">
 		<div class="home mui-col-xs-14 mui-col-md-8">
 			<div class="wrapper">
-				<h2 class="post_title">Entradas etiquetadas con &ldquo;lua&rdquo;</h2>
-<ul  class="post-list">
-	
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-			
-		
-			
-		
-  
-		
-			
-		
-  
-		
-			
-		
-			
-		
-			
-			<li>
-				<h2><a class="post-link" href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></h2>
-				Tras un largo parón en el blog vuelvo a escribir sobre mi ultimo proyecto: **EntroPipes** EntroPipes es un juego del genero **puzzle** y basado en una idea de mi colega...<br>
-				<a href="/2015/10/30/EntroPies-R1.html">Seguir leyendo...</a><br><br>
-				<ul class="tag_list">
-					<li>Etiquetas: </li>
-					
-						<li class="inline archive_list"><a class="tag_list_link" href="/tag/proyectos">proyectos</a></li>
-					
-						<li class="inline archive_list"><a class="tag_list_link" href="/tag/juegos">juegos</a></li>
-					
-						<li class="inline archive_list"><a class="tag_list_link" href="/tag/lua">lua</a></li>
-					
-						<li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
-					
-						<li class="inline archive_list"><a class="tag_list_link" href="/tag/windows">windows</a></li>
-					
-						<li class="inline archive_list"><a class="tag_list_link" href="/tag/Nintendo 3DS">Nintendo 3DS</a></li>
-					
-				</ul>
-				<span class="post-meta">Escrito el 30 de Octubre del 2015</span>
-				<br /><br />
-				<div class="mui-divider"></div>
-        	</li>
-			
-		
-			
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-			
-		
-			
-		
-  
-		
-			
-		
-			
-		
-			
-		
-			
-		
-  
-		
-  
+				<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Creando un blog con Jekyll 3 - Etiquetas Liquid</h1>
+    <p class="post-meta">03/21/2016</p>
+  </header>
+
+  <article class="post-content">
+    <p>Bienvenidos a la tercera entrega de esta serie de tutoriales de <strong>Jekyll</strong>. En esta entrega empezaremos a familiarizarnos con el lenguaje de etiquetas Líquid. Con el podremos acceder a las variables del blog (o las nuestras), usar sentencias <strong>if</strong>, bucles <strong>for</strong>, incluir plantillas, usar filtros, etc, además de que podemos crear nuestros propios filtros, pero eso es quizás algo que vemos más adelante.</p>
+
+<p>Líquid tiene 2 tipos de etiquetas: de texto y lógicas. Las primeras se usaran para tratar con variables y aplicar filtros, mientras que la segunda es la que usaremos para usar las sentencias if o los bucles for por ejemplo. Las primeras estarán entre {{ <strong>dobles llaves</strong> }} y las segundas entre {% <strong>llaves y el signo porcentual</strong> %}</p>
+
+<h2 id="etiquetas-de-texto-y-filtros">Etiquetas de texto y filtros:</h2>
+
+<p>El uso básico de este tipo de etiquetas es bastante sencillo, basta con poner, como ya se comento, el nombre de la variable entre dobles corchetes:</p>
+
+<p>{{ variable }}</p>
+
+<p>{{ var1.var2 }}</p>
+
+<p>Por ejemplo, vamos a poner la fecha en la que se publico esta entrada:</p>
+
+<p>{{ page.date }}</p>
+
+<p>nos devolvería <strong>2016-03-21 00:00:00 +0100</strong></p>
+
+<h3 id="filtros">Filtros:</h3>
+
+<p>Los filtros don métodos simples con los que podremos dar algún formato, reemplazar texto, etc.<br />
+Los filtros van después de la variable o cadena e irán separados mediante <strong>|</strong><br />
+Algunos ejemplos de filtros son:</p>
+
+<ul>
+  <li><strong>date:</strong> para dar formato a una fecha</li>
+  <li><strong>capitalize:</strong> Pone la primera letra en mayuscula</li>
+  <li><strong>strip_html:</strong> Devuelve la variable sin formatear en HTML</li>
+  <li><strong>remove:</strong> Borra todas las coincidencias de una cadena</li>
 </ul>
+
+<p>Por ejemplo:</p>
+
+<p>{{ ‘alfonso’  | capitalize }}</p>
+
+<p>{{ page.date | date: ‘%d/%m/%Y’ }}</p>
+
+<p>{{ ‘Hola Mundo’ | replace: ‘Hola’,’Adios’ }}</p>
+
+<p>nos devolvería esto:</p>
+
+<p>Alfonso</p>
+
+<p>21/03/2016</p>
+
+<p>Adios Mundo</p>
+
+<h2 id="etiquetas-lgicas">Etiquetas lógicas:</h2>
+
+<p>En ocasiones puede que necesitemos recurrir a las sentencias lógicas y/o bucles para poner contenido en nuestro blog. Por poner un ejemplo en este blog lo uso para que en la lista de paginas de la cabecera, que no es mas que un bucle <strong>for</strong> que recorre todas las paginas y dentro de el un <strong>if</strong> para que solo muestre aquellas que contengan una variable en true. Este es su código:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+{% for page in site.pages %}
+	{% if page.title and page.onmenu %}
+		&lt;li&gt;&lt;a class="page-link" href="{{ page.url | prepend: site.baseurl }}"&gt;{{ page.title }}&lt;/a&gt;&lt;/li&gt;
+	{% endif %}
+{% endfor %}
+
+</code></pre>
+</div>
+
+    <div class="share">
+		Compartir:
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll 3 - Etiquetas Liquid&url=http://son-link.github.io/2016/03/21/creando-blog-jekyll-3.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2016/03/21/creando-blog-jekyll-3.html"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2016/03/21/creando-blog-jekyll-3.html"><i class="icon-gplus"></i> Google+</a>
+    </div>
+    <br />
+    <ul class="tag_list">
+		<li>Etiquetas: </li>
+   		
+    </ul>
+    <span>Entradas relacionadas:</span>
+    <ul class="relacionadas">
+		
+    </ul>
+  </article>
+  <!-- Disqus comments -->
+  
+	<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'blogdesonlink';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	
+</div>
 
 			</div>
 		</div>
@@ -260,7 +236,7 @@
 		</li>
 		
 		<li>
-			<a href="/tag/tutoriales">tutoriales <span class="badge">6</span></a>
+			<a href="/tag/tutoriales">tutoriales <span class="badge">5</span></a>
 		</li>
 		
 		<li>
@@ -332,7 +308,7 @@
 		</li>
 		
 		<li>
-			<a href="/tag/jekyll">jekyll <span class="badge">3</span></a>
+			<a href="/tag/jekyll">jekyll <span class="badge">2</span></a>
 		</li>
 		
 	</ul>
@@ -377,18 +353,14 @@
 
     
     <h2 id="2016-ref">2016</h2>
-    <h4 id="2016-Abril-ref">Abril <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
+    <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
     <ul>
     
 
-    <li><a href="/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></li>
+    <li><a href="/2016/03/21/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Etiquetas Liquid</a></li>
 
     
         
-            
-            </ul>
-            <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
-            <ul>
             
         
     
