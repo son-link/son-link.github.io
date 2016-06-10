@@ -6,9 +6,149 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Apr 2016 20:38:42 +0200</pubDate>
-    <lastBuildDate>Wed, 06 Apr 2016 20:38:42 +0200</lastBuildDate>
-    <generator>Jekyll v3.0.3</generator>
+    <pubDate>Fri, 10 Jun 2016 23:14:59 +0200</pubDate>
+    <lastBuildDate>Fri, 10 Jun 2016 23:14:59 +0200</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</title>
+        <description>&lt;p&gt;Bienvenid@s a la cuarta entrega de este tutorial. En esta entrega empezaremos a crear nuestro propio diseño. Para facilitarnos algunas tareas usaremos el framework CSS y Javascript &lt;a href=&quot;http://getuikit.com&quot;&gt;UIKit&lt;/a&gt;, que es el que uso para la pagina de las &lt;a href=&quot;http://rolotaku.ml&quot;&gt;jornadas Rolotaku&lt;/a&gt;, la cual también esta levantado con Jekyll y aproveche lo hecho para este blog. En anteriores entradas comente que iba a usar &lt;strong&gt;MUI&lt;/strong&gt;, pero al final me decante por este para el tutorial por tener más opciones. Cierto que hay muchos más, pero me decante por este por ser ligero (contando solo la base necesaria). Eres libre de usar el que quieras para el diseño de tu blog. Aparte también necesitaremos &lt;a href=&quot;https://jquery.com/download/&quot;&gt;JQuery&lt;/a&gt; en su versión 2.x&lt;/p&gt;
+
+&lt;p&gt;Como ya comente en la primera entrega dentro del directorio de Jekyll hay 2 carpetas donde se guardaran los archivos del diseño: &lt;strong&gt;_layout&lt;/strong&gt;, donde irán las pieles, e &lt;strong&gt;_includes&lt;/strong&gt;, donde irán trozos que se incluirán dentro de las pieles, como la cabecera o el pie de pagina.&lt;/p&gt;
+
+&lt;p&gt;Por defecto dentro de _layouts tendremos 3 archivos: &lt;strong&gt;default.html&lt;/strong&gt; que es el que se usara por defecto y contiene la estructura base de la pagina, &lt;strong&gt;page.html&lt;/strong&gt; para las paginas y &lt;strong&gt;post.html&lt;/strong&gt; para cada post del blog.&lt;/p&gt;
+
+&lt;p&gt;Dentro de &lt;strong&gt;_includes&lt;/strong&gt; veremos 4 archivos html, siendo los importantes &lt;strong&gt;head.html&lt;/strong&gt;, que contendrá todo lo que habrá dentro de la etiqueta &lt;strong&gt;&amp;lt;head&amp;gt;&lt;/strong&gt;, &lt;strong&gt;header.html&lt;/strong&gt; que contiene la cabecera y el menú de navegación, y &lt;strong&gt;footer.html&lt;/strong&gt; que sera el pie de pagina. Los otros simplemente añaden, si lo tenemos configurado, enlaces a nuestros perfiles en &lt;strong&gt;Github&lt;/strong&gt; y &lt;strong&gt;Twitter&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Aparte de estas dos carpetas usaremos la carpeta &lt;strong&gt;/css&lt;/strong&gt; para las hojas de estilo y crearemos otra a la que llamaremos &lt;strong&gt;/js&lt;/strong&gt; para los scripts &lt;strong&gt;javascript&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ademas, salvo que sepas &lt;strong&gt;SASS&lt;/strong&gt;, una extensión de CSS que nos permite el uso de variables, sentencias, etc, puedes borrar la carpeta &lt;strong&gt;_sass&lt;/strong&gt; y &lt;strong&gt;css/main.scss&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ademas al final del tutorial subiré a Github el resultado para que veáis el resultado final, ademas de para que lo useis de base para hacer pruebas&lt;/p&gt;
+
+&lt;h2 id=&quot;empezando-a-modificar&quot;&gt;Empezando a modificar&lt;/h2&gt;
+
+&lt;p&gt;Empezaremos analizando el archivo &lt;strong&gt;_layout/default.html&lt;/strong&gt;. Dentro de el, como comente antes, estará la estructura básica de las paginas y veremos 2 etiquetas Liquid lógicas {% include %}, las cuales usaremos para incluir otros trozos de código, en este caso header.html y footer.html, archivos que ya comente en el punto anterior. Por el momento vamos a dejarlo tal cual.&lt;/p&gt;
+
+&lt;p&gt;Lo primero que haremos sera bajar la ultima versión estable de UIkit. De todos los archivos que viene solo necesitaremos de la carpeta css &lt;strong&gt;uikit.min.css&lt;/strong&gt;, de js &lt;strong&gt;uikit.min.js&lt;/strong&gt; y la carpeta &lt;strong&gt;fonts&lt;/strong&gt; al completo. Los extraemos y los ponemos dentro de la carpetas correspondientes en el directorio base, ademas de meter también la ultima versión de &lt;strong&gt;JQuery&lt;/strong&gt; en su rama 2.X en /js, a la hora de redactar esta entrega la 2.2.3, bajando la versión comprimida. Ahora abrimos el archivo &lt;strong&gt;_includes/head.html&lt;/strong&gt; y ponemos lo siguiente antes del primer &amp;lt;link&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.url}}/css/uikit.min.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.url}}/js/jquery-2.2.3.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.url}}/js/uikit.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Con esto ya tenemos lo básico para usar UIKit.&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a editar &lt;strong&gt;_includes/header.html&lt;/strong&gt;. Como comente antes es donde ira la cabecera con el titulo del blog y un menú para navegar por las paginas que vayamos creando.&lt;/p&gt;
+
+&lt;p&gt;Vamos a reemplazar el contenido de dicho fichero por el siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my-id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-offcanvas&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-offcanvas-bar uk-offcanvas-bar-show&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-panel&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-nav&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+				{% include menu.html %}
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-container uk-container-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-navbar-brand uk-hidden-small&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{site.title}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-navbar uk-navbar-attached&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-navbar-nav uk-hidden-small&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+				{% include menu.html %}
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#my-id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-navbar-toggle uk-visible-small&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-uk-offcanvas&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-navbar-brand uk-visible-small&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{site.title}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Ademas creamos un nuevo fichero en _includes llamado &lt;strong&gt;menu.html&lt;/strong&gt; que nos generara el menú con las paginas:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{% for p in site.pages %}
+	{% if p.title %}
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ p.url | prepend: site.baseurl }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ p.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+	 {% endif %}
+ {% endfor %}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Analicemos el código:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lo primero que vemos es un div con la clase &lt;strong&gt;uk-offcanvas&lt;/strong&gt;. En esta capa ira el menú lateral, que solo sera visible cuando se pulse el botón correspondiente en pantallas pequeñas,ademas de un ID para poder llamarlo cuando se pulse el botón que lo abre/oculta. Dentro de el hay otros 2 divs y finalmente una lista que contendrá los enlaces. Como vemos se hace un nuevo include al fichero &lt;strong&gt;_includes/menu.html&lt;/strong&gt;. Yo lo he hecho así ya que más abajo vemos que lo volvemos a incluir, con el fin de ahorrar código.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tras el div que contiene el menú lateral tenemos el &lt;strong&gt;header&lt;/strong&gt;. antes de &lt;strong&gt;&amp;lt;nav&amp;gt;&lt;/strong&gt; vemos un enlace que es el titulo del blog. Vemos que tiene una clase especial, &lt;strong&gt;uk-hidden-small&lt;/strong&gt;, con el cual ocultamos el contenido que tenga cuando la pagina se este visualizando en pantallas pequeñas. Dentro del &amp;lt;nav&amp;gt; veremos una lista con los enlaces a las paginas, que como en el caso anterior, tiene la clase que la ocultara en pantallas pequeñas. Tras dicha lista veremos un enlace que es el que mostrara y ocultara el menú lateral. Dicho enlace como vemos hace referencia al ID del menú lateral, ademas de las clases necesarios para ello, una de ellas haciendo lo contrario a la lista anterior, que hará que solo se muestre en pantallas pequeñas. Por ultimo volvemos a tener un enlace con el titulo del blog que se mostrara al lado del botón.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Al guardar todo tendremos algo como esto:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tutorial_jekyll/header.png&quot; alt=&quot;Captura menús&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Siendo el de arriba cuando se visualiza desde una pantalla grande, la segunde en pantallas pequeñas y la de abajo cuando se abre el menú.&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a editar el pie de pagina. En el suele ir, por ejemplo, el aviso de Copyright, la licencia (en el caso de que, como pasa en mi blog, uses Creative Commons u otra)&lt;/p&gt;
+
+&lt;p&gt;Abrimos &lt;strong&gt;_includes/footer.html&lt;/strong&gt; y sustituimos el contenido por el siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-container uk-container-center uk-text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-subnav uk-subnav-line uk-flex-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		{% if site.github_username %}
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://github.com/{{ site.github_username }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-icon-github&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt; {{ site.github_username }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+		{% endif %}
+
+		{% if site.twitter_username %}
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://twitter.com/{{ site.twitter_username }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-icon-twitter&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt; {{ site.twitter_username }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+		{% endif %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-panel&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;footer-heading&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ site.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ site.description }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;No necesita mucha explicación: Vemos un &lt;strong&gt;&amp;lt;footer&amp;gt;&lt;/strong&gt; con una serie de clases, entre ellas para que tanto el pie como el contenido este centrado. Luego hay una lista con enlaces a nuestras cuentas de Github y Twitter (si es que añadimos esas variables eso en &lt;strong&gt;_config.yml&lt;/strong&gt; y finalmente un div con la clase para paneles que contiene el titulo de la pagina y su descripción.&lt;/p&gt;
+
+&lt;p&gt;Con esto nos quedara una pagina similar a esta:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tutorial_jekyll/final_cap_4.png&quot; alt=&quot;Captura final capitulo 4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aun quede algo feilla, pero eso es algo que cambiaremos en próximas entregas. En la próxima entrega nos pondremos a modificar la que mostrara todas las entradas así como cada entrada individual, además de la imaginación.&lt;/p&gt;
+
+&lt;p&gt;El código del ejemplo esta en http esta en &lt;a href=&quot;https://github.com/son-link/tutorial-jekyll/&quot;&gt;https://github.com/son-link/tutorial-jekyll/&lt;/a&gt; y dentro de Releases podréis descargas los distintos resultados, ademas podréis ir viendo como va quedando en &lt;a href=&quot;http://son-link.github.io/tutorial-jekyll/&quot;&gt;http://son-link.github.io/tutorial-jekyll/&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 10 Jun 2016 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2016/06/10/creando-blog-jekyll-4.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2016/06/10/creando-blog-jekyll-4.html</guid>
+        
+        <category>tutoriales</category>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
     
       <item>
         <title>Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</title>
@@ -20,7 +160,7 @@
 
 &lt;p&gt;Las variables globales se pueden definir dentro del archivo de configuración &lt;strong&gt;_config.yml&lt;/strong&gt; o en ficheros y subcarpetas dentro del directorio &lt;strong&gt;_data&lt;/strong&gt;. Los ficheros dentro de dicha carpeta pueden estar en formato YMAL (como el propio archivo de configuración), JSON y CSV.&lt;/p&gt;
 
-&lt;p&gt;En cuanto a las variables locales están se definen dentro de dos zonas: la cabecera de la pagina, entre los — (como ejemplo la fecha y el titulo de una entrada). Liquid tiene un tag que también nos permite definir variables dentro de la pagina, para por ejemplo, guardar el resultado de un filtro&lt;br /&gt;
+&lt;p&gt;En cuanto a las variables locales están se definen dentro de dos zonas: la cabecera de la pagina, entre los — (como ejemplo la fecha y el titulo de una entrada). Liquid tiene un tag que también nos permite definir variables dentro de la pagina, para por ejemplo, guardar el resultado de un filtro
 ## Definiendo variables:&lt;/p&gt;
 
 &lt;h3 id=&quot;variable-estndar&quot;&gt;Variable estándar:&lt;/h3&gt;
@@ -88,8 +228,8 @@
 
 &lt;h3 id=&quot;filtros&quot;&gt;Filtros:&lt;/h3&gt;
 
-&lt;p&gt;Los filtros don métodos simples con los que podremos dar algún formato, reemplazar texto, etc.&lt;br /&gt;
-Los filtros van después de la variable o cadena e irán separados mediante &lt;strong&gt;|&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;Los filtros don métodos simples con los que podremos dar algún formato, reemplazar texto, etc.
+Los filtros van después de la variable o cadena e irán separados mediante &lt;strong&gt;|&lt;/strong&gt;
 Algunos ejemplos de filtros son:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -191,7 +331,7 @@ Lista desordenada
 &lt;p&gt;Cuyo resultado seria:&lt;/p&gt;
 
 &lt;h1 id=&quot;esto-es-una-cabecera-h1&quot;&gt;Esto es una cabecera H1&lt;/h1&gt;
-&lt;p&gt;## Esto es una cabezera H2&lt;br /&gt;
+&lt;p&gt;## Esto es una cabezera H2
 ##### Esto es una cabezera H5&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Texto en negrita&lt;/strong&gt;&lt;/p&gt;
@@ -281,7 +421,7 @@ Lista desordenada
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new ruta
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;donde ruta es la ruta donde estará la carpeta que contendrá el nuevo blog.&lt;br /&gt;
+&lt;p&gt;donde ruta es la ruta donde estará la carpeta que contendrá el nuevo blog.
 Para poder usarlo directamente en Github pages primero instalaremos desde gems la gema &lt;strong&gt;Bundle&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;En la carpeta que contiene el blog crearemos un nuevo fichero llamado Gemfile donde pondremos el siguiente contenido:&lt;/p&gt;
@@ -569,7 +709,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Para ello instalaremos el servidor &lt;strong&gt;Lighttpd&lt;/strong&gt;, un servidor ligero y funcional y usado en paginas como la &lt;strong&gt;Wikipedia&lt;/strong&gt; y &lt;strong&gt;Youtube&lt;/strong&gt;, el interprete de &lt;strong&gt;PHP&lt;/strong&gt;, un lenguaje de programación para servidores, y la base de datos &lt;strong&gt;MariaDB&lt;/strong&gt;, pero que puede cambiarse por &lt;strong&gt;MySQL&lt;/strong&gt; si se quiere, eso ya es al gusto de cada uno.&lt;/p&gt;
 
-&lt;p&gt;Para instalar lo necesario abrimos la terminal y ejecutamos:&lt;br /&gt;
+&lt;p&gt;Para instalar lo necesario abrimos la terminal y ejecutamos:
 &lt;code class=&quot;highlighter-rouge&quot;&gt;sh
 pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;/code&gt;&lt;/p&gt;
@@ -577,7 +717,7 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;h3 id=&quot;configurando-lightppd&quot;&gt;Configurando Lightppd:&lt;/h3&gt;
 &lt;p&gt;Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;PHP&lt;/strong&gt;
 Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Make sure to install php and php-cgi. See:
@@ -674,7 +814,7 @@ Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/et
         <title>Killall Radio App 1.0.0</title>
         <description>&lt;p&gt;Tras mucho probar ideas y testeo hago publica la versión 1.0.0 de Killall Radio App.&lt;/p&gt;
 
-&lt;p&gt;Los cambios respecto a la 0.9.0 no son muchas, principalmente el cambio en la sección de Podcasts ya que se ha añadido un dropbown que permite seleccionar entre los podcasts de Killall Radio o algunos de los canales disponibles&lt;br /&gt;
+&lt;p&gt;Los cambios respecto a la 0.9.0 no son muchas, principalmente el cambio en la sección de Podcasts ya que se ha añadido un dropbown que permite seleccionar entre los podcasts de Killall Radio o algunos de los canales disponibles
 , lista que se actualiza gracias a un archivo JSON que &lt;a href=&quot;https://gist.github.com/son-link/8cf06a31bc81a0870110&quot;&gt;se puede encontrar aquí&lt;/a&gt; y que se ira editando según salgan nuevos canales, y actualizar la lista es tan fácil como seleccionar la opción Actualizar dentro de la lista de canales. Ademas ahora también se podrán descargar los podcasts, pero esta opción por el momento solo funciona en Android ya que el plugin de Cordova usado para ello no funciona bien en Firefox OS, por lo que se retrasa hasta dar con la solución.&lt;/p&gt;
 
 &lt;p&gt;En la &lt;a href=&quot;/proyectos/killallradio/&quot;&gt;pagina de este blog&lt;/a&gt; dedicada a la aplicación podréis encontrar los enlaces a los paquetes.&lt;/p&gt;
@@ -694,12 +834,12 @@ Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/et
     
       <item>
         <title>Killall Radio App 0.9.0</title>
-        <description>&lt;p&gt;&lt;strong&gt;Killall Radio App&lt;/strong&gt; es la app oficial de &lt;a href=&quot;http://killallradio.wordpress.com&quot;&gt;Killall Radio&lt;/a&gt;, una emisora online dedicada al mundillo geek y que es colaborativa. La idea surgió de la nada y la propuse en el grupo de Telegram y fue acogido con un gran interés.&lt;br /&gt;
+        <description>&lt;p&gt;&lt;strong&gt;Killall Radio App&lt;/strong&gt; es la app oficial de &lt;a href=&quot;http://killallradio.wordpress.com&quot;&gt;Killall Radio&lt;/a&gt;, una emisora online dedicada al mundillo geek y que es colaborativa. La idea surgió de la nada y la propuse en el grupo de Telegram y fue acogido con un gran interés.
 Esta es la primera versión publica de ella, prácticamente terminada y esta disponible para &lt;strong&gt;Firefox OS&lt;/strong&gt; a partir de la versión 1.3 y &lt;strong&gt;Android&lt;/strong&gt; a partir de la 4.2 (el audio no funciona en la 2.3 y en la 4.0 no ha sido probada)&lt;/p&gt;
 
 &lt;p&gt;En la &lt;a href=&quot;/proyectos/killallradio/&quot;&gt;pagina de este blog&lt;/a&gt; dedicada a la aplicación podréis encontrar los enlaces a los paquetes.&lt;/p&gt;
 
-&lt;p&gt;Espero que os guste tanto la aplicación como la emisora.&lt;br /&gt;
+&lt;p&gt;Espero que os guste tanto la aplicación como la emisora.
 Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo en el testeo, proponer ideas, etc.&lt;/p&gt;
 </description>
         <pubDate>Wed, 15 Jul 2015 00:00:00 +0200</pubDate>
@@ -707,131 +847,6 @@ Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo 
         <guid isPermaLink="true">http://son-link.github.io/2015/07/15/killallradio090.html</guid>
         
         <category>proyectos</category>
-        
-        <category>firefoxos</category>
-        
-        <category>android</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Apache Cordova 2: Instalando plugins y creación del paquete</title>
-        <description>&lt;p&gt;Bienvenid@s a la segunda entrada del tutorial sobre &lt;strong&gt;Apache Cordova.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;En esta nueva entrega explicare como añadir plugins, tanto oficiales como los creados por terceros y crear los paquetes para ser instalados en nuestro dispositivo o en un &lt;strong&gt;Dispositivo Virtual&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;plugins-oficiales&quot;&gt;Plugins oficiales:&lt;/h3&gt;
-
-&lt;p&gt;Cordova cuenta con varios plugins que nos permite usar las distintas características de nuestro dispositivo, como la geolocalización, los sms, las llamadas, etc. Para este ejemplo vamos a usar la de la cámara.&lt;/p&gt;
-
-&lt;p&gt;Para instalar el plugin nos basta con ejecutar&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova plugin add cordova-plugin-camera
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Los plugins que vayamos añadiendo se guardaran dentro de la carpeta &lt;strong&gt;plugins&lt;/strong&gt; que esta en el directorio de nuestro proyecto. Si miramos veremos 2: &lt;strong&gt;cordova-plugin-whitelist&lt;/strong&gt; que sirve para definir a que paginas se podrá acceder desde nuestra aplicación y &lt;strong&gt;cordova-plugin-camera&lt;/strong&gt; que es la que acabamos de añadir.&lt;/p&gt;
-
-&lt;p&gt;Ahora en el directorio www que se encuentra en la carpeta principal del proyecto vamos a crear un archivo html. Podemos borrar sin problemas lo que añade Cordova al crear el proyecto.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;&amp;lt;!--
-        Customize this policy to fit your own app&#39;s needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS-&amp;gt;native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add &#39;unsafe-inline&#39; to default-src
-        --&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Content-Security-Policy&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;default-src &#39;self&#39; data: gap: https://ssl.gstatic.com &#39;unsafe-eval&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; media-src *&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;format-detection&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;telephone=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;msapplication-tap-highlight&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Camera Test app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nf&quot;&gt;#mifoto&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sacafoto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPicture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;quality&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-				&lt;span class=&quot;na&quot;&gt;destinationType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DestinationType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FILE_URI&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;mifoto&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-			&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Hubo un fallo al sacar la foto: &#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;app&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mifoto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sacafoto()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Sacar foto&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cordova.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Una vez pulsado el botón nos pedirá si queremos usar la cámara o escoger alguna foto de la galería. En mi caso escogí la cámara y tras sacar la foto y aceptar nos saldra algo similar a esto:&lt;br /&gt;
-&lt;img src=&quot;/img/tutorial_cordova/camara_test.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;plugins-no-oficiales&quot;&gt;Plugins no oficiales:&lt;/h3&gt;
-
-&lt;p&gt;A día de hoy ahí una buena cantidad de plugins disponibles para las diversas plataformas soportadas por Cordova. Podemos encontrar muchas de ellos en la pagina del proyecto, en http://plugins.cordova.io&lt;br /&gt;
- si bien los plugins se están moviendo a &lt;a href=&quot;https://www.npmjs.com&quot;&gt;npmjs&lt;/a&gt;. Podeis saber más sobre ello en http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html&lt;/p&gt;
-
-&lt;p&gt;En la pagina de cada plugin tendremos las instrucciones de como instalarlo mediante el gestor de plugins de Cordova, por lo que es como hicimos con el plugin oficial de la cámara solo que cambiara el nombre por una dirección web&lt;/p&gt;
-
-&lt;h3 id=&quot;generando-los-paquetes&quot;&gt;Generando los paquetes:&lt;/h3&gt;
-
-&lt;p&gt;Es hora de generar los paquetes para poder instalar los paquetes en nuestros dispositivos o simuladores. Para ello solo nos hace falta un comando:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cordova build
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Cordova ira generando los paquetes para cada sistema que hubiésemos añadido. Si solo queremos que lo haga para uno bastara con pasarle su nombre como según parámetro, como por ejemplo &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova build android&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Si todo salio correctamente veremos algo como esto:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/tutorial_cordova/paquetes_generados.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ademas nos indica la ruta a los paquetes. Para instalarlo en Android podemos usar el comando &lt;code class=&quot;highlighter-rouge&quot;&gt;adb install -r &amp;lt;ruta&amp;gt;&lt;/code&gt; o mediante &lt;code class=&quot;highlighter-rouge&quot;&gt;cordova run android&lt;/code&gt; lo cual hara los mismo que build solo que al terminara instalara el paquete. En el caso de Firefox OS abrimos el zip y lo descomprimimos en alguna carpeta. Si usas &lt;strong&gt;Firefox 34&lt;/strong&gt; o superior abre &lt;strong&gt;App Manager&lt;/strong&gt; abriendo una nueva pestaña e introduciendo esta url: &lt;strong&gt;about:app-manager&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Veremos lo siguiente:&lt;br /&gt;
-&lt;img src=&quot;/img/tutorial_cordova/app-manager.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Pulsamos en &lt;strong&gt;Aplicaciones&lt;/strong&gt; y luego en &lt;strong&gt;Añadir aplicación empaquetada&lt;/strong&gt;. Nos movemos hasta la carpeta donde descomprimimos el paquete y pulsamos Aceptar.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/tutorial_cordova/app-manager_instalando.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-Pulsamos en Actualizar e instalara el paquete. Si pulsamos en Depurar nos saldrá la consola de Firefox para poder depurar nuestra aplicación, ver los mensajes de error, etc.&lt;/p&gt;
-
-&lt;p&gt;En el caso de &lt;strong&gt;WebIDE&lt;/strong&gt; (versiones más reciente de Firefox o si estas usando Firefox Developer edition) lo abrimos pulsando las teclas Shift+F8:&lt;br /&gt;
-&lt;img src=&quot;/img/tutorial_cordova/webide.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Pulsamos en &lt;strong&gt;Proyecto&lt;/strong&gt; y luego en &lt;strong&gt;Abrir aplicación empaquetada&lt;/strong&gt; y nos movenos hasta donde descomprimimos el paquete. Una vez añadido para instalarlo pulsamos sobre el icono de Play y procederá a instalarlo y ejecutarlo. Con el botón de Stop paramos la aplicación y con al llave inglesa abrimos la consola de Firefox para poder depurar la aplicación. Si ya se esta ejecutando en lugar del icono de Play nos saldrá uno similar al de Refrescar para volver a instalar y ejecutar la aplicación.&lt;/p&gt;
-
-&lt;p&gt;Y esto de momento es todo. En la próxima entrega veremos que otras opciones tenemos para configurar nuestro proyecto. Si tenéis dudas al respecto podéis consultar la documentación de Cordova o usar el sistema de comentarios. Estaré encantado de ayudaros en lo buenamente que pueda.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 02 Jul 2015 00:00:00 +0200</pubDate>
-        <link>http://son-link.github.io/2015/07/02/apache-cordova-2.html</link>
-        <guid isPermaLink="true">http://son-link.github.io/2015/07/02/apache-cordova-2.html</guid>
-        
-        <category>cordova</category>
-        
-        <category>tutoriales</category>
         
         <category>firefoxos</category>
         
