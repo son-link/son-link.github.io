@@ -6,9 +6,135 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 10 Jun 2016 23:14:59 +0200</pubDate>
-    <lastBuildDate>Fri, 10 Jun 2016 23:14:59 +0200</lastBuildDate>
+    <pubDate>Tue, 21 Jun 2016 12:55:08 +0200</pubDate>
+    <lastBuildDate>Tue, 21 Jun 2016 12:55:08 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</title>
+        <description>&lt;p&gt;Bienvenid@ a la 5ª entrega del tutorial. En esta entrega vamos a modificar como se muestran las entradas, tanto cuando se muestren todas como cuando solo se muestre una, así como la paginación en la primera.&lt;/p&gt;
+
+&lt;p&gt;Primero vamos a hacer unos ligeros cambios en el archivo &lt;strong&gt;_layouts/default.html&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Dentro veremos 2 capas. Borramos una de ellas, dejando &lt;strong&gt;{{content}}&lt;/strong&gt; y en la otra cambiamos la clases por &lt;strong&gt;uk-container uk-grid uk-container-center&lt;/strong&gt;, quedando algo así:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-container uk-grid uk-container-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	{{ content }}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Ahora abrimos el archivo &lt;strong&gt;index.html&lt;/strong&gt;, que es la pagina de inicio y donde se mostraran las entradas.&lt;/p&gt;
+
+&lt;p&gt;Dentro vemos una capa que contiene un &lt;strong&gt;H1&lt;/strong&gt; y una lista que contendrá el titulo, enlace y fecha de cada entrada. Lo que haremos sera cambiar dicha lista por los tags &lt;strong&gt;&amp;lt;article&amp;gt;&lt;/strong&gt; que contendrá los mismos y ademas un extracto del articulo para que los visitantes vean algo de el para hacerse una idea de su contenido. Esto es opcional, incluso se podría mostrar todo el contenido, pero es algo que no recomiendo si las entradas son muy largas. Y al final veremos un enlace para que la gente se suscriba al feed RSS.&lt;/p&gt;
+
+&lt;p&gt;Solo nos falta la parte de la paginación, pero eso más adelante veremos como añadirlo.&lt;/p&gt;
+
+&lt;p&gt;Lo primera que haremos es borrar la primera capa que tiene una clase llamada &lt;strong&gt;home&lt;/strong&gt;, asi como los tag &lt;strong&gt;&amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;&lt;/strong&gt; Ahora cambiamos el texto del &lt;strong&gt;H1&lt;/strong&gt; por Entradas, Noticias o lo que quieras.&lt;/p&gt;
+
+&lt;p&gt;Ahora pasemos al contenido que esta dentro del bucle For. Lo primero que haremos sera cambiar el tag &lt;strong&gt;&amp;lt;li&amp;gt;&lt;/strong&gt; por &lt;strong&gt;&amp;lt;article&amp;gt;&lt;/strong&gt; y le añadimos la clase &lt;strong&gt;uk-article&lt;/strong&gt;. Justo a continuación vamos a añadir un enlace al articulo con el titulo.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url | prepend: site.baseurl }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-article-title&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/h1&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Como vemos volvemos a usar unas clases especiales de UIKit para este tipo de contenidos y usamos las variables de Jekyll correspondientes. Ademas usamos la función &lt;strong&gt;prepend&lt;/strong&gt; de Liquid para que añada la url base que configuramos en _config.yml, que por defecto esta vaciá.&lt;/p&gt;
+
+&lt;p&gt;Ahora en el &lt;strong&gt;&amp;lt;span&amp;gt;&lt;/strong&gt; que contiene la fecha cambiamos la clase por &lt;strong&gt;uk-article-meta&lt;/strong&gt;. Por defecto la fecha que nos muestra una plantilla nueva es en el formato ingles, primero el mes (solo las tres primeras letras, el día y finalmente el año. Liquid tiene una serie de variables para que les demos el formato que queramos, eso si, en el caso de los nombres de los meses y las semanas aparecerán en ingles, si bien a través de un plugin podríamos ponerlos en español, pero es algo que veremos más adelante. Vamos a cambiarlo al formato que entendemos en nuestro idioma, día/mes/año:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{{ post.date | date: &quot;%d/%m/%Y&quot; }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Por ejemplo en el caso de esta entrega nos devolvería &lt;strong&gt;21/06/2016&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora reemplazamos el &lt;strong&gt;H2&lt;/strong&gt; y su contenido por este:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{{ post.content | truncatewords: 50}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Seguir leyendo...&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-article-divider&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;La primera linea mostrara el contenido, pero solo mostrara, en este caso, 50 palabras. Si queremos mostrar todo el contenido basta con dejar solo &lt;strong&gt;post.content&lt;/strong&gt;. Lo siguiente solo es un enlace a la entrada con la frase &lt;strong&gt;Leer más…&lt;/strong&gt;. No es necesario, pero a mi gusta por estética. Y lo ultimo es simplemente una barra divisoria entre cada entrada.&lt;/p&gt;
+
+&lt;p&gt;El resultado seria algo similar a la siguiente imagen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tutorial_jekyll/lista_entradas.png&quot; alt=&quot;Vista previa lista entradas&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para las entradas individuales abrimos el archivo &lt;strong&gt;_layouts/post.html&lt;/strong&gt; y simplemente sustituimos el contenido por lo que pusimos dentro del &lt;strong&gt;for&lt;/strong&gt;, quitando el enlace de &lt;em&gt;Leer más&lt;/em&gt;, el de la cabecera, dejando solo el H1, y el &lt;em&gt;hr&lt;/em&gt; y cambiado los &lt;strong&gt;post.&lt;/strong&gt; por &lt;strong&gt;page.&lt;/strong&gt; y el &lt;strong&gt;{{ post.content }}&lt;/strong&gt; por &lt;strong&gt;{{ content }}&lt;/strong&gt;. Esto mismo lo podemos aplicar a las paginas, reemplazando el contenido de &lt;strong&gt;loyouts/page.html&lt;/strong&gt;, ademas sin el &lt;em&gt;&amp;lt;span&amp;gt;&lt;/em&gt; que contiene la fecha ya que las paginas no tienen fecha.&lt;/p&gt;
+
+&lt;p&gt;Se pueden añadir más cosas, como enlaces para compartir y un sistema de comentarios, algo que mostrare en próximas entregas.&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a añadir el sistema de paginación. Para ello podemos crear una serie de entradas para hacer pruebas.&lt;/p&gt;
+
+&lt;p&gt;Lo primero que tenemos que hacer es instalar el puglin &lt;strong&gt;jekyll-pagination&lt;/strong&gt; desde &lt;strong&gt;Gems&lt;/strong&gt; por lo que desde una terminal ejecutamos &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install jekyll-pagination&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Lo siguiente sera añadir lo siguiente en el fichero &lt;strong&gt;_config.yml&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;paginate&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;paginate_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;page:num/&quot;&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;jekyll-paginate&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;En la primera variable indicamos el numero total de entradas, la segunda sera como serán los enlaces a cada pagina y &lt;strong&gt;:num&lt;/strong&gt; sera reemplazado por el numero de la pagina (por ejemplo &lt;strong&gt;page2&lt;/strong&gt;). La ultima indica a Jekyll que vamos a usar la gema, por lo que no se ejecutara en el caso de que no este instalada. Una vez guardados los cambios reiniciamos el servidor de Jekyll si lo teníamos ejecutando&lt;/p&gt;
+
+&lt;p&gt;Ahora volvamos a abrir el &lt;strong&gt;index.html&lt;/strong&gt;. Lo primero que vamos a hacer es modificar el &lt;em&gt;for&lt;/em&gt; reemplazando &lt;strong&gt;site.posts&lt;/strong&gt; por &lt;strong&gt;paginate.posts&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora tras el bucle &lt;em&gt;for&lt;/em&gt; añadimos lo siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{% if paginator.total_pages &amp;gt; 1 %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-pagination&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	{% if paginator.previous_page %}
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.previous_page_path | prepend: site.baseurl | replace: &#39;//&#39;, &#39;/&#39; }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;laquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+	{% else %}
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-disabled&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;span&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;laquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+	{% endif %}
+
+	{% for page in (1..paginator.total_pages) %}
+		{% if page == paginator.page %}
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-active&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;span&amp;gt;&lt;/span&gt;{{ page }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+		{% elsif page == 1 %}
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.previous_page_path | prepend: site.baseurl | replace: &#39;//&#39;, &#39;/&#39; }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+		{% else %}
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ site.paginate_path | prepend: site.baseurl | replace: &#39;//&#39;, &#39;/&#39; | replace: &#39;:num&#39;, page }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+		{% endif %}
+	{% endfor %}
+
+	{% if paginator.next_page %}
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.next_page_path | prepend: site.baseurl | replace: &#39;//&#39;, &#39;/&#39; }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;raquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+	{% else %}
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-disable&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;span&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;raquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+	{% endif %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+{% endif %}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;El primer if comprueba el total de paginas. Si solo hay una pagina simplemente no hace nada. Si hay más de una lo primero que hará sera añadir una lista que contendrá los enlaces a las paginas. El siguiente if comprobara si hay pagina previa, o lo que es lo mismo, que no estemos en la primera pagina. Si es así añadirá un enlace, si no solo mostraría un texto. Lo mismo pasa al final si no estamos en la ultima página.&lt;/p&gt;
+
+&lt;p&gt;El &lt;em&gt;for&lt;/em&gt; recorrerá desde el 1 hasta el total de paginas que hay en total. El primer if comprueba si el numero corresponde a la pagina actual, y si es así, solo mostrara el numero de la pagina. Si no es así comprobara si page vale 1, ya que apuntara a la baseurl que indicamos en el archivo de configuración. Si no es ninguno de los casos anteriores añadirá el enlace tal y como le indicamos en la variable &lt;strong&gt;paginate_path&lt;/strong&gt;. Un ejemplo de dos paginas seria este:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tutorial_jekyll/paginacion.png&quot; alt=&quot;Vista previa paginación&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;El que esta en azul es la pagina activa, o sea, donde estamos, y como no hay más paginas el enlace para pasar a la sigiete se vera distinto ya que usa la clase &lt;strong&gt;uk-disable&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Y esto es todo de momento. Nos leemos en la próxima entrega ;)&lt;/p&gt;
+</description>
+        <pubDate>Tue, 21 Jun 2016 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2016/06/21/creando-blog-jekyll-5.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2016/06/21/creando-blog-jekyll-5.html</guid>
+        
+        <category>tutoriales</category>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
     
       <item>
         <title>Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</title>
@@ -32,7 +158,7 @@
 
 &lt;p&gt;Lo primero que haremos sera bajar la ultima versión estable de UIkit. De todos los archivos que viene solo necesitaremos de la carpeta css &lt;strong&gt;uikit.min.css&lt;/strong&gt;, de js &lt;strong&gt;uikit.min.js&lt;/strong&gt; y la carpeta &lt;strong&gt;fonts&lt;/strong&gt; al completo. Los extraemos y los ponemos dentro de la carpetas correspondientes en el directorio base, ademas de meter también la ultima versión de &lt;strong&gt;JQuery&lt;/strong&gt; en su rama 2.X en /js, a la hora de redactar esta entrega la 2.2.3, bajando la versión comprimida. Ahora abrimos el archivo &lt;strong&gt;_includes/head.html&lt;/strong&gt; y ponemos lo siguiente antes del primer &amp;lt;link&amp;gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.url}}/css/uikit.min.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.url}}/js/jquery-2.2.3.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.url}}/js/uikit.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
@@ -46,7 +172,7 @@
 
 &lt;p&gt;Vamos a reemplazar el contenido de dicho fichero por el siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my-id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-offcanvas&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-offcanvas-bar uk-offcanvas-bar-show&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-panel&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -74,7 +200,7 @@
 
 &lt;p&gt;Ademas creamos un nuevo fichero en _includes llamado &lt;strong&gt;menu.html&lt;/strong&gt; que nos generara el menú con las paginas:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 {% for p in site.pages %}
 	{% if p.title %}
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ p.url | prepend: site.baseurl }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ p.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
@@ -105,7 +231,7 @@
 
 &lt;p&gt;Abrimos &lt;strong&gt;_includes/footer.html&lt;/strong&gt; y sustituimos el contenido por el siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-container uk-container-center uk-text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-subnav uk-subnav-line uk-flex-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 		{% if site.github_username %}
@@ -166,13 +292,13 @@
 &lt;h3 id=&quot;variable-estndar&quot;&gt;Variable estándar:&lt;/h3&gt;
 &lt;p&gt;Es aquella que solo tener un valor, su sintaxis es la siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;valor&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;valor&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;En Liquid es:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% assign nombre = &#39;Alfonso&#39; %}
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% assign nombre = &#39;Alfonso&#39; %}
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -180,12 +306,12 @@
 &lt;h3 id=&quot;array&quot;&gt;Array:&lt;/h3&gt;
 &lt;p&gt;Es aquella que tiene una serie de valores. Se pueden definir de dos maneras:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;ó&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
 &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2&lt;/span&gt;
 &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;3&lt;/span&gt;
@@ -196,7 +322,7 @@
 
 &lt;p&gt;Parecida a la anterior, solo que podemos definir un nombre a cada valor.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;autores&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;autores&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
 &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nombre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Alfonso&lt;/span&gt;
   &lt;span class=&quot;s&quot;&gt;twitter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sonlink&lt;/span&gt;
 
@@ -259,7 +385,7 @@ Algunos ejemplos de filtros son:&lt;/p&gt;
 
 &lt;p&gt;En ocasiones puede que necesitemos recurrir a las sentencias lógicas y/o bucles para poner contenido en nuestro blog. Por poner un ejemplo en este blog lo uso para que en la lista de paginas de la cabecera, que no es mas que un bucle &lt;strong&gt;for&lt;/strong&gt; que recorre todas las paginas y dentro de el un &lt;strong&gt;if&lt;/strong&gt; para que solo muestre aquellas que contengan una variable en true. Este es su código:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 {% for page in site.pages %}
 	{% if page.title and page.onmenu %}
 		&amp;lt;li&amp;gt;&amp;lt;a class=&quot;page-link&quot; href=&quot;{{ page.url | prepend: site.baseurl }}&quot;&amp;gt;{{ page.title }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
@@ -300,7 +426,7 @@ Algunos ejemplos de filtros son:&lt;/p&gt;
 
 &lt;p&gt;Como también comente en la anterior entrega para poder dar formato a nuestras entradas se usa el formato Markdown, un sistema simple que se creo para dar formato y que fuese más fácil de leer, algo similar al BBCode que se usa en los foros. Podremos definir cabeceras (del H1 al H5), texto en negrita o cursiva, añadir imágenes, etc. Veamos algunos ejemplos:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# Esto es una cabecera H1&lt;/span&gt;
+&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# Esto es una cabecera H1&lt;/span&gt;
 &lt;span class=&quot;gu&quot;&gt;## Esto es una cabezera H2&lt;/span&gt;
 ...
 &lt;span class=&quot;gu&quot;&gt;##### Esto es una cabezera H5&lt;/span&gt;
@@ -362,7 +488,7 @@ Lista desordenada
 
 &lt;p&gt;Lo que si tienen en común tanto las paginas como las entradas es que hay una serie de lineas que deben de situarse en la cabecera:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Creando&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;un&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Jekyll&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Añadiendo&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;entradas&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;paginas&quot;&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;s&quot;&gt;2016-03-19&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -372,7 +498,7 @@ Lista desordenada
 
 &lt;p&gt;Las siguientes lineas no necesitan explicación. Hay más variables, ademas de que podemos añadir algunas propias, pero eso se vera más adelante. Para las páginas existe otra que nos permite configurar el enlace permanente, esto es, la url donde se encontrara:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/sobre/&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/sobre/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -413,12 +539,12 @@ Lista desordenada
 
 &lt;p&gt;Para instalar Jekyll abrimos una nueva terminal (consola de comandos en Windows) y ejecutamos lo siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gems install jekyll
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gems install jekyll
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Esto instalara Jekylls y todas sus dependencias. Para crear un nuevo blog ejecutamos:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new ruta
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new ruta
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;donde ruta es la ruta donde estará la carpeta que contendrá el nuevo blog.
@@ -426,7 +552,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;En la carpeta que contiene el blog crearemos un nuevo fichero llamado Gemfile donde pondremos el siguiente contenido:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;https://rubygems.org&#39;&lt;/span&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;https://rubygems.org&#39;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;github-pages&#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -448,7 +574,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Ahora vamos a configurar el servidor. Abrimos con cualquier editor de texto el archivo _config.yml&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Welcome to Jekyll!&lt;/span&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Welcome to Jekyll!&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# This config file is meant for settings that affect your whole blog, values&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# which you are expected to set up once and rarely need to edit after that.&lt;/span&gt;
@@ -474,7 +600,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Vamos a ver como es el blog tal y como es ahora. Para ello desde la terminal y desde el directorio donde esta el blog ejecutamos:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Una vez termine de arrancar abrimos nuestro navegador web y escribimos localhost:4000&lt;/p&gt;
@@ -522,7 +648,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Lo primero que tendremos que hacer es definir las cabeceras para que el navegador crea que lo que se esta pidiendo es una hoja de Excel.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Content-Type: application/vnd.openXMLformats-officedocument.spreadsheetml.sheet&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Content-Type: application/vnd.openXMLformats-officedocument.spreadsheetml.sheet&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Content-Disposition: attachment;filename=&quot;myfile.xlsx&quot;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Cache-Control: max-age=0&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -530,14 +656,14 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Para OpenDocument:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Content-Type: application/vnd.oasis.opendocument.spreadsheet&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Content-Type: application/vnd.oasis.opendocument.spreadsheet&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Content-Disposition: attachment;filename=&quot;01simple.ods&quot;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Ahora incluimos la clase de PHPExcel e iniciamos la clase:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;PHPExcel/Classes/PHPExcel.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;PHPExcel/Classes/PHPExcel.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$objPHPExcel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PHPExcel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$sheet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$objPHPExcel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getActiveSheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -553,7 +679,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Ahora para escribir algo en una celda usaremos lo siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$sheet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setCellValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;A1&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Hola Mundo&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$sheet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setCellValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;A1&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Hola Mundo&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -561,7 +687,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Si lo que queremos es escribir una linea con los datos de un array, PHPExcel cuanta con una función para facilitarnos la tarea. Por ejemplo:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$sheet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fromArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;A2&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -613,7 +739,7 @@ Para poder usarlo directamente en Github pages primero instalaremos desde gems l
 
 &lt;p&gt;Ahora vamos a generar el archivo para descargarlo:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$objWriter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PHPExcel_IOFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$objPHPExcel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Excel2007&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$objWriter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PHPExcel_IOFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$objPHPExcel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Excel2007&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;ob_end_clean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$objWriter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;php://output&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -720,7 +846,7 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 &lt;p&gt;&lt;strong&gt;PHP&lt;/strong&gt;
 Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/lightppd/conf.d/php.conf&lt;/code&gt; (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Make sure to install php and php-cgi. See:
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Make sure to install php and php-cgi. See:
 # https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
 &lt;/span&gt;
 &lt;span class=&quot;err&quot;&gt;server.modules&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;mod_fastcgi&quot;)&lt;/span&gt;
@@ -759,7 +885,7 @@ Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/et
 
 &lt;p&gt;Para habilitar las carpetas de usuario creamos, en la misma carpeta que php.conf otro llamado, por ejemplo, userdir.conf y añadimos estas lineas:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;server.modules&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;mod_userdir&quot;)&lt;/span&gt;
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;server.modules&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&quot;mod_userdir&quot;)&lt;/span&gt;
 &lt;span class=&quot;py&quot;&gt;userdir.path&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;public_html&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -769,7 +895,7 @@ Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/et
 
 &lt;p&gt;Ahora podemos comprobar que funcione correctamente el servidor, para ello ejecutamos como súper usuario el siguiente comando: &lt;code class=&quot;highlighter-rouge&quot;&gt;lighttpd -f /etc/lighttpd/lighttpd.conf&lt;/code&gt; y si no hay ningún problema abrimos nuestro navegador y e introducimos la url &lt;strong&gt;localhost&lt;/strong&gt;. Si habilitamos la de usuario la url es la siguiente &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost/~usuario&lt;/code&gt; cambiando &lt;strong&gt;usuario&lt;/strong&gt; por el nombre del usuario que corresponda. Si ya todo va cerramos el servidor y ejecutamos &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemcontrol enable lighttpd&lt;/code&gt; para habilitarlo en el arranque y &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemcontrol start lighttpd&lt;/code&gt; para arrancarlo. Para comprobar que funciona PHP creamos en la carpeta del servidor un archivo al que llamaremos info.php:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;phpinfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -822,29 +948,6 @@ Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/et
         <pubDate>Wed, 05 Aug 2015 00:00:00 +0200</pubDate>
         <link>http://son-link.github.io/2015/08/05/killallradio100.html</link>
         <guid isPermaLink="true">http://son-link.github.io/2015/08/05/killallradio100.html</guid>
-        
-        <category>proyectos</category>
-        
-        <category>firefoxos</category>
-        
-        <category>android</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Killall Radio App 0.9.0</title>
-        <description>&lt;p&gt;&lt;strong&gt;Killall Radio App&lt;/strong&gt; es la app oficial de &lt;a href=&quot;http://killallradio.wordpress.com&quot;&gt;Killall Radio&lt;/a&gt;, una emisora online dedicada al mundillo geek y que es colaborativa. La idea surgió de la nada y la propuse en el grupo de Telegram y fue acogido con un gran interés.
-Esta es la primera versión publica de ella, prácticamente terminada y esta disponible para &lt;strong&gt;Firefox OS&lt;/strong&gt; a partir de la versión 1.3 y &lt;strong&gt;Android&lt;/strong&gt; a partir de la 4.2 (el audio no funciona en la 2.3 y en la 4.0 no ha sido probada)&lt;/p&gt;
-
-&lt;p&gt;En la &lt;a href=&quot;/proyectos/killallradio/&quot;&gt;pagina de este blog&lt;/a&gt; dedicada a la aplicación podréis encontrar los enlaces a los paquetes.&lt;/p&gt;
-
-&lt;p&gt;Espero que os guste tanto la aplicación como la emisora.
-Un saludo especial a toda la gente del grupo que me apoyo en el proyecto, ayudo en el testeo, proponer ideas, etc.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 Jul 2015 00:00:00 +0200</pubDate>
-        <link>http://son-link.github.io/2015/07/15/killallradio090.html</link>
-        <guid isPermaLink="true">http://son-link.github.io/2015/07/15/killallradio090.html</guid>
         
         <category>proyectos</category>
         

@@ -140,13 +140,13 @@
 <h3 id="variable-estndar">Variable estándar:</h3>
 <p>Es aquella que solo tener un valor, su sintaxis es la siguiente:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span> <span class="s">valor</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span> <span class="s">valor</span>
 </code></pre>
 </div>
 
 <p>En Liquid es:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>{% assign nombre = 'Alfonso' %}
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>{% assign nombre = 'Alfonso' %}
 
 </code></pre>
 </div>
@@ -154,12 +154,12 @@
 <h3 id="array">Array:</h3>
 <p>Es aquella que tiene una serie de valores. Se pueden definir de dos maneras:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">1</span><span class="pi">,</span><span class="nv">2</span><span class="pi">,</span><span class="nv">3</span><span class="pi">]</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">1</span><span class="pi">,</span><span class="nv">2</span><span class="pi">,</span><span class="nv">3</span><span class="pi">]</span>
 </code></pre>
 </div>
 <p>ó</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">nombre</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">1</span>
 <span class="pi">-</span> <span class="s">2</span>
 <span class="pi">-</span> <span class="s">3</span>
@@ -170,7 +170,7 @@
 
 <p>Parecida a la anterior, solo que podemos definir un nombre a cada valor.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">autores</span><span class="pi">:</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">autores</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">nombre</span><span class="pi">:</span> <span class="s">Alfonso</span>
   <span class="s">twitter</span><span class="pi">:</span> <span class="s">sonlink</span>
 
@@ -233,7 +233,7 @@ Algunos ejemplos de filtros son:</p>
 
 <p>En ocasiones puede que necesitemos recurrir a las sentencias lógicas y/o bucles para poner contenido en nuestro blog. Por poner un ejemplo en este blog lo uso para que en la lista de paginas de la cabecera, que no es mas que un bucle <strong>for</strong> que recorre todas las paginas y dentro de el un <strong>if</strong> para que solo muestre aquellas que contengan una variable en true. Este es su código:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>
 {% for page in site.pages %}
 	{% if page.title and page.onmenu %}
 		&lt;li&gt;&lt;a class="page-link" href="{{ page.url | prepend: site.baseurl }}"&gt;{{ page.title }}&lt;/a&gt;&lt;/li&gt;
@@ -272,6 +272,8 @@ Algunos ejemplos de filtros son:</p>
     </ul>
     <span>Entradas relacionadas:</span>
     <ul class="relacionadas">
+		
+			<li><a href="/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
 		
 			<li><a href="/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></li>
 		
@@ -338,7 +340,7 @@ Algunos ejemplos de filtros son:</p>
 		</li>
 		
 		<li>
-			<a href="/tag/tutoriales">tutoriales <span class="badge">7</span></a>
+			<a href="/tag/tutoriales">tutoriales <span class="badge">8</span></a>
 		</li>
 		
 		<li>
@@ -410,7 +412,7 @@ Algunos ejemplos de filtros son:</p>
 		</li>
 		
 		<li>
-			<a href="/tag/jekyll">jekyll <span class="badge">4</span></a>
+			<a href="/tag/jekyll">jekyll <span class="badge">5</span></a>
 		</li>
 		
 	</ul>
@@ -457,6 +459,21 @@ Algunos ejemplos de filtros son:</p>
     <h2 id="2016-ref">2016</h2>
     <h4 id="2016-Junio-ref">Junio <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
     <ul>
+    
+
+    <li><a href="/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
     
 
     <li><a href="/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></li>

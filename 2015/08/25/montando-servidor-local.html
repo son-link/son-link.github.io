@@ -141,7 +141,7 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 <p><strong>PHP</strong>
 Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.d/php.conf</code> (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># Make sure to install php and php-cgi. See:
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="c"># Make sure to install php and php-cgi. See:
 # https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
 </span>
 <span class="err">server.modules</span> <span class="err">+=</span> <span class="err">("mod_fastcgi")</span>
@@ -180,7 +180,7 @@ Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.
 
 <p>Para habilitar las carpetas de usuario creamos, en la misma carpeta que php.conf otro llamado, por ejemplo, userdir.conf y añadimos estas lineas:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">server.modules</span> <span class="err">+=</span> <span class="err">("mod_userdir")</span>
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="err">server.modules</span> <span class="err">+=</span> <span class="err">("mod_userdir")</span>
 <span class="py">userdir.path</span> <span class="p">=</span> <span class="s">"public_html"</span>
 </code></pre>
 </div>
@@ -190,7 +190,7 @@ Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.
 
 <p>Ahora podemos comprobar que funcione correctamente el servidor, para ello ejecutamos como súper usuario el siguiente comando: <code class="highlighter-rouge">lighttpd -f /etc/lighttpd/lighttpd.conf</code> y si no hay ningún problema abrimos nuestro navegador y e introducimos la url <strong>localhost</strong>. Si habilitamos la de usuario la url es la siguiente <code class="highlighter-rouge">localhost/~usuario</code> cambiando <strong>usuario</strong> por el nombre del usuario que corresponda. Si ya todo va cerramos el servidor y ejecutamos <code class="highlighter-rouge">sudo systemcontrol enable lighttpd</code> para habilitarlo en el arranque y <code class="highlighter-rouge">sudo systemcontrol start lighttpd</code> para arrancarlo. Para comprobar que funciona PHP creamos en la carpeta del servidor un archivo al que llamaremos info.php:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?</span>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?</span>
 <span class="nb">phpinfo</span><span class="p">();</span>
 <span class="cp">?&gt;</span>
 </code></pre>
@@ -291,7 +291,7 @@ Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.
 		</li>
 		
 		<li>
-			<a href="/tag/tutoriales">tutoriales <span class="badge">7</span></a>
+			<a href="/tag/tutoriales">tutoriales <span class="badge">8</span></a>
 		</li>
 		
 		<li>
@@ -363,7 +363,7 @@ Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.
 		</li>
 		
 		<li>
-			<a href="/tag/jekyll">jekyll <span class="badge">4</span></a>
+			<a href="/tag/jekyll">jekyll <span class="badge">5</span></a>
 		</li>
 		
 	</ul>
@@ -410,6 +410,21 @@ Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.
     <h2 id="2016-ref">2016</h2>
     <h4 id="2016-Junio-ref">Junio <a href="#" class="showHideMonth"><i class="icon-right-dir"></i></a></h4>
     <ul>
+    
+
+    <li><a href="/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
+
+    
+        
+            
+        
+    
+
+    
+    
+    
+    
+
     
 
     <li><a href="/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></li>

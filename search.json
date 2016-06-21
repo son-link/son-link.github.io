@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte",
+      "category" : "",
+      "tags"     : "tutoriales, jekyll",
+      "url"      : "/2016/06/21/creando-blog-jekyll-5.html",
+      "date"     : "2016-06-21 00:00:00 +0200"
+    } ,
+  
+    {
       "title"    : "Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte",
       "category" : "",
       "tags"     : "tutoriales, jekyll",

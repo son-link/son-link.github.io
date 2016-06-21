@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</title>
-	<meta name="description" content="Bienvenid@s a la cuarta entrega de este tutorial. En esta entrega empezaremos a crear nuestro propio diseño. Para facilitarnos algunas tareas usaremos el fra...">
+	<title>Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</title>
+	<meta name="description" content="Bienvenid@ a la 5ª entrega del tutorial. En esta entrega vamos a modificar como se muestran las entradas, tanto cuando se muestren todas como cuando solo se ...">
 
 	<link rel="stylesheet" href="/css/mui.min.css">
 	<link rel="stylesheet" href="/css/fontello-embedded.css">
@@ -17,7 +17,7 @@
 			<link rel="stylesheet" href="/css/fontello-ie7.css">
 			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
 		<![endif]-->
-	<link rel="canonical" href="http://son-link.github.io/2016/06/10/creando-blog-jekyll-4.html">
+	<link rel="canonical" href="http://son-link.github.io/2016/06/10/creando-blog-jekyll-5.html">
 	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
 	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
 </head>
@@ -121,11 +121,23 @@
 				<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</h1>
+    <h1 class="post-title">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</h1>
     <p class="post-meta">06/10/2016</p>
   </header>
 
   <article class="post-content">
+    <p>Bienvenid@ a la 5ª entrega del tutorial. En esta entrega vamos a modificar como se muestran las entradas, tanto cuando se muestren todas como cuando solo se muestre una, así como la paginación en la primera.</p>
+
+<p>Primero vamos a hacer unos ligeros cambios en el archivo <strong>_layouts/default.html</strong></p>
+
+<p>Dentro veremos 2 capas. Borramos una de ellas, dejando &lt;div class="post"&gt;</p>
+
+<header class="post-header">
+    <h1 class="post-title">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</h1>
+    <p class="post-meta">06/10/2016</p>
+  </header>
+
+<article class="post-content">
     <p>Bienvenid@s a la cuarta entrega de este tutorial. En esta entrega empezaremos a crear nuestro propio diseño. Para facilitarnos algunas tareas usaremos el framework CSS y Javascript <a href="http://getuikit.com">UIKit</a>, que es el que uso para la pagina de las <a href="http://rolotaku.ml">jornadas Rolotaku</a>, la cual también esta levantado con Jekyll y aproveche lo hecho para este blog. En anteriores entradas comente que iba a usar <strong>MUI</strong>, pero al final me decante por este para el tutorial por tener más opciones. Cierto que hay muchos más, pero me decante por este por ser ligero (contando solo la base necesaria). Eres libre de usar el que quieras para el diseño de tu blog. Aparte también necesitaremos <a href="https://jquery.com/download/">JQuery</a> en su versión 2.x</p>
 
 <p>Como ya comente en la primera entrega dentro del directorio de Jekyll hay 2 carpetas donde se guardaran los archivos del diseño: <strong>_layout</strong>, donde irán las pieles, e <strong>_includes</strong>, donde irán trozos que se incluirán dentro de las pieles, como la cabecera o el pie de pagina.</p>
@@ -255,7 +267,7 @@
 
     <div class="share">
 		Compartir:
-		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte&url=http://son-link.github.io/2016/06/10/creando-blog-jekyll-4.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte&amp;url=http://son-link.github.io/2016/06/10/creando-blog-jekyll-4.html"><i class="icon-twitter"></i> Twitter</a>
 		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2016/06/10/creando-blog-jekyll-4.html"><i class="icon-facebook"></i> Facebook</a>
 		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2016/06/10/creando-blog-jekyll-4.html"><i class="icon-gplus"></i> Google+</a>
     </div>
@@ -271,7 +283,101 @@
     <span>Entradas relacionadas:</span>
     <ul class="relacionadas">
 		
-			<li><a href="/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
+			<li><a href="/2016/06/10/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
+		
+			<li><a href="/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></li>
+		
+			<li><a href="/2016/03/19/creando-blog-jekyll-2.html">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</a></li>
+		
+			<li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+		
+			<li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
+		
+			<li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
+		
+			<li><a href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></li>
+		
+    </ul>
+  </article>
+<p><!-- Disqus comments --></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+	&lt;script type="text/javascript"&gt;
+		/* * * CONFIGURATION VARIABLES * * */
+		var disqus_shortname = 'blogdesonlink';
+
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+</code></pre>
+</div>
+
+<p>&lt;/div&gt;
+ y en la otra cambiamos la clases por <em>uk-container uk-grid uk-container-center</em>, quedando algo así:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"uk-container uk-grid uk-container-center"</span><span class="nt">&gt;</span>
+	{{ content }}
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<p>Ahora abrimos el archivo <strong>index.html</strong>, que es la pagina de inicio y donde se mostraran las entradas.</p>
+
+<p>Dentro vemos una capa que contiene un H1 y una lista que contendrá el titulo, enlace y fecha de cada entrada. Lo que haremos sera cambiar dicha lista por los tags <strong>&lt;article&gt;</strong> que contendrá los mismos y ademas un extracto del articulo para que los visitantes vean algo de el para hacerse una idea de su contenido. Esto es opcional, incluso se podría mostrar
+ todo el contenido, pero es algo que no recomiendo si las entradas son muy largas. Y al final veremos un enlace para que la gente se suscriba al feed RSS.</p>
+
+<p>Solo nos falta la parte de la paginación, pero eso más adelante veremos como añadirlo.</p>
+
+<p>Lo primera que haremos es borrar la primera capa que tiene una clase llamada <em>home</em>, asi como los tag <strong>&lt;ul&gt;&lt;/ul&gt;</strong> Ahora cambiamos el texto del <strong>H1</strong> por Entradas, Noticias o lo que quieras.</p>
+
+<p>Ahora pasemos al contenido que esta dentro del bucle For. Lo primero que haremos sera cambiar el tag <strong>&lt;li&gt;</strong> por <strong>&lt;article&gt;</strong> y le añadimos la clase <strong>uk-article</strong>. Justo a continuación vamos a añadir un enlace al articulo con el titulo.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-link"</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;h1</span> <span class="na">class=</span><span class="s">"uk-article-title"</span><span class="nt">&gt;&lt;/h1&gt;&lt;/a&gt;</span>
+</code></pre>
+</div>
+<p>Como vemos volvemos a usar unas clases especiales de UIKit para este tipo de contenidos y usamos las variables de Jekyll correspondientes. Ademas usamos la función <strong>prepend</strong> de Liquid para que añada la url base que configuramos en _config.yml, que por defecto esta vaciá.</p>
+
+<p>Ahora en el **<span>** que contiene la fecha cambiamos la clase por <strong>uk-article-meta</strong>. Por defecto la fecha que nos muestra una plantilla nueva es en el formato ingles, primero el mes (solo las tres primeras letras, el día y finalmente el año. Liquid tiene una serie de variables para que les demos el formato que queramos, eso si, en el caso de los nombres de los meses y las semanas aparecerán en ingles, si bien a través de un plugin podríamos ponerlos en español, pero es algo que veremos más adelante Vamos a cambiarlo al formato que entendemos en nuestro idioma, día/mes/año:
+<code class="highlighter-rouge">html
+{{ post.date | date: "%d/%m/%Y" }}
+</code></span></p>
+
+<p>Ahora reemplazamos el H2 y su contenido por este:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+{{ post.content | truncatewords: 50}}<span class="nt">&lt;br&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url }}"</span><span class="nt">&gt;</span>Seguir leyendo...<span class="nt">&lt;/a&gt;&lt;br&gt;</span>
+<span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"uk-article-divider"</span><span class="nt">&gt;</span>
+
+</code></pre>
+</div>
+
+<p>La primera linea mostrara el contenido, pero solo mostrara en este caso 50 palabras. Podemos hacer que muestre más o menos. Si queremos mostrar todo el contenido basta con dejar solo <strong>post.content</strong>. Lo siguiente solo es un enlace a la entra con la frase <strong>Leer más…</strong>. No es necesario, pero a me gusta por estética. Y lo ultimo ya es simplemente una barra divisoria entre cada entrada</p>
+
+    <div class="share">
+		Compartir:
+		<a target="_black" href="http://twitter.com/intent/tweet?text=Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte&url=http://son-link.github.io/2016/06/10/creando-blog-jekyll-5.html"><i class="icon-twitter"></i> Twitter</a>
+		<a target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/2016/06/10/creando-blog-jekyll-5.html"><i class="icon-facebook"></i> Facebook</a>
+		<a target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/2016/06/10/creando-blog-jekyll-5.html"><i class="icon-gplus"></i> Google+</a>
+    </div>
+    <br />
+    <ul class="tag_list">
+		<li>Etiquetas: </li>
+   		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
+ 		
+   			<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
+ 		
+    </ul>
+    <span>Entradas relacionadas:</span>
+    <ul class="relacionadas">
+		
+			<li><a href="/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></li>
 		
 			<li><a href="/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></li>
 		
@@ -459,7 +565,7 @@
     <ul>
     
 
-    <li><a href="/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
+    <li><a href="/2016/06/10/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
 
     
         
