@@ -212,3 +212,4 @@ h4+ul li:hover:before {
 }
 
 .relacionadas {list-style: none}
+.urls_cloud i[class*='icon-'] {padding-right: 5px}

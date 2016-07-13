@@ -6,9 +6,97 @@
 </description>
     <link>http://son-link.github.io/</link>
     <atom:link href="http://son-link.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jun 2016 13:07:05 +0200</pubDate>
-    <lastBuildDate>Tue, 21 Jun 2016 13:07:05 +0200</lastBuildDate>
+    <pubDate>Wed, 13 Jul 2016 18:37:57 +0200</pubDate>
+    <lastBuildDate>Wed, 13 Jul 2016 18:37:57 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Creando un blog con Jekyll 6 - Modificando el diseño. 3ª parte</title>
+        <description>&lt;p&gt;Bienvenid@ a la 6ª entrega del tutorial. En esta entrega vamos a terminar de modificar el diseño de la entrada individual añadiendo un sistema de comentarios, para ello usaremos &lt;strong&gt;Disqus&lt;/strong&gt; y enlaces para compartir en redes sociales, Whatsaap y Telegram. Ademas veremos como empezar a modificar el diseño vía CSS usando la herramienta online que encontraremos en la propia web de UIKit o mediante otro archivo CSS.&lt;/p&gt;
+
+&lt;p&gt;Abriremos el fichero &lt;strong&gt;_layouts/post.html&lt;/strong&gt; y añadimos lo siguiente tras {{content}}&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-article-divider&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	Compartir:
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-button-group&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-button btn-twitter&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Compartir en Twitter&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_black&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://twitter.com/intent/tweet?text={{ page.title }}&amp;amp;url={{ page.url | prepend: site.url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-icon-twitter&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-button btn-facebook&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Compartir en Facebook&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_black&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-icon-facebook&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-button btn-googlep&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Compartir en Google Plus&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_black&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://plus.google.com/share?url={{ page.url | prepend: site.url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-icon-google-plus&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-button btn-whatsapp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Compartir en Whatsaap&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;whatsapp://send?text={{ page.url | prepend: site.url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-icon-whatsapp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-button btn-telegram&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Compartir en Telegram&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://telegram.me/share/url?url={{ page.url | prepend: site.url | cgi_escape }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uk-icon-paper-plane&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;No hay mucho que explicar, salvo una nueva función de &lt;strong&gt;Liquid&lt;/strong&gt; en Jekyll, &lt;strong&gt;cgi_escape&lt;/strong&gt;, el cual formatea algunos caracteres de las urls como las // o &amp;amp; a sus correspondientes %XX, por ejemplo &lt;strong&gt;?&lt;/strong&gt; se transforma en &lt;strong&gt;%3F&lt;/strong&gt;. Esto es necesario ya que de lo contrario en algunos casos, como Telegram y Whatsapp, no funcionaria correctamente. Ademas en los botones se han añadido unas clases para cada botón. Más adelante añadiremos los estilos para ellos.&lt;/p&gt;
+
+&lt;p&gt;Pasemos al sistema de comentarios. Hay muchos, pero me decanto por Disqus por que los usuarios pueden comentar usando su perfil de varias redes sociales, funciona bien en móviles, siendo la única pega que no podemos cambiar su estilo, al menos en la versión gratuita.&lt;/p&gt;
+
+&lt;p&gt;Lo primero sera entrar a su &lt;a href=&quot;https://disqus.com&quot;&gt;pagina web&lt;/a&gt; y una vez dentro pulsamos en &lt;strong&gt;Get Started&lt;/strong&gt;. En la nueva pagina nos pedira un nombre de usuario, un correo electrónico y la contraseña para la nueva cuenta. Una vez rellenados pulsamos en &lt;strong&gt;Next&lt;/strong&gt;Ahora nos pedira el nombre de la pagina, su ID para la url unica de Disqus (se pondrá de manera automáticamente según el titulo que pongamos, pero se puede cambiar) y la categoría del blog. La próxima simplemente es informarnos de los 2 tipos de productos de ellos si vamos a usarlo en alguna pagina comercial para añadir publicidad o simplemente solo los comentarios. Vamos abajo y pulsamos en el botón y listo. Ahora nos preguntara que seleccionemos la plataforma en la que lo usaremos, en etse caso seleccionamos &lt;strong&gt;Universal Code&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ahora veremos los códigos que debemos de introducir. El primero, que es el sistema de comentarios debemos de añadirlo justo antes del &lt;strong&gt;&amp;lt;/article&amp;gt;&lt;/strong&gt;. Disqus ademas nos pide configurar unas variables para evitar posts duplicados. Pare ello des-comentamos &lt;strong&gt;var disqus_config&lt;/strong&gt; quitando los /* y */ que hay antes y después. La primera variable tiene que ser la url de la entrada y la segunda un ID único. Para este ultimo vamos a usar la fecha.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;disqus_config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;{{ post.url | prepend: site.baseurl }}&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Replace PAGE_URL with your page&#39;s canonical URL variable&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;identifier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%d%m%Y&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Replace PAGE_IDENTIFIER with your page&#39;s unique identifier variable&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;cambiando-el-diseo-de-uikit&quot;&gt;Cambiando el diseño de UIKit:&lt;/h2&gt;
+
+&lt;p&gt;Antes de meternos a cambiar el diseño de UIKit hay que pensar en cual de los tres temas vamos a usar. Hasta la fecha hemos estado usando el tema por defecto, pero UIKit tiene dos más: &lt;strong&gt;Gradient&lt;/strong&gt; y &lt;strong&gt;Almost Flat&lt;/strong&gt;. El primero cambia los colores planos por gradientes y son los ficheros que empiezan por &lt;strong&gt;uikit.gradient&lt;/strong&gt; mientras que los segundos siguen siendo planos pero cuentan con bordes más redondeados, lineas en algunos de los botones, etc. Sus ficheros empiezan por &lt;strong&gt;uikit.almost-flat&lt;/strong&gt;. Puedes segur este tutorial con cualquiera de los tres, solo cambian algunas opciones dentro de la herramienta de personalización y reglas CSS.&lt;/p&gt;
+
+&lt;h3 id=&quot;usando-la-herramienta-de-personalizacin&quot;&gt;Usando la herramienta de personalización&lt;/h3&gt;
+
+&lt;p&gt;Dicha herramienta se encuentra &lt;a href=&quot;http://getuikit.com/docs/customizer.html&quot;&gt;en su pagina&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tutorial_jekyll/herramienta_uikit.png&quot; alt=&quot;captura herramienta personalización&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;En la parte izquierda tendremos las opciones y en la derecha la vista previa. Arriba tenemos un selector para seleccionar cualquiera de los tres temas disponibles. A continuación están las diferentes opciones, como colores, tamaños, fuentes, etc. Solo tendremos que pulsar sobre dichas opciones para cambiarlas. Abajo veremos una opción para minimizar el CSS, opción recomendada si nos a modificar nada a mano ya que ocupa menos espacio. Tenemos 2 opciones de descarga: CSS y &lt;strong&gt;LESS&lt;/strong&gt;. LESS es una expansión de las CSS como SASS, del que ya comente un poco en anteriores entregas. También vemos un botón para importar LESS, por lo que recomiendo guardar en ese formato si más adelante queremos realizar una modificación y así no empezar desde cero.&lt;/p&gt;
+
+&lt;h3 id=&quot;mediante-css&quot;&gt;Mediante CSS&lt;/h3&gt;
+
+&lt;p&gt;La opción más rápida si no vas a querer hacer muchos cambios, o simplemente quieres hacerlo más a tu gusto. Para ello creamos una nueva hoja CSS e iremos usando las clases de UIKit. Cabe recordar que varios elementos usan varias clases, por lo que tendremos que ver cual de ellas vamos a modificar sin que afecte a otros, o crear una clase nueva si solo queremos que afecte a uno en concreto (por ejemplo los enlaces en una determinada zona). Para estos menesteres lo mejor es hacer uso de las herramientas de desarrollo que viene con algunos navegadores, siendo mi recomendación las de Firefox ya que cuenta con un editor de hojas CSS que nos permite ver los cambios en tiempo real (como con la herramienta de personalización de UIKit) e ir guardando el resultado. Esta opción me resulto útil tanto a la hora de crear este blog como el de las Rolotaku y una tienda online en la empresa donde hice mis practicas de un curso de programación de paginas web ya que es mucho más rápido. Eso si, recuerda ver los cambios con otros navegadores, tablets y móviles incluidos&lt;/p&gt;
+
+&lt;p&gt;Por ejemplo vamos a cambiar algunos estilos de la barra de navegación:&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;#header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;#header&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;#my-id&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#263238&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;#header&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;#header&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;#my-id&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.uk-nav&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#263238&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Para finalizar dejo los estilos que aplique a los botones de compartir:&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.btn-twitter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#2196F3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-twitter&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#2196F3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-facebook&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0D47A1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-facebook&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0D47A1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-googlep&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#B71C1C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-googlep&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#B71C1C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-whatsapp&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#4CAF50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-whatsapp&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#4CAF50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-telegram&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#00B0FF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.btn-telegram&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#00B0FF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.uk-button-group&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;btn-&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Y con esto hemos terminado, al menos de momento, con el cambio de diseño. A partir de ahora prueba a ir cambiando las reglas CSS, colores, etc para ir aprendiendo a tenerlo a tu gusto. En la próxima entrega enseñare a subir el blog a Github, ya sea como pagina de nuestra cuenta o de algún proyecto.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Jun 2016 00:00:00 +0200</pubDate>
+        <link>http://son-link.github.io/2016/06/22/creando-blog-jekyll-6.html</link>
+        <guid isPermaLink="true">http://son-link.github.io/2016/06/22/creando-blog-jekyll-6.html</guid>
+        
+        <category>tutoriales</category>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
     
       <item>
         <title>Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</title>
@@ -932,28 +1020,6 @@ Para ello creamos el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;/et
         <category>mysql</category>
         
         <category>mariadb</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Killall Radio App 1.0.0</title>
-        <description>&lt;p&gt;Tras mucho probar ideas y testeo hago publica la versión 1.0.0 de Killall Radio App.&lt;/p&gt;
-
-&lt;p&gt;Los cambios respecto a la 0.9.0 no son muchas, principalmente el cambio en la sección de Podcasts ya que se ha añadido un dropbown que permite seleccionar entre los podcasts de Killall Radio o algunos de los canales disponibles
-, lista que se actualiza gracias a un archivo JSON que &lt;a href=&quot;https://gist.github.com/son-link/8cf06a31bc81a0870110&quot;&gt;se puede encontrar aquí&lt;/a&gt; y que se ira editando según salgan nuevos canales, y actualizar la lista es tan fácil como seleccionar la opción Actualizar dentro de la lista de canales. Ademas ahora también se podrán descargar los podcasts, pero esta opción por el momento solo funciona en Android ya que el plugin de Cordova usado para ello no funciona bien en Firefox OS, por lo que se retrasa hasta dar con la solución.&lt;/p&gt;
-
-&lt;p&gt;En la &lt;a href=&quot;/proyectos/killallradio/&quot;&gt;pagina de este blog&lt;/a&gt; dedicada a la aplicación podréis encontrar los enlaces a los paquetes.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 05 Aug 2015 00:00:00 +0200</pubDate>
-        <link>http://son-link.github.io/2015/08/05/killallradio100.html</link>
-        <guid isPermaLink="true">http://son-link.github.io/2015/08/05/killallradio100.html</guid>
-        
-        <category>proyectos</category>
-        
-        <category>firefoxos</category>
-        
-        <category>android</category>
         
         
       </item>
