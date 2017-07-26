@@ -144,10 +144,11 @@ a {text-decoration: none; color: #fff; transition: color 0.5s;}
 	display: table-cell;
 	vertical-align: middle;
 	width: 280px;
+	box-sizing: border-box;
 }
 
 #entry > .entry-body {
-	/*! display: block; */
+	display: block;
 	width: 100%;
 	height: 100%;
 	text-align: left
