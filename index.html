@@ -1,753 +1,403 @@
 <!DOCTYPE html>
 <html>
-
   <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Blog de Son Link</title>
-	<meta name="description" content="Mi blog personal donde hablo de mis proyectos, tutoriales, etc, ademas de exponer mis trabajos y proyectos
-">
+	<meta name="description" content="">
 
-	<link rel="stylesheet" href="/css/mui.min.css">
-	<link rel="stylesheet" href="/css/fontello-embedded.css">
-	<link rel="stylesheet" href="/css/github.css">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/monokai.css">
 	<link rel="stylesheet" href="/css/main.css">
-		<!--[if lte IE 7]>
-			<link rel="stylesheet" href="/css/fontello-ie7.css">
-			<link rel="stylesheet" href="/css/fontello-ie7-codes.css">
-		<![endif]-->
+	<link rel="stylesheet" href="/css/fontello-embedded.css">
+	<link rel="stylesheet" href="/css/animation.css">
 	<link rel="canonical" href="http://son-link.github.io/">
 	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
 	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+	<!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Blog de Son Link</title>
+<meta property="og:title" content="Blog de Son Link" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://son-link.github.io/" />
+<meta property="og:url" content="http://son-link.github.io/" />
+<meta property="og:site_name" content="Blog de Son Link" />
+<link rel="next" href="http://son-link.github.io/page2/">
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"WebSite","name":"Blog de Son Link","headline":"Blog de Son Link","url":"http://son-link.github.io/"}</script>
+<!-- End Jekyll SEO tag -->
+
 </head>
 
-
   <body>
-
-    <header id="header" class="header-shadow mui-appbar">
-	<nav class="mui-container-fluid" id="appbar">
-		<table width="100%">
-			<tr style="vertical-align:middle;">
-				<td class="mui--appbar-height"><h2><a class="site-title" href="/">Blog de Son Link</a></h2></td>
-				<td class="mui--appbar-height" align="right">
-					<div class="mui-dropdown">
-						<a class="icon-menu" data-mui-toggle="dropdown" id="menu" href="#"></a>
-						<ul class="mui-dropdown__menu mui-dropdown__menu--right">
-							
-								
-								<li><a class="page-link" href="/sobre/">Sobre mi</a></li>
-								
-							
-								
-								<li><a class="page-link" href="/entropipes_editor/">EntroPipes Puzzle Editor</a></li>
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-								<li><a class="page-link" href="/proyectos/">Mis proyectos</a></li>
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-								
-							
-						</ul>
-					</div>
-				</td>
-			</tr>
-		</table>
+    <header id="header">
+	<div id="menu">
+		<nav>
+			<div id="close-menu"><a class="icon-cancel" title="Cerrar menú"></a></div>
+			<div class="hidden-m" id="search-menu">
+				<form action="/buscar.html" method="get">
+					<input type="text" name="query" placeholder="Buscar....">
+					<button type="submit" class="icon-search"></button>
+				</form>
+			</div>
+			<ul>
+				
+					
+						<li><a href="/sobre/">Sobre</a></li>
+					
+				
+					
+						<li><a href="/archivo/">Archivo</a></li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						<li><a href="/webs_amigas/">Webs amigas</a></li>
+					
+				
+					
+						<li><a href="/proyectos/">Mis proyectos</a></li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			</ul>
+			<div class="hidden-m">
+				<span class="menu-title">Sigueme:</span>
+				<ul >
+					<li><a href="http://github.com/son-link" class="icon-github" title="Github" target="_black"> Github</a></li>
+					<li><a href="http://twitter.com/sonlink" class="icon-twitter" title="Twitter" target="_black"> Twitter</a></li>
+					<li><a href="https://www.linkedin.com/in/alfonso-saavedra-chichon-35208010b/" class="icon-linkedin" title="Linkedin" target="_black"> Linkedin</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<nav class="navbar">
+		<div class="navbar-left" id="logo_menu">
+			<button id="toggle-menu" class="icon-menu"></button>
+			<a href="/" id="logo">Blog de Son Link</a>&nbsp;
+		</div>
+		<div class="navbar-right">
+			<ul id="my_social_links">
+				<li><a href="http://github.com/son-link" class="icon-github" title="Github" target="_black"></a></li>
+				<li><a href="http://twitter.com/sonlink" class="icon-twitter" title="Twitter" target="_black"></a></li>
+				<li><a href="https://www.linkedin.com/in/alfonso-saavedra-chichon-35208010b/" class="icon-linkedin" title="Linkedin" target="_black"></a></li>
+				<li><a href="#" id="search-navbar-btn" class="icon-search" title="buscar"></a></li>
+			</ul>
+		</div>
+		<div id="search-navbar-big">
+			<form action="/buscar.html" method="get">
+				<input type="text" name="query" placeholder="Buscar....">
+			</form>
+		</div>
 	</nav>
 </header>
 
-	<div class="row">
-		<div class="home mui-col-xs-14 mui-col-md-8">
-			<div class="wrapper">
-				<div class="home">
-	<h1 class="page-heading">Entradas</h1>
-	<ul class="post-list">
+	<div id="container">
+			<h1 class="title">Entradas</h1>
+	<div id="entries">
 		
-		<li>
-			<h2><a class="post-link" href="/2016/07/13/creando-blog-jekyll-6.html">Creando un blog con Jekyll 6 - Modificando el diseño. 3ª parte</a></h2>
-			<p>Bienvenid@ a la 6ª entrega del tutorial. En esta entrega vamos a terminar de modificar el diseño de la entrada individual añadiendo un sistema de comentarios, para ello usaremos <strong>Disqus</strong> y enlaces para compartir en redes sociales, Whatsaap y Telegram. Ademas veremos como empezar a modificar el diseño vía CSS...<br>
-			<a href="/2016/07/13/creando-blog-jekyll-6.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 13 de Julio del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></h2>
-			<p>Bienvenid@ a la 5ª entrega del tutorial. En esta entrega vamos a modificar como se muestran las entradas, tanto cuando se muestren todas como cuando solo se muestre una, así como la paginación en la primera.</p> <p>Primero vamos a hacer unos ligeros cambios en el archivo <strong>_layouts/default.html</strong></p> <p>Dentro veremos 2...<br>
-			<a href="/2016/06/21/creando-blog-jekyll-5.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 21 de Junio del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></h2>
-			<p>Bienvenid@s a la cuarta entrega de este tutorial. En esta entrega empezaremos a crear nuestro propio diseño. Para facilitarnos algunas tareas usaremos el framework CSS y Javascript <a href="http://getuikit.com">UIKit</a>, que es el que uso para la pagina de las <a href="http://rolotaku.ml">jornadas Rolotaku</a>, la cual también esta levantado con Jekyll y...<br>
-			<a href="/2016/06/10/creando-blog-jekyll-4.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 10 de Junio del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></h2>
-			<p>Bienvenidos a la tercera entrega de esta serie de tutoriales de <strong>Jekyll</strong>. En esta entrega empezaremos a familiarizarnos con el lenguaje de etiquetas Líquid así como definir y usar variables.</p> <h1 id="variables">Variables:</h1> <p>Para empezar esta parte del tutorial vamos a conocer como se crean y donde las variables. En Jekyll,...<br>
-			<a href="/2016/04/06/creando-blog-jekyll-3.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el  6 de Abril del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2016/03/19/creando-blog-jekyll-2.html">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</a></h2>
-			<p>En esta segunda entrega del tutorial voy a explicar como publicar nuevos artículos, además de como añadir resaltado de sintaxis en el caso de que en tu blog vayas a publicar entradas con código fuente.</p> <p>Como ya comente en la primera entrega todas nuestras entradas irán dentro de la carpeta...<br>
-			<a href="/2016/03/19/creando-blog-jekyll-2.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 19 de Marzo del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></h2>
-			<p>Desde hace tiempo por internet circulan varios sistemas de creación de blogs, como <strong>Wordpress</strong> o <strong>Blogger</strong>, pero ademas muchos de ellos, especialmente los mencionados, si queremos modificar algunas de sus partes, sobre todo el diseño, necesitaros leer bastante documentación al respecto. Gracias a <strong><a href="http://jekyllrb.com/">Jekyll</a></strong> y unos conocimientos basicos de...<br>
-			<a href="/2016/03/18/creando-blog-jekyll-1.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 18 de Marzo del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></h2>
-			<p><strong>PHPExcel</strong> es una librería para <strong>PHP</strong> que nos permite crear hojas de <strong>Excel (.xlsx)</strong>, <strong>Open/Libreoffice (.ods)</strong>, <strong>HTML</strong> y otros, ideal para, por ejemplo, exportar datos de la tabla de un cliente, calcular por ejemplo unos gastos, etc</p> <p>Hay otras alternativas más livianas, pero esta es la más completa, ya que...<br>
-			<a href="/2016/03/15/tutorial-phpexcel-1.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/PHP">PHP</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/excel">excel</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/OpenDocument">OpenDocument</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/tutoriales">tutoriales</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 15 de Marzo del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2016/03/15/nuevos-tiempos-blog.html">Nuevos tiempos para el blog</a></h2>
-			<p>Después de un largo tiempo vuelvo a la carga con el blog, y espero que esta vea se definitivo.</p> <p>Habra novedades, una de ella ya la estáis viendo y es el nuevo aspecto del blog, con un bloque a la derecha con un buscador, una lista de etiquetas, otra con...<br>
-			<a href="/2016/03/15/nuevos-tiempos-blog.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/Blog">Blog</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 15 de Marzo del 2016</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></h2>
-			<p>Tras un largo parón en el blog vuelvo a escribir sobre mi ultimo proyecto: <strong>EntroPipes</strong></p> <p>EntroPipes es un juego del genero <strong>puzzle</strong> y basado en una idea de mi colega Fernando López (Z80St). La mecánica del juego consiste en rotar las tuberías hasta que todas estén conectadas antes de que...<br>
-			<a href="/2015/10/30/EntroPies-R1.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/proyectos">proyectos</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/juegos">juegos</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/lua">lua</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/windows">windows</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/Nintendo 3DS">Nintendo 3DS</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 30 de Octubre del 2015</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-		<li>
-			<h2><a class="post-link" href="/2015/08/25/montando-servidor-local.html">Montando un mini servidor local en GNU/Linux</a></h2>
-			<p>En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para <strong>Arch Linux</strong> pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.</p> <p>Para ello instalaremos el servidor <strong>Lighttpd</strong>, un...<br>
-			<a href="/2015/08/25/montando-servidor-local.html">Seguir leyendo...</a><br><br>
-			<ul class="tag_list">
-				<li>Etiquetas: </li>
-   			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/servidores">servidores</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/php">php</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/lighttpd">lighttpd</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/mysql">mysql</a></li>
- 			
-   				<li class="inline archive_list"><a class="tag_list_link" href="/tag/mariadb">mariadb</a></li>
- 			
-    	</ul>
-			<span class="post-meta">Escrito el 25 de Agosto del 2015</span>
-			<br /><br />
-			<div class="mui-divider"></div>
-        	</li>
-   		 
-	</ul>
-	<!-- Pagination links -->
-
-<div class="pagination">
-  
-    <span class="mui-btn mui-btn-floating mui-btn-floating-mini">&laquo;</span>
-  
-
-  
-    
-      <span class="mui-btn mui-btn-floating mui-btn-floating-mini">1</span>
-    
-  
-    
-      <a class="mui-btn mui-btn-floating mui-btn-floating-mini" href="page2/">2</a>
-    
-  
-
-  
-    <a class="mui-btn mui-btn-floating mui-btn-floating-mini" rel="next" href="/page2/">&raquo;</a>
-  
-</div>
-
-</div>
-
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/paron-blog.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Sobre el parón del blog</h3>
+						<time>26/07/2017</time>
+						<a href="/blog/2017/07/26/sobre-el-paron.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#blog" class="uk-button uk-button-text">blog</a>
+								
+							
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div id="sidebar" class="mui-col-xs-8 mui-col-md-4">
-			<div class="sidebar-coontent">
-	<h2>Buscar:</h2>
-	<!-- Html Elements for Search -->
-<div id="search-container">
-	<input type="text" id="search-input" placeholder="Buscar...">
-	<ul id="results-container"></ul>
-</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/jekyll-7.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Creando un blog con Jekyll 7 - Publicando el blog</h3>
+						<time>26/07/2017</time>
+						<a href="/jekyll/2017/07/26/creando-blog-jekyll-7.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#jekyll" class="uk-button uk-button-text">jekyll</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/jekyll-6.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Creando un blog con Jekyll 6 - Modificando el diseño. 3ª parte</h3>
+						<time>13/07/2016</time>
+						<a href="/jekyll/2016/07/13/creando-blog-jekyll-6.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#jekyll" class="uk-button uk-button-text">jekyll</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/jekyll-5.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</h3>
+						<time>21/06/2016</time>
+						<a href="/jekyll/2016/06/21/creando-blog-jekyll-5.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#jekyll" class="uk-button uk-button-text">jekyll</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/jekyll-4.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</h3>
+						<time>10/06/2016</time>
+						<a href="/jekyll/2016/06/10/creando-blog-jekyll-4.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#jekyll" class="uk-button uk-button-text">jekyll</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/jekyll-3.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</h3>
+						<time>06/04/2016</time>
+						<a href="/jekyll/2016/04/06/creando-blog-jekyll-3.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#jekyll" class="uk-button uk-button-text">jekyll</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/jekyll-2.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Creando un blog con Jekyll 2. Añadiendo entradas y paginas</h3>
+						<time>19/03/2016</time>
+						<a href="/jekyll/2016/03/19/creando-blog-jekyll-2.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#jekyll" class="uk-button uk-button-text">jekyll</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/jekyll-1.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Creando un blog con Jekyll. 1ª parte</h3>
+						<time>18/03/2016</time>
+						<a href="/jekyll/2016/03/18/creando-blog-jekyll-1.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#jekyll" class="uk-button uk-button-text">jekyll</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/phpexcel.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>PHPExcel (1ª parte)</h3>
+						<time>15/03/2016</time>
+						<a href="/tutoriales/2016/03/15/tutorial-phpexcel-1.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#tutoriales" class="uk-button uk-button-text">tutoriales</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/entropipes.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>EntroPipes (R1)</h3>
+						<time>30/10/2015</time>
+						<a href="/proyectos/2015/10/30/EntroPies-R1.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#proyectos" class="uk-button uk-button-text">proyectos</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/miniserver.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Montando un mini servidor local en GNU/Linux</h3>
+						<time>25/08/2015</time>
+						<a href="/tutoriales/2015/08/25/montando-servidor-local.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#tutoriales" class="uk-button uk-button-text">tutoriales</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="entry">
+				<div class="entry-img">
+					<img src="/img/img_dest/killall_radio.png" alt="" uk-cover>
+				</div>
+				<div class="entry-body">
+					<div class="entry-header">
+						<h3>Killall Radio App 1.0.0</h3>
+						<time>05/08/2015</time>
+						<a href="/proyectos/2015/08/05/killallradio100.html" class="read-more">Leer más</a>
+						<div class="categories">
+							
+							
+								Categoria: <a href="/categorias/#proyectos" class="uk-button uk-button-text">proyectos</a>
+								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	</div>
 
-<!-- Script pointing to jekyll-search.js -->
-<script src="/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
-<script>
-	SimpleJekyllSearch({
-		searchInput: document.getElementById('search-input'),
-		resultsContainer: document.getElementById('results-container'),
-		json: '/search.json',
-	})
-</script>
-
-	<br />
-	<div class="mui-divider"></div>
-</div>
-<div class="sidebar-content">
-	<h2>Tags:</h2>
-	<ul class="urls_cloud">
-		
-		<li>
-			<a href="/tag/cordova">cordova <span class="badge">2</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/tutoriales">tutoriales <span class="badge">9</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/firefoxos">firefoxos <span class="badge">4</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/android">android <span class="badge">4</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/proyectos">proyectos <span class="badge">3</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/servidores">servidores <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/php">php <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/lighttpd">lighttpd <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/mysql">mysql <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/mariadb">mariadb <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/juegos">juegos <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/lua">lua <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/linux">linux <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/windows">windows <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/Nintendo 3DS">Nintendo 3DS <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/Blog">Blog <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/PHP">PHP <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/excel">excel <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/OpenDocument">OpenDocument <span class="badge">1</span></a>
-		</li>
-		
-		<li>
-			<a href="/tag/jekyll">jekyll <span class="badge">6</span></a>
-		</li>
-		
-	</ul>
-	<div class="mui-divider"></div>
-</div>
-<div class="sidebar-content">
-	<h2>Sígueme:</h2>
-	<ul class="urls_cloud">
-		<li>
-			<a href="http://github.com/son-link"><i class="icon-github"></i>Github</a>
-		</li>
-		<li>
-			<a href="http://twitter.com/sonlink"><i class="icon-twitter"></i>Twitter</a>
-		</li>
-		<li>
-			<a href="https://plus.google.com/u/0/+AlfonsoSaavedraChichon"><i class="icon-gplus"></i>Google+</a>
-		</li>
-		<li>
-			<a href="https://play.spotify.com/user/117752446"><i class="icon-spotify"></i>Spotify</a>
-		</li>
-	</ul>
-	<div class="mui-divider"></div>
-</div>
-<div class="sidebar-content">
-	<h2>Paginas amigas:</h2>
-	<ul class="urls_cloud">
-		<li><a href="http://killallradio.wordpress.com" title="Es un proyecto online colaborativo hecho por amigos para todo el mundo. Tu Radio Geek Online">Killall Radio</a></li>
-		<li><a href="http://salmorejogeek.com" title="Blog donde se habla de todo un poco del mundo de la informática">Salmorejo Geek</a></li>
-		<li><a href="http://www.systeminside.net/" title="Otro blog dedicado a la informática">SystemInside</a></li>
-		<li><a href="https://sites.google.com/site/z80stsoftware/" title="Blog de un colega dedicado a sus proyectos de programación para los sistemas MSX">Z80St</a></li>
-		<li><a href="https://melonsodablog.wordpress.com" title="Blog sobre juegos, manga, anime, etc.">Melon Soda</a></li>
-	</ul>
-	<div class="mui-divider"></div>
-</div>
-<div class="sidebar-content">
-	<h2>Archivo:</h2>
+	<!-- Pagination links -->
 	
-    
-    
-    
-    
+		<ul class="pagination">
+		
+			<li class="uk-disabled"><span><i class="icon-prev"></i></li>
+		
 
-    
-    <h2 id="2016-ref">2016</h2>
-    <h4 id="2016-Julio-ref">Julio <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-    <ul>
-    
+		
+			
+			<li class="pag-active"><span>1</span></li>
+			
+		
+			
+			<li><a href="page2/">2</a></li>
+			
+		
 
-    <li><a href="/2016/07/13/creando-blog-jekyll-6.html">Creando un blog con Jekyll 6 - Modificando el diseño. 3ª parte</a></li>
+		
+			<li><a rel="next" href="/page2/"><i class="icon-next"></i></a></li>
+		
+		</ul>
+	
 
-    
-        
-            
-            </ul>
-            <h4 id="2016-Junio-ref">Junio <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-            <ul>
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
-
-    
-        
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></li>
-
-    
-        
-            
-            </ul>
-            <h4 id="2016-Abril-ref">Abril <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-            <ul>
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></li>
-
-    
-        
-            
-            </ul>
-            <h4 id="2016-Marzo-ref">Marzo <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-            <ul>
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2016/03/19/creando-blog-jekyll-2.html">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</a></li>
-
-    
-        
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
-
-    
-        
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
-
-    
-        
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2016/03/15/nuevos-tiempos-blog.html">Nuevos tiempos para el blog</a></li>
-
-    
-        
-        </ul>
-        <h2 id="2015-ref">2015</h2>
-        <h4 id="2015-Octubre-ref">Octubre  <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-        <ul>
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></li>
-
-    
-        
-            
-            </ul>
-            <h4 id="2015-Agosto-ref">Agosto <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-            <ul>
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2015/08/25/montando-servidor-local.html">Montando un mini servidor local en GNU/Linux</a></li>
-
-    
-        
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2015/08/05/killallradio100.html">Killall Radio App 1.0.0</a></li>
-
-    
-        
-            
-            </ul>
-            <h4 id="2015-Julio-ref">Julio <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-            <ul>
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2015/07/15/killallradio090.html">Killall Radio App 0.9.0</a></li>
-
-    
-        
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2015/07/02/apache-cordova-2.html">Apache Cordova 2: Instalando plugins y creación del paquete</a></li>
-
-    
-        
-            
-            </ul>
-            <h4 id="2015-Junio-ref">Junio <a href="#" class="showHideMonth"><i class="icon-right-open"></i></a></h4>
-            <ul>
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2015/06/20/cordova-primeros-pasos.html">Apache Cordova 1: Primeros pasos</a></li>
-
-    
-        
-            
-        
-    
-
-    
-    
-    
-    
-
-    
-
-    <li><a href="/2015/06/16/bienvenidos.html">Bienvenidos a mi blog</a></li>
-
-    
-    </ul>
-    
-
-</div>
-
-		</div>
 	</div>
     <footer>
-	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este blog está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>. salvo que se indique lo contrario
-	<p>
-        Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a> y los framework <a href="https://www.muicss.com" target="black">MUI (css)</a> y <a href="http://zeptojs.com/" target="_black">Zepto.js (javascript)</a>
-	</p>
+	Blog de Son Link &copy; 2015-2017 Alfonso Saavedra "Son Link"<br />
+	Bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black"><i class="icon-cc" title="Creative Commons"></i><i class="icon-cc-by" title="Reconocimiento"></i><i class="icon-cc-nc-eu" title="No Comercial"></i><i class="icon-cc-sa" title="Compartir Igual"></i> 4.0 Internacional</a>, salvo que se indiquen otros terminos o licencias.
+    <br />Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a>. Ha sido programado enteramente con Software Libre.
 </footer>
 
-<script src="/js/zepto.min.js"></script>
-<script src="/js/mui.min.js"></script>
-<script src="/js/archive.js"></script>
-
-
+<script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/common.js"></script>
+<!--script src="/js/archive.js"></script-->
+<script src="/js/google-analytics.js"></script>
+<script id="dsq-count-scr" src="//blogdesonlink.disqus.com/count.js" async></script>
 
   </body>
-
 </html>

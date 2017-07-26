@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>PHPExcel (1ª parte)</title>
+	<meta name="description" content="PHPExcel es una librería para PHP que nos permite crear hojas de Excel (.xlsx), Open/Libreoffice (.ods), HTML y otros, ideal para, por ejemplo, exportar dato...">
+
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/monokai.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/fontello-embedded.css">
+	<link rel="stylesheet" href="/css/animation.css">
+	<link rel="canonical" href="http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html">
+	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
+	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+	<!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>PHPExcel (1ª parte) | Blog de Son Link</title>
+<meta property="og:title" content="PHPExcel (1ª parte)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="PHPExcel es una librería para PHP que nos permite crear hojas de Excel (.xlsx), Open/Libreoffice (.ods), HTML y otros, ideal para, por ejemplo, exportar datos de la tabla de un cliente, calcular por ejemplo unos gastos, etc" />
+<meta property="og:description" content="PHPExcel es una librería para PHP que nos permite crear hojas de Excel (.xlsx), Open/Libreoffice (.ods), HTML y otros, ideal para, por ejemplo, exportar datos de la tabla de un cliente, calcular por ejemplo unos gastos, etc" />
+<link rel="canonical" href="http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html" />
+<meta property="og:url" content="http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html" />
+<meta property="og:site_name" content="Blog de Son Link" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-03-15T00:00:00+01:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"PHPExcel (1ª parte)","datePublished":"2016-03-15T00:00:00+01:00","dateModified":"2016-03-15T00:00:00+01:00","description":"PHPExcel es una librería para PHP que nos permite crear hojas de Excel (.xlsx), Open/Libreoffice (.ods), HTML y otros, ideal para, por ejemplo, exportar datos de la tabla de un cliente, calcular por ejemplo unos gastos, etc","mainEntityOfPage":{"@type":"WebPage","@id":"http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html"},"url":"http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <header id="header">
+	<div id="menu">
+		<nav>
+			<div id="close-menu"><a class="icon-cancel" title="Cerrar menú"></a></div>
+			<div class="hidden-m" id="search-menu">
+				<form action="/buscar.html" method="get">
+					<input type="text" name="query" placeholder="Buscar....">
+					<button type="submit" class="icon-search"></button>
+				</form>
+			</div>
+			<ul>
+				
+					
+						<li><a href="/sobre/">Sobre</a></li>
+					
+				
+					
+						<li><a href="/archivo/">Archivo</a></li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						<li><a href="/webs_amigas/">Webs amigas</a></li>
+					
+				
+					
+						<li><a href="/proyectos/">Mis proyectos</a></li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			</ul>
+			<div class="hidden-m">
+				<span class="menu-title">Sigueme:</span>
+				<ul >
+					<li><a href="http://github.com/son-link" class="icon-github" title="Github" target="_black"> Github</a></li>
+					<li><a href="http://twitter.com/sonlink" class="icon-twitter" title="Twitter" target="_black"> Twitter</a></li>
+					<li><a href="https://www.linkedin.com/in/alfonso-saavedra-chichon-35208010b/" class="icon-linkedin" title="Linkedin" target="_black"> Linkedin</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<nav class="navbar">
+		<div class="navbar-left" id="logo_menu">
+			<button id="toggle-menu" class="icon-menu"></button>
+			<a href="/" id="logo">Blog de Son Link</a>&nbsp;
+		</div>
+		<div class="navbar-right">
+			<ul id="my_social_links">
+				<li><a href="http://github.com/son-link" class="icon-github" title="Github" target="_black"></a></li>
+				<li><a href="http://twitter.com/sonlink" class="icon-twitter" title="Twitter" target="_black"></a></li>
+				<li><a href="https://www.linkedin.com/in/alfonso-saavedra-chichon-35208010b/" class="icon-linkedin" title="Linkedin" target="_black"></a></li>
+				<li><a href="#" id="search-navbar-btn" class="icon-search" title="buscar"></a></li>
+			</ul>
+		</div>
+		<div id="search-navbar-big">
+			<form action="/buscar.html" method="get">
+				<input type="text" name="query" placeholder="Buscar....">
+			</form>
+		</div>
+	</nav>
+</header>
+
+	<div id="container">
+		<h1 class="title">PHPExcel (1ª parte)</h1>
+<article id="entry">
+	<div class="entry-body">
+		<p class="uk-article-meta">Escrito el 15/03/2016</p>
+			<p><strong>PHPExcel</strong> es una librería para <strong>PHP</strong> que nos permite crear hojas de <strong>Excel (.xlsx)</strong>, <strong>Open/Libreoffice (.ods)</strong>, <strong>HTML</strong> y otros, ideal para, por ejemplo, exportar datos de la tabla de un cliente, calcular por ejemplo unos gastos, etc</p>
+
+<p>Hay otras alternativas más livianas, pero esta es la más completa, ya que nos permite cambiar los estilos, añadir imágenes, formulas, etc.</p>
+
+<p>PHPExcel es de código abierto, bajo la licencia LGPL, por lo que podremos usarlo sin ningún tipo de restricción.</p>
+
+<h3 id="descarga">Descarga:</h3>
+
+<p>Para poder usar PHPExcel lo primero que necesitamos es tener habilitadas las siguientes librerías de PHP:</p>
+
+<ul>
+  <li>XMLRPC</li>
+  <li>ZIP</li>
+  <li>GD2</li>
+</ul>
+
+<p>Ahora descargamos desde su <a href="https://github.com/PHPOffice/PHPExcel/releases">repositorio</a> la ultima versión estable (a la hora de escribir este tutorial es la 1.8.1)</p>
+
+<p>Una vez descargada veremos varios ficheros y carpetas, para usarlo solo necesitaremos la carpeta Classes, el resto son ejemplos.</p>
+
+<h3 id="primer-ejemplo">Primer ejemplo:</h3>
+
+<p>Vamos a crear un primer script PHP para ir probando algunas funciones.</p>
+
+<p>Lo primero que tendremos que hacer es definir las cabeceras para que el navegador crea que lo que se esta pidiendo es una hoja de Excel.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/vnd.openXMLformats-officedocument.spreadsheetml.sheet'</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Disposition: attachment;filename="myfile.xlsx"'</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s1">'Cache-Control: max-age=0'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Para OpenDocument:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/vnd.oasis.opendocument.spreadsheet'</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Disposition: attachment;filename="01simple.ods"'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Ahora incluimos la clase de PHPExcel e iniciamos la clase:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="k">include</span> <span class="s1">'PHPExcel/Classes/PHPExcel.php'</span><span class="p">;</span>
+<span class="nv">$objPHPExcel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PHPExcel</span><span class="p">();</span>
+<span class="nv">$sheet</span> <span class="o">=</span> <span class="nv">$objPHPExcel</span><span class="o">-&gt;</span><span class="na">getActiveSheet</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Vayamos por linea:</p>
+
+<ul>
+  <li>En la primera incluimos la clase. Cambia la ruta a donde este ubicada la carpeta Classes que descargamos antes.</li>
+  <li>En la segunda creamos una instancia de la clase.</li>
+  <li>En la tercera guardamos una instancia de la hoja activa (en este caso la primera, que es la que crea por defecto. Si queremos más hojas podremos ir cambiando entre ellas)</li>
+</ul>
+
+<p>Ahora para escribir algo en una celda usaremos lo siguiente:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="nv">$sheet</span><span class="o">-&gt;</span><span class="na">setCellValue</span><span class="p">(</span><span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'Hola Mundo'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>El primer valor que le pasamos es la celda donde queremos que escriba, y el segundo lo que queremos que escriba. <strong>OJO:</strong> las letras de las celdas deben de estar en <strong>mayusculas</strong></p>
+
+<p>Si lo que queremos es escribir una linea con los datos de un array, PHPExcel cuanta con una función para facilitarnos la tarea. Por ejemplo:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="nv">$d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">}</span>
+<span class="nv">$sheet</span><span class="o">-&gt;</span><span class="na">fromArray</span><span class="p">(</span><span class="nv">$d</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">'A2'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>En este caso tendremos algo como lo siguiente:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ahora vamos a generar el archivo para descargarlo:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="nv">$objWriter</span> <span class="o">=</span> <span class="nx">PHPExcel_IOFactory</span><span class="o">::</span><span class="na">createWriter</span><span class="p">(</span><span class="nv">$objPHPExcel</span><span class="p">,</span> <span class="s1">'Excel2007'</span><span class="p">);</span>
+<span class="nb">ob_end_clean</span><span class="p">();</span>
+<span class="nv">$objWriter</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">'php://output'</span><span class="p">);</span>
+<span class="k">exit</span><span class="p">;</span>
+</code></pre>
+</div>
+<p>Para Opendocument reemplazamos <strong>Excel2007</strong> por <strong>OpenDocument</strong></p>
+
+<p>En la primera linea creamos una instancia de la clase encargada de escribir la hoja. El primer parámetro es la instancia de la clase que hemos estado usando, mientras que la segunda indicara el formato de salida</p>
+
+<p>La segunda linea limpia la salida del buffer. Esto es necesario ya que en algunos casos en caso de no hacerlo genera una hoja corrupta.</p>
+
+<p>La tercera linea guarda la pagina, en este caso directamente a la salida de PHP. Otra opción es cambiarla por una ruta para guardarla en el servidor.</p>
+
+<p>Y aquí acaba esta primera parte del tutorial. Espero que os sirva.</p>
+
+		<ul id="share">
+			<li>Compartir:</li>
+			<li><a class="btn-twitter icon-twitter" target="_black" href="http://twitter.com/intent/tweet?text=PHPExcel (1ª parte)&url=http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html" uk-icon="icon: twitter"></a></li>
+			<li><a class="btn-facebook icon-facebook" target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html" uk-icon="icon: facebook"></a></li>
+			<li><a class="btn-gplus icon-gplus" target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html" uk-icon="icon: google-plus"></a></li>
+			<li><a class="btn-whatsapp icon-whatsapp" target="_black" href="whatsapp://send?text=http%3A%2F%2Fson-link.github.io%2Ftutoriales%2F2016%2F03%2F15%2Ftutorial-phpexcel-1.html" uk-icon="icon: whatsapp"></a></li>
+		</ul>
+		<br /><br />
+		<ul class="tag_list">
+			<li>Categorias: </li>
+			
+				<li><a href="/categorias/#tutoriales" class="uk-button uk-button-text">tutoriales</a></li>
+			
+		</ul>
+		<p>Entradas relacionadas:</p>
+		<ul class="entrel">
+			
+				<li><a href="/blog/2017/07/26/sobre-el-paron.html">Sobre el parón del blog</a></li>
+			
+				<li><a href="/jekyll/2017/07/26/creando-blog-jekyll-7.html">Creando un blog con Jekyll 7 - Publicando el blog</a></li>
+			
+				<li><a href="/jekyll/2016/07/13/creando-blog-jekyll-6.html">Creando un blog con Jekyll 6 - Modificando el diseño. 3ª parte</a></li>
+			
+				<li><a href="/jekyll/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
+			
+				<li><a href="/jekyll/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></li>
+			
+				<li><a href="/jekyll/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></li>
+			
+				<li><a href="/jekyll/2016/03/19/creando-blog-jekyll-2.html">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</a></li>
+			
+				<li><a href="/jekyll/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+			
+				<li><a href="/proyectos/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></li>
+			
+				<li><a href="/tutoriales/2015/08/25/montando-servidor-local.html">Montando un mini servidor local en GNU/Linux</a></li>
+			
+		</ul>
+	</div>
+
+</article>
+<!-- Disqus comments -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = 'http://son-link.github.io/tutoriales/2016/03/15/tutorial-phpexcel-1.html';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '/tutoriales/2016/03/15/tutorial-phpexcel-1.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://blogdesonlink.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+	</div>
+    <footer>
+	Blog de Son Link &copy; 2015-2017 Alfonso Saavedra "Son Link"<br />
+	Bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black"><i class="icon-cc" title="Creative Commons"></i><i class="icon-cc-by" title="Reconocimiento"></i><i class="icon-cc-nc-eu" title="No Comercial"></i><i class="icon-cc-sa" title="Compartir Igual"></i> 4.0 Internacional</a>, salvo que se indiquen otros terminos o licencias.
+    <br />Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a>. Ha sido programado enteramente con Software Libre.
+</footer>
+
+<script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/common.js"></script>
+<!--script src="/js/archive.js"></script-->
+<script src="/js/google-analytics.js"></script>
+<script id="dsq-count-scr" src="//blogdesonlink.disqus.com/count.js" async></script>
+
+  </body>
+</html>

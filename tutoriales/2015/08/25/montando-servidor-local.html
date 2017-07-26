@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Montando un mini servidor local en GNU/Linux</title>
+	<meta name="description" content="En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Arch Linux per...">
+
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/monokai.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/fontello-embedded.css">
+	<link rel="stylesheet" href="/css/animation.css">
+	<link rel="canonical" href="http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html">
+	<link rel="alternate" type="application/rss+xml" title="Blog de Son Link" href="http://son-link.github.io/feed.xml" />
+	<link rel="shortcut icon" href="http://son-link.github.io/favicon.png" type="image/png" />
+	<!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Montando un mini servidor local en GNU/Linux | Blog de Son Link</title>
+<meta property="og:title" content="Montando un mini servidor local en GNU/Linux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Arch Linux pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows." />
+<meta property="og:description" content="En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Arch Linux pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows." />
+<link rel="canonical" href="http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html" />
+<meta property="og:url" content="http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html" />
+<meta property="og:site_name" content="Blog de Son Link" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-25T00:00:00+02:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Montando un mini servidor local en GNU/Linux","datePublished":"2015-08-25T00:00:00+02:00","dateModified":"2015-08-25T00:00:00+02:00","description":"En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para Arch Linux pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.","mainEntityOfPage":{"@type":"WebPage","@id":"http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html"},"url":"http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <header id="header">
+	<div id="menu">
+		<nav>
+			<div id="close-menu"><a class="icon-cancel" title="Cerrar menú"></a></div>
+			<div class="hidden-m" id="search-menu">
+				<form action="/buscar.html" method="get">
+					<input type="text" name="query" placeholder="Buscar....">
+					<button type="submit" class="icon-search"></button>
+				</form>
+			</div>
+			<ul>
+				
+					
+						<li><a href="/sobre/">Sobre</a></li>
+					
+				
+					
+						<li><a href="/archivo/">Archivo</a></li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						<li><a href="/webs_amigas/">Webs amigas</a></li>
+					
+				
+					
+						<li><a href="/proyectos/">Mis proyectos</a></li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			</ul>
+			<div class="hidden-m">
+				<span class="menu-title">Sigueme:</span>
+				<ul >
+					<li><a href="http://github.com/son-link" class="icon-github" title="Github" target="_black"> Github</a></li>
+					<li><a href="http://twitter.com/sonlink" class="icon-twitter" title="Twitter" target="_black"> Twitter</a></li>
+					<li><a href="https://www.linkedin.com/in/alfonso-saavedra-chichon-35208010b/" class="icon-linkedin" title="Linkedin" target="_black"> Linkedin</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<nav class="navbar">
+		<div class="navbar-left" id="logo_menu">
+			<button id="toggle-menu" class="icon-menu"></button>
+			<a href="/" id="logo">Blog de Son Link</a>&nbsp;
+		</div>
+		<div class="navbar-right">
+			<ul id="my_social_links">
+				<li><a href="http://github.com/son-link" class="icon-github" title="Github" target="_black"></a></li>
+				<li><a href="http://twitter.com/sonlink" class="icon-twitter" title="Twitter" target="_black"></a></li>
+				<li><a href="https://www.linkedin.com/in/alfonso-saavedra-chichon-35208010b/" class="icon-linkedin" title="Linkedin" target="_black"></a></li>
+				<li><a href="#" id="search-navbar-btn" class="icon-search" title="buscar"></a></li>
+			</ul>
+		</div>
+		<div id="search-navbar-big">
+			<form action="/buscar.html" method="get">
+				<input type="text" name="query" placeholder="Buscar....">
+			</form>
+		</div>
+	</nav>
+</header>
+
+	<div id="container">
+		<h1 class="title">Montando un mini servidor local en GNU/Linux</h1>
+<article id="entry">
+	<div class="entry-body">
+		<p class="uk-article-meta">Escrito el 25/08/2015</p>
+			<p>En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para <strong>Arch Linux</strong> pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.</p>
+
+<p>Para ello instalaremos el servidor <strong>Lighttpd</strong>, un servidor ligero y funcional y usado en paginas como la <strong>Wikipedia</strong> y <strong>Youtube</strong>, el interprete de <strong>PHP</strong>, un lenguaje de programación para servidores, y la base de datos <strong>MariaDB</strong>, pero que puede cambiarse por <strong>MySQL</strong> si se quiere, eso ya es al gusto de cada uno.</p>
+
+<p>Para instalar lo necesario abrimos la terminal y ejecutamos:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>pacman -S lighttpd mariadb mariadb-clients php-cgi
+</code></pre>
+</div>
+
+<h3 id="configurando-lightppd">Configurando Lightppd:</h3>
+<p>Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.</p>
+
+<p><strong>PHP</strong>
+Para ello creamos el archivo <code class="highlighter-rouge">/etc/lightppd/conf.d/php.conf</code> (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:</p>
+
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="c"># Make sure to install php and php-cgi. See:
+# https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
+</span>
+<span class="err">server.modules</span> <span class="err">+=</span> <span class="err">("mod_fastcgi")</span>
+
+<span class="c"># FCGI server
+# ===========
+#
+# Configure a FastCGI server which handles PHP requests.
+#
+</span><span class="err">index-file.names</span> <span class="err">+=</span> <span class="err">("index.php")</span>
+<span class="py">fastcgi.server</span> <span class="p">=</span> <span class="s">(</span>
+    <span class="c"># Load-balance requests for this path...
+</span>    <span class="err">".php"</span> <span class="err">=&gt;</span> <span class="err">(</span>
+        <span class="c"># ... among the following FastCGI servers. The string naming each
+</span>        <span class="c"># server is just a label used in the logs to identify the server.
+</span>        <span class="err">"localhost"</span> <span class="err">=&gt;</span> <span class="err">(</span>
+            <span class="err">"bin-path"</span> <span class="err">=&gt;</span> <span class="err">"/usr/bin/php-cgi",</span>
+            <span class="err">"socket"</span> <span class="err">=&gt;</span> <span class="err">"/tmp/php-fastcgi.sock",</span>
+            <span class="c"># breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO
+</span>            <span class="c"># from it
+</span>            <span class="err">"broken-scriptfilename"</span> <span class="err">=&gt;</span> <span class="err">"enable",</span>
+            <span class="c"># Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where
+</span>            <span class="c"># max-procs are "watchers" and the rest are "workers". See:
+</span>            <span class="c"># https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn
+</span>            <span class="err">"max-procs"</span> <span class="err">=&gt;</span> <span class="err">4,</span> <span class="c"># default value
+</span>            <span class="err">"bin-environment"</span> <span class="err">=&gt;</span> <span class="err">(</span>
+                <span class="err">"PHP_FCGI_CHILDREN"</span> <span class="err">=&gt;</span> <span class="err">"1"</span> <span class="c"># default value
+</span>            <span class="err">)</span>
+        <span class="err">)</span>
+    <span class="err">)</span>
+<span class="err">)</span>
+</code></pre>
+</div>
+
+<p>Ahora abrimos el fichero <code class="highlighter-rouge">/etc/lighttpd/lighttpd.conf</code> y al final de el añadimos la siguiente linea: <code class="highlighter-rouge">include "conf.d/php.conf"</code></p>
+
+<p>Para habilitar las carpetas de usuario creamos, en la misma carpeta que php.conf otro llamado, por ejemplo, userdir.conf y añadimos estas lineas:</p>
+
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="err">server.modules</span> <span class="err">+=</span> <span class="err">("mod_userdir")</span>
+<span class="py">userdir.path</span> <span class="p">=</span> <span class="s">"public_html"</span>
+</code></pre>
+</div>
+<p>Y como antes añadimos al final de /etc/lighttpd/lighttpd.conf la siguiente linea: <code class="highlighter-rouge">include "conf.d/userdir.conf"</code></p>
+
+<p>La primera linea habilita el mod y en la segunda indicamos el nombre de la carpeta. Ahora cada usuario que quiera solo tendrá que crear dicha carpeta en la raiz de su home.</p>
+
+<p>Ahora podemos comprobar que funcione correctamente el servidor, para ello ejecutamos como súper usuario el siguiente comando: <code class="highlighter-rouge">lighttpd -f /etc/lighttpd/lighttpd.conf</code> y si no hay ningún problema abrimos nuestro navegador y e introducimos la url <strong>localhost</strong>. Si habilitamos la de usuario la url es la siguiente <code class="highlighter-rouge">localhost/~usuario</code> cambiando <strong>usuario</strong> por el nombre del usuario que corresponda. Si ya todo va cerramos el servidor y ejecutamos <code class="highlighter-rouge">sudo systemcontrol enable lighttpd</code> para habilitarlo en el arranque y <code class="highlighter-rouge">sudo systemcontrol start lighttpd</code> para arrancarlo. Para comprobar que funciona PHP creamos en la carpeta del servidor un archivo al que llamaremos info.php:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?</span>
+<span class="nb">phpinfo</span><span class="p">();</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+</div>
+<p>Si sale bien tendremos algo similar a esto:</p>
+
+<h3 id="mariadb">MariaDB</h3>
+<p>Lo primero es crear las tablas de configuración por defecto del servidor de base de datos. Para ello nos bastara con ejecutar <code class="highlighter-rouge">mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql</code></p>
+
+<p>Una vez que termine podemos habilitar y arrancar el servicio con <code class="highlighter-rouge">sudo systemcontrol enable mysqld</code> y <code class="highlighter-rouge">sudo systemcontrol start mysqld</code></p>
+
+<p><strong>Nota:</strong> No es que me haya equivocado al escribir los comandos, simplemente los ejecutables de MariaDB son los mismos, de hecho las extensiones de MySQL de PHP funcionan con MariaDB.</p>
+
+<p>Y con esto ya tenemos todo. Y en parte por petición de unos compañeros de curso os dejo un zip que Lighttpd para <strong>Windows</strong> (funciona en XP, 7 y 8.1). Solo tenéis que descomprimirlo y ejecutar <strong>atart-server.bat</strong> para arrancarlo y <strong>stop-server.bat</strong> para finalizar los procesos. Es necesario bajar e instalar MariaDB o mySQL por separado. <a href="https://www.dropbox.com/s/vimfcshgepi9g6h/LightTPD.zip?dl=0">Descargar Lighttpd para Windows</a></p>
+
+<h2 id="enlaces">Enlaces</h2>
+
+<ul>
+  <li><a href="http://www.lighttpd.net">Lighttpd</a></li>
+  <li><a href="https://mariadb.org">MariaDB</a></li>
+  <li><a href="https://wiki.archlinux.org/index.php/Lighttpd">Entrada en la Wiki de Arch Linux</a> (De donde aprendí lo aquí expuesto. Lectura recomendada)</li>
+  <li><a href="https://blog.wikimedia.org/2012/09/18/server-decommissioning-donations-sept2012/">Imagen destacada sacada de la Wikipedia</a></li>
+</ul>
+
+		<ul id="share">
+			<li>Compartir:</li>
+			<li><a class="btn-twitter icon-twitter" target="_black" href="http://twitter.com/intent/tweet?text=Montando un mini servidor local en GNU/Linux&url=http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html" uk-icon="icon: twitter"></a></li>
+			<li><a class="btn-facebook icon-facebook" target="_black" href="http://www.facebook.com/sharer/sharer.php?u=http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html" uk-icon="icon: facebook"></a></li>
+			<li><a class="btn-gplus icon-gplus" target="_black" href="https://plus.google.com/share?url=http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html" uk-icon="icon: google-plus"></a></li>
+			<li><a class="btn-whatsapp icon-whatsapp" target="_black" href="whatsapp://send?text=http%3A%2F%2Fson-link.github.io%2Ftutoriales%2F2015%2F08%2F25%2Fmontando-servidor-local.html" uk-icon="icon: whatsapp"></a></li>
+		</ul>
+		<br /><br />
+		<ul class="tag_list">
+			<li>Categorias: </li>
+			
+				<li><a href="/categorias/#tutoriales" class="uk-button uk-button-text">tutoriales</a></li>
+			
+		</ul>
+		<p>Entradas relacionadas:</p>
+		<ul class="entrel">
+			
+				<li><a href="/blog/2017/07/26/sobre-el-paron.html">Sobre el parón del blog</a></li>
+			
+				<li><a href="/jekyll/2017/07/26/creando-blog-jekyll-7.html">Creando un blog con Jekyll 7 - Publicando el blog</a></li>
+			
+				<li><a href="/jekyll/2016/07/13/creando-blog-jekyll-6.html">Creando un blog con Jekyll 6 - Modificando el diseño. 3ª parte</a></li>
+			
+				<li><a href="/jekyll/2016/06/21/creando-blog-jekyll-5.html">Creando un blog con Jekyll 5 - Modificando el diseño. 2ª parte</a></li>
+			
+				<li><a href="/jekyll/2016/06/10/creando-blog-jekyll-4.html">Creando un blog con Jekyll 4 - Modificando el diseño. 1ª parte</a></li>
+			
+				<li><a href="/jekyll/2016/04/06/creando-blog-jekyll-3.html">Creando un blog con Jekyll 3 - Variables y etiquetas Liquid</a></li>
+			
+				<li><a href="/jekyll/2016/03/19/creando-blog-jekyll-2.html">Creando un blog con Jekyll 2. Añadiendo entradas y paginas</a></li>
+			
+				<li><a href="/jekyll/2016/03/18/creando-blog-jekyll-1.html">Creando un blog con Jekyll. 1ª parte</a></li>
+			
+				<li><a href="/tutoriales/2016/03/15/tutorial-phpexcel-1.html">PHPExcel (1ª parte)</a></li>
+			
+				<li><a href="/proyectos/2015/10/30/EntroPies-R1.html">EntroPipes (R1)</a></li>
+			
+		</ul>
+	</div>
+
+</article>
+<!-- Disqus comments -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = 'http://son-link.github.io/tutoriales/2015/08/25/montando-servidor-local.html';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '/tutoriales/2015/08/25/montando-servidor-local.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://blogdesonlink.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+	</div>
+    <footer>
+	Blog de Son Link &copy; 2015-2017 Alfonso Saavedra "Son Link"<br />
+	Bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black"><i class="icon-cc" title="Creative Commons"></i><i class="icon-cc-by" title="Reconocimiento"></i><i class="icon-cc-nc-eu" title="No Comercial"></i><i class="icon-cc-sa" title="Compartir Igual"></i> 4.0 Internacional</a>, salvo que se indiquen otros terminos o licencias.
+    <br />Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a>. Ha sido programado enteramente con Software Libre.
+</footer>
+
+<script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/common.js"></script>
+<!--script src="/js/archive.js"></script-->
+<script src="/js/google-analytics.js"></script>
+<script id="dsq-count-scr" src="//blogdesonlink.disqus.com/count.js" async></script>
+
+  </body>
+</html>
