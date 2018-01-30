@@ -1,0 +1,39 @@
+<header id="header">
+	<div id="menu">
+		<nav>
+			<div id="close-menu"><a class="icon-cancel" title="Cerrar menú"></a></div>
+			<ul>
+				{% for page in site.pages %}
+					{% if page.title and page.onmenu != false %}
+						<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+			<div id="menu_social_links">
+				<span class="menu-title">Sígueme:</span>
+				<ul>
+					{% include social_links.html %}
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<nav class="navbar">
+		<div class="navbar-left" id="logo_menu">
+			<button id="toggle-menu" class="icon-menu"></button>
+			<a href="{{site.url}}" id="logo">{{ site.title }}</a>&nbsp;
+		</div>
+		<div class="navbar-right">
+			<ul id="nav_social_links">
+				{% include social_links.html %}
+			</ul>
+			<a href="#" id="search-navbar-btn" class="icon-search" title="Buscar"></a>
+		</div>
+	</nav>
+</header>
+<div id="search">
+	<form onsubmit="return false">
+		<input type="text" name="query" id="search-input" placeholder="Buscar....">
+		<button type="reset" class="icon-cancel" id="reset-search"></button>
+	</form>
+	<ul id="results-container"></ul>
+</div>

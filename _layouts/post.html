@@ -1,0 +1,56 @@
+---
+layout: default
+comments: true
+---
+<h1 class="title">{{ page.title }}</h1>
+<article id="entry">
+	<div class="entry-body">
+		<h3>{{ post.title }}</h3>
+		<p class="uk-article-meta">Escrito el {{ page.date | date: "%d/%m/%Y" }}</p>
+			{{ content }}
+		<ul id="share">
+			<li>Compartir:</li>
+			<li><a class="icon-twitter" target="_black" href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.url }}" uk-icon="icon: twitter"></a></li>
+			<li><a class="icon-facebook" target="_black" href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}" uk-icon="icon: facebook"></a></li>
+			<li><a class="icon-gplus" target="_black" href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}" uk-icon="icon: google-plus"></a></li>
+			<li><a class="icon-whatsapp" target="_black" href="whatsapp://send?text={{ page.url | prepend: site.url | cgi_escape}}" uk-icon="icon: whatsapp"></a></li>
+			<li><a class="icon-telegram" target="_black" href="https://t.me/share/url?url={{ page.url | prepend: site.url | cgi_escape}}" uk-icon="icon: whatsapp"></a></li>
+		</ul>
+		<br /><br />
+		Category: <a href="{{site.baseurl}}/categories/#{{page.category|slugize}}">{{page.category}}</a>
+		<ul class="tag_list">
+			Tags:
+			{% for tag in page.tags %}
+				<li><a href="{{site.baseurl}}/tags/#{{tag|slugize}}">{{tag}}</a></li>
+			{% endfor %}
+		</ul>
+		{% if site.related_posts %}
+		{% include related_posts.html %}
+		{% endif %}
+	</div>
+</article>
+
+{% if site.disqus %}
+<!-- Disqus comments -->
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = '{{ page.url | prepend: site.url }}';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '{{ page.url }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://{{site.disqus}}.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}

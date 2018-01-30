@@ -1,0 +1,23 @@
+---
+layout: default
+title: Mis proyectos
+permalink: /proyectos/
+onmenu: true
+---
+<h1 class="title">{{ page.title }}</h1>
+<div id="entries">
+	{% for page in site.pages %}
+		{% if page.title and page.description %}
+		<article class="entry">
+			<div class="entry-img">
+				<img src="{{site.baseurl}}/img/img_dest/proyectos/{{page.img_dest}}" alt="" uk-cover>
+			</div>
+			<div class="entry-body">
+				<a href="{{ page.url | prepend: site.baseurl }}"><h3 class="uk-article-title">{{ page.title }}</h3></a>
+				<p>{{ page.description }}</p>
+				<p>Plataformas: {{ page.platforms | join: ', '}}</p>
+			</div>
+		</article>
+		{% endif %}
+	{% endfor %}
+</div>
