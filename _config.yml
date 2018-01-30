@@ -21,7 +21,7 @@ url: "https://son-link.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-space
+#theme: jekyll-theme-space
 plugins:
   - jekyll-feed
   - jekyll-paginate

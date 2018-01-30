@@ -4,7 +4,7 @@ layout: post
 date: 2018-01-30
 tags:
 - blog
-img_dest: jekyll-1.png
+img_dest: paron-blog.png
 category: blog
 description: Tras otro largo periodo de inactividad vuelvo a la carga, ademas de con un nuevo diseño y algunas novedades.
 ---
