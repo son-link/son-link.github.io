@@ -2,8 +2,8 @@
 layout: default
 comments: true
 ---
-<h1 class="title">{{ page.title }}</h1>
 <article id="entry">
+	<h1 class="title">{{ page.title }}</h1>
 	<div class="entry-body">
 		<h3>{{ post.title }}</h3>
 		<p class="uk-article-meta">Escrito el {{ page.date | date: "%d/%m/%Y" }}</p>
@@ -16,8 +16,9 @@ comments: true
 			<li><a class="icon-whatsapp" target="_black" href="whatsapp://send?text={{ page.url | prepend: site.url | cgi_escape}}" uk-icon="icon: whatsapp"></a></li>
 			<li><a class="icon-telegram" target="_black" href="https://t.me/share/url?url={{ page.url | prepend: site.url | cgi_escape}}" uk-icon="icon: whatsapp"></a></li>
 		</ul>
-		<br /><br />
-		Categoría: <a href="{{site.baseurl}}/categorias/#{{page.category|slugize}}">{{page.category}}</a>
+		<div id="category">
+			Categoría: <a href="{{site.baseurl}}/categorias/#{{page.category|slugize}}">{{page.category}}</a>
+		</div>
 		<ul class="tag_list">
 			Tags:
 			{% for tag in page.tags %}
