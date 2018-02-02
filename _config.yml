@@ -34,7 +34,7 @@ rss: true
 facebook: 'https://www.facebook.com/Son-Link-Blog-159172270839305/?ref=your_pages'
 twitter: 'https://twitter.com/sonlink'
 github: 'https://github.com/son-link'
-
+instant_view: d2c6ec48864ff3 #Hash for Telegram Instant View
 # Pagination
 paginate: 10
 paginate_path: "page:num/"

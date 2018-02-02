@@ -10,11 +10,15 @@ comments: true
 			{{ content }}
 		<ul id="share">
 			<li>Compartir:</li>
-			<li><a class="icon-twitter" target="_black" href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.url }}" uk-icon="icon: twitter"></a></li>
-			<li><a class="icon-facebook" target="_black" href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}" uk-icon="icon: facebook"></a></li>
-			<li><a class="icon-gplus" target="_black" href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}" uk-icon="icon: google-plus"></a></li>
-			<li><a class="icon-whatsapp" target="_black" href="whatsapp://send?text={{ page.url | prepend: site.url | cgi_escape}}" uk-icon="icon: whatsapp"></a></li>
-			<li><a class="icon-telegram" target="_black" href="https://t.me/share/url?url={{ page.url | prepend: site.url | cgi_escape}}" uk-icon="icon: whatsapp"></a></li>
+			<li><a class="icon-twitter" target="_black" href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.url }}"></a></li>
+			<li><a class="icon-facebook" target="_black" href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}"></a></li>
+			<li><a class="icon-gplus" target="_black" href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}"></a></li>
+			<li><a class="icon-whatsapp" target="_black" href="whatsapp://send?text={{ page.url | prepend: site.url | cgi_escape}}"></a></li>
+			{% if site.instant_view %}
+			<li><a class="icon-telegram" target="_black" href="https://t.me/share/url?url={{ page.url | prepend: site.url | cgi_escape }}&rhash={{site.instant_view}}"></a></li>
+			{%else%}
+			<li><a class="icon-telegram" target="_black" href="https://t.me/share/url?url={{ page.url | prepend: site.url | cgi_escape }}"></a></li>
+			{% endif %}
 		</ul>
 		<div id="category">
 			Categoría: <a href="{{site.baseurl}}/categorias/#{{page.category|slugize}}">{{page.category}}</a>
