@@ -1,7 +1,7 @@
 ---
 title: Nuevos tiempos para el blog
 layout: post
-date: 2018-01-30
+date: 2018-01-30 14:00:00
 tags:
 - blog
 img_dest: paron-blog.png

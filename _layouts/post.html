@@ -17,7 +17,7 @@ comments: true
 			<li><a class="icon-telegram" target="_black" href="https://t.me/share/url?url={{ page.url | prepend: site.url | cgi_escape}}" uk-icon="icon: whatsapp"></a></li>
 		</ul>
 		<br /><br />
-		Category: <a href="{{site.baseurl}}/categories/#{{page.category|slugize}}">{{page.category}}</a>
+		Categoría: <a href="{{site.baseurl}}/categorias/#{{page.category|slugize}}">{{page.category}}</a>
 		<ul class="tag_list">
 			Tags:
 			{% for tag in page.tags %}
