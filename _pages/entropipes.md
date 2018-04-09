@@ -5,6 +5,7 @@ permalink: /proyectos/entropies/
 description: 'Rellena las lineas antes de que lleguen al limite'
 platforms: ['Linux', 'Windows', 'Mac', 'Android']
 img_dest: entropipes.png
+onmenu: false
 ---
 
 EntroPipes es mi segundo videojuego programado en **LUA** y con el framework [Löve](http://love2d.org) y esta basado en un juego que viene en muchas maquinitas LCD

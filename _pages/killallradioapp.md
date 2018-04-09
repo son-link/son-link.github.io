@@ -5,6 +5,7 @@ permalink: /proyectos/killallradio/
 description: 'Aplicación oficial de la emisora Killall Radio'
 platforms: ['Firefox OS', 'Android']
 img_dest: killall_radio.png
+onmenu: false
 ---
 
 Aplicación oficial de la emisora online Killall radio.

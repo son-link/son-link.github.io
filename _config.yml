@@ -42,6 +42,7 @@ paginate_path: "page:num/"
 disqus: blogdesonlink
 google-analytics: UA-75229203-1
 related_posts: true
+include: ['_pages']
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

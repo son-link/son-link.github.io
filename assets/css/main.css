@@ -133,12 +133,13 @@ a:hover {color: #7FDBFF !important;}
 .entry, #entry {border-radius: 5px;}
 .entry {
 	width: 48%;
-	height: 400px;
+	/*height: 400px;*/
 	padding: 5px;
 	box-sizing: border-box;
 	max-width: 470px;
 	display: inline-block;
 	vertical-align: top;
+	flex: 1;
 }
 
 #entry {padding: 5px}

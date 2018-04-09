@@ -1,10 +1,11 @@
 ---
-layout: proyect
+layout: page
 title: FireJamendo
 permalink: /proyectos/firejamendo/
 description: 'Escucha y descarga cientos de canciones 100% gratis, legal y sin restriciones'
 platforms: 'Firefox OS'
 img_dest: firejamendo.png
+onmenu: false
 ---
 
 **FireJamendo** es mi aplicación no oficial para la plataforma musical [Jamendo](http://www.jamendo.com) y permite reproducir y bajar cientos de canciones 100% gratis y legal, ademas de poder poder leer las ultima noticias así como las radios, leer los comentarios de un álbum, ver el Top semanal, mensual y de siempre.

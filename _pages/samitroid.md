@@ -5,6 +5,7 @@ permalink: /proyectos/samitroid/
 description: 'Un juego fan de Metroid para Zx Spectrum 48k'
 platforms: 'Zx Spectrum'
 img_dest: samitroid.png
+onmenu: false
 ---
 
 Un juego fan de **Metroid** para Zx Spectrum 48k creado con [La Churrera](http://www.mojontwins.com/juegos_mojonos/la-churrera/) de The Mojon Twins
@@ -21,18 +22,20 @@ Recomiendo [Fuse Emulator](http://fuse-emulator.sourceforge.net/) para jugar al 
 
 Hilo oficial del juego en los foros de Mojon Twins: <http://www.mojontwins.com/mojoniaplus/viewtopic.php?f=9&t=1325>
 
-##Créditos:
+## Créditos:
 
-**Programación:** Son Link
+* **Programación:** Son Link
 
-**Graficos:** Son Link (tiles, sprites), Radastan (pantalla carga y final) y Jarlaxe (sprites)
+* **Gráficos:** Son Link (tiles, sprites), Radastan (pantalla carga y final) y Jarlaxe (sprites)
 
-**Música:**
+* **Música:**
 Davidian (pantalla titulo)
 
-**Agradecimientos:** A los Mojon Twins por la Churrera y esos estupendos tutoriales publicados en El Mundo del Spectrum, al foro en general de los mojones por su ayuda y apoyo, a mi tía Jaky y Aili por ayudarme en la traducción al ingles del manual, al usuario del foro de Speccy, Hidoki, y todos los que os habéis bajado mi primer juego.
+## Agradecimientos:
 
-##Controles (teclado, mando (Sinclair y Kempston):
+A los Mojon Twins por la Churrera y esos estupendos tutoriales publicados en El Mundo del Spectrum, al foro en general de los mojones por su ayuda y apoyo, a mi tía Jaky y Aili por ayudarme en la traducción al ingles del manual, al usuario del foro de Speccy, Hidoki, y todos los que os habéis bajado mi primer juego.
+
+## Controles (teclado, mando (Sinclair y Kempston):
 
 * A, Izquierda: Izquierda
 * C, Derecha: Derecha
@@ -42,9 +45,9 @@ Davidian (pantalla titulo)
 
 [Jugar en linea](http://torinak.com/qaop#l=https://dl.dropboxusercontent.com/u/58286032/churrera/sami.tap)
 
-##Herramientas usadas para la creación del juego/Tools used for make the game:
-Efectos de sonido: [Sound FX](http://www.worldofspectrum.org/infoseekid.cgi?id=0011124)
-Gráficos: [GIMP](http://www.gimp.org/)
-Música: [Beepola](http://freestuff.grok.co.uk/beepola)
-Edición de código: [Geany](http://www.geany.org)
-Manuales: [LibreOffice](http://www.libreoffice.org)
+## Herramientas usadas para la creación del juego/Tools used for make the game:
+* Efectos de sonido: [Sound FX](http://www.worldofspectrum.org/infoseekid.cgi?id=0011124)
+* Gráficos: [GIMP](http://www.gimp.org/)
+* Música: [Beepola](http://freestuff.grok.co.uk/beepola)
+* Edición de código: [Geany](http://www.geany.org)
+* Manuales: [LibreOffice](http://www.libreoffice.org)
