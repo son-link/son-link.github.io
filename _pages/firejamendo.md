@@ -2,7 +2,7 @@
 layout: page
 title: FireJamendo
 permalink: /proyectos/firejamendo/
-description: 'Escucha y descarga cientos de canciones 100% gratis, legal y sin restriciones'
+description: 'Escucha y descarga cientos de canciones 100% gratis, legal y sin restricciones'
 platforms: 'Firefox OS'
 img_dest: firejamendo.png
 onmenu: false
@@ -34,16 +34,16 @@ Datos del proyecto:
 
 **Configuración**
 
-![Main window and news](/img/firejamendo/config.png)
+![Página de configuración](/img/firejamendo/config.png)
 
 **Escuchando ahora**
 
-![Main window and news](/img/firejamendo/now_listen.png)
+![Escuchando ahora](/img/firejamendo/now_listen.png)
 
 **Radios**
 
-![Main window and news](/img/firejamendo/radios.png)
+![Lista de radios](/img/firejamendo/radios.png)
 
 **Tu perfil de Jamendo**
 
-![Main window and news](/img/firejamendo/profile.png)
+![Tu perfil de Jamendo](/img/firejamendo/profile.png)

@@ -42,8 +42,8 @@ Datos del proyecto:
 ### Enlaces
 
 * [Repositorio](https://github.com/son-link/SpaceBlocks)
+* [Página oficial en itch.io](https://son-link.itch.io/spaceblocks)
 
 ### Descargas:
 * [Windows 32 bits](https://dl.dropboxusercontent.com/u/58286032/juegos/SpaceBlocks/SpaceBlocks-win32.zip)
-
 * [Windows 64 bits](https://dl.dropboxusercontent.com/u/58286032/juegos/SpaceBlocks/SpaceBlocks-win64.zip)

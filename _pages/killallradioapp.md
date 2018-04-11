@@ -21,5 +21,4 @@ Datos del proyecto:
 ### Enlaces
 
 * [Repositorio](https://github.com/son-link/killallradioapp)
-* App en **Firefox Marketplace**: En espera
-* App para Android: [Descargar APK](https://dl.dropboxusercontent.com/u/58286032/programas/killallradioapp-1.0.0.apk)
+* App para Android: [Descargar APK](https://www.dropbox.com/s/ncchf9z7249jh7z/killallradioapp-1.0.0.apk?dl=0)

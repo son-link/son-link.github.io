@@ -3,54 +3,42 @@ layout: page
 title: EntroPipes
 permalink: /proyectos/entropies/
 description: 'Rellena las lineas antes de que lleguen al limite'
-platforms: ['Linux', 'Windows', 'Mac', 'Android']
+platforms: ['Linux', 'Windows', 'Mac', 'Android', 'Web']
 img_dest: entropipes.png
 onmenu: false
 ---
 
-EntroPipes es mi segundo videojuego programado en **LUA** y con el framework [Löve](http://love2d.org) y esta basado en un juego que viene en muchas maquinitas LCD
+EntroPipes es mi primer videojuego programado en **LUA** y con el framework [TIC-80](https://tic.computer), si bien en las primeras versiones hacia uso del framework LÖVE.
 
 ### Como se juega:
 
-El juego es sencillo. Solo pulsar sobre las tuberías para girarlas hasta resolver el puzzle.
-
-Pulsa **Esc** en Linux/Windows o el **botón atrás** en Android para mostrar el menú de pausa. Se si pulsan en el menú principal se sale del juego. En otros sub-menús se retorna al menú principal.
+El juego es sencillo. Para desplazarte pulsa las flechas del teclado y pulsa **Z** para rotar. Pulsa **A** para pausar/continuar.
+En Android equivalen al D-PAD virtual y a los botones **A** y **X** respectivamente.
 
 ## Instalación:
 
-### Linux:
-Necesitas tener instalado **Löve** 0.9.0 o superior. En la mayoría de distribuciones esta bajo el nombre de love. por ejemplo para instalarlo en Arch Linux y deribadas -> Archlinux**: `pacman -S love`
+Solo tienes que descargar el archivo correspondiente para tu sistema operativo, descomprimirlo y hacer doble click sobre el ejecutable. Tambien hay versión para navegadores (testeado en Firefox y Chrome/Chromium)
 
-Para ejecutarlo solo hay que pulsar 2 veces sobre el archivo **EntroPipes.love**. Si no es así abra una terminal y ejecute `love path/to/EntroPipes.love` ó `love path/to/EntroPipesFolder/`.
-Otro truco consiste en crear un ejecutable:
-`cat /usr/bin/love EntroPipes.love > entropipes`
+También [puedes jugar online](https://tic.computer/play?cart=246) sin necesidad de bajar nada.
 
-### Windows:
-Solo tienes que descomprimir el zip y pulsar 2 veces en EntroPipes.exe
-
-### Android:
-
-Descarga el **apk** en tu móvil a tablet, o descargala en tu PC e instala vía ADB o tranferiendola a tu móvil e instalarla pulsando en ella en el navegador de archivos que uses.
-
-Testeado en Android 4.2, 5 y 6.
+De momento no esta disponible un APK para Android, pero puedes usar la versión online (probado en Android 6y 7, con Firefox y Chrome)
 
 ### Capturas:
-![Pantalla principal](https://github.com/son-link/EntroPipes/raw/master/main_screen.png)
-![Pantalla de juego](https://github.com/son-link/EntroPipes/raw/master/ingame_screen.png)
+![Pantalla principal](https://raw.githubusercontent.com/son-link/EntroPipes/master/main_screen.png)
+![Vídeo del juego](https://raw.githubusercontent.com/son-link/EntroPipes/master/entropipes-record.gif)
 
 Datos del proyecto:
 
 * **Estado del proyecto:** Estable
-* **Versión actual:** r3-2
+* **Versión actual:** Beta 3
 * **Plataformas:** {{ page.platforms | join: ', '}}
 
 ### Enlaces
 
 * [Repositorio](https://github.com/son-link/EntroPipes)
 
-### Descargas:
-* [Windows 32 bits](https://dl.dropboxusercontent.com/u/58286032/juegos/EntroPipes/EntroPipes-win32.zip)
+* [Descargas](https://github.com/son-link/EntroPipes/releases)
 
-* [Windows 64 bits](https://dl.dropboxusercontent.com/u/58286032/juegos/EntroPipes/EntroPipes-win64.zip)
+* [Jugar online](https://tic.computer/play?cart=246)
 
-* [APK para Android](https://dl.dropboxusercontent.com/u/58286032/juegos/EntroPipes/EntroPipes.apk)
+* [Pagina oficial en Itch.io](https://son-link.itch.io/entropipes)

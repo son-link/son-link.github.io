@@ -20,7 +20,7 @@ Bajo licencia [Creative Commons 3.0 BY-NC-SA](http://creativecommons.org/license
 
 Recomiendo [Fuse Emulator](http://fuse-emulator.sourceforge.net/) para jugar al juego en GNU/Linux, Windows, Mac y otras plataformas y [ZXDS](http://zxds.raxoft.cz/) para jugar en la Nintendo DS
 
-Hilo oficial del juego en los foros de Mojon Twins: <http://www.mojontwins.com/mojoniaplus/viewtopic.php?f=9&t=1325>
+Hilo oficial del juego en los foros de Mojon Twins: http://www.mojontwins.com/mojoniaplus/viewtopic.php?f=9&t=1325
 
 ## Créditos:
 

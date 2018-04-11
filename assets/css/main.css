@@ -181,6 +181,8 @@ a:hover {color: #7FDBFF !important;}
 	float: right;
 }
 
+.entry-img-proyect {width: 100%}
+.entry-img-proyect > img {display: block; margin: auto; max-height: 170px}
 .proyect img {margin: 0}
 #share a {font-size: 1.2em}
 
@@ -376,7 +378,8 @@ table th {text-align: left}
 	margin-bottom: 10px;
 }
 
-.related_post > figure {margin: 0}
+.related_post > figure {margin: 0; text-align: center;}
+.related_post > figure > legend {width: 100%;}
 
 /* Archives */
 #archives {padding: 10px;}
@@ -429,7 +432,6 @@ table th {text-align: left}
 
 @media (max-width: 480px) {
 	#header .uk-logo { font-size: 1.2rem }
-	#header {/*! text-align: center */}
 	#nav_social_links {display: none !important;}
 	.title {font-size: 1.3rem}
 	#logo_menu {float: none; /*! width: 90% */}
