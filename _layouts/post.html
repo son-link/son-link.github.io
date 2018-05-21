@@ -21,12 +21,12 @@ comments: true
 			{% endif %}
 		</ul>
 		<div id="category">
-			Categoría: <a href="{{site.baseurl}}/categorias/#{{page.category|slugize}}">{{page.category}}</a>
+			Categoría: <a href="{{site.baseurl}}/categorias#{{page.category|slugize}}">{{page.category}}</a>
 		</div>
 		<ul class="tag_list">
 			Tags:
 			{% for tag in page.tags %}
-				<li><a href="{{site.baseurl}}/tags/#{{tag|slugize}}">{{tag}}</a></li>
+				<li><a href="{{site.baseurl}}/tags#{{tag|slugize}}">{{tag}}</a></li>
 			{% endfor %}
 		</ul>
 		{% if site.related_posts %}

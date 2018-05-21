@@ -8,7 +8,7 @@ layout: default
 		<div class="entry-body">
 			<div class="entry-header">
 				<h3>{{ post.title }}</h3>
-				<time class="entry-date">{{ post.date | date: "%d/%m/%Y" }}</time> / <a href="{{site.url}}{{site.baseurl}}/categorias/#{{post.category|slugize}}" class="uk-button uk-button-text">{{post.category}}</a>
+				<time class="entry-date">{{ post.date | date: "%d/%m/%Y" }}</time> / <a href="{{site.url}}{{site.baseurl}}/categorias#{{post.category|slugize}}" class="uk-button uk-button-text">{{post.category}}</a>
 			</div>
 			{% if post.description %}
 				{{ post.description }}
@@ -19,7 +19,7 @@ layout: default
 				<div class="entry-tags">
 					<span>Etiquetas:</span>
 					{% for tag in post.tags %}
-						<a href="{{site.url}}{{site.baseurl}}/tags/#{{tag|slugize}}" class="tag-link">{{tag}}</a>
+						<a href="{{site.url}}{{site.baseurl}}/tags#{{tag|slugize}}" class="tag-link">{{tag}}</a>
 						{% unless forloop.last %}&nbsp;{% endunless %}
 					{% endfor %}
 				</div>
