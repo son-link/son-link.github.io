@@ -179,3 +179,6 @@ zenity --text-info --title 'Lore Ipsum' --filename loreipsum.txt
 ![Textbox en Zenity](/img/bash_dialogos/textbox_zenity.png)
 
 Este ultimo dispone de varios parámetros opcionales, como activar soporte para **HTML** o que sea editable, pero eso es algo que dejo para más adelante.
+
+Y esto es todo por el momento. Hasta la próxima entrega.
+Espero que estos tutoriales os sean de utilidad, y podéis usar los comentarios para dejar dudas, opiniones, etc
