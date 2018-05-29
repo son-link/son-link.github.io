@@ -385,6 +385,28 @@ table th {text-align: left}
 #archives {padding: 10px;}
 #archives article {margin-left: 20px}
 
+/* Cookies adviser */
+
+#cookie-adviser {
+	background-color: #212121;
+	z-index: 666;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+#cookie-adviser > #ca-close {float: right}
+#cookie-adviser #ca-aceptar {
+	border: 0;
+	padding: 5px 10px;
+	background-color: #0074D9;
+	transition: color 0.5s;
+	border-radius: 3px
+}
+
+#cookie-adviser #ca-aceptar:hover {background-color: #7FDBFF; color: #212121}
+
 @media (min-width: 468px){
 	#menu_social_links {display: none}
 }

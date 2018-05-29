@@ -1,5 +1,8 @@
 var main_nav = document.querySelector('#menu');
 var toggle_menu = document.querySelector('#toggle-menu');
+var cookies_adviser = document.querySelector('#cookie-adviser');
+var cookies_close = document.querySelector('#cookie-adviser #ca-close');
+var cookies_acept = document.querySelector('#cookie-adviser #ca-aceptar');
 
 toggle_menu.addEventListener('click', function(e){
   e.preventDefault();
@@ -35,4 +38,22 @@ window.addEventListener('load', function(){
   hash = location.hash;
   radio_acor = document.querySelector(hash+'-acor');
   if (radio_acor) radio_acor.checked = true;
+});
+var if_cookies_accept = localStorage.getItem('cookies_accept');
+if (if_cookies_accept == 'true'){
+  cookies_adviser.style.display = 'none'
+}else{
+  cookies_adviser.style.display = 'block'
+}
+
+cookies_close.addEventListener('click', function(e){
+  e.preventDefault();
+  cookies_adviser.style.display = 'none';
+});
+
+cookies_acept.addEventListener('click', function(e){
+  if ( if_cookies_accept != 'true'){
+    localStorage.setItem('cookies_accept', true);
+  }
+  cookies_adviser.style.display = 'none';
 });
