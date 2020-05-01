@@ -21,25 +21,14 @@ ffmpeg -loop 1 -i /ruta/a/imagen -i ruta/a/audio -c:v libvpx -c:a libvorbis -b:a
 Vamos a repasar los parámetros
 
 * -loop 1: Con esto le indicamos a FFMPEG que la conversión termina cuando se llega al final del audio, de lo contrario entrara en un bucle infinito.
-
 * -i: sirve para indicar los ficheros de entrada. En este caso tenemos 2, uno para la imagen y otro para el audio. Da igual el orden en el que los pongas.
-
 * -c:v libvpx : Le indicamos que codec de vídeo vamos a usar para el vídeo de salida. En este caso uso VP8 ya que el video de salia estará en el formato libre WebM de Google. Si quieres usar MP4 cambialo por libx264
-
-* -c:v libvpx : Le indicamos que codec de vídeo vamos a usar para el vídeo de salida. En este caso uso VP8 ya que el video de salia estará en el formato libre WebM de Google. Si quieres usar MP4 cambialo por libx264
-
 * -c:a libvorbis : Es como el anterior, solo que para el codec de audio. En este caso indico Vorbis (OGG). Si quieres usar MP4 cambialo a aac
-
-* -b:a 192k : Indicamos el **bitrate** del audio. 192k es el usado en los videos **FullHD (1080)** en **YouTube** con una buena calidad. Eso si, si vas a usar un fichero de un bitrate menos esto no hará que aumente su calidad, solo el tamaño (1.8MB por minuto).
-
+* -b:a 192k : Indicamos el **bitrate** del audio. 192k es el usado en los videos **FullHD (1080)** en **YouTube** con una buena calidad. Eso si, si vas a usar un fichero de un bitrate menor esto no hará que aumente su calidad, solo el tamaño (1.8MB por minuto).
 * -b:v 1M : Lo mismo de antes pero para el vídeo. Al ser una imagen fija no necesitamos más y este bitrate al menos a mi me da buen resultado. Puedes aumentarlo si vas a usar resolución 4K o ves que tu imagen no se ve bien.
-
 * -vf scale=1920:1080 : Este parámetro sirve para usar los filtros de vídeo. En este caso lo que hace es escalar la imagen a resolución **FullHD**, aunque las imágenes que uso ya están a este tamaño. Un vídeo **HD** tiene una resolución de 1280:720, y uno **SD** 854:480.
-
 * -auto-alt-ref 0: Durante mis primeras pruebas me saltaba un error por que no me di cuenta que la imagen tenia una zona transparente y daba error. Con esta linea se soluciona
-
 * -r 1: Indicamos los **Fotogramas Por Segundo (FPS)** del vídeo. Como es una imagen estática le indicamos que sera solo de 1 en lugar de los habituales 25 y 30, ademas de que ocupara menos espacio y la conversión sera más rápida.
-
 * -y: Por defecto si el fichero de salida existe FFMPEG pregunta si se quiere sobrescribir. Con este parámetro le confirmamos que lo haga sin que nos lo pregunte.
 
 Por ultimo le pasamos la ruta y el nombre del archivo de salida y empezara la conversión. Depende de las opciones y de tu ordenador tardara más o menos (a mi me tarda una media de 15/20 minutos en FullHD, normal con una CPU de hace 10 años)

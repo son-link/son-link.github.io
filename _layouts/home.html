@@ -1,58 +1,44 @@
 ---
 layout: default
 ---
-<h1 class="title">Entradas</h1>
+<div id="entries" class="row">
 	{% for post in paginator.posts %}
-	<div class="entry">
-		<div class="entry-imgdest"><img src="{{site.url}}/img/img_dest/{{ post.img_dest }}" /></div>
-		<div class="entry-body">
+		<div class="entry col-6">
 			<div class="entry-header">
-				<h3>{{ post.title }}</h3>
-				<time class="entry-date">{{ post.date | date: "%d/%m/%Y" }}</time> / <a href="{{site.url}}{{site.baseurl}}/categorias#{{post.category|slugize}}" class="uk-button uk-button-text">{{post.category}}</a>
+				<div class="entry-img" style="background-image: url({{site.url}}/img/img_dest/{{ post.img_dest }});"></div>
+				<h4 class="entry-title"><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" >{{ post.title }}</a></h4>
+				<time class="entry-date">{{ post.date | date: "%d/%m/%Y" }}</time>
 			</div>
-			{% if post.description %}
+			<div class="entry-content">
 				{{ post.description }}
-			{% else %}
-				{{ post.content | truncatewords: 40}}
-			{% endif %}
-			<div class="entry-footer">
-				<div class="entry-tags">
-					<span>Etiquetas:</span>
-					{% for tag in post.tags %}
-						<a href="{{site.url}}{{site.baseurl}}/tags#{{tag|slugize}}" class="tag-link">{{tag}}</a>
-						{% unless forloop.last %}&nbsp;{% endunless %}
-					{% endfor %}
-				</div>
-				<a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Leer más</a>
 			</div>
 		</div>
-	</div>
+	{% endfor %}
+</div>
+
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+	<nav id="pagination">
+	{% if paginator.previous_page %}
+		<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}"><i class="icon-prev"></i></a>
+	{% else %}
+		<span class="icon-prev inactive"></span>
+	{% endif %}
+
+	{% for page in (1..paginator.total_pages) %}
+		{% if page == paginator.page %}
+		<span class="actual-page inactive">{{ page }}</span>
+		{% elsif page == 1 %}
+		<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}">{{ page }}</a>
+		{% else %}
+		<a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page | prepend: site.url }}">{{ page }}</a>
+		{% endif %}
 	{% endfor %}
 
-	<!-- Pagination links -->
-	{% if paginator.total_pages > 1 %}
-		<nav id="pagination">
-		{% if paginator.previous_page %}
-			<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}"><i class="icon-prev"></i></a>
-		{% else %}
-			<span class="icon-prev inactive"></span>
-		{% endif %}
-
-		{% for page in (1..paginator.total_pages) %}
-			{% if page == paginator.page %}
-			<span class="actual-page inactive">{{ page }}</span>
-			{% elsif page == 1 %}
-			<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}">{{ page }}</a>
-			{% else %}
-			<a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-			{% endif %}
-		{% endfor %}
-
-		{% if paginator.next_page %}
-			<a rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}"><i class="icon-next"></i></a>
-		{% else %}
-			<span class="icon-next inactive"></span>
-		{% endif %}
-	</nav>
+	{% if paginator.next_page %}
+		<a rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}"><i class="icon-next"></i></a>
+	{% else %}
+		<span class="icon-next inactive"></span>
 	{% endif %}
-</div>
+</nav>
+{% endif %}

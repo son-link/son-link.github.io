@@ -79,11 +79,9 @@ $sheet->fromArray($d, NULL, 'A2')
 
 En este caso tendremos algo como lo siguiente:
 
-|   | A | B | C | D | E | F |
-|---|---|---|---|---|---|---|
-| 1 |   |   |   |   |   |   |
-| 2 | 1 | 2 | 3 | 4 | 5 | 6 |
-| 3 |   |   |   |   |   |   |
+| A | B | C | D | E | F |
+|---|---|---|---|---|---|
+| 1 | 2 | 3 | 4 | 5 | 6 |
 
 
 Ahora vamos a generar el archivo para descargarlo:

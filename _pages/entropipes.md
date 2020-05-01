@@ -1,8 +1,8 @@
 ---
 layout: page
-title: EntroPipes
+title: Entropipes
 permalink: /proyectos/entropies/
-description: 'Rellena las lineas antes de que lleguen al limite'
+description: 'Un juego de puzzles en el que tienes que conectar todas las tuberías antes de que se agote el juego.'
 platforms: ['Linux', 'Windows', 'Mac', 'Android', 'Web']
 img_dest: entropipes.png
 onmenu: false
@@ -21,7 +21,7 @@ Solo tienes que descargar el archivo correspondiente para tu sistema operativo, 
 
 También [puedes jugar online](https://tic.computer/play?cart=246) sin necesidad de bajar nada.
 
-De momento no esta disponible un APK para Android, pero puedes usar la versión online (probado en Android 6y 7, con Firefox y Chrome)
+De momento no esta disponible un APK para Android, pero puedes usar la versión online (probado en Android 6 y 7, con Firefox y Chrome)
 
 ### Capturas:
 ![Pantalla principal](https://raw.githubusercontent.com/son-link/EntroPipes/master/main_screen.png)

@@ -20,16 +20,13 @@ Bajo licencia [Creative Commons 3.0 BY-NC-SA](http://creativecommons.org/license
 
 Recomiendo [Fuse Emulator](http://fuse-emulator.sourceforge.net/) para jugar al juego en GNU/Linux, Windows, Mac y otras plataformas y [ZXDS](http://zxds.raxoft.cz/) para jugar en la Nintendo DS
 
-Hilo oficial del juego en los foros de Mojon Twins: http://www.mojontwins.com/mojoniaplus/viewtopic.php?f=9&t=1325
+[Hilo oficial del juego en los foros de Mojon Twins](http://www.mojontwins.com/mojoniaplus/viewtopic.php?f=9&t=1325)
 
 ## Créditos:
 
 * **Programación:** Son Link
-
 * **Gráficos:** Son Link (tiles, sprites), Radastan (pantalla carga y final) y Jarlaxe (sprites)
-
-* **Música:**
-Davidian (pantalla titulo)
+* **Música:** Davidian (pantalla titulo)
 
 ## Agradecimientos:
 
@@ -46,6 +43,7 @@ A los Mojon Twins por la Churrera y esos estupendos tutoriales publicados en El 
 [Jugar en linea](http://torinak.com/qaop#l=https://dl.dropboxusercontent.com/u/58286032/churrera/sami.tap)
 
 ## Herramientas usadas para la creación del juego/Tools used for make the game:
+
 * Efectos de sonido: [Sound FX](http://www.worldofspectrum.org/infoseekid.cgi?id=0011124)
 * Gráficos: [GIMP](http://www.gimp.org/)
 * Música: [Beepola](http://freestuff.grok.co.uk/beepola)

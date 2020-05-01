@@ -1,23 +1,27 @@
-<footer>
-	Blog de Son Link &copy; 2015-2018 Alfonso Saavedra "Son Link"<br />
-	Bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black"><i class="icon-cc" title="Creative Commons"></i><i class="icon-cc-by" title="Reconocimiento"></i><i class="icon-cc-nc-eu" title="No Comercial"></i><i class="icon-cc-sa" title="Compartir Igual"></i> 4.0 Internacional</a>, salvo que se indiquen otros terminos o licencias.
-    <br />Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a>. Ha sido programado enteramente con Software Libre.
-</footer>
-<div id="cookie-adviser">
-	<a href="#" id="ca-close" class="icon-cancel"></a>
-	<p>
-		La Comunidad Europea me obliga a avisarte de que este blog usa cookies de terceros para el sistema de comentarios y analizar las visitas. Si sigues navegando por el,  entiendo que estas de acuerdo.
-		<button id="ca-aceptar">Aceptar</button>
-	</p>
-</div>
-<script src="{{ '/assets/js/simple-jekyll-search.min.js' | prepend: site.baseurl | prepend: site.url }}"></script>
-<script type="text/javascript">
-	SimpleJekyllSearch({
-	searchInput: document.getElementById('search-input'),
-	resultsContainer: document.getElementById('results-container'),
-	searchResultTemplate: '<li><a href="{url}">{title}</a><br />{description}</li>',
-	json: '{{ '/search.json' | prepend: site.baseurl | prepend: site.url }}'
-});
-</script>
-<script src="{{ '/assets/js/main.js' | prepend: site.baseurl | prepend: site.url }}"></script>
-<script id="dsq-count-scr" src="//blogdesonlink.disqus.com/count.js" async></script>
+			</div><!-- End div#content -->
+		</div><!-- End div#container -->
+		<footer>
+			<div id="credits">
+				{{ site.credits }}
+			</div>
+			<div id="social_links">
+				{%- include social_links.html -%}
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript" src="{{ '/assets/js/simple-jekyll-search.min.js' | absolute_url }}"></script>
+	<script type="text/javascript" src="{{ '/assets/js/app.js' | absolute_url }}"></script>
+	<script type="text/javascript">
+		var sjs = SimpleJekyllSearch({
+			searchInput: document.getElementById('search-input'),
+			resultsContainer: document.getElementById('search-results'),
+			json: '{{ '/search.json' | absolute_url }}',
+			limit: 10,
+			searchResultTemplate: '<div class="search-entry">\
+				<h4><a href="{url}" >{title}</a></h4>\
+				<span>{description}</span>\
+			</div>',
+			noResultsText: '<span id="no-results">No hay resultados</span>'
+		});
+	</script>
+</html>

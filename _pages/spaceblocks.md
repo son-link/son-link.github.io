@@ -21,9 +21,10 @@ El juego es sencillo. Solo hay que disparar hasta completar las lineas para borr
 ## Instalación:
 
 ### Linux:
-Necesitas tener instalado **Löve** 0.9.0 o superior. En la mayoría de distribuciones esta bajo el nombre de love. por ejemplo para instalarlo en Arch Linux y derivadas -> Archlinux**: `pacman -S love`
+Necesitas tener instalado **Löve** 0.9.0 o superior. En la mayoría de distribuciones esta bajo el nombre de love. por ejemplo para instalarlo en Arch Linux y derivadas: `pacman -S love`
 
-Para ejecutarlo solo hay que pulsar 2 veces sobre el archivo **SpaceBlocks.love**. Si no es así abra una terminal y ejecute `love ruta/a/SpaceBlocks.love` ó `love path/to/SpaceBlocksFolder/`.
+Para ejecutarlo solo hay que pulsar 2 veces sobre el archivo **SpaceBlocks.love**. Si no es así, abre una terminal y ejecuta `love ruta/a/SpaceBlocks.love` ó `love path/to/SpaceBlocksFolder/`.
+
 Otro truco consiste en crear un ejecutable:
 `cat /usr/bin/love SpaceBlocks.love > SpaceBlocks`
 
@@ -43,7 +44,3 @@ Datos del proyecto:
 
 * [Repositorio](https://github.com/son-link/SpaceBlocks)
 * [Página oficial en itch.io](https://son-link.itch.io/spaceblocks)
-
-### Descargas:
-* [Windows 32 bits](https://dl.dropboxusercontent.com/u/58286032/juegos/SpaceBlocks/SpaceBlocks-win32.zip)
-* [Windows 64 bits](https://dl.dropboxusercontent.com/u/58286032/juegos/SpaceBlocks/SpaceBlocks-win64.zip)

@@ -2,3 +2,10 @@ _site
 .sass-cache
 .jekyll-metadata
 borradores
+Gemfile.lock
+.jekyll-cache/
+*.backup
+assets/icons/
+img/tuto_nodegui/01.png
+img/bash_dialogos/openfile_dialog.png
+img/bash_dialogos/openfile_kdialog.png

@@ -14,7 +14,7 @@ category: tutoriales
 
 En esta ocasión os voy a enseñar como montar un pequeño servidor local, ideal para probar Joomla, Wordpress, etc. Los pasos indicados son para **Arch Linux** pero, salvo las rutas y la manera de instalación, son validos para otras distribuciones, incluso para Windows.
 
-Para ello instalaremos el servidor **Lighttpd**, un servidor ligero y funcional y usado en paginas como la **Wikipedia** y **Youtube**, el interprete de **PHP**, un lenguaje de programación para servidores, y la base de datos **MariaDB**, pero que puede cambiarse por **MySQL** si se quiere, eso ya es al gusto de cada uno.
+Para ello instalaremos el servidor **Lighttpd**, un servidor ligero y funcional y usado en paginas como la **Wikipedia** y **Youtube**, el interprete de **PHP**, un lenguaje de programación para servidores, y la base de datos **MariaDB**, un port creado por uno de los creadores originales de MySQL y compatible con ella, pero que puede cambiarse por **MySQL** si se quiere, eso ya es al gusto de cada uno.
 
 Para instalar lo necesario abrimos la terminal y ejecutamos:
 ```sh
@@ -24,10 +24,10 @@ pacman -S lighttpd mariadb mariadb-clients php-cgi
 ### Configurando Lightppd:
 Lighttpd una vez instalado esta listo para usarse, pero sera necesario añadir un nuevo archivo de configuración para habilitar el soporte de PHP. Ademas añadiremos otro, este opcional, para habilitar los directorios de usuario, así cada usuario que necesite usar el servidor podrá hacerlo creando una carpeta con un determinado nombre.
 
-**PHP**
+#### PHP:
 Para ello creamos el archivo `/etc/lightppd/conf.d/php.conf` (en otras distribuciones la ruta a la carpeta de configuración puede variar) e insertamos lo siguiente:
 
-```ini
+```conf
 # Make sure to install php and php-cgi. See:
 # https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
 
@@ -66,7 +66,7 @@ Ahora abrimos el fichero `/etc/lighttpd/lighttpd.conf` y al final de el añadimo
 
 Para habilitar las carpetas de usuario creamos, en la misma carpeta que php.conf otro llamado, por ejemplo, userdir.conf y añadimos estas lineas:
 
-```ini
+```conf
 server.modules += ("mod_userdir")
 userdir.path = "public_html"
 ```
@@ -90,7 +90,7 @@ Una vez que termine podemos habilitar y arrancar el servicio con `sudo systemcon
 
 **Nota:** No es que me haya equivocado al escribir los comandos, simplemente los ejecutables de MariaDB son los mismos, de hecho las extensiones de MySQL de PHP funcionan con MariaDB.
 
-Y con esto ya tenemos todo. Y en parte por petición de unos compañeros de curso os dejo un zip que Lighttpd para **Windows** (funciona en XP, 7 y 8.1). Solo tenéis que descomprimirlo y ejecutar **atart-server.bat** para arrancarlo y **stop-server.bat** para finalizar los procesos. Es necesario bajar e instalar MariaDB o mySQL por separado. [Descargar Lighttpd para Windows](https://www.dropbox.com/s/vimfcshgepi9g6h/LightTPD.zip?dl=0)
+Y con esto ya tenemos todo. Y en parte por petición de unos compañeros de curso os dejo un zip que Lighttpd para **Windows** (funciona en XP, 7 y 8.1). Solo tenéis que descomprimirlo y ejecutar **start-server.bat** para arrancarlo y **stop-server.bat** para finalizar los procesos. Es necesario bajar e instalar MariaDB o mySQL por separado. [Descargar Lighttpd para Windows](https://www.dropbox.com/s/vimfcshgepi9g6h/LightTPD.zip?dl=0)
 
 ## Enlaces
 
