@@ -8,6 +8,7 @@ tags:
 - javascript
 - tutorial
 category: nodegui
+img_dest: nodegui.png
 description: NodeGui es una librería para Node.js con la cual podemos crear aplicaciones nativas y eficientes gracias a QT5
 ---
 Si queremos desarrollar una aplicación con **Javascript** y **Node.js** y que esta tenga una interfaz gráfica hasta ahora la mejor solución pasaba por usar soluciones basadas en **Chromium**, como **Electron** y **NW.js**, pero estas soluciones son pesadas, tanto en espacio en disco (Electron pesa como mínimo **180MB**), como en consumo de CPU y RAM, si bien hay algunos casos donde ambos es menor (**VSCode**, por ejemplo, consume menos recursos que **Atom**, al menos hace como un año, cuando deje de usar el segundo).
