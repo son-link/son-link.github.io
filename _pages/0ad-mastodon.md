@@ -8,13 +8,13 @@ onmenu: false
 
 Bienvenido/a este torneo del juego de estrategia **0 A.D.** para los usuarios de **[Mastodon](https://joinmastodon.org/)**. Cualquier usuario de cualquier instancia de Mastodon puede apuntarse, siempre y cuando:
 
-* Tengaa mínimo 16 años.
+* Tengas mínimo 16 años.
 * Residas en **España**, **Portugal**, **Francia** o **Andorra** y **hable español**. Se limita a estos países para evitar pings muy altos ya que hace que el juego se pause mientras sincroniza los datos y causar que los ciudadanos ignoren ordenes y vayan a su bola haciendo que la partida se descontrole.
 * Tener cuenta en cualquier instancia de Mastodon desde **Abril del 2022**.
 * Tener cascos y micrófono para poder comunicarse con los organizadores.
 * Tener cuenta en el juego ya que para acceder a cada partida se hará desde la sala multijugador.
 
-Para unirte solo tienes que usar el hastag #torneo0ad y mencionando a `@son_link@mastodon.madrid` indicando que te quieres unir. También puedes unirte contestando en el hilo del toot con el anuncio del torneo.
+Para unirte solo tienes que usar el hastag #torneo0ad y mencionando a `@son_link@mastodon.madrid` indicando que te quieres unir. También puedes unirte contestando en el hilo del toot con el anuncio del torneo. Por favor, unete solamente si estas seguro de querer participar.
 
 ### Como se realizara el torneo:
 
