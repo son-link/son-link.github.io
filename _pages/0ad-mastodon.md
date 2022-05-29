@@ -16,6 +16,8 @@ Bienvenido/a este torneo del juego de estrategia **0 A.D.** para los usuarios de
 
 Para unirte solo tienes que usar el hastag #torneo0ad y mencionando a `@son_link@mastodon.madrid` indicando que te quieres unir. También puedes unirte contestando en el hilo del toot con el anuncio del torneo. Por favor, unete solamente si estas seguro de querer participar.
 
+El plazo de inscripción acaba el 16 de Junio a las 22 horas UTC+2.
+
 ### Como se realizara el torneo:
 
 * El torneo se realizara los **días 18 y 19 de Junio**. El 18 (sábado) serán los octavos (en 2 tandas de 4 partidas) y cuartos, y el 19 (domingo) las semifinales y final. Ambos días el torneo empezara a las 17 horas (UTC+2), a las 16 horas si resides en las Islas Canarias o Portugal.
@@ -37,7 +39,7 @@ Para unirte solo tienes que usar el hastag #torneo0ad y mencionando a `@son_link
 	* **Semifinales**: Ísmo Corintio
 	* **Final**: Sierra Cántabra
 	
-* Los jugadores pueden indicar que 4 civilizaciones van a usar y en que ronda se usara cada una. Esto se hará de manera privada y se podrá modificar hasta el día 15 de Junio. Si no en cada ronda esta sera elegida de manera aleatoria.
+* Los jugadores pueden indicar que 4 civilizaciones van a usar y en que ronda se usara cada una. Esto se hará de manera privada y se podrá modificar hasta el día 16 de Junio. Si no en cada ronda esta sera elegida de manera aleatoria.
 * Una vez terminada una ronda, se dejaran 30 minutos de descanso hasta la siguiente, con la excepción de la segunda tanda de octavos, que sera solo de 10 minutos.
 * Al inicio del torneo se realizara el sorteo de emparejamientos.
 * Al inicio de cada ronda se dará 5 minutos de margen para que los participantes hagan acto de presencia.
