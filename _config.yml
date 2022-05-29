@@ -26,7 +26,6 @@ instant_view: d2c6ec48864ff3 #Hash for Telegram Instant View
 paginate: 10
 paginate_path: "/page:num/"
 
-google-analytics: UA-75229203-1
 include: ['_pages']
 credits: > #
   Blog de Son Link &copy; 2015-2020 Alfonso Saavedra "Son Link"<br>
