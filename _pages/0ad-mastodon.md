@@ -13,6 +13,7 @@ Bienvenido/a este torneo del juego de estrategia **0 A.D.** para los usuarios de
 * Tener cuenta en cualquier instancia de Mastodon desde **Abril del 2022**.
 * Tener cascos y micrófono para poder comunicarse con los organizadores.
 * Tener cuenta en el juego ya que para acceder a cada partida se hará desde la sala multijugador.
+* Tener la version **Alpha 25b Yaunā**, ya que esta es la versión estable a la hora de abrir el torneo. Si saliese una nueva versión antes de la celebración, sera la indicada, y no la nueva, la que se usara.
 
 Para unirte solo tienes que usar el hastag #torneo0ad y mencionando a `@son_link@mastodon.madrid` indicando que te quieres unir. También puedes unirte contestando en el hilo del toot con el anuncio del torneo. Por favor, unete solamente si estas seguro de querer participar.
 
