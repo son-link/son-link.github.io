@@ -5,6 +5,7 @@ permalink: /proyectos/microcss/
 description: 'Framework CSS ligero listo para ser usado, con diversas clases y sin necesidad de usar Javascript'
 platforms: ['Web']
 onmenu: false
+proyect: true
 ---
 
 MicroCSS es un Framework ligero y listo para ser usado y que no requiere nada de Javascript. MicroCSS ha sido diseñado para tener una web lista en poco tiempo, con un código claro y el cual puedes modificar y expandir según tus necesidades. También incluye varias clases para facilitar algunas tareas.

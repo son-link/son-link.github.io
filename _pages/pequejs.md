@@ -5,6 +5,7 @@ permalink: /proyectos/pequejs/
 description: 'Pequeña librería Javascript para manipulación DOM y solicitudes AJAX'
 platforms: ['Web']
 onmenu: false
+proyect: true
 ---
 
 PequeJS es un pequeña librería Javascript para facilitar el manipulación del DOM y enviar solicitudes AJAX. Esta librería empezó para un uso más personal, para ser usado en trabajos y proyectos para los que requiera de Javascript y viese innecesario el uso de JQuery, de hecho las funciones que incluye están basados en los de JQuery.

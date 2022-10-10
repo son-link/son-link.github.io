@@ -6,6 +6,7 @@ description: 'Un juego fan de Metroid para Zx Spectrum 48k'
 platforms: 'Zx Spectrum'
 img_dest: samitroid.png
 onmenu: false
+proyect: true
 ---
 
 Un juego fan de **Metroid** para Zx Spectrum 48k creado con [La Churrera](http://www.mojontwins.com/juegos_mojonos/la-churrera/) de The Mojon Twins

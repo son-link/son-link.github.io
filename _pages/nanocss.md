@@ -5,6 +5,7 @@ permalink: /proyectos/nanocss/
 description: 'Framework CSS muy ligero listo para ser usado, sin clases ni Javascript'
 platforms: ['Web']
 onmenu: false
+proyect: true
 ---
 
 NanoCSS es un framework CSS muy ligero y listo para ser usado y que no requiere nada de Javascript ni de añadir clases a algún elemento. NanoCSS ha sido diseñado para tener una web lista en poco tiempo, con un código claro y el cual puedes modificar y expandir según tus necesidades.

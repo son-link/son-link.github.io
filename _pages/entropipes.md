@@ -6,6 +6,7 @@ description: 'Un juego de puzzles en el que tienes que conectar todas las tuberÃ
 platforms: ['Linux', 'Windows', 'Mac', 'Android', 'Web']
 img_dest: entropipes.png
 onmenu: false
+proyect: true
 ---
 
 EntroPipes es mi primer videojuego programado en **LUA** y con el framework [TIC-80](https://tic.computer), si bien en las primeras versiones hacia uso del framework LÃ–VE.
