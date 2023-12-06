@@ -3,6 +3,7 @@ layout: page
 title: Rol
 permalink: /rol
 description: 'Diverso material rolero, como campañas cortas y aplicaciones'
+onmenu: true
 ---
 
 En esta página podéis encontrar diverso material rolero creado por mi, todo bajo licencia Creative Commons o GPLv3, desde partidas cortas multisistema, un par de aplicaciones, etc, así como algunos enlaces de interés.
