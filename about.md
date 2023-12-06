@@ -8,9 +8,11 @@ onmenu: true
 
 Soy un chico amante de la informática y defensor del Software y la Cultura Libre. Todos mis proyectos publicados están, salvo excepciones, bajo la licencia **GNU/GPL** en su versión 3 o superior.
 
-Programador de paginas web, así como desarrollador en **Python** y webapps bajo **Apache Cordova** para **Android**.
+Programador de paginas web, así como desarrollador en **Python**, **LUA** y web apps bajo **Apache Cordova** para **Android**.
 
-Soy usuario de **GNU/Linux** desde el 2006, actualmente usando **Arch Linux**, y ex-colaborador puntual en el blog [DesdeLinux](http://blog.desdelinux.net). Por mi PC han pasado Ubuntu, Linux Mint, Debian, LiNex, Guadalinex, Manjaro, etc.
+Soy usuario de **GNU/Linux** desde el 2006, actualmente usando **Arch Linux** con **LXQt**, colaborador en [Jugando En Linux](https://jugandoenlinux.com), y también estoy detrás de la web del simulador de carreras de código abierto [Speed Dreams](https://www.speed-dreams.net), así como de su Master Server.
+
+Por mi PC han pasado Ubuntu, Linux Mint, Debian, LiNex, Guadalinex, Manjaro, etc.
 
 ### Sobre el blog:
 
