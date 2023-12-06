@@ -16,11 +16,10 @@ plugins:
 # Social Network
 social_links: true # If true show social links
 rss: true
-facebook: 'https://www.facebook.com/Son-Link-Blog-159172270839305/?ref=your_pages'
 twitter: 'https://twitter.com/sonlink'
 github: 'https://github.com/son-link'
 spotify: 'https://open.spotify.com/user/117752446?si=5NUk4a6cREKj-uxDmfHAAg'
-mastodon: 'https://mastodon.madrid/@son_link'
+mastodon: 'https://mastodon.social/@son_link'
 instant_view: d2c6ec48864ff3 #Hash for Telegram Instant View
 # Pagination
 paginate: 10
