@@ -29,8 +29,3 @@ Esta campaña corta la escribí para las jornadas Ludo Ergo Sum 2019, y puede us
 El zip contiene tanto la aventura como 2 copias del mapa: una con zonas numeradas para el master, y otra sin numerar para ser usado por los jugadores.
 
 [Descargar]({{ '/descargas/rol/primera_mision_laboratorio_zx-388.zip' | prepend: site.base_url }})
-
-### Enlaces
-
-* [Repositorio](https://github.com/son-link/pequejs)
-* [Página y documentación](https://son-link.github.io/pequejs)
