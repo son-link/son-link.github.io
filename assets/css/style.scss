@@ -2,7 +2,12 @@
 ---
 
 @import 'microcss';
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');*/
+@font-face {
+  font-family: Oswald;
+  src: url(Oswald-VariableFont_wght.ttf);
+  font-weight: 300;
+}
 
 // Custom colors
 $dark: #50514fff;
