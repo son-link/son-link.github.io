@@ -16,10 +16,11 @@ plugins:
 # Social Network
 social_links: true # If true show social links
 rss: true
-twitter: 'https://twitter.com/sonlink'
+x: 'https://x.com/sonlink'
 github: 'https://github.com/son-link'
 spotify: 'https://open.spotify.com/user/117752446?si=5NUk4a6cREKj-uxDmfHAAg'
 mastodon: 'https://mastodon.social/@son_link'
+peertube: 'https://fediverse.tv/c/son_link_/'
 fediverse_creator: '@son_link@mastodon.social'
 instant_view: d2c6ec48864ff3 #Hash for Telegram Instant View
 # Pagination
