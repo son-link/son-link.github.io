@@ -1,6 +1,9 @@
 {% if.site.rss%}
 	<a href="{{ '/feed.xml' | absolute_url }}" class="icon-rss"></a>
 {% endif %}
+{% if site.codeberg %}
+	<a href="{{site.codeberg}}" class="icon-codeberg" target="_black" title="Codeberg"></a>
+{% endif %}
 {% if site.facebook %}
 	<a href="{{site.facebook}}" class="icon-facebook" target="_black" title="Facebook"></a>
 {% endif %}
