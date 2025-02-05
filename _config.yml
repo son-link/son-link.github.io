@@ -16,11 +16,11 @@ plugins:
 # Social Network
 social_links: true # If true show social links
 rss: true
-x: 'https://x.com/sonlink'
 github: 'https://github.com/son-link'
 spotify: 'https://open.spotify.com/user/117752446?si=5NUk4a6cREKj-uxDmfHAAg'
 mastodon: 'https://mastodon.social/@son_link'
 peertube: 'https://fediverse.tv/c/son_link_/'
+pixelfed: 'https://pixelfed.social/son_link'
 fediverse_creator: '@son_link@mastodon.social'
 instant_view: d2c6ec48864ff3 #Hash for Telegram Instant View
 # Pagination
@@ -29,7 +29,7 @@ paginate_path: "/page:num/"
 
 include: ['_pages']
 credits: > #
-  Blog de Son Link &copy; 2015-2023 Alfonso Saavedra "Son Link"<br>
+  Blog de Son Link &copy; 2015-2025 Alfonso Saavedra "Son Link"<br>
   Bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_black"><i class="icon-cc" title="Creative Commons"></i><i class="icon-cc-by" title="Reconocimiento"></i><i class="icon-cc-nc-eu" title="No Comercial"></i><i class="icon-cc-sa" title="Compartir Igual"></i> 4.0 Internacional</a>, salvo que se indiquen otros términos o licencias.
   <br>Blog levantado con <a href="http://jekyllrb.com/" target="_black">Jekyll</a>. Este blog ha sido programado enteramente con Software Libre.
 
