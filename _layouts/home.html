@@ -3,7 +3,7 @@ layout: default
 ---
 <div id="entries" class="row">
 	{% for post in paginator.posts %}
-		<div class="entry col-6">
+		<div class="entry col-4">
 			<div class="entry-header">
 				<div class="entry-img" style="background-image: url({{site.url}}/img/img_dest/{{ post.img_dest }});"></div>
 				<h4 class="entry-title"><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" >{{ post.title }}</a></h4>

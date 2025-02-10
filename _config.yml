@@ -25,7 +25,7 @@ codeberg: 'https://codeberg.org/son_link'
 fediverse_creator: '@son_link@mastodon.social'
 instant_view: d2c6ec48864ff3 #Hash for Telegram Instant View
 # Pagination
-paginate: 10
+paginate: 12
 paginate_path: "/page:num/"
 
 include: ['_pages']
