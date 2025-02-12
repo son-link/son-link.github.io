@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="entry">
+<article id="post">
 	<div class="entry-header">
 		<h2 class="entry-title">{{ page.title }}</h2>
 		<time class="entry-date">{{ page.date | date: "%d/%m/%Y" }}</time>
@@ -11,13 +11,19 @@ layout: default
 	</div>
 	<div id="share">
 		<span>Share:</span>
-		<a class="icon-twitter" title="Share on Twitter" target="_black" href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}"></a>
-		<a class="icon-facebook" title="Share on Facebook" target="_black" href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}"></a>
-		<a class="icon-whatsapp" title="Share on WhatsApp" target="_black" href="whatsapp://send?text={{ page.url |absolute_url | cgi_escape}}"></a>
+		<a class="icon-twitter" title="Share on Twitter" target="_black"
+			href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}"></a>
+		<a class="icon-facebook" title="Share on Facebook" target="_black"
+			href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}"></a>
+		<a class="icon-whatsapp" title="Share on WhatsApp" target="_black"
+			href="whatsapp://send?text={{ page.url |absolute_url | cgi_escape}}"></a>
 		{% if site.instant_view %}
-			<a class="icon-telegram" title="Share on Telegram" target="_black" href="https://t.me/share/url?url={{ page.url | absolute_url | cgi_escape}}&rhash={{site.instant_view}}"></a></li>
+		<a class="icon-telegram" title="Share on Telegram" target="_black"
+			href="https://t.me/share/url?url={{ page.url | absolute_url | cgi_escape}}&rhash={{site.instant_view}}"></a>
+		</li>
 		{% else %}
-			<a class="icon-telegram" title="Share on Telegram" target="_black" href="https://t.me/share/url?url={{ page.url | absolute_url | cgi_escape}}"></a>
+		<a class="icon-telegram" title="Share on Telegram" target="_black"
+			href="https://t.me/share/url?url={{ page.url | absolute_url | cgi_escape}}"></a>
 		{% endif %}
 	</div>
 </article>
