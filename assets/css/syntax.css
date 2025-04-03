@@ -1,6 +1,7 @@
-.highlight table td { padding: 5px; }
+.highlight table td, .language-plaintext { padding: 5px; }
+.language-plaintext { padding: 3px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
+.highlight, .highlight .w, .language-plaintext {
   color: #f8f8f2;
   background-color: #272822;
 }
