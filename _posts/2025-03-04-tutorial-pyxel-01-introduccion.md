@@ -103,4 +103,4 @@ Si arrancamos el ejemplo veremos lo siguiente:
 
 ![](/img/tuto_pyxel/primer_ejemplo.png)
 
-Y hasta aquí esta primera entrega. Espero que esta primera entrega haya sido de vuestro agrado. Si tenéis dudas, podéis contestar en [este post de Mastodon]()
+Y hasta aquí esta primera entrega. Espero que esta primera entrega haya sido de vuestro agrado. Si tenéis dudas, podéis contestar en [este post de Mastodon](https://mastodon.social/@son_link/114275024417324075)
