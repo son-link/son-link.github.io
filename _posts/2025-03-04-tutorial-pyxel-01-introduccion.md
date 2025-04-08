@@ -11,8 +11,6 @@ category: pyxel
 img_dest: pyxel/01_introduccion.png
 description: Esta es la primera entrega de como desarrollar juegos con el motor para Python Pyxel
 ---
-## Introducción
-
 Hola, y bienvenido/a/e a esta primera entrega de mi tutorial de programación de juegos con **Python** y **Pyxel**.
 
 Pyxel es un motor de juegos para Python y programado en Rust con el que podemos hacer juegos con estética retro y algunas limitaciones, como pasaba con las consolas y ordenadores de los 80 e inicios de los 90, similar a lo que nos ofrecen **PICO-8** y **TIC-80**.
@@ -36,7 +34,7 @@ El código fuente de cada entrega estará publicado en [este repositorio](https:
 ## Requisitos
 
 * Saber programar en Python a un nivel básico (declaración de variables, sentencias, bucles, comparadores lógicos, definió de funciones y programación orienta a objetos), o al menos tener unos conocimientos de programación en otros lenguajes. Si quieres aprender Python, te recomiendo [este tutorial](https://www.luisllamas.es/curso-python/) de **Luis Llamas**
-* Un editor de texto o IDE, el que más te guste.
+* Un editor de texto o IDE, el que más te guste, por ejemplo [VSCodium](https://vscodium.com/) o [Lite XL](https://lite-xl.com/).
 * Saber manejarse por la terminal.
 * Tener instalado Python, su gestor de paquetes **pip** y **venv**
 	* **Ubuntu**, **Debian** y derivadas: `apt install python3 python3-pip python3-venv`
