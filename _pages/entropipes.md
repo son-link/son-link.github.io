@@ -2,7 +2,7 @@
 layout: page
 title: Entropipes
 permalink: /proyectos/entropies/
-description: 'Un juego de puzzles en el que tienes que conectar todas las tuberías antes de que se agote el juego.'
+description: 'Un juego de puzzles en el que tienes que conectar todas las tuberías antes de que se agote el tiempo.'
 platforms: ['Linux', 'Windows', 'Web', 'Consolas Emuladoras']
 img_dest: entropipes.png
 onmenu: false
