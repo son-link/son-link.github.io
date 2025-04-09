@@ -11,19 +11,20 @@ layout: default
 	</div>
 	<div id="share">
 		<span>Share:</span>
-		<a class="icon-twitter" title="Share on Twitter" target="_black"
-			href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}"></a>
-		<a class="icon-facebook" title="Share on Facebook" target="_black"
+		<a class="icon-twitter" title="Compartir en Twitter/X" target="_black"
+			href="http://twitter.com/intent/tweet?text={{ page.title }}+{{ page.description }}&url={{ page.url | absolute_url }}"></a>
+		<a class="icon-facebook" title="Compartir en Facebook" target="_black"
 			href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}"></a>
-		<a class="icon-whatsapp" title="Share on WhatsApp" target="_black"
+		<a class="icon-whatsapp" title="Compartir en WhatsApp" target="_black"
 			href="whatsapp://send?text={{ page.url |absolute_url | cgi_escape}}"></a>
 		{% if site.instant_view %}
-		<a class="icon-telegram" title="Share on Telegram" target="_black"
+		<a class="icon-telegram" title="Compartir en Telegram" target="_black"
 			href="https://t.me/share/url?url={{ page.url | absolute_url | cgi_escape}}&rhash={{site.instant_view}}"></a>
 		</li>
 		{% else %}
-		<a class="icon-telegram" title="Share on Telegram" target="_black"
+		<a class="icon-telegram" title="Compartir en Telegram" target="_black"
 			href="https://t.me/share/url?url={{ page.url | absolute_url | cgi_escape}}"></a>
 		{% endif %}
+		<a class="icon-mastodon" title="Compartir en Mastodon" onclick="mastodonShare('{{ page.title }}', '{{ page.description }}')"></a>
 	</div>
 </article>
