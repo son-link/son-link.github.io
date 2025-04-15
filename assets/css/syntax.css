@@ -1,3 +1,13 @@
+.highlight { margin: auto; }
+div.highlight {
+  padding: .5rem;
+  margin-bottom: .5rem;
+}
+
+.highlight pre {
+  overflow: auto;
+}
+
 .highlight table td, .language-plaintext { padding: 5px; }
 .language-plaintext { padding: 3px; }
 .highlight table pre { margin: 0; }
