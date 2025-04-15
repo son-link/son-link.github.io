@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial Pyxel 02: Moviendo la pelota'
 layout: post
-date: '2025-04-14 18:00:00'
+date: '2025-04-15 11:00:00'
 tags:
 - pyxel
 - python
