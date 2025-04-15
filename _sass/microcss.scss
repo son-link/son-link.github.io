@@ -274,7 +274,7 @@ a {
 
 /* Tables */
 
-table {
+table:not(.rouge-table) {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
@@ -304,7 +304,7 @@ table {
 
 /* Blockquote */
 
-blockquote, pre {
+blockquote {
   font-family: monospace;
   background-color: $black;
   color: $gray;
@@ -313,11 +313,7 @@ blockquote, pre {
   margin: 0;
 }
 
-pre {
-  white-space: pre-wrap;
-}
-
-ul, ol, p, table, blockquote, form, blockquote, pre, .resp-iframe,
+ul, ol, p, table, blockquote, form, blockquote, .resp-iframe,
 h1, h2, h3, h4, h5, h6, .card {
   margin-bottom: 1rem;
 }

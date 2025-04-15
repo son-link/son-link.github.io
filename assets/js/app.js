@@ -11,7 +11,7 @@ function toggleNav() {
 	main_nav.classList.toggle('open');
 }
 
-var tables = document.querySelectorAll('table');
+var tables = document.querySelectorAll('table:not(.rouge-table)');
 tables.forEach(function(t){
 	t.classList.add('responsive');
 	th = t.querySelectorAll('thead th');
