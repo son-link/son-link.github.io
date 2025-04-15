@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Your Name on Egyptian Hieroglyphics
-permalink: /proyectos/jneh/
+permalink: /proyectos/13th-century-siege/
 description: 'Tu nombre en jeroglíficos egipcios'
 platforms: ['Web']
 onmenu: false
