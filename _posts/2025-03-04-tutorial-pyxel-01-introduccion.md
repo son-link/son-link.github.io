@@ -33,7 +33,7 @@ El código fuente de cada entrega estará publicado en [este repositorio](https:
 
 ## Requisitos
 
-* Saber programar en Python a un nivel básico (declaración de variables, sentencias, bucles, comparadores lógicos, definió de funciones y programación orienta a objetos), o al menos tener unos conocimientos de programación en otros lenguajes. Si quieres aprender Python, te recomiendo [este tutorial](https://www.luisllamas.es/curso-python/) de **Luis Llamas**
+* Saber programar en Python a un nivel básico (declaración de variables, sentencias, bucles, comparadores lógicos, definición de funciones y programación orienta a objetos), o al menos tener unos conocimientos de programación en otros lenguajes. Si quieres aprender Python, te recomiendo [este tutorial](https://www.luisllamas.es/curso-python/) de **Luis Llamas**
 * Un editor de texto o IDE, el que más te guste, por ejemplo [VSCodium](https://vscodium.com/) o [Lite XL](https://lite-xl.com/).
 * Saber manejarse por la terminal.
 * Tener instalado Python, su gestor de paquetes **pip** y **venv**
@@ -58,7 +58,7 @@ Este comando creará una carpeta llamada **.venv** donde estará el entorno virt
 * Linux: `. .venv/bin/activate`
 * Windows `.venv\Script\activate`
 
-Si usas **VSCode** o **VSCodium**, ambos tienen integrado lo necesario para crear entornos virtuales, incluso activarlos al arrancar. Para ello sigue estos pasos:
+Si usas **VSCode** o **VSCodium**, ambos tienen integrado lo necesario para crear entornos virtuales, incluso activarlos al arrancar la terminal. Para ello sigue estos pasos:
 
 * Pulsa la tecla **F1** y escribe **Python: Create Environment** y pulsa la tecla intro. Te saldrán dos opciones: *Venv* y *Conda*. Seleccionamos **Venv**.
 * Ahora te pedirá seleccionar el intérprete de Python a usar. En Linux te saldrán varias rutas hacia un ejecutable de la misma versión, y de otras versiones en caso de tener varias instaladas. Seleccionamos la de Python 3 que está en **/usr/bin**
@@ -74,7 +74,7 @@ Una vez finalizada la instalación ya podemos empezar a programar nuestro juego.
 
 Vamos a empezar programando el típico Hola mundo. Creamos un nuevo fichero, por ejemplo, holamundo.py y añadimos las siguientes líneas:
 
-```python
+{% highlight python linenos %}
 import pyxel
 
 def draw():
@@ -85,7 +85,7 @@ def update():
 
 pyxel.init(128, 128)
 pyxel.run(update, draw)
-```
+{% endhighlight %}
 
 Voy a explicar este código:
 
@@ -95,7 +95,9 @@ Voy a explicar este código:
 * Con **pyxel.init()** iniciamos Pyxel, siendo los únicos parámetros obligatorios el ancho y el alto de nuestra ventana respectivamente. Hay más opciones, pero eso lo veremos en siguientes entregas.
 * Y finalmente con **pyxel.run()** se empieza a ejecutar el motor, indicando, en este orden, la funciones encargadas de actualizar y dibujar.
 
-> Nota: pyxel.run() debe de ir al final de definir el resto de componentes iniciales del juego, salvo las funciones, de lo contrario el juego fallara. No definas, por ejemplo, variables necesarias del juego después de el.
+> Nota: pyxel.run() debe de ir al final de definir el resto de componentes iniciales del juego, salvo las funciones, de lo contrario el juego fallará. No definas, por ejemplo, variables necesarias del juego después de él.
+
+> La palabra **pass** que se encuentra dentro de la función run() es un marcador de paso de Python y usado en casos en los que es necesario que una función, clase, bucle o sentencia aun se estén definiendo y aún no haya código en ellos, y así evitar errores, en este caso para la función update, ya que es parámetro obligatorio en Pyxel.init(), por lo que necesitamos que al menos esté definida.
 
 Si arrancamos el ejemplo veremos lo siguiente:
 
