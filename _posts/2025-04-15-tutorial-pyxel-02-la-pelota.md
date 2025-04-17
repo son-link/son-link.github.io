@@ -312,9 +312,6 @@ def update():
     global ball
     ball.update()
 
-    if (pyxel.btn(pyxel.KEY_SPACE)):
-        ball.initMove()
-
 pyxel.init(SCREEN_W, SCREEN_H, 'Pyng')
 
 pyxel.run(update, draw)
