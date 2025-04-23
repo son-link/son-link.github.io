@@ -274,10 +274,16 @@ class Ball():
     def initMove(self):
         # Inicia el movimiento de la pelota en una dirección aleatoria
         x_move = choice(['left', 'right'])
-        self.speed_x = self.speed if x_move == 'right' else self.speed * -1
+        if x_move == 'right':
+            self.speed_x = self.speed
+        else:
+            self.speed_x = self.speed * -1
 
         y_move = choice(['up', 'down'])
-        self.speed_y = self.speed if y_move == 'down' else self.speed * -1
+        if y_move == 'down':
+            self.speed_y = self.speed
+        else:
+            self.speed_y = self.speed * -1
 
     def draw(self):
         pyxel.circ(self.pos_x, self.pos_y, self.radius, self.color)
@@ -301,7 +307,7 @@ class Ball():
 
 
 ball = Ball()
-
+ball.initMove()
 
 def draw():
     global ball
@@ -325,6 +331,6 @@ Y esto es todo por el momento. En la siguiente entrega vamos a añadir las raque
 
 Recuerda que el código fuente lo tienes disponible en [este repositorio](https://codeberg.org/son_link/tutorial_pyxel)
 
-Hasta la proxima entrega.
+Hasta la próxima entrega.
 
 > Agradecimientos a [Rafa Lagoon](https://mastodon.gamedev.place/@rafalagoon) por darme consejos e ideas para mejorar esta nueva entrega.
