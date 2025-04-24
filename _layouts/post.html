@@ -5,6 +5,9 @@ layout: default
 	<div class="entry-header">
 		<h2 class="entry-title">{{ page.title }}</h2>
 		<time class="entry-date">{{ page.date | date: "%d/%m/%Y" }}</time>
+		<a href="{{ '/categorias/' | append: page.category | prepend: site.url }}" class="icon-categories">
+			{{ page.category | capitalize }}
+		</a>
 	</div>
 	<div class="entry-content" id="post-content">
 		{{ content }}

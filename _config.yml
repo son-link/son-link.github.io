@@ -37,3 +37,8 @@ credits: > #
 exclude:
   - borradores/
   - _posts/*.backup
+
+collections:
+  categorias:
+    output: true
+    permalink: /:collection/:categories:output_ext
