@@ -13,7 +13,7 @@ img_dest: pyxel/04_rival_colisiones.png
 ---
 ## Introducción
 
-Hola, y bienvenido/a/e a esta tercera entrega de mi tutorial de programación de juegos con **Python** y **Pyxel**.
+Hola, y bienvenido/a/e a esta cuarta entrega de mi tutorial de programación de juegos con **Python** y **Pyxel**.
 
 En esta entrega vamos a añadir la pala del rival, la cual estará controlada por el juego, así como hacer que la pelota cambie de dirección al colisionar contra ellas.
 
