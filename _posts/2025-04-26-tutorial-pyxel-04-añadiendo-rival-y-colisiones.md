@@ -478,4 +478,6 @@ Pyng()
 {% endhighlight %}
 </details>
 
-Y esto es todo por el momento. En la siguiente entrega enseñare como añadir el sistema de puntuación, reinicio del juego tras cada punto, etc. Hasta pronto
+Y esto es todo por el momento. En la siguiente entrega enseñaré como añadir el sistema de puntuación, reinicio del juego tras cada punto, etc.
+
+Recuerda que el código fuente de cada entrega del tutorial lo tienes disponible en [este repositorio](https://codeberg.org/son_link/tutorial_pyxel). Hasta pronto
