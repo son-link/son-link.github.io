@@ -409,12 +409,6 @@ class Ball():
     def draw(self):
         pyxel.circ(self.pos_x, self.pos_y, self.radius, self.color)
 
-    def reset(self):
-        self.pos_x = (SCREEN_W - 4) // 2
-        self.pos_y = (SCREEN_H - 4) // 2
-        self.speed_x = 0
-        self.speed_y = 0
-
     def update(self):
         # Comprobamos si la bola choca contra la parte superior o inferior de la pantalla
         if self.pos_y - 6 <= 0:
