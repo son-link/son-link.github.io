@@ -1,7 +1,7 @@
 ---
 title: "Tutorial Pyxel 04: Añadiendo rival y colisiones"
 description: En esta tercera entrega del tutorial de Pyxel vamos a ver como añadir la pala del rival y que la pelota colisione con ambas
-date: 2025-04-26T08:12:42.645Z
+date: 2025-05-20T17:44:52.212Z
 tags:
     - pyxel
     - python
