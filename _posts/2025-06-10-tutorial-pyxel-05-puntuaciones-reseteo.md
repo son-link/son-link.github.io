@@ -349,6 +349,6 @@ Pyng()
 {% endhighlight %}
 </details>
 
-Y esto es todo por el momento. En la siguiente entrega mostrare como usar las herramientas de Pyxel para crear los assets para el juego, y usarlos tanto para las palas y la bola, como crear una interfaz para el juego.
+Y esto es todo por el momento. En la siguiente entrega vamos a ir acabando el juego, mejorando algunas mecanicas y añadiendo pantallas de inicio y game over.
 
 Recuerda que el código fuente de cada entrega del tutorial lo tienes disponible en [este repositorio](https://codeberg.org/son_link/tutorial_pyxel). Hasta pronto
