@@ -18,7 +18,7 @@ Hola, y bienvenido/a/e a esta quinta entrega de mi tutorial de programación de 
 En esta entrega vamos a añadir el sistema de puntuación del juego, así como que, tras puntuar, la bola y palas vuelvan a su posición de inicio a la espera de iniciar la nueva partida 
 
 <details>
-    <summary><em>Entregas anteriores</em></summary>
+    <summary><em>Entregas</em></summary>
     <ul>
         <li>
             <a href="{% link _posts/2025-03-04-tutorial-pyxel-01-introduccion.md %}">01 - Introducción</a>
@@ -31,6 +31,12 @@ En esta entrega vamos a añadir el sistema de puntuación del juego, así como q
         </li>
         <li>
             <a href="{% link _posts/2025-05-20-tutorial-pyxel-04-añadiendo-rival-y-colisiones.md %}">04 - Añadiendo rival y colisiones</a>
+        </li>
+        <li>
+            05 - Puntuación y reseteo
+        </li>
+        <li>
+            <a href="{% link _posts/2025-07-15-tutorial-pyxel-06-retoques-finales.md %}">06 - Retoques finales (1ª parte)</a>
         </li>
     </ul>
 </details>

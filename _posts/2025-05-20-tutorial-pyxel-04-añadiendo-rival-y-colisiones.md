@@ -18,7 +18,7 @@ Hola, y bienvenido/a/e a esta cuarta entrega de mi tutorial de programación de 
 En esta entrega vamos a añadir la pala del rival, la cual estará controlada por el juego, así como hacer que la pelota cambie de dirección al colisionar contra ellas.
 
 <details>
-    <summary><em>Entregas anteriores</em></summary>
+    <summary><em>Entregas</em></summary>
     <ul>
         <li>
             <a href="{% link _posts/2025-03-04-tutorial-pyxel-01-introduccion.md %}">01 - Introducción</a>
@@ -28,6 +28,15 @@ En esta entrega vamos a añadir la pala del rival, la cual estará controlada po
         </li>
         <li>
             <a href="{% link _posts/2025-04-24-tutorial-pyxel-03-las-raquetas.md %}">03 - Añadiendo las palas</a>
+        </li>
+        <li>
+            04 - Añadiendo rival y colisiones
+        </li>
+        <li>
+            <a href="{% link _posts/2025-06-10-tutorial-pyxel-05-puntuaciones-reseteo.md %}">05 - Puntuación y reseteo</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-07-15-tutorial-pyxel-06-retoques-finales.md %}">06 - Retoques finales (1ª parte)</a>
         </li>
     </ul>
 </details>

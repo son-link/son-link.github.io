@@ -43,6 +43,30 @@ El código fuente de cada entrega estará publicado en [este repositorio](https:
 
 * Ganas de aprender ;)
 
+<details>
+    <summary><em>Entregas</em></summary>
+    <ul>
+        <li>
+            <a href="{% link _posts/2025-03-04-tutorial-pyxel-01-introduccion.md %}">01 - Introducción</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-04-15-tutorial-pyxel-02-la-pelota.md %}">02 - Moviendo la pelota</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-04-24-tutorial-pyxel-03-las-raquetas.md %}">03 - Añadiendo las palas</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-05-20-tutorial-pyxel-04-añadiendo-rival-y-colisiones.md %}">04 - Añadiendo rival y colisiones</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-06-10-tutorial-pyxel-05-puntuaciones-reseteo.md %}">05 - Puntuación y reseteo</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-07-15-tutorial-pyxel-06-retoques-finales.md %}">06 - Retoques finales (1ª parte)</a>
+        </li>
+    </ul>
+</details>
+
 ## Iniciando el proyecto
 
 Para empezar a desarrollar el juego vamos a necesitar crear una carpeta que contendrá los ficheros de él, por ejemplo **pyng**. Una vez creada abrimos una terminal y nos movemos hasta la carpeta creada con el comando **cd**. Si usas Windows, no abras **PowerShell**, ya que por defecto no sabrá donde está instalado Python. En vez de eso abre el **menú de Windows**, pulsa en **Python &lt;versión>** y finalmente en **Python &lt;versión>**.

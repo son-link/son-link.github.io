@@ -18,13 +18,25 @@ Hola, y bienvenido/a/e a esta tercera entrega de mi tutorial de programación de
 En esta entrega vamos a añadir y hacer que se mueva una pala. Vamos a reaprovechar el código de la segunda entrega, aunque vamos a hacer varios cambios para mejorar algo el código y que este todo algo mejor organizado.
 
 <details>
-    <summary><em>Entregas anteriores</em></summary>
+    <summary><em>Entregas</em></summary>
     <ul>
         <li>
             <a href="{% link _posts/2025-03-04-tutorial-pyxel-01-introduccion.md %}">01 - Introducción</a>
         </li>
         <li>
             <a href="{% link _posts/2025-04-15-tutorial-pyxel-02-la-pelota.md %}">02 - Moviendo la pelota</a>
+        </li>
+        <li>
+            03 - Añadiendo las palas
+        </li>
+        <li>
+            <a href="{% link _posts/2025-05-20-tutorial-pyxel-04-añadiendo-rival-y-colisiones.md %}">04 - Añadiendo rival y colisiones</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-06-10-tutorial-pyxel-05-puntuaciones-reseteo.md %}">05 - Puntuación y reseteo</a>
+        </li>
+        <li>
+            <a href="{% link _posts/2025-07-15-tutorial-pyxel-06-retoques-finales.md %}">06 - Retoques finales (1ª parte)</a>
         </li>
     </ul>
 </details>
