@@ -52,5 +52,5 @@ qs('#content').addEventListener('click', e => {
 function mastodonShare(title, description) {
     const url = encodeURIComponent(location.href);
     const instance = prompt('Introduce el dominio de tu instancia de Mastodon');
-	if (!!instance) window.open(`https://${instance}/share?text=${title}:+${description}+${url}`, '_blank');
+	if (!!instance) window.open(`https://${instance}/share?text=${title}:+${description}%0A${url}`, '_blank');
 }

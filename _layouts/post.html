@@ -29,5 +29,7 @@ layout: default
 			href="https://t.me/share/url?url={{ page.url | absolute_url | cgi_escape}}"></a>
 		{% endif %}
 		<a class="icon-mastodon" title="Compartir en Mastodon" onclick="mastodonShare('{{ page.title }}', '{{ page.description }}')"></a>
+		<a class="icon-bluesky" title="Compartir en Bluesky" target="_black"
+			href="https://bsky.app/intent/compose?text={{ page.title }}%0A{{ page.url | absolute_url | cgi_escape}}"></a>
 	</div>
 </article>
