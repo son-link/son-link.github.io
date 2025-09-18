@@ -38,6 +38,9 @@ En esta entrega vamos a añadir y hacer que se mueva una pala. Vamos a reaprovec
         <li>
             <a href="{% link _posts/2025-07-15-tutorial-pyxel-06-retoques-finales.md %}">06 - Retoques finales (1ª parte)</a>
         </li>
+        <li>
+            <a href="{% link _posts/2025-09-18-tutorial-pyxel-07-retoques-finales-2.md %}">07 - Retoques finales (2ª parte)</a>
+        </li>
     </ul>
 </details>
 

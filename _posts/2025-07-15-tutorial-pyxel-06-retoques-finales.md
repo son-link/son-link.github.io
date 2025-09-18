@@ -29,7 +29,7 @@ También mostraré como generar un paquete de Pyxel con el contenido de nuestro 
 La razón de dividir en dos entregas es para facilitar la lectura, y así no tener una entrega demasiado larga.
 
 <details>
-    <summary><em>Entregas anteriores</em></summary>
+    <summary><em>Entregas</em></summary>
     <ul>
         <li>
             <a href="{% link _posts/2025-03-04-tutorial-pyxel-01-introduccion.md %}">01 - Introducción</a>
@@ -45,6 +45,12 @@ La razón de dividir en dos entregas es para facilitar la lectura, y así no ten
         </li>
         <li>
             <a href="{% link _posts/2025-06-10-tutorial-pyxel-05-puntuaciones-reseteo.md %}">05 - Puntuación y reseteo</a>
+        </li>
+        <li>
+            06 - Retoques finales (1ª parte)
+        </li>
+        <li>
+            <a href="{% link _posts/2025-09-18-tutorial-pyxel-07-retoques-finales-2.md %}">07 - Retoques finales (2ª parte)</a>
         </li>
     </ul>
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial Pyxel 7: Retoques finales (2ª parte)"
-description: En esta septima entrega vamos a ir terminando de dar los retoques finales al juego
+description: En esta séptima entrega vamos a ir terminando de dar los retoques finales al juego
 date: 2025-09-18T16:52:59.743Z
 tags:
     - juegos
