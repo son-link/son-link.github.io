@@ -67,6 +67,9 @@ El código fuente de cada entrega estará publicado en [este repositorio](https:
         <li>
             <a href="{% link _posts/2025-09-18-tutorial-pyxel-07-retoques-finales-2.md %}">07 - Retoques finales (2ª parte)</a>
         </li>
+        <li>
+            <a href="{% link _posts/2025-10-28-tutorial-pyxel-8-distribuir-el-juego.md %}">08 - Distribuir el juego</a>
+        </li>
     </ul>
 </details>
 

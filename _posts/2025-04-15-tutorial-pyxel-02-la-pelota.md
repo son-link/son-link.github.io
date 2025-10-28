@@ -45,6 +45,9 @@ Si aún no has leído la [primera entrega]({% link _posts/2025-03-04-tutorial-py
         <li>
             <a href="{% link _posts/2025-09-18-tutorial-pyxel-07-retoques-finales-2.md %}">07 - Retoques finales (2ª parte)</a>
         </li>
+        <li>
+            <a href="{% link _posts/2025-10-28-tutorial-pyxel-8-distribuir-el-juego.md %}">08 - Distribuir el juego</a>
+        </li>
     </ul>
 </details>
 

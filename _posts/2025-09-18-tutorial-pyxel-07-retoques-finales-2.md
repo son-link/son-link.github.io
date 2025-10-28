@@ -47,6 +47,9 @@ También mostraré como generar un paquete de Pyxel con el contenido de nuestro 
         <li>
             07 - Retoques finales (2ª parte)
         </li>
+        <li>
+            <a href="{% link _posts/2025-10-28-tutorial-pyxel-8-distribuir-el-juego.md %}">08 - Distribuir el juego</a>
+        </li>
     </ul>
 </details>
 
