@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Your Name on Egyptian Hieroglyphics
+title: 13th Century Siege
 permalink: /proyectos/13th-century-siege/
-description: 'Tu nombre en jeroglíficos egipcios'
+description: 'Juego del genero Tower Defense que presente para la JAM js13kGames 2023'
 platforms: ['Web']
 onmenu: false
 proyect: true
