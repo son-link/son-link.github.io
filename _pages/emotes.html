@@ -1,0 +1,23 @@
+---
+layout: page
+title: Emoticonos
+permalink: /proyectos/emoticonos/
+description: 'Varios emoticonos que hice hace años y que puedes usar libremente'
+platforms: ['Web']
+onmenu: false
+proyect: true
+---
+Hace años me dio por crear emoticonos para usar en los foros o donde fuese, y que subí en su momento a Deviantart.
+
+Puedes usar estos emoticonos libremente bajo la licencia <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">Creative Commons BY-NC-SA 4.0</a>
+
+Para descargar los iconos pulsa con el botón derecho sobre uno, o mantén pulsado el dedo unos segundos en móviles o tablets, y selecciona Guardar imagen como...
+
+<div id="emote_list">
+    {% for emote in site.data.emotes %}
+        <div class="emote">
+            <img src="/img/emotes/{{ emote.file }}" />
+            <figcaption>{{ emote.name }}</figcaption>
+        </div>
+    {% endfor %}
+</div>
